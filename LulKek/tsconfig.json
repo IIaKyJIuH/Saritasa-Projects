@@ -8,9 +8,6 @@
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "module": "esnext",
-    "plugins": [
-      { "name": "typescript-tslint-plugin" }
-    ],
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
