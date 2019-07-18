@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     }
     this.authService.login(this.loginForm.value);
     this.router.navigateByUrl('/profile');
-    //Просто, чтобы ты знал, какую часть кода смотреть
+    //Просто, чтобы ты знал/а, какую часть кода смотреть
   }
 
   get formControls() { return this.loginForm.controls; }
