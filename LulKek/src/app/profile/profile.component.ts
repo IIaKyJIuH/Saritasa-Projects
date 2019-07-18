@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-profile',
@@ -10,12 +9,6 @@ import { Observable } from 'rxjs/internal/Observable';
 export class ProfileComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
-
-  private productsObservable: Observable<object>;
-
-  getData() {
-    this.productsObservable = this.authService.getDBData(localStorage.getItem("heh@mda.ru"));
-  }
 
   ngOnInit() {
   }
