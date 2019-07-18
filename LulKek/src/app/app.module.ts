@@ -10,29 +10,36 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    NotFoundComponent,
-    HomeComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [AuthService],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      LoginComponent,
+      NotFoundComponent,
+      HomeComponent,
+      ProfileComponent
+   ],
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      RouterModule.forRoot(appRoutes),
+      HttpClientModule,
+      FormsModule,
+      ReactiveFormsModule
+   ],
+   providers: [
+      AuthService
+   ],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }
