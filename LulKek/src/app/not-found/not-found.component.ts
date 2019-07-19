@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
+***REMOVED***
+ ***REMOVED*****REMOVED*** .ctor
+***REMOVED***
   constructor() { }
 
   ngOnInit() {
