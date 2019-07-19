@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserLoginParam } from './userparam';
-import { Pipe } from '@angular/core';
-import { UserJSON } from './userJSON';
+import { UserDTO } from './userDTO';
 import { Observable } from 'rxjs';
 
 const API_KEY = 'AIzaSyDeTMW8OEatIfvUd2t9cLuNhqZd0XOof0o';
@@ -17,16 +16,14 @@ export class AuthService {
   }
 
   /**
-   * Метод, отправляющий данные пользователя на сервер для авторизации
+   * Метод, отправляющий данные пользователя на сервер для авторизации и возвращающий Observable объект
    *
-   * @param user - интерфейс, имеющий в себе поля email и password пользователя   *
-   * @returns idToken пользователя, string
+   * @param user - интерфейс, имеющий в себе поля email и password пользователя
+   * @returns наблюдаемый объект Observable<UserDTO>
    */
-  public login(user: UserLoginParam): string {
+  public login(user: UserLoginParam): Observable<UserDTO> {
     const body = { email: user.email, password: user.password, returnSecureToken: true };
-    this.http.post<UserJSON>(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${API_KEY}`, body)
-    .subscribe( userJson => localStorage.setItem(userJson.email, userJson.idToken));
-    return localStorage.getItem(user.email);
+    return this.http.post<UserDTO>(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${API_KEY}`, body);
   }
 
   /**
