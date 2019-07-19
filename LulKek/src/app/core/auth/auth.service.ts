@@ -34,7 +34,7 @@ export class AuthService {
    */
   public login(user: UserLoginParam): Observable<UserDTO> {
     const body = { email: user.email, password: user.password, returnSecureToken: true };
-    return this.http.post<UserDTO>(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${API_KEY}`, body);
+    return this.http.post<UserDTO>(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${this.API_KEY}`, body);
   }
 
   /**
