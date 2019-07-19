@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../core/auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -21,9 +21,9 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    this.authService.login(this.loginForm.value);
+    this.authService.login(this.loginForm.value)
+    .subscribe( userJson => localStorage.setItem(userJson.email, userJson.idToken));
     this.router.navigateByUrl('/profile');
-    //Просто, чтобы ты знал/а, какую часть кода смотреть
   }
 
   get formControls() { return this.loginForm.controls; }
