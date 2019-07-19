@@ -27,7 +27,12 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder,
-    ) { }
+    ) {
+      this.loginForm  =  this.formBuilder.group({
+        email: ['', Validators.required],
+        password: ['', Validators.required]
+    });
+    }
 
 ***REMOVED***
  ***REMOVED*****REMOVED*** Метод, выполняющий login пользователя.
@@ -40,13 +45,12 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginForm.value)
     .subscribe( userJson => localStorage.setItem(userJson.email, userJson.idToken));
     this.router.navigateByUrl('/profile');
+    // TODO: сделать асинхронным вызов метода сервиса и переадресацию
   }
-
-  ngOnInit() {
-    this.loginForm  =  this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
-  });
+***REMOVED***
+ ***REMOVED*****REMOVED*** @inheritdoc
+***REMOVED***
+  ngOnInit(): void {
   }
 
 }
