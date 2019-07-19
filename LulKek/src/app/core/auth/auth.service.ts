@@ -1,25 +1,36 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { UserLoginParam } from './userparam';
 import { UserDTO } from './userDTO';
-import { Observable } from 'rxjs';
 
-const API_KEY = 'AIzaSyDeTMW8OEatIfvUd2t9cLuNhqZd0XOof0o';
-
+/**
+ * Класс, занимающийся авторизацией пользователя на сервере FireBase.
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {
-
-  }
+  /**
+   * Web-API ключ моей БД FireBase
+   */
+  public API_KEY = 'AIzaSyDeTMW8OEatIfvUd2t9cLuNhqZd0XOof0o';
 
   /**
-   * Метод, отправляющий данные пользователя на сервер для авторизации и возвращающий Observable объект
+   * .сtor
    *
-   * @param user - интерфейс, имеющий в себе поля email и password пользователя
-   * @returns наблюдаемый объект Observable<UserDTO>
+   * @param http - клиент Http
+   */
+  constructor(
+    private http: HttpClient,
+  ) { }
+
+  /**
+   * Метод, отправляющий данные пользователя на сервер для авторизации и возвращающий Observable объект.
+   *
+   * @param user - интерфейс, имеющий в себе поля email и password пользователя.
+   * @returns ответ от сервера.
    */
   public login(user: UserLoginParam): Observable<UserDTO> {
     const body = { email: user.email, password: user.password, returnSecureToken: true };
@@ -27,17 +38,13 @@ export class AuthService {
   }
 
   /**
-   * Метод получения JSON файла из БД
+   * Проверяет, залогинен ли пользователь с указанной почтой.
    *
-   * @param idToken - токен пользователя для получения информации из БД
-   * @returns Observable JSON объект, содержащий информацию из БД
+   * @param email - почта пользователя.
+   * @returns если есть токен в localStorage - да, нет - в противном случае.
    */
-  public getDBData(idToken: string): Observable<object> {
-    return this.http.get(`https://proj-0-8c535.firebaseio.com/swapi.json?auth=${idToken}`);
-  }
-
-  public isLoggedIn() {
-    // TODO:
+  public isLoggedIn(email: string): boolean {
+    return localStorage.getItem(email) !== undefined;
   }
 
   public logout() {

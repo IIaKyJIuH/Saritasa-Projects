@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/auth/auth.service';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+/**
+ * Компонент, отвечающий за логику входа на сервер.
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,13 +13,26 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder) { }
+  /**
+   * Залогинен ли пользователь, boolean.
+   */
+  private isSubmitted = false;
 
-  isSubmitted = false;
-  loginForm: FormGroup;
+  /**
+   * Данные из формы, email + password.
+   */
+  private loginForm: FormGroup;
 
-  login() {
-    console.log( this.loginForm.value);
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private formBuilder: FormBuilder,
+    ) { }
+
+  /**
+   * Метод, выполняющий login пользователя.
+   */
+  public login(): void {
     this.isSubmitted = true;
     if (this.loginForm.invalid) {
       return;
@@ -25,8 +41,6 @@ export class LoginComponent implements OnInit {
     .subscribe( userJson => localStorage.setItem(userJson.email, userJson.idToken));
     this.router.navigateByUrl('/profile');
   }
-
-  get formControls() { return this.loginForm.controls; }
 
   ngOnInit() {
     this.loginForm  =  this.formBuilder.group({
