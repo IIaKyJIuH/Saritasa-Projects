@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Observable, of, pipe, concat } from 'rxjs';
 import { switchMap, debounceTime, catchError } from 'rxjs/operators';
 
-
 import { AuthService } from '../core/auth/auth.service';
 
 /**
@@ -30,7 +29,7 @@ export class LoginComponent implements OnInit {
       this.loginForm  =  this.formBuilder.group({
         email: ['heh@mda.ru', Validators.required],
         password: ['lolkek', Validators.required],
-    });
+      });
     }
 
   /**
@@ -42,6 +41,18 @@ export class LoginComponent implements OnInit {
       of(this.authService.login(this.loginForm.value)
         .subscribe(userJson => localStorage.setItem(userJson.email, userJson.idToken))),
       this.router.navigateByUrl('/profile'),
+    );
+    /* TODO: спросить у Даниила, нужно ли как-то значение loginForm сохранять для каждого пользователя,
+    или Angular для каждого пользователя создаёт этот класс и всё норм*/
+  }
+
+  /**
+   * Сбрасывает авторизацию и возвращает на главную страницу
+   */
+  public logout(): void {
+    concat(
+      of(localStorage.setItem(this.loginForm.value.email, null)),
+      this.router.navigateByUrl(''),
     );
   }
   /**
