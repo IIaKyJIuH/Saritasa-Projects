@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { of } from 'rxjs';
-import { switchMap, subscribeOn } from 'rxjs/operators';
+import { Observable, of, pipe, concat } from 'rxjs';
+import { switchMap, debounceTime, catchError } from 'rxjs/operators';
+
 
 import { AuthService } from '../core/auth/auth.service';
 
@@ -34,16 +34,15 @@ export class LoginComponent implements OnInit {
     }
 
   /**
-   * Метод, выполняющий login пользователя.
+   * Метод, асинхронно выполняющий login пользователя
+   * и перенаправляющий его после авторизации в ./profile.
    */
   public login(): void {
-    this.authService.login(this.loginForm.value)
-    .subscribe(userJson => {
-      localStorage.setItem(userJson.email, userJson.idToken);
-      console.log(userJson);
-    });
-    this.router.navigateByUrl('/profile');
-    // TODO: сделать асинхронным вызов метода сервиса и переадресацию
+    concat(
+      of(this.authService.login(this.loginForm.value)
+        .subscribe(userJson => localStorage.setItem(userJson.email, userJson.idToken))),
+      this.router.navigateByUrl('/profile'),
+    );
   }
   /**
    * @inheritdoc
