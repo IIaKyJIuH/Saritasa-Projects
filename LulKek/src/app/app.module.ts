@@ -11,13 +11,6 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
 
-const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: '**', component: NotFoundComponent },
-];
-
 @NgModule({
    declarations: [
       AppComponent,
@@ -29,7 +22,6 @@ const appRoutes: Routes = [
    imports: [
       BrowserModule,
       AppRoutingModule,
-      RouterModule.forRoot(appRoutes),
       HttpClientModule,
       FormsModule,
       ReactiveFormsModule,
