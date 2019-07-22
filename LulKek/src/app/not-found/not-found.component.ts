@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 ***REMOVED***/
 @Component({
   selector: 'app-not-found',
-  template: `<h3> Страница не найдена </h3>`
+  template: `<h3> Страница не найдена </h3>`,
 })
 export class NotFoundComponent implements OnInit {
 
@@ -17,7 +17,7 @@ export class NotFoundComponent implements OnInit {
 ***REMOVED***
  ***REMOVED*****REMOVED*** @inheritdoc
 ***REMOVED***
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }

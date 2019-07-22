@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
 ***REMOVED***
  ***REMOVED*****REMOVED*** @inheritdoc
 ***REMOVED***
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }
