@@ -8,7 +8,7 @@ import { Routes, RouterModule, Router } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthService } from './core/auth/auth.service';
-import { TokenInterceptor } from './core/auth/token.interceptor';
+import { TokenInterceptor } from './core/interceptor/token.interceptor';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';

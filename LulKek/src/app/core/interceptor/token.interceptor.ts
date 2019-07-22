@@ -7,7 +7,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { AuthService } from './auth.service';
+import { AuthService } from '../auth/auth.service';
 
 ***REMOVED****
 ***REMOVED*** Интерцептор, преобразующий http запросы для упрощения обращения к БД
@@ -27,12 +27,19 @@ constructor(public auth: AuthService) { }
 ***REMOVED***/
 public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-  request = request.clone({
-    params: request.params.set(
-      'key',
-      this.auth.API_KEY,
-    ),
-  });
+  request = request.method === 'POST' ?
+    request = request.clone({
+      params: request.params.set(
+        'key',
+        this.auth.API_KEY,
+      ),
+    }) :
+    request.clone({
+      params: request.params.set(
+        'auth',
+        this.auth.getToken(),
+      ),
+    });
 
   return next.handle(request);
 }
