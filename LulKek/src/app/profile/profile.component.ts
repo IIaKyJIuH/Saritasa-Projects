@@ -1,6 +1,6 @@
-import { AuthService } from '../core/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from '../core/auth/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,10 +10,13 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileComponent implements OnInit {
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
     ) { }
 
-  ngOnInit() {
+  /**
+   * @inheritdoc
+   */
+  ngOnInit(): void {
   }
 
 }

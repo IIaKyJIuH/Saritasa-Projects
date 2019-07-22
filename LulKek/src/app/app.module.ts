@@ -1,16 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { Routes, RouterModule, Router } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthService } from './core/auth/auth.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TokenInterceptor } from './core/auth/token.interceptor';
 import { HomeComponent } from './home/home.component';
-import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
-import { Routes, RouterModule, Router } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,6 +21,9 @@ const appRoutes: Routes = [
   { path: '**', component: NotFoundComponent },
 ];
 
+/**
+ * @inheritdoc
+ */
 @NgModule({
    declarations: [
       AppComponent,
@@ -37,9 +42,14 @@ const appRoutes: Routes = [
    ],
    providers: [
       AuthService,
+      {
+         provide: HTTP_INTERCEPTORS,
+         useClass: TokenInterceptor,
+         multi: true,
+      },
    ],
    bootstrap: [
       AppComponent,
-   ]
+   ],
 })
 export class AppModule { }

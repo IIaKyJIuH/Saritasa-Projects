@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserLoginParam } from './userparam';
+
 import { UserDTO } from './userDTO';
+import { UserLoginParam } from './userparam';
 
 /**
- * Класс, занимающийся авторизацией пользователя на сервере FireBase.
+ * Сервис, занимающийся авторизацией пользователя на сервере FireBase.
  */
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
 
@@ -16,6 +17,8 @@ export class AuthService {
    * Web-API ключ моей БД FireBase
    */
   public API_KEY = 'AIzaSyDeTMW8OEatIfvUd2t9cLuNhqZd0XOof0o';
+
+  private lastUserEmail = '';
 
   /**
    * .сtor
@@ -34,7 +37,8 @@ export class AuthService {
    */
   public login(user: UserLoginParam): Observable<UserDTO> {
     const body = { email: user.email, password: user.password, returnSecureToken: true };
-    return this.http.post<UserDTO>(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${this.API_KEY}`, body);
+    this.lastUserEmail = user.email;
+    return this.http.post<UserDTO>(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword`, body);
   }
 
   /**
@@ -44,7 +48,18 @@ export class AuthService {
    * @returns если есть токен в localStorage - да, нет - в противном случае.
    */
   public isLoggedIn(email: string): boolean {
-    return localStorage.getItem(email) !== undefined;
+    return this.getToken(email) === undefined ? false : true;
+  }
+
+  /**
+   * Возвращает токен по почте пользователя, если он залогинен.
+   *
+   * @param email - почта пользователя.
+   * @returns токен пользователя
+   */
+  public getToken(email: string = this.lastUserEmail): string {
+    console.log(localStorage.getItem(email));
+    return localStorage.getItem(email);
   }
 
   public logout() {
