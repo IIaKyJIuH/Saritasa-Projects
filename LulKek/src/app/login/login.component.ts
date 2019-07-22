@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
   /**
    * @inheritdoc
    */
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
 }
