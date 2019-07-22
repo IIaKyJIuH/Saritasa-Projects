@@ -20,7 +20,10 @@ export class HomeComponent implements OnInit {
 ***REMOVED***
   constructor() { }
 
-  ngOnInit() {
+***REMOVED***
+ ***REMOVED*****REMOVED*** @inheritdoc
+***REMOVED***
+  ngOnInit(): void {
   }
 
 }

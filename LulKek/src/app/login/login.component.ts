@@ -1,7 +1,11 @@
-import { AuthService } from '../core/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs';
+import { switchMap, subscribeOn } from 'rxjs/operators';
+
+import { AuthService } from '../core/auth/auth.service';
 
 ***REMOVED****
 ***REMOVED*** Компонент, отвечающий за логику входа на сервер.
@@ -9,14 +13,9 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
-***REMOVED***
- ***REMOVED*****REMOVED*** Залогинен ли пользователь, boolean.
-***REMOVED***
-  private isSubmitted = false;
 
 ***REMOVED***
  ***REMOVED*****REMOVED*** Данные из формы, email + password.
@@ -29,8 +28,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     ) {
       this.loginForm  =  this.formBuilder.group({
-        email: ['', Validators.required],
-        password: ['', Validators.required]
+        email: ['heh@mda.ru', Validators.required],
+        password: ['lolkek', Validators.required],
     });
     }
 
@@ -38,12 +37,11 @@ export class LoginComponent implements OnInit {
  ***REMOVED*****REMOVED*** Метод, выполняющий login пользователя.
 ***REMOVED***
   public login(): void {
-    this.isSubmitted = true;
-    if (this.loginForm.invalid) {
-      return;
-    }
     this.authService.login(this.loginForm.value)
-    .subscribe( userJson => localStorage.setItem(userJson.email, userJson.idToken));
+    .subscribe(userJson => {
+      localStorage.setItem(userJson.email, userJson.idToken);
+      console.log(userJson);
+    });
     this.router.navigateByUrl('/profile');
     // TODO: сделать асинхронным вызов метода сервиса и переадресацию
   }
