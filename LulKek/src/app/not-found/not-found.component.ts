@@ -5,7 +5,8 @@ import { Component, OnInit } from '@angular/core';
  */
 @Component({
   selector: 'app-not-found',
-  template: `<h3> Page was not found </h3>`,
+  templateUrl: './not-found.component.html',
+  styleUrls: ['./not-found.component.css'],
 })
 export class NotFoundComponent {
 

@@ -11,8 +11,8 @@ export const environment = {
     projectId: 'proj-0-8c535',
     storageBucket: '',
     messagingSenderId: '723491458215',
-    appId: '1:723491458215:web:1d08848d53c81a57'
-  }
+    appId: '1:723491458215:web:1d08848d53c81a57',
+  },
 };
 
 /*

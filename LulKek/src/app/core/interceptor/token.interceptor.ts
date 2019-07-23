@@ -7,7 +7,8 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { AuthService } from '../auth/auth.service';
+import { AppConfig } from '../app-config';
+import { AuthService } from '../services/auth/auth.service';
 
 /**
  * Interceptor transforming http requests to simplify all other requests to the DB.
@@ -17,7 +18,10 @@ import { AuthService } from '../auth/auth.service';
 })
 export class TokenInterceptor implements HttpInterceptor {
 
-constructor(private auth: AuthService) { }
+constructor(
+  private auth: AuthService,
+  private config: AppConfig,
+  ) { }
 
 /**
  * HttpInterceptor realization.
@@ -27,7 +31,7 @@ constructor(private auth: AuthService) { }
 public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
   if (request.method === 'POST') {
-    return next.handle(request.clone({params: request.params.set('key', this.auth.API_KEY)}));
+    return next.handle(request.clone({params: request.params.set('key', this.config.API_KEY)}));
   } else {
     return next.handle(request.clone({params: request.params.set('auth', this.auth.getToken())}));
   }

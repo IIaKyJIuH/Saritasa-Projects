@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, take } from 'rxjs/operators';
 
+import { AppConfig } from '../../app-config';
+
+import { UserDTO } from './user-dto';
 import { UserLoginParam } from './user-login-param';
 import { UserModel } from './user-model';
 
@@ -15,16 +18,6 @@ import { UserModel } from './user-model';
 export class AuthService {
 
   /**
-   * Web-API key of my DB from FireBase.
-   */
-  public API_KEY = 'AIzaSyDeTMW8OEatIfvUd2t9cLuNhqZd0XOof0o';
-
-  /**
-   * Api url to use in requests.
-   */
-  public API_URL = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty';
-
-  /**
    * Email from last authorized user.
    */
   private lastUserEmail = '';
@@ -35,7 +28,7 @@ export class AuthService {
    */
   constructor(
     private http: HttpClient,
-    private router: Router,
+    private config: AppConfig,
   ) { }
 
   /**
@@ -45,7 +38,7 @@ export class AuthService {
   public login(user: UserLoginParam): void {
     const body = { email: user.email, password: user.password, returnSecureToken: true };
     this.lastUserEmail = user.email;
-    this.http.post<UserModel>(`${this.API_URL}/verifyPassword`, body).pipe(
+    this.http.post<UserDTO>(`${this.config.API_URL}/verifyPassword`, body).pipe(
       map(response =>  new UserModel(response)),
       take(1),
     ).subscribe(userJson => {
@@ -67,7 +60,7 @@ export class AuthService {
    * @returns if the local storage has token by email - true, else - false.
    */
   public isLoggedIn(email: string): boolean {
-    return this.getToken(email) === null ? false : true;
+    return this.getToken(email) !== null;
   }
 
   /**
