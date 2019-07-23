@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { UserDTO } from './userDTO';
+import { UserModel } from './userModel';
 import { UserLoginParam } from './userparam';
 
 /**
@@ -38,10 +38,18 @@ export class AuthService {
    * @param user - interface that includes user email and password.
    * @returns server response.
    */
-  public login(user: UserLoginParam): Observable<UserDTO> {
+  public login(user: UserLoginParam): Observable<UserModel> {
     const body = { email: user.email, password: user.password, returnSecureToken: true };
     this.lastUserEmail = user.email;
-    return this.http.post<UserDTO>(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword`, body);
+    return this.http.post<UserModel>(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword`, body);
+  }
+
+  /**
+   * Deletes userToken => log outs him from system.
+   */
+  public logout(): void {
+    localStorage.setItem(this.lastUserEmail, null);
+    this.lastUserEmail = '';
   }
 
   /**
@@ -51,7 +59,7 @@ export class AuthService {
    * @returns if the local storage has token by email - true, else - false.
    */
   public isLoggedIn(email: string): boolean {
-    return this.getToken(email) === undefined ? false : true;
+    return this.getToken(email) === null ? false : true;
   }
 
   /**
@@ -64,7 +72,4 @@ export class AuthService {
     return localStorage.getItem(email);
   }
 
-  public logout() {
-    // TODO:
-  }
 }

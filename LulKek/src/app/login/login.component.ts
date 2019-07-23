@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable, of, pipe, concat } from 'rxjs';
-import { switchMap, debounceTime, catchError } from 'rxjs/operators';
+import { Observable, of, pipe, concat, Subject } from 'rxjs';
+import { switchMap, debounceTime, catchError, takeUntil, map } from 'rxjs/operators';
 
 import { AuthService } from '../core/auth/auth.service';
+import { UserModel } from '../core/auth/userModel';
 
 /**
  * All about behaviour of login actions.
@@ -14,21 +15,33 @@ import { AuthService } from '../core/auth/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   /**
    * Form data: email + password.
    */
   private loginForm: FormGroup;
 
+  /**
+   * Subject for login purposes: unsubscribes user from login.
+   */
+  private destroy$: Subject<void> = new Subject();
+
+  /**
+   * .ctor
+   *
+   * @param authService - my authorization service.
+   * @param router - responsible for redirecting user.
+   * @param formBuilder - includes form data.
+   */
   constructor(
     private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder,
     ) {
       this.loginForm  =  this.formBuilder.group({
-        email: ['heh@mda.ru', Validators.required],
-        password: ['lolkek', Validators.required],
+        email: ['', Validators.required],
+        password: ['', Validators.required],
       });
     }
 
@@ -36,28 +49,36 @@ export class LoginComponent implements OnInit {
    * Async user login + redirect him then to ./profile page.
    */
   public login(): void {
-    concat(
-      of(this.authService.login(this.loginForm.value)
-        .subscribe(userJson => localStorage.setItem(userJson.email, userJson.idToken))),
-      this.router.navigateByUrl('/profile'),
-    );
-    /* TODO: спросить у Данила, нужно ли как-то значение loginForm сохранять для каждого пользователя,
-    или Angular для каждого пользователя создаёт этот класс и всё норм*/
+    this.authService.login(this.loginForm.value).pipe(
+      map(response =>  new UserModel(response)),
+      takeUntil(this.destroy$),
+    ).subscribe(userJson => {
+      localStorage.setItem(userJson.email, userJson.idToken);
+      this.router.navigateByUrl('/profile');
+    },
+    err => console.log);
   }
 
   /**
-   * Drops authorization and redirects to the main page.
+   * Drops authorization and redirects user to the main page.
    */
   public logout(): void {
-    concat(
-      of(localStorage.setItem(this.loginForm.value.email, null)),
-      this.router.navigateByUrl(''),
-    );
+    this.authService.logout();
+    this.router.navigateByUrl('');
   }
+
   /**
    * @inheritdoc
    */
   public ngOnInit(): void {
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
 }
