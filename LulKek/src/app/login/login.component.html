@@ -1,21 +1,15 @@
 <form [formGroup]='loginForm' (ngSubmit) = "login()">
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+    <p>
         <label>Input your e-mail
             <input type="email" placeholder="lololo@lalala.ru" formControlName="email">
         </label>
-    </p>      
-    <div***REMOVED***ngIf="isSubmitted && formControls.email.errors">
-        <div***REMOVED***ngIf="formControls.email.errors.required"> Email is required </div>
-    </div>
+    </p>
 
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+    <p>
         <label>Input your password
             <input type="password" placeholder="Password" formControlName="password">
         </label>
-    </p>      
-    <div***REMOVED***ngIf="isSubmitted && formControls.password.errors" class="help-block">
-        <div***REMOVED***ngIf="formControls.password.errors.required"> Password is required </div>
-    </div>
+    </p>
 
     <p>
         <input type="submit" value="Log in">

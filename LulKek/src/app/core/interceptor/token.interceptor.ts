@@ -27,20 +27,18 @@ constructor(public auth: AuthService) { }
 ***REMOVED***/
 public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-  request = request.method === 'POST' ?
-    request = request.clone({
+  return next.handle(request.method === 'POST'
+  ? request.clone({
       params: request.params.set(
         'key',
         this.auth.API_KEY,
       ),
-    }) :
-    request.clone({
+    })
+  : request.clone({
       params: request.params.set(
         'auth',
         this.auth.getToken(),
       ),
-    });
-
-  return next.handle(request);
+    }));
 }
 }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { UserDTO } from './userDTO';
+import { UserModel } from './userModel';
 import { UserLoginParam } from './userparam';
 
 ***REMOVED****
@@ -38,10 +38,18 @@ export class AuthService {
  ***REMOVED*****REMOVED*** @param user - interface that includes user email and password.
  ***REMOVED*****REMOVED*** @returns server response.
 ***REMOVED***
-  public login(user: UserLoginParam): Observable<UserDTO> {
+  public login(user: UserLoginParam): Observable<UserModel> {
     const body = { email: user.email, password: user.password, returnSecureToken: true***REMOVED*****REMOVED***
     this.lastUserEmail = user.email;
-    return this.http.post<UserDTO>(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword`, body);
+    return this.http.post<UserModel>(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword`, body);
+  }
+
+***REMOVED***
+ ***REMOVED*****REMOVED*** Deletes userToken => log outs him from system.
+***REMOVED***
+  public logout(): void {
+    localStorage.setItem(this.lastUserEmail, null);
+    this.lastUserEmail = '';
   }
 
 ***REMOVED***
@@ -51,7 +59,7 @@ export class AuthService {
  ***REMOVED*****REMOVED*** @returns if the local storage has token by email - true, else - false.
 ***REMOVED***
   public isLoggedIn(email: string): boolean {
-    return this.getToken(email) === undefined ? false : true;
+    return this.getToken(email) === null ? false : true;
   }
 
 ***REMOVED***
@@ -64,7 +72,4 @@ export class AuthService {
     return localStorage.getItem(email);
   }
 
-  public logout() {
-    // TODO:
-  }
 }
