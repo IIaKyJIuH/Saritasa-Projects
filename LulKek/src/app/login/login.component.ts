@@ -1,11 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable, of, pipe, concat, Subject } from 'rxjs';
-import { switchMap, debounceTime, catchError, takeUntil, map } from 'rxjs/operators';
 
 import { AuthService } from '../core/auth/auth.service';
-import { UserModel } from '../core/auth/userModel';
 
 /**
  * All about behaviour of login actions.
@@ -15,21 +12,15 @@ import { UserModel } from '../core/auth/userModel';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent {
 
   /**
    * Form data: email + password.
    */
-  private loginForm: FormGroup;
-
-  /**
-   * Subject for login purposes: unsubscribes user from login.
-   */
-  private destroy$: Subject<void> = new Subject();
+  public loginForm: FormGroup;
 
   /**
    * .ctor
-   *
    * @param authService - my authorization service.
    * @param router - responsible for redirecting user.
    * @param formBuilder - includes form data.
@@ -40,8 +31,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     ) {
       this.loginForm  =  this.formBuilder.group({
-        email: ['', Validators.required],
-        password: ['', Validators.required],
+        email: ['heh@mda.ru', Validators.required],
+        password: ['lolkek', Validators.required],
       });
     }
 
@@ -49,14 +40,8 @@ export class LoginComponent implements OnInit, OnDestroy {
    * Async user login + redirect him then to ./profile page.
    */
   public login(): void {
-    this.authService.login(this.loginForm.value).pipe(
-      map(response =>  new UserModel(response)),
-      takeUntil(this.destroy$),
-    ).subscribe(userJson => {
-      localStorage.setItem(userJson.email, userJson.idToken);
-      this.router.navigateByUrl('/profile');
-    },
-    err => console.log);
+    this.authService.login(this.loginForm.value);
+    this.router.navigateByUrl('/profile');
   }
 
   /**
@@ -66,19 +51,4 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.authService.logout();
     this.router.navigateByUrl('');
   }
-
-  /**
-   * @inheritdoc
-   */
-  public ngOnInit(): void {
-  }
-
-  /**
-   * @inheritdoc
-   */
-  public ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
-
 }
