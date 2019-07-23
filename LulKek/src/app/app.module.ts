@@ -6,8 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthService } from './core/auth/auth.service';
 import { TokenInterceptor } from './core/interceptor/token.interceptor';
+import { AuthService } from './core/services/auth/auth.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
