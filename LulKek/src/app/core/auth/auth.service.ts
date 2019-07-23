@@ -25,7 +25,6 @@ export class AuthService {
 
 ***REMOVED***
  ***REMOVED*****REMOVED*** .сtor
- ***REMOVED*****REMOVED***
  ***REMOVED*****REMOVED*** @param http - http client
 ***REMOVED***
   constructor(
