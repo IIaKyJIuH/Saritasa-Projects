@@ -25,7 +25,6 @@ export class AuthService {
 
   /**
    * .сtor
-   *
    * @param http - http client
    */
   constructor(
