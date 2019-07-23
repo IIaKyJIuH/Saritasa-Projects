@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 
 /**
- * Интерцептор, преобразующий http запросы для упрощения обращения к БД
+ * Interceptor transforming http requests to simplify all other requests to the DB.
  */
 @Injectable({
   providedIn: 'root',
@@ -20,10 +20,10 @@ export class TokenInterceptor implements HttpInterceptor {
 constructor(public auth: AuthService) { }
 
 /**
- * Реализация интерфейса HttpInterceptor
+ * HttpInterceptor realization.
  *
- * @param request - пришедший запрос
- * @param next - проброска интерцептора следующему интерцептору
+ * @param request - incoming request.
+ * @param next - command to transit modified http request to the next interceptor.
  */
 public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 

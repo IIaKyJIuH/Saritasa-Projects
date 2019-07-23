@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 /**
- * Про домашнюю страницу.
+ * Home page.
  */
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   /**
-   * Название проекта.
+   * Project title.
    */
   public title = 'LulKek';
 

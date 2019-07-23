@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 /**
- * Главная компонента приложения Angular
+ * Main Angular component.
  */
 @Component({
   selector: 'app-root',

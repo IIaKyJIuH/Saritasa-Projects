@@ -7,7 +7,7 @@ import { switchMap, debounceTime, catchError } from 'rxjs/operators';
 import { AuthService } from '../core/auth/auth.service';
 
 /**
- * Компонент, отвечающий за логику входа на сервер.
+ * All about behaviour of login actions.
  */
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ import { AuthService } from '../core/auth/auth.service';
 export class LoginComponent implements OnInit {
 
   /**
-   * Данные из формы, email + password.
+   * Form data: email + password.
    */
   private loginForm: FormGroup;
 
@@ -33,8 +33,7 @@ export class LoginComponent implements OnInit {
     }
 
   /**
-   * Метод, асинхронно выполняющий login пользователя
-   * и перенаправляющий его после авторизации в ./profile.
+   * Async user login + redirect him then to ./profile page.
    */
   public login(): void {
     concat(
@@ -42,12 +41,12 @@ export class LoginComponent implements OnInit {
         .subscribe(userJson => localStorage.setItem(userJson.email, userJson.idToken))),
       this.router.navigateByUrl('/profile'),
     );
-    /* TODO: спросить у Даниила, нужно ли как-то значение loginForm сохранять для каждого пользователя,
+    /* TODO: спросить у Данила, нужно ли как-то значение loginForm сохранять для каждого пользователя,
     или Angular для каждого пользователя создаёт этот класс и всё норм*/
   }
 
   /**
-   * Сбрасывает авторизацию и возвращает на главную страницу
+   * Drops authorization and redirects to the main page.
    */
   public logout(): void {
     concat(

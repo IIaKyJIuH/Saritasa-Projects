@@ -1,15 +1,15 @@
 /**
- * Реализует DTO в рамках ответа от сервера FireBase.
+ * Realizes DTO according to the FireBase response.
  */
 export interface UserDTO {
 
     /**
-     * токен пользователя из ответа сервера.
+     * user token from server response.
      */
     idToken: string;
 
     /**
-     * email пользователя.
+     * user email.
      */
     email: string;
 }

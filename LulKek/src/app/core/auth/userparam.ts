@@ -1,15 +1,15 @@
 /**
- * Содержит введённые пользователем поля из формы.
+ * Includes values inputed in the form.
  */
 export  interface  UserLoginParam {
 
     /**
-     * email пользователя.
+     * user email.
      */
     email: string;
 
     /**
-     * пароль пользователя.
+     * user password.
      */
     password: string;
 }
