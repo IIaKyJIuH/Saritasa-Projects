@@ -17,28 +17,19 @@ import { AuthService } from '../auth/auth.service';
 })
 export class TokenInterceptor implements HttpInterceptor {
 
-constructor(public auth: AuthService) { }
+constructor(private auth: AuthService) { }
 
 ***REMOVED****
 ***REMOVED*** HttpInterceptor realization.
-***REMOVED***
 ***REMOVED*** @param request - incoming request.
 ***REMOVED*** @param next - command to transit modified http request to the next interceptor.
 ***REMOVED***/
 public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-  return next.handle(request.method === 'POST'
-  ? request.clone({
-      params: request.params.set(
-        'key',
-        this.auth.API_KEY,
-      ),
-    })
-  : request.clone({
-      params: request.params.set(
-        'auth',
-        this.auth.getToken(),
-      ),
-    }));
+  if (request.method === 'POST') {
+    return next.handle(request.clone({params: request.params.set('key', this.auth.API_KEY)}));
+  } else {
+    return next.handle(request.clone({params: request.params.set('auth', this.auth.getToken())}));
+  }
 }
 }

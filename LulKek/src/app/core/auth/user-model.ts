@@ -1,3 +1,5 @@
+import { UserDTO } from './user-dto';
+
 ***REMOVED****
 ***REMOVED*** User model that tries to fits FireBase response.
 ***REMOVED***/
@@ -13,7 +15,7 @@ export class UserModel {
 ***REMOVED*****REMOVED*****REMOVED***
     public email: string;
 
-    constructor(userResponse: any) {
+    constructor(userResponse: UserDTO) {
         this.idToken = userResponse.idToken;
         this.email = userResponse.email;
     }
