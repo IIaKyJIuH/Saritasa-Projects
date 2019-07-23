@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 ***REMOVED****
-***REMOVED*** Компонента неправильной страницы, указанной пользователем в пределах swapi
+***REMOVED*** Page not-found component.
 ***REMOVED***/
 @Component({
   selector: 'app-not-found',

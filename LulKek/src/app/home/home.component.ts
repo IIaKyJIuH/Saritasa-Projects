@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 ***REMOVED****
-***REMOVED*** Про домашнюю страницу.
+***REMOVED*** Home page.
 ***REMOVED***/
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Название проекта.
+ ***REMOVED*****REMOVED*** Project title.
 ***REMOVED***
   public title = 'LulKek';
 

@@ -1,15 +1,15 @@
 ***REMOVED****
-***REMOVED*** Реализует DTO в рамках ответа от сервера FireBase.
+***REMOVED*** Realizes DTO according to the FireBase response.
 ***REMOVED***/
 export interface UserDTO {
 
 ***REMOVED*****REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** токен пользователя из ответа сервера.
+   ***REMOVED*****REMOVED*** user token from server response.
 ***REMOVED*****REMOVED*****REMOVED***
     idToken: string;
 
 ***REMOVED*****REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** email пользователя.
+   ***REMOVED*****REMOVED*** user email.
 ***REMOVED*****REMOVED*****REMOVED***
     email: string;
 }

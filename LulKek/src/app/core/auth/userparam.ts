@@ -1,15 +1,15 @@
 ***REMOVED****
-***REMOVED*** Содержит введённые пользователем поля из формы.
+***REMOVED*** Includes values inputed in the form.
 ***REMOVED***/
 export  interface  UserLoginParam {
 
 ***REMOVED*****REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** email пользователя.
+   ***REMOVED*****REMOVED*** user email.
 ***REMOVED*****REMOVED*****REMOVED***
     email: string;
 
 ***REMOVED*****REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** пароль пользователя.
+   ***REMOVED*****REMOVED*** user password.
 ***REMOVED*****REMOVED*****REMOVED***
     password: string;
 }

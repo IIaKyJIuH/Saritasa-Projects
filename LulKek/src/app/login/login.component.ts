@@ -7,7 +7,7 @@ import { switchMap, debounceTime, catchError } from 'rxjs/operators';
 import { AuthService } from '../core/auth/auth.service';
 
 ***REMOVED****
-***REMOVED*** Компонент, отвечающий за логику входа на сервер.
+***REMOVED*** All about behaviour of login actions.
 ***REMOVED***/
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ import { AuthService } from '../core/auth/auth.service';
 export class LoginComponent implements OnInit {
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Данные из формы, email + password.
+ ***REMOVED*****REMOVED*** Form data: email + password.
 ***REMOVED***
   private loginForm: FormGroup;
 
@@ -33,8 +33,7 @@ export class LoginComponent implements OnInit {
     }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Метод, асинхронно выполняющий login пользователя
- ***REMOVED*****REMOVED*** и перенаправляющий его после авторизации в ./profile.
+ ***REMOVED*****REMOVED*** Async user login + redirect him then to ./profile page.
 ***REMOVED***
   public login(): void {
     concat(
@@ -42,12 +41,12 @@ export class LoginComponent implements OnInit {
         .subscribe(userJson => localStorage.setItem(userJson.email, userJson.idToken))),
       this.router.navigateByUrl('/profile'),
     );
-  ***REMOVED*****REMOVED*****REMOVED*** TODO: спросить у Даниила, нужно ли как-то значение loginForm сохранять для каждого пользователя,
+  ***REMOVED*****REMOVED*****REMOVED*** TODO: спросить у Данила, нужно ли как-то значение loginForm сохранять для каждого пользователя,
     или Angular для каждого пользователя создаёт этот класс и всё норм*/
   }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Сбрасывает авторизацию и возвращает на главную страницу
+ ***REMOVED*****REMOVED*** Drops authorization and redirects to the main page.
 ***REMOVED***
   public logout(): void {
     concat(

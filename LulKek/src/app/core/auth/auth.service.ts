@@ -6,7 +6,7 @@ import { UserDTO } from './userDTO';
 import { UserLoginParam } from './userparam';
 
 ***REMOVED****
-***REMOVED*** Сервис, занимающийся авторизацией пользователя на сервере FireBase.
+***REMOVED*** Service that authorizes user at FireBase.
 ***REMOVED***/
 @Injectable({
   providedIn: 'root',
@@ -14,26 +14,29 @@ import { UserLoginParam } from './userparam';
 export class AuthService {
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Web-API ключ моей БД FireBase
+ ***REMOVED*****REMOVED*** Web-API key of my DB from FireBase.
 ***REMOVED***
   public API_KEY = 'AIzaSyDeTMW8OEatIfvUd2t9cLuNhqZd0XOof0o';
 
+***REMOVED***
+ ***REMOVED*****REMOVED*** Email from last authorized user.
+***REMOVED***
   private lastUserEmail = '';
 
 ***REMOVED***
  ***REMOVED*****REMOVED*** .сtor
  ***REMOVED*****REMOVED***
- ***REMOVED*****REMOVED*** @param http - клиент Http
+ ***REMOVED*****REMOVED*** @param http - http client
 ***REMOVED***
   constructor(
     private http: HttpClient,
   ) { }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Метод, отправляющий данные пользователя на сервер для авторизации и возвращающий Observable объект.
+ ***REMOVED*****REMOVED*** Posts user data to the server for authorization and returning observable object.
  ***REMOVED*****REMOVED***
- ***REMOVED*****REMOVED*** @param user - интерфейс, имеющий в себе поля email и password пользователя.
- ***REMOVED*****REMOVED*** @returns ответ от сервера.
+ ***REMOVED*****REMOVED*** @param user - interface that includes user email and password.
+ ***REMOVED*****REMOVED*** @returns server response.
 ***REMOVED***
   public login(user: UserLoginParam): Observable<UserDTO> {
     const body = { email: user.email, password: user.password, returnSecureToken: true***REMOVED*****REMOVED***
@@ -42,23 +45,22 @@ export class AuthService {
   }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Проверяет, залогинен ли пользователь с указанной почтой.
+ ***REMOVED*****REMOVED*** Checks if the specified user is logged in.
  ***REMOVED*****REMOVED***
- ***REMOVED*****REMOVED*** @param email - почта пользователя.
- ***REMOVED*****REMOVED*** @returns если есть токен в localStorage - да, нет - в противном случае.
+ ***REMOVED*****REMOVED*** @param email - user email.
+ ***REMOVED*****REMOVED*** @returns if the local storage has token by email - true, else - false.
 ***REMOVED***
   public isLoggedIn(email: string): boolean {
     return this.getToken(email) === undefined ? false : true;
   }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Возвращает токен по почте пользователя, если он залогинен.
+ ***REMOVED*****REMOVED*** Returns token by user email if he was(for now 'was', but later it will be 'is') logged in.
  ***REMOVED*****REMOVED***
- ***REMOVED*****REMOVED*** @param email - почта пользователя.
- ***REMOVED*****REMOVED*** @returns токен пользователя
+ ***REMOVED*****REMOVED*** @param email - user email.
+ ***REMOVED*****REMOVED*** @returns user token.
 ***REMOVED***
   public getToken(email: string = this.lastUserEmail): string {
-    console.log(localStorage.getItem(email));
     return localStorage.getItem(email);
   }
 
