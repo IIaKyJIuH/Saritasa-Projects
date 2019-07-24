@@ -1,18 +1,25 @@
-<form [formGroup]="loginForm" (ngSubmit) = "login()">
-    <p>
+<form [formGroup]="loginForm" (ngSubmit) = "onSubmit(loginForm.value)">
+    <p class="form-group">
         <label>Input your e-mail
-            <input type="email" placeholder="lololo@lalala.ru" formControlName="email">
+            <input type="email" placeholder="lololo@lalala.ru" formControlName="email" required [ngClass]="{'has-error':!formControls.email.valid && formControls.email.touched}">
+            <div *ngIf="formControls.email.hasError('required') && formControls.email.touched" class="alert alert-danger">You must include an email.</div>
         </label>
     </p>
 
-    <p>
+    <p class="form-group">
         <label>Input your password
-            <input type="password" placeholder="Password" formControlName="password">
+            <input type="password" placeholder="Password" formControlName="password" minlength="3" required [ngClass]="{'has-error': formControls.password.touched && !formControls.password.valid}">
+            <div *ngIf="formControls.password.hasError('required') && formControls.password.touched" class="alert alert-danger">You must include a password.</div>
+            <div *ngIf="formControls.password.hasError('minlength') && formControls.password.touched" class="alert alert-danger">Your password must be at least 3 characters long.</div>
         </label>
+    </p>   
+
+    <p>
+        <button type="submit" [disabled]="!loginForm.valid">Log in</button>
     </p>
 
     <p>
-        <input type="submit" value="Log in">
+        Form Status: {{ loginForm.status }}
     </p>
 
 </form>

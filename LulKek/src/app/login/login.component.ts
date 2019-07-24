@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../core/services/auth/auth.service';
+import { UserLoginParam } from '../core/services/auth/user-login-param';
 
 /**
  * All about behaviour of login actions.
@@ -31,16 +32,17 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     ) {
       this.loginForm  =  this.formBuilder.group({
-        email: ['heh@mda.ru', Validators.required],
-        password: ['lolkek', Validators.required],
+        email: ['', [ Validators.required, Validators.email ] ],
+        password: ['', Validators.required],
       });
+      console.log(this.formControls);
     }
 
   /**
    * Async user login + if successful then redirect him to ./profile page.
    */
-  public login(): void {
-    this.authService.login(this.loginForm.value).subscribe(
+  public onSubmit(formValues: UserLoginParam): void {
+    this.authService.login(formValues).subscribe(
       () => this.router.navigateByUrl('/profile'),
     );
   }
@@ -52,4 +54,10 @@ export class LoginComponent {
     this.authService.logout();
     this.router.navigateByUrl('');
   }
+
+  /**
+   * All controls that have a name in html file.
+   * @returns FormGroup.controls.
+   */
+  get formControls(): { [key: string]: AbstractControl; } { return this.loginForm.controls; }
 }
