@@ -1,1 +1,20 @@
+<p>
+    profile works!
+</p>
 
+<table >
+    <thead>
+        <tr>
+            <th> Title </th>
+            <th> Year </th>
+            <th> Director </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let film of getFilms() | keyvalue">
+            <td>{{ film.value.title }}</td>
+            <td>{{ film.value.release_date }}</td>
+            <td>{{ film.value.director }}</td>
+        </tr>
+    </tbody>
+</table>
