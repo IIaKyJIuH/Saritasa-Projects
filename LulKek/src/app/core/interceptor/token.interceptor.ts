@@ -32,8 +32,7 @@ public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpE
 
   if (request.method === 'POST') {
     return next.handle(request.clone({params: request.params.set('key', this.config.API_KEY)}));
-  } else {
-    return next.handle(request.clone({params: request.params.set('auth', this.auth.getToken())}));
   }
+  return next.handle(request.clone({params: request.params.set('auth', this.auth.getToken())}));
 }
 }
