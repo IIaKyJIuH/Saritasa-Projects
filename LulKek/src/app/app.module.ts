@@ -1,16 +1,21 @@
 import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule, Router } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TokenInterceptor } from './core/interceptor/token.interceptor';
+import { AuthService } from './core/services/auth/auth.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
 
+/**
+ * @inheritdoc
+ */
 @NgModule({
    declarations: [
       AppComponent,
@@ -27,7 +32,12 @@ import { ProfileComponent } from './profile/profile.component';
       ReactiveFormsModule,
    ],
    providers: [
-      ,
+      AuthService,
+      {
+         provide: HTTP_INTERCEPTORS,
+         useClass: TokenInterceptor,
+         multi: true,
+      },
    ],
    bootstrap: [
       AppComponent,

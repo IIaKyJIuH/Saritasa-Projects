@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 
+/**
+ * Home page.
+ */
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit {
-  public title = 'LulKek';
-  constructor() { }
+export class HomeComponent {
 
-  ngOnInit() {
-  }
+  /**
+   * Project title.
+   */
+  public title = 'LulKek';
 
 }
