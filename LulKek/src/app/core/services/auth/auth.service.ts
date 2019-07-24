@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, take, tap } from 'rxjs/operators';
 
 import { AppConfig } from '../../app-config';
 
@@ -35,15 +36,14 @@ export class AuthService {
  ***REMOVED*****REMOVED*** Posts user data to the server for authorization and set pair localStorage[email]='idToken'.
  ***REMOVED*****REMOVED*** @param user - interface that includes user email and password.
 ***REMOVED***
-  public login(user: UserLoginParam): void {
+  public login(user: UserLoginParam): Observable<UserModel> {
     const body = { email: user.email, password: user.password, returnSecureToken: true***REMOVED*****REMOVED***
     this.lastUserEmail = user.email;
-    this.http.post<UserDTO>(`${this.config.API_URL}/verifyPassword`, body).pipe(
+    return this.http.post<UserDTO>(`${this.config.API_URL}/verifyPassword`, body).pipe(
       map(response =>  new UserModel(response)),
+      tap((userModel: UserModel) => localStorage.setItem(userModel.email, userModel.idToken),
       take(1),
-    ).subscribe(userJson => {
-      localStorage.setItem(userJson.email, userJson.idToken);
-    });
+    ));
   }
 
 ***REMOVED***

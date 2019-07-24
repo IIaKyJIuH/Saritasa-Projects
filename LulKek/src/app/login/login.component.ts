@@ -37,11 +37,12 @@ export class LoginComponent {
     }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Async user login + redirect him then to ./profile page.
+ ***REMOVED*****REMOVED*** Async user login + if successful then redirect him to ./profile page.
 ***REMOVED***
   public login(): void {
-    this.authService.login(this.loginForm.value);
-    this.router.navigateByUrl('/profile');
+    this.authService.login(this.loginForm.value).subscribe(
+      () => this.router.navigateByUrl('/profile'),
+    );
   }
 
 ***REMOVED***
