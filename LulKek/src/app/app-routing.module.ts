@@ -13,6 +13,9 @@ const routes: Routes = [
   { path: '**', component: NotFoundComponent },
 ];
 
+***REMOVED****
+***REMOVED*** @inheritdoc
+***REMOVED***/
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
