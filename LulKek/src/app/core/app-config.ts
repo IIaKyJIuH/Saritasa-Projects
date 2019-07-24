@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 /**
  * Application configurations.
@@ -16,5 +17,5 @@ export class AppConfig {
   /**
    * Web-API key of my FireBase DB.
    */
-  public API_KEY = 'AIzaSyDeTMW8OEatIfvUd2t9cLuNhqZd0XOof0o';
+  public API_KEY = environment.firebase.apiKey;
 }
