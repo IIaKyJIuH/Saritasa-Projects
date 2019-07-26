@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { OrderModule } from 'ngx-order-pipe';
 
 import { DataService } from '../core/services/data/data.service';
+import { FilmModel } from '../core/services/data/film-model';
 
 /**
  * Profile of authorized person with table from DB data.
@@ -13,33 +16,37 @@ import { DataService } from '../core/services/data/data.service';
 export class ProfileComponent {
 
   /**
+   * Array of films from DB.
+   */
+  private films: Array<FilmModel>;
+
+  /**
    * .ctor
    * @param authService - authorization service
    */
-  constructor(private dataService: DataService) {
-    this.initializeDBData();
+  constructor(
+    private dataService: DataService,
+    private router: Router,
+    ) {
+    this.initializeFilms();
    }
 
   /**
-   * JSON object of DB data.
+   * Initializes films.
    */
-  private dbData: any;
-
-  /**
-   * Initializes dbData.
-   */
-  private initializeDBData(): void {
-    this.dataService.getDBData()
-    .subscribe((resp: any) => localStorage.setItem('dbData', JSON.stringify(resp)));
-    this.dbData = JSON.parse(localStorage.getItem('dbData'));
+  private initializeFilms(): void {
+    this.dataService.getDBFilmsData().subscribe(
+      () => this.films = JSON.parse(localStorage.getItem('films')),
+    );
   }
 
   /**
-   * Returns list of all films from our DB, ordered according to the release date.
-   * @returns Array<Films>
+   * Redirects user to a detailed info about chosen film.
+   * @param event - event emmited by clicking on the table line.
    */
-  public getFilms(): Array<object> {
-    return this.dbData.films.map( ({fields}) => fields ).sort(film => film.episode_id);
+  public onClick(event: FilmModel): void {
+    this.dataService.transportSelectedFilm(event);
+    this.router.navigateByUrl('/detailed-film-info');
   }
 
 }
