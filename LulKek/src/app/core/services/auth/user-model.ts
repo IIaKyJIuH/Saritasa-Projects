@@ -15,7 +15,7 @@ export class UserModel {
 ***REMOVED*****REMOVED*****REMOVED***
     public email: string;
 
-    constructor(userResponse: UserDTO) {
+    constructor(userResponse: Partial<UserModel>) {
         this.idToken = userResponse.idToken;
         this.email = userResponse.email;
     }

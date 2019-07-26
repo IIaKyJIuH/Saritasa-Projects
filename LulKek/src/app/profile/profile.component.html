@@ -1,1 +1,16 @@
-
+<table class="film-table">
+    <thead>
+        <tr class="film-properties">
+            <th class="film-prop-name"> Title </th>
+            <th class="film-prop-name"> Year </th>
+            <th class="film-prop-name"> Director </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-row"***REMOVED***ngFor="let film of films$ | async | orderBy: episodeId : true" (click)='onClick(film)'>
+            <td class="table-cell">{{ film.title }}</td>
+            <td class="table-cell">{{ film.releaseDate }}</td>
+            <td class="table-cell">{{ film.director }}</td>
+        </tr>
+    </tbody>
+</table>
