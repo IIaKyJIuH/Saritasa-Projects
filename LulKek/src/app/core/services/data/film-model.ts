@@ -52,17 +52,17 @@ export class FilmModel {
 
     /**
      * .ctor
-     * @param dto - DTO pattern about film for FireBase database.
+     * @param data - DTO pattern about film for FireBase database.
      */
-    constructor(dto: Partial<FilmDTO>) {
-        this.characters = dto.characters;
-        this.director = dto.director;
-        this.episodeId = dto.episode_id;
-        this.planets = dto.planets;
-        this.releaseDate = new Date(dto.release_date).getFullYear();
-        this.species = dto.species;
-        this.starships = dto.starships;
-        this.title = dto.title;
-        this.vehicles = dto.vehicles;
+    constructor(data: Partial<FilmModel>) {
+        this.characters = data.characters;
+        this.director = data.director;
+        this.episodeId = data.episodeId;
+        this.planets = data.planets;
+        this.releaseDate = new Date(data.releaseDate).getFullYear();
+        this.species = data.species;
+        this.starships = data.starships;
+        this.title = data.title;
+        this.vehicles = data.vehicles;
     }
 }

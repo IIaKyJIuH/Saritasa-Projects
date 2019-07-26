@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { DataService } from '../core/services/data/data.service';
 import { FilmModel } from '../core/services/data/film-model';
@@ -16,7 +17,7 @@ export class DetailedFilmInfoComponent {
   /**
    * Film that is interesting to user.
    */
-  public film: FilmModel;
+  public film$: Observable<FilmModel>;
 
   /**
    * .ctor
@@ -25,7 +26,7 @@ export class DetailedFilmInfoComponent {
   constructor(
     private dataService: DataService,
   ) {
-    this.dataService.transportedFilm$.subscribe(film => this.film = film);
+    this.film$ = this.dataService.transportedFilm$;
   }
 
 }

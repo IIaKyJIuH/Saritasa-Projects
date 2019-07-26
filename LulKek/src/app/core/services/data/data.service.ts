@@ -5,6 +5,7 @@ import { take, map, tap } from 'rxjs/operators';
 
 import { DbDataDto } from './dbData-dto';
 import { FilmModel } from './film-model';
+import { FilmDTO } from './film-dto';
 
 /**
  * Works with DB data.
@@ -40,12 +41,25 @@ export class DataService {
     return this.http.get<DbDataDto>(`https://proj-0-8c535.firebaseio.com/swapi.json`).pipe(
       map(response =>  {
         const films: Array<FilmModel> = new Array();
-        response.films.map(filmProps => films.push(new FilmModel(filmProps.fields)));
+        response.films.map(filmProps => films.push(this.createFilmModelByDTO(filmProps.fields)));
         return films;
       }),
-      tap(filmsModel => localStorage.setItem('films', JSON.stringify(filmsModel))),
       take(1),
     );
+  }
+
+  private createFilmModelByDTO(filmDTO: FilmDTO): FilmModel {
+    return new FilmModel({
+      characters: filmDTO.characters,
+      director: filmDTO.director,
+      episodeId: filmDTO.episode_id,
+      planets: filmDTO.planets,
+      releaseDate: new Date(filmDTO.release_date).getFullYear(),
+      species: filmDTO.species,
+      starships: filmDTO.starships,
+      title: filmDTO.title,
+      vehicles: filmDTO.vehicles,
+    });
   }
 
   /**

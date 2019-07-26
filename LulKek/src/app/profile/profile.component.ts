@@ -36,7 +36,7 @@ export class ProfileComponent {
    */
   private initializeFilms(): void {
     this.dataService.getDBFilmsData().subscribe(
-      () => this.films = JSON.parse(localStorage.getItem('films')),
+      (films) => this.films = films,
     );
   }
 
