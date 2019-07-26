@@ -1,0 +1,23 @@
+.top-menu {
+    background-color: #232122;
+    overflow: hidden;
+}
+
+.top-menu .route {
+    font-weight: bold;
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.top-menu .route:hover {
+    background-color: #ddd;
+    color: black;
+}
+  
+.top-menu .route:active {
+    background-color: #52CC66;
+    color: white;
+}

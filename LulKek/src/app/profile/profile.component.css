@@ -1,11 +1,11 @@
 .film-table {
     text-align: center;
     border-collapse: collapse;
-    border: 3px solid grey;
+    border: 3px solid #f2f2f2;
 }
 
 .film-properties, .film-prop-name {
-    border: 1px solid grey;
+    border: 1px solid #f2f2f2;
 }
 
 .film-table .table-row:hover
@@ -14,6 +14,14 @@
     background: #bc38e4;
 }
 
+.table-row {
+    background: #3b393a;
+}
+
 .table-row:nth-child(odd) {
-    background: #CCC
+    background: #D99858;
+}
+
+.table-cell {
+    border:  1px solid #f2f2f2;
 }
