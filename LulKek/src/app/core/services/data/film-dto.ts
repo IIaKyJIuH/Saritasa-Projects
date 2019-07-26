@@ -11,7 +11,7 @@ export interface FilmDTO {
     /**
      * Indexes that relates to specific character in other table.
      */
-    characters: Array<number>;
+    characters: number[];
 
     /**
      * Date when the film was released.
@@ -31,20 +31,20 @@ export interface FilmDTO {
     /**
      * Indexes for other table represents planets that we could see in this film.
      */
-    planets: Array<number>;
+    planets: number[];
 
     /**
      * Indexes for species involved in this film.
      */
-    species: Array<number>;
+    species: number[];
 
     /**
      * Starships indexes from this film for other table.
      */
-    starships: Array<number>;
+    starships: number[];
 
     /**
      * Indexes for other table of vehicles participated in this film.
      */
-    vehicles: Array<number>;
+    vehicles: number[];
 }

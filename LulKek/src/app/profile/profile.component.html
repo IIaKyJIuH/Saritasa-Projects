@@ -1,13 +1,13 @@
-<table>
+<table class="film-table">
     <thead>
-        <tr>
-            <th> Title </th>
-            <th> Year </th>
-            <th> Director </th>
+        <tr class="film-properties">
+            <th class="film-prop-name"> Title </th>
+            <th class="film-prop-name"> Year </th>
+            <th class="film-prop-name"> Director </th>
         </tr>
     </thead>
     <tbody>
-        <tr class="table-row" *ngFor="let film of films | orderBy: episodeId : true" (click)='onClick(film)'>
+        <tr class="table-row" *ngFor="let film of films$ | async | orderBy: episodeId : true" (click)='onClick(film)'>
             <td>{{ film.title }}</td>
             <td>{{ film.releaseDate }}</td>
             <td>{{ film.director }}</td>

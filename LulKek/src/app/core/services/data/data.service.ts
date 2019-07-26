@@ -4,8 +4,8 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { take, map, tap } from 'rxjs/operators';
 
 import { DbDataDto } from './dbData-dto';
-import { FilmModel } from './film-model';
 import { FilmDTO } from './film-dto';
+import { FilmModel } from './film-model';
 
 /**
  * Works with DB data.
@@ -39,11 +39,7 @@ export class DataService {
    */
   public getDBFilmsData(): Observable<FilmModel[]> {
     return this.http.get<DbDataDto>(`https://proj-0-8c535.firebaseio.com/swapi.json`).pipe(
-      map(response =>  {
-        const films: Array<FilmModel> = new Array();
-        response.films.map(filmProps => films.push(this.createFilmModelByDTO(filmProps.fields)));
-        return films;
-      }),
+      map(response => response.films.map(filmProps => this.createFilmModelByDTO(filmProps.fields))),
       take(1),
     );
   }
