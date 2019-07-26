@@ -40,7 +40,7 @@ export class DataService {
     return this.http.get<DbDataDto>(`https://proj-0-8c535.firebaseio.com/swapi.json`).pipe(
       map(response =>  {
         const films: Array<FilmModel> = new Array();
-        response.films.forEach(filmProps => films.push(new FilmModel(filmProps.fields)));
+        response.films.map(filmProps => films.push(new FilmModel(filmProps.fields)));
         return films;
       }),
       tap(filmsModel => localStorage.setItem('films', JSON.stringify(filmsModel))),
