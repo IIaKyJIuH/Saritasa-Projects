@@ -14,9 +14,20 @@ import { FilmModel } from './film-model';
 })
 export class DataService {
 
+  /**
+   * Needed for transporting between two non-connected components.
+   */
   private filmSource: BehaviorSubject<FilmModel> = new BehaviorSubject(new FilmModel({}));
+
+  /**
+   * Global observable of film to be used in others components.
+   */
   public transportedFilm$: Observable<FilmModel> = this.filmSource.asObservable();
 
+  /**
+   * .ctor
+   * @param http - http client.
+   */
   constructor(
     private http: HttpClient,
   ) { }
@@ -37,6 +48,10 @@ export class DataService {
     );
   }
 
+  /**
+   * Makes selected film accessible from from other components.
+   * @param film - chosen film from /profile component.
+   */
   public transportSelectedFilm(film: FilmModel): void {
     this.filmSource.next(film);
   }

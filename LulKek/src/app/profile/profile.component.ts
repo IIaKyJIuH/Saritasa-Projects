@@ -42,7 +42,7 @@ export class ProfileComponent {
 
   /**
    * Redirects user to a detailed info about chosen film.
-   * @param event - event emmited by clicking on the table line.
+   * @param event - film selected from the table line.
    */
   public onClick(event: FilmModel): void {
     this.dataService.transportSelectedFilm(event);

@@ -50,6 +50,10 @@ export class FilmModel {
      */
     public vehicles: Array<number>;
 
+    /**
+     * .ctor
+     * @param dto - DTO pattern about film for FireBase database.
+     */
     constructor(dto: Partial<FilmDTO>) {
         this.characters = dto.characters;
         this.director = dto.director;
