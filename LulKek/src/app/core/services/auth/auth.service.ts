@@ -40,10 +40,17 @@ export class AuthService {
     const body = { email: user.email, password: user.password, returnSecureToken: true***REMOVED*****REMOVED***
     this.lastUserEmail = user.email;
     return this.http.post<UserDTO>(`${this.config.API_URL}/verifyPassword`, body).pipe(
-      map(response =>  new UserModel(response)),
+      map(response =>  this.createUserModelByDTO(response)),
       tap((userModel: UserModel) => localStorage.setItem(userModel.email, userModel.idToken),
       take(1),
     ));
+  }
+
+  private createUserModelByDTO(userDTO: UserDTO): UserModel {
+    return new UserModel({
+      email: userDTO.email,
+      idToken: userDTO.idToken,
+    });
   }
 
 ***REMOVED***

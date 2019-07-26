@@ -1,6 +1,6 @@
 <table>
     <tbody>
-        <tr***REMOVED***ngFor="let property of film | keyvalue">
+        <tr***REMOVED***ngFor="let property of film$ | async | keyvalue">
             <td>{{ property.key }}</td>
             <td>{{ property.value | json }}</td>
         </tr>
