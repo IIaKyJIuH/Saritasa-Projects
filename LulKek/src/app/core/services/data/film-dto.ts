@@ -11,7 +11,7 @@ export interface FilmDTO {
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Indexes that relates to specific character in other table.
 ***REMOVED*****REMOVED*****REMOVED***
-    characters: Array<number>;
+    characters: number[];
 
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Date when the film was released.
@@ -31,20 +31,20 @@ export interface FilmDTO {
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Indexes for other table represents planets that we could see in this film.
 ***REMOVED*****REMOVED*****REMOVED***
-    planets: Array<number>;
+    planets: number[];
 
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Indexes for species involved in this film.
 ***REMOVED*****REMOVED*****REMOVED***
-    species: Array<number>;
+    species: number[];
 
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Starships indexes from this film for other table.
 ***REMOVED*****REMOVED*****REMOVED***
-    starships: Array<number>;
+    starships: number[];
 
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Indexes for other table of vehicles participated in this film.
 ***REMOVED*****REMOVED*****REMOVED***
-    vehicles: Array<number>;
+    vehicles: number[];
 }

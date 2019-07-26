@@ -1,19 +1,19 @@
-table {
+.film-table {
     text-align: center;
     border-collapse: collapse;
     border: 3px solid grey;
 }
 
-th,td {
+.film-properties, .film-prop-name {
     border: 1px solid grey;
 }
 
-.table-row.table-row.table-row.table-row:hover***REMOVED*****REMOVED*** Это я хак сделал, чтобы вес селектора увеличить))***REMOVED***/
+.film-table .table-row:hover
 {
     cursor: pointer;
     background: #bc38e4;
 }
 
-.table-row:not(:only-child):nth-child(odd) {
+.table-row:nth-child(odd) {
     background: #CCC
 }

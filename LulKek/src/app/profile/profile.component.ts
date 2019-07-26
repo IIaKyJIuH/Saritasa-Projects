@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderModule } from 'ngx-order-pipe';
+import { Observable } from 'rxjs';
 
 import { DataService } from '../core/services/data/data.service';
 import { FilmModel } from '../core/services/data/film-model';
@@ -18,7 +19,7 @@ export class ProfileComponent {
 ***REMOVED***
  ***REMOVED*****REMOVED*** Array of films from DB.
 ***REMOVED***
-  private films: Array<FilmModel>;
+  public films$: Observable<FilmModel[]>;
 
 ***REMOVED***
  ***REMOVED*****REMOVED*** .ctor
@@ -28,17 +29,8 @@ export class ProfileComponent {
     private dataService: DataService,
     private router: Router,
     ) {
-    this.initializeFilms();
+    this.films$ = this.dataService.getDBFilmsData();
    }
-
-***REMOVED***
- ***REMOVED*****REMOVED*** Initializes films.
-***REMOVED***
-  private initializeFilms(): void {
-    this.dataService.getDBFilmsData().subscribe(
-      (films) => this.films = films,
-    );
-  }
 
 ***REMOVED***
  ***REMOVED*****REMOVED*** Redirects user to a detailed info about chosen film.
