@@ -1,8 +1,4 @@
-<p>
-    profile works!
-</p>
-
-<table >
+<table>
     <thead>
         <tr>
             <th> Title </th>
@@ -11,10 +7,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr***REMOVED***ngFor="let film of getFilms() | keyvalue">
-            <td>{{ film.value.title }}</td>
-            <td>{{ film.value.release_date }}</td>
-            <td>{{ film.value.director }}</td>
+        <tr class="table-row"***REMOVED***ngFor="let film of films | orderBy: episodeId : true" (click)='onClick(film)'>
+            <td>{{ film.title }}</td>
+            <td>{{ film.releaseDate }}</td>
+            <td>{{ film.director }}</td>
         </tr>
     </tbody>
 </table>

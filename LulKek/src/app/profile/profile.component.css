@@ -8,6 +8,12 @@ th,td {
     border: 1px solid grey;
 }
 
-tr:not(:only-child):nth-child(odd) {
+.table-row.table-row.table-row.table-row:hover***REMOVED*****REMOVED*** Это я хак сделал, чтобы вес селектора увеличить))***REMOVED***/
+{
+    cursor: pointer;
+    background: #bc38e4;
+}
+
+.table-row:not(:only-child):nth-child(odd) {
     background: #CCC
 }
