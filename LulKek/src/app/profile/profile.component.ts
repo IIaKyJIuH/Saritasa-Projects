@@ -42,7 +42,7 @@ export class ProfileComponent {
 
 ***REMOVED***
  ***REMOVED*****REMOVED*** Redirects user to a detailed info about chosen film.
- ***REMOVED*****REMOVED*** @param event - event emmited by clicking on the table line.
+ ***REMOVED*****REMOVED*** @param event - film selected from the table line.
 ***REMOVED***
   public onClick(event: FilmModel): void {
     this.dataService.transportSelectedFilm(event);

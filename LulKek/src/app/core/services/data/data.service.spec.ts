@@ -1,12 +1,13 @@
 ***REMOVED*** tslint:disable:no-unused-variable***REMOVED***/
 
 import { TestBed, async, inject } from '@angular/core/testing';
+
 import { DataService } from './data.service';
 
 describe('Service: Data', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DataService]
+      providers: [DataService],
     });
   });
 
