@@ -1,5 +1,5 @@
 .ng-valid[required], .ng-valid.required {
-    border-left: 5px solid #42A948;
+    border-left: 6px solid #52CC66;
 }
 
 .form-group {
@@ -10,14 +10,25 @@
     flex-basis: 1 1 0;
 }
 
-.has-error {
-    border-left: 5px solid #a94442;
-}
-
 .alert {
     font-size: 1.25em;
 }
 
 .alert-danger {
     background-color: #f01815;
+    opacity: .7;
+}
+
+.form-input {
+    font-size: 20px;
+    border: 6px solid #585858;
+    border-radius: 4px;
+}
+
+.form-input.ng-touched.ng-invalid { 
+    border-left: 5px solid #a94442; 
+}
+
+.form-btn {
+    border-radius: 4px;
 }
