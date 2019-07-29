@@ -6,9 +6,9 @@ import { map, take, tap } from 'rxjs/operators';
 
 import { AppConfig } from '../../app-config';
 
-import { UserDTO } from './user-dto';
+import { UserDTO } from '../DTOs/user-dto';
 import { UserLoginParam } from './user-login-param';
-import { UserModel } from './user-model';
+import { UserModel } from '../models/user-model';
 
 ***REMOVED****
 ***REMOVED*** Service that authorizes user at FireBase.

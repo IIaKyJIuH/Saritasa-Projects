@@ -4,7 +4,7 @@ import { OrderModule } from 'ngx-order-pipe';
 import { Observable } from 'rxjs';
 
 import { DataService } from '../core/services/data/data.service';
-import { FilmModel } from '../core/services/data/film-model';
+import { FilmModel } from '../core/services/models/film-model';
 
 ***REMOVED****
 ***REMOVED*** Profile of authorized person with table from DB data.

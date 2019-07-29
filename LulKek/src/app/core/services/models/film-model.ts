@@ -1,4 +1,4 @@
-import { FilmDTO } from './film-dto';
+import { FilmDTO } from '../DTOs/film-dto';
 
 ***REMOVED****
 ***REMOVED*** Model representing films information database.
@@ -59,7 +59,7 @@ export class FilmModel {
         this.director = data.director;
         this.episodeId = data.episodeId;
         this.planets = data.planets;
-        this.releaseDate = new Date(data.releaseDate).getFullYear();
+        this.releaseDate = data.releaseDate;
         this.species = data.species;
         this.starships = data.starships;
         this.title = data.title;

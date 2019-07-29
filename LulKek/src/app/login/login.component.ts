@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 
 import { AuthService } from '../core/services/auth/auth.service';
 import { UserLoginParam } from '../core/services/auth/user-login-param';
+import { FilmModel } from '../core/services/models/film-model';
+import { CharacterModel } from '../core/services/models/character-model';
 
 ***REMOVED****
 ***REMOVED*** All about behaviour of login actions.
