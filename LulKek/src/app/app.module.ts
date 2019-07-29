@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DetailedCharacterInfoComponent } from './detailed-character-info/detailed-character-info.component';
 
 /**
  * @inheritdoc
@@ -26,6 +27,7 @@ import { ProfileComponent } from './profile/profile.component';
       HomeComponent,
       ProfileComponent,
       DetailedFilmInfoComponent,
+      DetailedCharacterInfoComponent,
    ],
    imports: [
       BrowserModule,

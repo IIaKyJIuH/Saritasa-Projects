@@ -1,0 +1,8 @@
+<table>
+    <tbody>
+        <tr *ngFor="let property of character$ | async | keyvalue">
+            <td>{{ property.key }}</td>
+            <td>{{ property.value }}<td>
+        </tr>
+    </tbody>
+</table>

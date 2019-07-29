@@ -1,4 +1,4 @@
-import { UserDTO } from './user-dto';
+import { UserDTO } from '../DTOs/user-dto';
 
 /**
  * User model that tries to fits FireBase response.

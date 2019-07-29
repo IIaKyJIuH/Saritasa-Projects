@@ -3,11 +3,11 @@ import { FilmDTO } from './film-dto';
 /**
  * DTO for every upper-level item in FireBase database.
  */
-export interface PropertiesDTO {
+export interface PropertiesDTO<T> {
     /**
      * Main item properties.
      */
-    fields: FilmDTO; // Lately I`ll make it type "| PeopleDTO | PlanetsDTO....."
+    fields: T;
 
     /**
      * Just 'resources.' + item name(e.g. film, people and so on).
