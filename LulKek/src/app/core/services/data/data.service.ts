@@ -52,7 +52,7 @@ export class DataService {
   public getDBFilmsData(): Observable<FilmModel[]> {
     return this.http.get<DbDataDto>(`https://proj-0-8c535.firebaseio.com/swapi.json`).pipe(
       map(response => response.films.map(filmProps => this.createFilmModelByDTO(filmProps.fields))),
-      take(4),
+      take(1),
     );
   }
 
