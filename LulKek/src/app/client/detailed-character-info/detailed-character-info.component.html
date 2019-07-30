@@ -1,8 +1,40 @@
-<table>
+<table***REMOVED***ngIf="(character$ | async) as character">
     <tbody>
-        <tr***REMOVED***ngFor="let property of character$ | async | keyvalue">
-            <td>{{ property.key }}</td>
-            <td>{{ property.value }}<td>
+        <tr>
+            <td>Full Name:</td>
+            <td>{{ character.name }}<td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>{{ character.gender }}</td>
+        </tr>
+        <tr>
+            <td>Height: </td>
+            <td>{{ character.height }}<td>
+        </tr>
+        <tr>
+            <td>Mass: </td>
+            <td>{{ character.mass }}<td>
+        </tr>
+        <tr>
+            <td>Birth Year:</td>
+            <td>{{ character.birthYear }}<td>
+        </tr>
+        <tr>
+            <td>Eye color:</td>
+            <td>{{ character.eyeColor }}</td>
+        </tr>
+        <tr>
+            <td>Skin color:</td>
+            <td>{{ character.skinColor }}<td>
+        </tr>
+        <tr>
+            <td>Hair color:</td>
+            <td>{{ character.hairColor }}<td>
+        </tr>
+        <tr>
+            <td>Homeworld:</td>
+            <td>{{ character.homeworld }}<td>
         </tr>
     </tbody>
 </table>
