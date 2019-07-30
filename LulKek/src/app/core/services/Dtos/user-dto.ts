@@ -1,7 +1,7 @@
 /**
- * DTO in terms of http post-request.
+ * Dto in terms of http post-request.
  */
-export interface UserDTO {
+export interface UserDto {
 
     /**
      * user idToken.

@@ -1,7 +1,7 @@
 /**
  * Represents all useful film fields from database.
  */
-export interface FilmDTO {
+export interface FilmDto {
 
     /**
      * Title of the film.

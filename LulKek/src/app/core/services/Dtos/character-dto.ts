@@ -1,7 +1,7 @@
 /**
- * DTO about character from db.
+ * Dto about character from db.
  */
-export interface CharacterDTO {
+export interface CharacterDto {
     /**
      * Date of birth in the Star wars Universe.
      */
