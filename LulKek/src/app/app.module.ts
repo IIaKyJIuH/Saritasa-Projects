@@ -12,7 +12,7 @@ import { DetailedFilmInfoComponent } from './client/detailed-film-info/detailed-
 import { FilmsComponent } from './client/films/films.component';
 import { HomeComponent } from './client/home/home.component';
 import { LoginComponent } from './client/login/login.component';
-import { NotFoundComponent } from './client/not-found/not-found.component';
+import { WrongPathComponent } from './client/wrong-path/wrong-path.component';
 import { TokenInterceptor } from './core/interceptor/token.interceptor';
 import { AuthService } from './core/services/auth/auth.service';
 
@@ -23,7 +23,7 @@ import { AuthService } from './core/services/auth/auth.service';
    declarations: [
       AppComponent,
       LoginComponent,
-      NotFoundComponent,
+      WrongPathComponent,
       HomeComponent,
       FilmsComponent,
       DetailedFilmInfoComponent,

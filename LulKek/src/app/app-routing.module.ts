@@ -6,7 +6,7 @@ import { DetailedFilmInfoComponent } from './client/detailed-film-info/detailed-
 import { FilmsComponent } from './client/films/films.component';
 import { HomeComponent } from './client/home/home.component';
 import { LoginComponent } from './client/login/login.component';
-import { NotFoundComponent } from './client/not-found/not-found.component';
+import { WrongPathComponent } from './client/wrong-path/wrong-path.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'profile', component: FilmsComponent },
   { path: 'detailed-film-info/:id', component: DetailedFilmInfoComponent },
   { path: 'detailed-character-info/:id', component: DetailedCharacterInfoComponent },
-  { path: '**', component: NotFoundComponent },
+  { path: '**', component: WrongPathComponent },
 ];
 
 ***REMOVED****
