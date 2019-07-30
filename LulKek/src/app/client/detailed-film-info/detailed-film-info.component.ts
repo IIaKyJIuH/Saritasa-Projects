@@ -46,12 +46,9 @@ export class DetailedFilmInfoComponent {
  ***REMOVED*****REMOVED*** Gets film selected by user.
 ***REMOVED***
   private initializeFilm(): void {
-    this.activatedRouter.paramMap.pipe(
-      switchMap(params => params.get('id')),
-    ).subscribe(
-      id => {
-        this.film$ = this.filmsService.getDbFilmData(parseInt(id, 10));
-      });
+    this.film$ = this.activatedRouter.paramMap.pipe(
+      switchMap(params => this.filmsService.getDbFilmData(parseInt(params.get('id'), 10))),
+    );
   }
 
 ***REMOVED***
