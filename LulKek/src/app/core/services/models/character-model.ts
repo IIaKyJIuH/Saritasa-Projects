@@ -2,6 +2,12 @@
 ***REMOVED*** Includes everything to work with character according to the database data.
 ***REMOVED***/
 export class CharacterModel {
+
+***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED*** Index in the database swapi file.
+***REMOVED*****REMOVED*****REMOVED***
+    public databaseId: number;
+
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Date of birth according to the the Star Wars universe.
 ***REMOVED*****REMOVED*****REMOVED***
@@ -48,6 +54,7 @@ export class CharacterModel {
     public skinColor: string;
 
     constructor(data: Partial<CharacterModel>) {
+        this.databaseId = data.databaseId;
         this.birthYear = data.birthYear;
         this.eyeColor = data.eyeColor;
         this.gender = data.gender;

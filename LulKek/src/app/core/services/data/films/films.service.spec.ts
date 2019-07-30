@@ -1,17 +1,16 @@
 ***REMOVED*** tslint:disable:no-unused-variable***REMOVED***/
 
 import { TestBed, async, inject } from '@angular/core/testing';
+import { FilmsService } from './films.service';
 
-import { DataService } from './data.service';
-
-describe('Service: Data', () => {
+describe('Service: Films', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DataService],
+      providers: [FilmsService]
     });
   });
 
-  it('should ...', inject([DataService], (service: DataService) => {
+  it('should ...', inject([FilmsService], (service: FilmsService) => {
     expect(service).toBeTruthy();
   }));
 });

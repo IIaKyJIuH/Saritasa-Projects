@@ -1,9 +1,12 @@
-import { FilmDTO } from '../DTOs/film-dto';
-
 ***REMOVED****
 ***REMOVED*** Model representing films information database.
 ***REMOVED***/
 export class FilmModel {
+
+***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED*** Index in the database swapi file.
+***REMOVED*****REMOVED*****REMOVED***
+    public databaseId: number;
 
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Title of the film.
@@ -18,7 +21,7 @@ export class FilmModel {
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Date when the film was released.
 ***REMOVED*****REMOVED*****REMOVED***
-    public releaseDate: number;
+    public releaseDate: Date;
 
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Person, created the film.
@@ -52,9 +55,10 @@ export class FilmModel {
 
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** .ctor
-   ***REMOVED*****REMOVED*** @param data - DTO pattern about film for FireBase database.
+   ***REMOVED*****REMOVED*** @param data - Dto pattern about film for FireBase database.
 ***REMOVED*****REMOVED*****REMOVED***
     constructor(data: Partial<FilmModel>) {
+        this.databaseId = data.databaseId;
         this.characters = data.characters;
         this.director = data.director;
         this.episodeId = data.episodeId;

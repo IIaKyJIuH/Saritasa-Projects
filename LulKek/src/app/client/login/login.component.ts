@@ -1,11 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AuthService } from '../core/services/auth/auth.service';
-import { UserLoginParam } from '../core/services/auth/user-login-param';
-import { FilmModel } from '../core/services/models/film-model';
-import { CharacterModel } from '../core/services/models/character-model';
+import { AuthService } from '../../core/services/auth/auth.service';
+import { UserLoginParam } from '../../core/services/auth/user-login-param';
 
 ***REMOVED****
 ***REMOVED*** All about behaviour of login actions.

@@ -1,7 +1,7 @@
 ***REMOVED****
 ***REMOVED*** Represents all useful film fields from database.
 ***REMOVED***/
-export interface FilmDTO {
+export interface FilmDto {
 
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Title of the film.

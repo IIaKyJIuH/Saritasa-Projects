@@ -1,9 +1,7 @@
-import { FilmDTO } from './film-dto';
-
 ***REMOVED****
-***REMOVED*** DTO for every upper-level item in FireBase database.
+***REMOVED*** Dto for every upper-level item in FireBase database.
 ***REMOVED***/
-export interface PropertiesDTO<T> {
+export interface PropertiesDto<T> {
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Main item properties.
 ***REMOVED*****REMOVED*****REMOVED***

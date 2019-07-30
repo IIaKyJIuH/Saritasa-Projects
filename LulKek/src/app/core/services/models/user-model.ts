@@ -1,5 +1,3 @@
-import { UserDTO } from '../DTOs/user-dto';
-
 ***REMOVED****
 ***REMOVED*** User model that tries to fits FireBase response.
 ***REMOVED***/

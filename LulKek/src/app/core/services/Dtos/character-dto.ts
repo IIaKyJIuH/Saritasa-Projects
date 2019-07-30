@@ -1,7 +1,7 @@
 ***REMOVED****
-***REMOVED*** DTO about character from db.
+***REMOVED*** Dto about character from db.
 ***REMOVED***/
-export interface CharacterDTO {
+export interface CharacterDto {
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Date of birth in the Star wars Universe.
 ***REMOVED*****REMOVED*****REMOVED***

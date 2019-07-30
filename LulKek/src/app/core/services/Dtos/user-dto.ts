@@ -1,7 +1,7 @@
 ***REMOVED****
-***REMOVED*** DTO in terms of http post-request.
+***REMOVED*** Dto in terms of http post-request.
 ***REMOVED***/
-export interface UserDTO {
+export interface UserDto {
 
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** user idToken.
