@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map, take, tap } from 'rxjs/operators';
 
 import { AppConfig } from '../../app-config';
-import { UserDto } from '../Dtos/user-dto';
+import { UserDto } from '../dtos/user-dto';
 import { UserModel } from '../models/user-model';
 
 import { UserLoginParam } from './user-login-param';

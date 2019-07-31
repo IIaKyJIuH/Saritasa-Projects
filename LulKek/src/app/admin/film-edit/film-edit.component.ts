@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, concat, of } from 'rxjs';
+import { AdminFilmsService } from 'src/app/core/services/data/films/admin-films.service';
 import { FilmsService } from 'src/app/core/services/data/films/films.service';
+import { FilmModel } from 'src/app/core/services/models/film-model';
 
 ***REMOVED****
 ***REMOVED*** Here admin can edit films information.
@@ -12,11 +15,36 @@ import { FilmsService } from 'src/app/core/services/data/films/films.service';
 })
 export class FilmEditComponent {
 
+***REMOVED***
+ ***REMOVED*****REMOVED*** Film observable to be edited.
+***REMOVED***
+  public film$: Observable<FilmModel>;
+
+***REMOVED***
+ ***REMOVED*****REMOVED*** Film index from the Db.
+***REMOVED***
+  public filmId: number;
+
   constructor(
     private activatedRoute: ActivatedRoute,
+    private adminFilmsService: AdminFilmsService,
+    private router: Router,
     private filmsService: FilmsService,
   ) {
-    let id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
+    this.filmId = parseInt(this.activatedRoute.snapshot.paramMap.get('id'), 10);
+    this.film$ = this.filmsService.getDbFilmData(this.filmId);
    }
+
+***REMOVED***
+ ***REMOVED*****REMOVED*** Update film's data method.
+ ***REMOVED*****REMOVED*** @param film Film data object.
+***REMOVED***
+  public update(film: FilmModel): void {
+    this.adminFilmsService
+      .updateFilm(this.filmId, film)
+      .subscribe(() =>
+        this.router.navigate(['../']),
+      );
+  }
 
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, switchMap, mergeMap } from 'rxjs/operators';
 import { CharactersService } from 'src/app/core/services/data/characters/characters.service';
@@ -35,7 +35,6 @@ export class DetailedFilmInfoComponent {
   constructor(
     private filmsService: FilmsService,
     private charactersService: CharactersService,
-    private router: Router,
     private activatedRouter: ActivatedRoute,
   ) {
     this.initializeFilm();
@@ -61,13 +60,6 @@ export class DetailedFilmInfoComponent {
         map(characters => characters.filter((character, i) => characterPKs.includes(i + 1))),
       )),
     );
-  }
-
-***REMOVED***
- ***REMOVED*****REMOVED*** Redirects to detailed info about selected character.
-***REMOVED***
-  public onClick(selectedCharacterIndex: number): void {
-    this.router.navigateByUrl(`/detailed-character-info/${selectedCharacterIndex}`);
   }
 
 }

@@ -6,7 +6,7 @@
     </thead>
     <tbody>
         <tr class="table-row"***REMOVED***ngFor="let film of films$ | async"
-        (click)="onClick(film.databaseId)">
+        [routerLink]="['/detailed-film-info/', film.databaseId]">
             <td class="table-cell">{{ film.title }}</td>
             <td class="table-cell">{{ film.releaseDate.getFullYear() }}</td>
             <td class="table-cell">{{ film.director }}</td>

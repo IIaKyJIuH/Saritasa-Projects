@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { AppConfig } from 'src/app/core/app-config';
 
-import { FilmDto } from '../../Dtos/film-dto';
-import { PropertiesDto } from '../../Dtos/properties-dto';
+import { FilmDto } from '../../dtos/film-dto';
+import { PropertiesDto } from '../../dtos/properties-dto';
 import { FilmModel } from '../../models/film-model';
 
 ***REMOVED****
