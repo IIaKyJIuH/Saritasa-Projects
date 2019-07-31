@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FilmsService } from 'src/app/core/services/data/films/films.service';
 
@@ -31,17 +30,8 @@ export class FilmsComponent {
    */
   constructor(
     private filmsService: FilmsService,
-    private router: Router,
     ) {
     this.films$ = this.filmsService.getDbFilmsData();
    }
-
-  /**
-   * Redirects user to a detailed info about chosen film.
-   * @param selectedFilmIndex - film selected from the table line.
-   */
-  public onClick(selectedFilmIndex: number): void {
-    this.router.navigateByUrl(`/detailed-film-info/${selectedFilmIndex}`);
-  }
 
 }

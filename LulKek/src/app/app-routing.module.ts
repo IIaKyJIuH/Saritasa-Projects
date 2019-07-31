@@ -7,14 +7,21 @@ import { FilmsComponent } from './client/films/films.component';
 import { HomeComponent } from './client/home/home.component';
 import { LoginComponent } from './client/login/login.component';
 import { WrongPathComponent } from './client/wrong-path/wrong-path.component';
+import { AdminGuard } from './core/guards/admin.guard';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: FilmsComponent },
   { path: 'detailed-film-info/:id', component: DetailedFilmInfoComponent },
   { path: 'detailed-character-info/:id', component: DetailedCharacterInfoComponent },
+  {
+    path: 'admin',
+    canLoad: [AdminGuard],
+    loadChildren: () =>
+      import('./admin/admin.module').then(mod => mod.AdminModule),
+  },
   { path: '**', component: WrongPathComponent },
 ];
 

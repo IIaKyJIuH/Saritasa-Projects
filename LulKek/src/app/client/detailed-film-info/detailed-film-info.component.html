@@ -21,7 +21,8 @@
         <tr>
             <td>Characters: </td>
             <td>
-                <span class="character-name" *ngFor="let character of characters$ | async" (click)='onClick(character.databaseId)'>
+                <span class="character-name" *ngFor="let character of characters$ | async"
+                [routerLink]="['/detailed-character-info/', character.databaseId]">
                     {{ character.name }}
                 </span>
             </td>

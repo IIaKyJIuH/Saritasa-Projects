@@ -22,7 +22,6 @@ export class FilmsComponent {
     private filmsService: FilmsService,
   ) {
     this.films$ = this.filmsService.getDbFilmsData();
-    this.films$.subscribe(console.log);
   }
 
 }

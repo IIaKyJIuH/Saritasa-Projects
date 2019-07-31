@@ -1,0 +1,33 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import {
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+} from '@angular/material';
+import { MatListModule } from '@angular/material/list';
+
+import { AdminRoutingModule } from './admin-routing.module';
+import { AdminComponent } from './admin.component';
+import { FilmEditComponent } from './film-edit/film-edit.component';
+import { FilmsComponent } from './films/films.component';
+
+/**
+ * Admin main module.
+ */
+@NgModule({
+  declarations: [FilmsComponent, FilmEditComponent, AdminComponent],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    FormsModule,
+    MatListModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+  ],
+})
+export class AdminModule { }
