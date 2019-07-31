@@ -7,13 +7,14 @@ import { OrderModule } from 'ngx-order-pipe';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DetailedCharacterInfoComponent } from './client/detailed-character-info/detailed-character-info.component';
+import { DetailedFilmInfoComponent } from './client/detailed-film-info/detailed-film-info.component';
+import { FilmsComponent } from './client/films/films.component';
+import { HomeComponent } from './client/home/home.component';
+import { LoginComponent } from './client/login/login.component';
+import { WrongPathComponent } from './client/wrong-path/wrong-path.component';
 import { TokenInterceptor } from './core/interceptor/token.interceptor';
 import { AuthService } from './core/services/auth/auth.service';
-import { DetailedFilmInfoComponent } from './detailed-film-info/detailed-film-info.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { ProfileComponent } from './profile/profile.component';
 
 ***REMOVED****
 ***REMOVED*** @inheritdoc
@@ -22,10 +23,11 @@ import { ProfileComponent } from './profile/profile.component';
    declarations: [
       AppComponent,
       LoginComponent,
-      NotFoundComponent,
+      WrongPathComponent,
       HomeComponent,
-      ProfileComponent,
+      FilmsComponent,
       DetailedFilmInfoComponent,
+      DetailedCharacterInfoComponent,
    ],
    imports: [
       BrowserModule,

@@ -1,0 +1,28 @@
+.film-table {
+    text-align: center;
+    border-collapse: collapse;
+    border: 3px solid #f2f2f2;
+}
+
+.film-properties, .film-prop-name {
+    border: 1px solid #f2f2f2;
+}
+
+.film-table .table-row:hover
+{
+    background-color: #ddd;
+    color: black;
+    cursor: pointer;
+}
+
+.table-row {
+    background: #2A3D4C;***REMOVED***#3b393a;*/
+}
+
+.table-row:nth-child(odd) {
+    background: #16A085;
+}
+
+.table-cell {
+    border:  1px solid #f2f2f2;
+}

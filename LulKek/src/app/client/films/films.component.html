@@ -1,0 +1,15 @@
+<table class="film-table">
+    <thead>
+        <tr class="film-properties">
+            <th***REMOVED***ngFor="let header of tableHeaders" class="film-prop-name">{{ header }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-row"***REMOVED***ngFor="let film of films$ | async"
+        (click)="onClick(film.databaseId)">
+            <td class="table-cell">{{ film.title }}</td>
+            <td class="table-cell">{{ film.releaseDate.getFullYear() }}</td>
+            <td class="table-cell">{{ film.director }}</td>
+        </tr>
+    </tbody>
+</table>

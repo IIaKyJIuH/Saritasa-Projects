@@ -11,7 +11,7 @@ import { AppConfig } from '../app-config';
 import { AuthService } from '../services/auth/auth.service';
 
 ***REMOVED****
-***REMOVED*** Interceptor transforming http requests to simplify all other requests to the DB.
+***REMOVED*** Interceptor transforming http requests to simplify all other requests to the Db.
 ***REMOVED***/
 @Injectable({
   providedIn: 'root',
