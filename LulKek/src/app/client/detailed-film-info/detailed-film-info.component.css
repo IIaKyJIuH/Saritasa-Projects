@@ -1,0 +1,10 @@
+.character-name {
+    border-left: 2px solid #FDEE39;
+    padding: 0 10px;
+    height: 3px;
+}
+
+.character-name:hover {
+    cursor: pointer;
+    color: #8B80FE;
+}

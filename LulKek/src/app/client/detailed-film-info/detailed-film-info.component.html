@@ -1,0 +1,30 @@
+<table *ngIf="film$ | async as film">
+    <tbody>
+        <tr>
+            <td>Title: </td>
+            <td>
+                {{ film.title }}
+            </td>
+        </tr>
+        <tr>
+            <td>Director: </td>
+            <td>
+               {{ film.director }}
+            </td>
+        </tr>
+        <tr>
+            <td>Year: </td>
+            <td>
+                {{ film.releaseDate.getFullYear() }}
+            </td>
+        </tr>
+        <tr>
+            <td>Characters: </td>
+            <td>
+                <span class="character-name" *ngFor="let character of characters$ | async" (click)='onClick(character.databaseId)'>
+                    {{ character.name }}
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>

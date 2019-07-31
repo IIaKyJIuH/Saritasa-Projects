@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, take, tap } from 'rxjs/operators';
 
 import { AppConfig } from '../../app-config';
+import { UserDto } from '../Dtos/user-dto';
+import { UserModel } from '../models/user-model';
 
-import { UserDTO } from './user-dto';
 import { UserLoginParam } from './user-login-param';
-import { UserModel } from './user-model';
 
 /**
  * Service that authorizes user at FireBase.
@@ -39,17 +38,17 @@ export class AuthService {
   public login(user: UserLoginParam): Observable<UserModel> {
     const body = { email: user.email, password: user.password, returnSecureToken: true };
     this.lastUserEmail = user.email;
-    return this.http.post<UserDTO>(`${this.config.API_URL}/verifyPassword`, body).pipe(
-      map(response =>  this.createUserModelByDTO(response)),
+    return this.http.post<UserDto>(`${this.config.API_URL}/verifyPassword`, body).pipe(
+      map(response =>  this.createUserModelByDto(response)),
       tap((userModel: UserModel) => localStorage.setItem(userModel.email, userModel.idToken),
       take(1),
     ));
   }
 
-  private createUserModelByDTO(userDTO: UserDTO): UserModel {
+  private createUserModelByDto(userDto: UserDto): UserModel {
     return new UserModel({
-      email: userDTO.email,
-      idToken: userDTO.idToken,
+      email: userDto.email,
+      idToken: userDto.idToken,
     });
   }
 
