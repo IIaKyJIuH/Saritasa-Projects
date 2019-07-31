@@ -42,7 +42,7 @@ export class LoginComponent {
 ***REMOVED***
   public onSubmit(formValues: UserLoginParam): void {
     this.authService.login(formValues).subscribe(
-      () => this.router.navigateByUrl('/profile'),
+      () => this.router.navigateByUrl('/films'),
     );
   }
 
