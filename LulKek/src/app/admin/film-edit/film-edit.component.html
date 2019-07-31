@@ -1,39 +1,45 @@
 <div *ngIf="film$ | async as film">
-  <form #filmForm="ngForm" (ngSubmit)="update(filmForm.value)">
+  <mat-card>
+    <form class="flex" #filmForm="ngForm" (ngSubmit)="update(filmForm.value)">
 
-    <mat-form-field>
-      <input matInput #title="ngModel" placeholder="Title" name="title" type="text" [ngModel]="film.title" required/>
-    </mat-form-field>
-    
+      <mat-form-field>
+        <input matInput #title="ngModel" placeholder="Title" name="title" type="text" [ngModel]="film.title" required/>
+      </mat-form-field>
+      
 
-    <mat-form-field>
-      <input matInput placeholder="Director" name="director" type="text" required
-       [ngModel]="film.director"
-      />
-    </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Director" name="director" type="text" required
+        [ngModel]="film.director"
+        />
+      </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Episode" name="episodeId" type="text" required
-        [ngModel]="film.episodeId"
-      />
-    </mat-form-field>
-    
+      <mat-form-field>
+        <input matInput placeholder="Episode" name="episodeId" type="text" required
+          [ngModel]="film.episodeId"
+        />
+      </mat-form-field>
+      
 
-    <mat-form-field>
-      <input matInput placeholder="Release date" name="releaseDate" type="text" required
-        [ngModel]="film.releaseDate.getFullYear()"
-      />
-    </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Release date" name="releaseDate" type="text" required
+          [ngModel]="film.releaseDate.getFullYear()"
+        />
+      </mat-form-field>
 
-    <div>
-      <button mat-button color="primary" type="submit" [disabled]="!filmForm.form.valid" >
+      
+    </form>
+
+    <mat-divider></mat-divider>
+
+    <p class="flex">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!filmForm.form.valid" >
         Save
       </button>
-      <button mat-button color="basic" [routerLink]="['/admin/films']">
+      <button mat-raised-button color="warn" [routerLink]="['/admin/films']">
         Cancel
       </button>
-    </div>
-  </form>
+    </p>
+  </mat-card>
 </div>
 
 

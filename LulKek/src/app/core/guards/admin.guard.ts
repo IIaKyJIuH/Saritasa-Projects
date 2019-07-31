@@ -20,6 +20,7 @@ export class AdminGuard {
     if (localStorage.getItem('isAdmin') === 'true') {
       return true;
     }
+    alert('click on the admin navbar button to toggle admin status');
     this.router.navigate(['/home']);
     return false;
   }

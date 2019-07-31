@@ -65,7 +65,7 @@ export class AuthService {
    * @param email - user email.
    * @returns if the local storage has token by email - true, else - false.
    */
-  public isLoggedIn(email: string): boolean {
+  public isLoggedIn(email: string = this.lastUserEmail): boolean {
     return this.getToken(email) !== null;
   }
 
