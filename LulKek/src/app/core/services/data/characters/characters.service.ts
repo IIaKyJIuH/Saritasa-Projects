@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { AppConfig } from 'src/app/core/app-config';
 
-import { CharacterDto } from '../../Dtos/character-dto';
-import { PropertiesDto } from '../../Dtos/properties-dto';
+import { CharacterDto } from '../../dtos/character-dto';
+import { PropertiesDto } from '../../dtos/properties-dto';
 import { CharacterModel } from '../../models/character-model';
 
 /**
