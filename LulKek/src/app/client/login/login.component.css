@@ -28,7 +28,3 @@
 .form-input.ng-touched.ng-invalid { 
     border-left: 5px solid #a94442; 
 }
-
-.form-btn {
-    border-radius: 4px;
-}

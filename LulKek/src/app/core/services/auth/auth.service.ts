@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map, take, tap } from 'rxjs/operators';
 
 import { AppConfig } from '../../app-config';
-import { UserDto } from '../Dtos/user-dto';
+import { UserDto } from '../dtos/user-dto';
 import { UserModel } from '../models/user-model';
 
 import { UserLoginParam } from './user-login-param';
@@ -65,7 +65,7 @@ export class AuthService {
  ***REMOVED*****REMOVED*** @param email - user email.
  ***REMOVED*****REMOVED*** @returns if the local storage has token by email - true, else - false.
 ***REMOVED***
-  public isLoggedIn(email: string): boolean {
+  public isLoggedIn(email: string = this.lastUserEmail): boolean {
     return this.getToken(email) !== null;
   }
 

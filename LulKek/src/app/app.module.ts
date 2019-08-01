@@ -2,8 +2,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 import { BrowserModule } from '@angular/platform-browser';
-import { OrderModule } from 'ngx-order-pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,11 +32,12 @@ import { AuthService } from './core/services/auth/auth.service';
    ],
    imports: [
       BrowserModule,
+      BrowserAnimationsModule,
+      MatButtonModule,
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
       ReactiveFormsModule,
-      OrderModule,
    ],
    providers: [
       AuthService,
