@@ -17,12 +17,12 @@ export class AppConfig {
   /**
    * Web-API key of my FireBase Db.
    */
-  public readonly API_KEY = environment.API_KEY;
+  public readonly API_KEY = environment.firebase.apiKey;
 
   /**
    * Firebase url related to the uploaded file swapi.json.
    */
-  public readonly FIREBASE_SWAPI_URL = environment.FIREBASE_SWAPI_URL;
+  public readonly FIREBASE_SWAPI_URL = environment.firebase.databaseURL + '/swapi';
 
   /**
    * Url for refreshing secure token and thus the access token.

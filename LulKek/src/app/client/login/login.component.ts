@@ -32,8 +32,8 @@ export class LoginComponent {
     private formBuilder: FormBuilder,
     ) {
       this.loginForm  =  this.formBuilder.group({
-        email: ['heh@mda.ru', [ Validators.required, Validators.email ] ],
-        password: ['lolkek', Validators.required],
+        email: ['', [ Validators.required, Validators.email ] ],
+        password: ['', Validators.required],
       });
     }
 
