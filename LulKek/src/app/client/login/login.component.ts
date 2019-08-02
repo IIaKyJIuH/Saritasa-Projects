@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AuthService } from '../../core/services/auth/auth.service';
-import { UserLoginParam } from '../../core/services/auth/user-login-param';
+import { AuthenticationService } from '../../core/services/authentication/auth.service';
+import { UserLoginParam } from '../../core/services/authentication/user-login-param';
 
 ***REMOVED****
 ***REMOVED*** All about behaviour of login actions.
@@ -27,7 +27,7 @@ export class LoginComponent {
  ***REMOVED*****REMOVED*** @param formBuilder - includes form data.
 ***REMOVED***
   constructor(
-    private authService: AuthService,
+    private authService: AuthenticationService,
     private router: Router,
     private formBuilder: FormBuilder,
     ) {
@@ -39,11 +39,12 @@ export class LoginComponent {
 
 ***REMOVED***
  ***REMOVED*****REMOVED*** Async user login + if successful then redirect him to ./profile page.
+ ***REMOVED*****REMOVED*** @param formValues - user email + password.
 ***REMOVED***
   public onSubmit(formValues: UserLoginParam): void {
-    this.authService.login(formValues).subscribe(
-      () => this.router.navigateByUrl('/films'),
-    );
+    this.authService
+      .login(formValues)
+      .subscribe(() => this.router.navigate(['/films']));
   }
 
 ***REMOVED***

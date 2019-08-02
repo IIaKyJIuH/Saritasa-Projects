@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 
-import { AuthService } from '../services/auth/auth.service';
+import { AuthenticationService } from '../services/authentication/auth.service';
 
 ***REMOVED****
 ***REMOVED*** Guard for typical user.
@@ -10,10 +10,12 @@ import { AuthService } from '../services/auth/auth.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
+
   public constructor(
-    private authService: AuthService,
+    private authService: AuthenticationService,
     private router: Router,
   ) {}
+
 ***REMOVED***
  ***REMOVED*****REMOVED*** Implemented method
 ***REMOVED***
@@ -22,7 +24,7 @@ export class AuthGuard implements CanActivate {
       return true;
     }
     this.router.navigate(['/home']);
-    alert('Firstly you need to login as user');
+    alert('Firstly you need to login as firebase user');
     return false;
   }
 }

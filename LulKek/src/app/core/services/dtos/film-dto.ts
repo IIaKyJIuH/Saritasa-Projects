@@ -47,4 +47,5 @@ export interface FilmDto {
    ***REMOVED*****REMOVED*** Indexes for other table of vehicles participated in this film.
 ***REMOVED*****REMOVED*****REMOVED***
     vehicles: number[];
+
 }

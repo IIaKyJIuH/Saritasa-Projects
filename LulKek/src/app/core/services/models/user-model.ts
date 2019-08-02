@@ -1,20 +1,22 @@
+import { UserTokens } from './user-tokens';
+
 ***REMOVED****
 ***REMOVED*** User model that tries to fits FireBase response.
 ***REMOVED***/
-export class UserModel {
-
-***REMOVED*****REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** user token from server response.
-***REMOVED*****REMOVED*****REMOVED***
-    public idToken: string;
+export class UserModel extends UserTokens {
 
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** user email.
 ***REMOVED*****REMOVED*****REMOVED***
     public email: string;
 
-    constructor(userResponse: Partial<UserModel>) {
-        this.idToken = userResponse.idToken;
-        this.email = userResponse.email;
+    constructor(data: Partial<UserModel>) {
+        super(
+          new UserTokens({
+            idToken: data.idToken,
+            secureToken: data.secureToken,
+          }),
+        );
+        this.email = data.email;
     }
 }

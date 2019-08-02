@@ -1,54 +1,26 @@
-import { HttpClientModule } from '@angular/common/http';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DetailedCharacterInfoComponent } from './client/detailed-character-info/detailed-character-info.component';
-import { DetailedFilmInfoComponent } from './client/detailed-film-info/detailed-film-info.component';
-import { FilmsComponent } from './client/films/films.component';
-import { HomeComponent } from './client/home/home.component';
-import { LoginComponent } from './client/login/login.component';
-import { WrongPathComponent } from './client/wrong-path/wrong-path.component';
-import { TokenInterceptor } from './core/interceptor/token.interceptor';
-import { AuthService } from './core/services/auth/auth.service';
+import { ClientModule } from './client/client.module';
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 ***REMOVED****
 ***REMOVED*** @inheritdoc
 ***REMOVED***/
 @NgModule({
-   declarations: [
-      AppComponent,
-      LoginComponent,
-      WrongPathComponent,
-      HomeComponent,
-      FilmsComponent,
-      DetailedFilmInfoComponent,
-      DetailedCharacterInfoComponent,
-   ],
+   declarations: [AppComponent],
    imports: [
       BrowserModule,
       BrowserAnimationsModule,
-      MatButtonModule,
+      CoreModule.forRoot(),
+      ClientModule,
+      SharedModule,
       AppRoutingModule,
-      HttpClientModule,
-      FormsModule,
-      ReactiveFormsModule,
    ],
-   providers: [
-      AuthService,
-      {
-         provide: HTTP_INTERCEPTORS,
-         useClass: TokenInterceptor,
-         multi: true,
-  ***REMOVED*****REMOVED*****REMOVED***
-   ],
-   bootstrap: [
-      AppComponent,
-   ],
+   bootstrap: [AppComponent],
 })
 export class AppModule { }

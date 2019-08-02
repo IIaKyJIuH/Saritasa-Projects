@@ -2,6 +2,7 @@
 ***REMOVED*** Dto about character from db.
 ***REMOVED***/
 export interface CharacterDto {
+
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Date of birth in the Star wars Universe.
 ***REMOVED*****REMOVED*****REMOVED***
@@ -46,4 +47,5 @@ export interface CharacterDto {
    ***REMOVED*****REMOVED*** God knows, what this means...........
 ***REMOVED*****REMOVED*****REMOVED***
     skin_color: string;
+
 }

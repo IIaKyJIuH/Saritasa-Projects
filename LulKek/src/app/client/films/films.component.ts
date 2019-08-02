@@ -26,12 +26,12 @@ export class FilmsComponent {
 
 ***REMOVED***
  ***REMOVED*****REMOVED*** .ctor
- ***REMOVED*****REMOVED*** @param authService - authorization service.
+ ***REMOVED*****REMOVED*** @param filmsService - service managing films data from Db.
 ***REMOVED***
   constructor(
     private filmsService: FilmsService,
-    ) {
+  ) {
     this.films$ = this.filmsService.getDbFilmsData();
-   }
+  }
 
 }
