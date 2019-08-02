@@ -2,6 +2,7 @@
  * Dto for every upper-level item in FireBase database.
  */
 export interface PropertiesDto<T> {
+
     /**
      * Main item properties.
      */
@@ -16,4 +17,5 @@ export interface PropertiesDto<T> {
      * Index(starting with '1') of the object in the database array.
      */
     pk: number;
+
 }

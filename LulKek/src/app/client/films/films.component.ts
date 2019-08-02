@@ -26,12 +26,12 @@ export class FilmsComponent {
 
   /**
    * .ctor
-   * @param authService - authorization service.
+   * @param filmsService - service managing films data from Db.
    */
   constructor(
     private filmsService: FilmsService,
-    ) {
+  ) {
     this.films$ = this.filmsService.getDbFilmsData();
-   }
+  }
 
 }

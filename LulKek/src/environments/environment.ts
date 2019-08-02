@@ -13,6 +13,25 @@ export const environment = {
     messagingSenderId: '723491458215',
     appId: '1:723491458215:web:1d08848d53c81a57',
   },
+  /**
+   * API URL.
+   */
+  API_URL: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty',
+
+  /**
+   * Web-API key of my FireBase Db.
+   */
+  API_KEY: this.firebase.apiKey,
+
+  /**
+   * Firebase url related to the uploaded file swapi.json.
+   */
+  FIREBASE_SWAPI_URL: `${this.firebase.databaseURL}/swapi`,
+
+  /**
+   * Url for refreshing secure token and thus the access token.
+   */
+  REFRESH_SECURE_TOKEN_URL: 'https://securetoken.googleapis.com/v1/token',
 };
 
 /*

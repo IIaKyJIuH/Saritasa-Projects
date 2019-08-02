@@ -2,6 +2,7 @@
  * Dto about character from db.
  */
 export interface CharacterDto {
+
     /**
      * Date of birth in the Star wars Universe.
      */
@@ -46,4 +47,5 @@ export interface CharacterDto {
      * God knows, what this means...........
      */
     skin_color: string;
+
 }

@@ -12,15 +12,21 @@ export class AppConfig {
   /**
    * API URL.
    */
-  public API_URL = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty';
+  public readonly API_URL = environment.API_URL;
 
   /**
    * Web-API key of my FireBase Db.
    */
-  public API_KEY = environment.firebase.apiKey;
+  public readonly API_KEY = environment.API_KEY;
 
   /**
    * Firebase url related to the uploaded file swapi.json.
    */
-  public FIREBASE_SWAPI_URL = 'https://proj-0-8c535.firebaseio.com/swapi';
+  public readonly FIREBASE_SWAPI_URL = environment.FIREBASE_SWAPI_URL;
+
+  /**
+   * Url for refreshing secure token and thus the access token.
+   */
+  public readonly REFRESH_SECURE_TOKEN_URL = environment.REFRESH_SECURE_TOKEN_URL;
+
 }

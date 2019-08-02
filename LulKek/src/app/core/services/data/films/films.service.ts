@@ -27,7 +27,7 @@ export class FilmsService {
    */
   public getDbFilmsData(): Observable<FilmModel[]> {
     return this.http.get<PropertiesDto<FilmDto>[]>(`${this.config.FIREBASE_SWAPI_URL}/films.json`).pipe(
-      map(response => response.map(filmProps => this.createFilmModelByDto(filmProps.fields, filmProps.pk - 1))),
+      map(response => response.map((filmProps, index) => this.createFilmModelByDto(filmProps.fields, index))),
       take(1),
     );
   }
@@ -39,7 +39,7 @@ export class FilmsService {
    */
   public getDbFilmData(filmDbIndex: number): Observable<FilmModel> {
     return this.http.get<PropertiesDto<FilmDto>>(`${this.config.FIREBASE_SWAPI_URL}/films/${filmDbIndex}.json`).pipe(
-      map(filmProps => this.createFilmModelByDto(filmProps.fields, filmProps.pk - 1)),
+      map((filmProps, index) => this.createFilmModelByDto(filmProps.fields, index)),
       take(1),
     );
    }

@@ -1,20 +1,22 @@
+import { UserTokens } from './user-tokens';
+
 /**
  * User model that tries to fits FireBase response.
  */
-export class UserModel {
-
-    /**
-     * user token from server response.
-     */
-    public idToken: string;
+export class UserModel extends UserTokens {
 
     /**
      * user email.
      */
     public email: string;
 
-    constructor(userResponse: Partial<UserModel>) {
-        this.idToken = userResponse.idToken;
-        this.email = userResponse.email;
+    constructor(data: Partial<UserModel>) {
+        super(
+          new UserTokens({
+            idToken: data.idToken,
+            secureToken: data.secureToken,
+          }),
+        );
+        this.email = data.email;
     }
 }

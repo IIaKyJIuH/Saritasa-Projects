@@ -47,4 +47,5 @@ export interface FilmDto {
      * Indexes for other table of vehicles participated in this film.
      */
     vehicles: number[];
+
 }
