@@ -17,12 +17,12 @@ export class AppConfig {
 ***REMOVED***
  ***REMOVED*****REMOVED*** Web-API key of my FireBase Db.
 ***REMOVED***
-  public readonly API_KEY = environment.API_KEY;
+  public readonly API_KEY = environment.firebase.apiKey;
 
 ***REMOVED***
  ***REMOVED*****REMOVED*** Firebase url related to the uploaded file swapi.json.
 ***REMOVED***
-  public readonly FIREBASE_SWAPI_URL = environment.FIREBASE_SWAPI_URL;
+  public readonly FIREBASE_SWAPI_URL = environment.firebase.databaseURL + '/swapi';
 
 ***REMOVED***
 ***REMOVED***
