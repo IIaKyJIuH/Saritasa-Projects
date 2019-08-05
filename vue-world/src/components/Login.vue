@@ -1,7 +1,7 @@
 <template>
-    <div>
-
-    </div>
+  <div>
+    <h1> Welcome to login </h1>
+  </div>
 </template>
 
 <script>
@@ -9,3 +9,7 @@
       name: 'Login'
     }
 </script>
+
+<style>
+
+</style>

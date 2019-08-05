@@ -1,13 +1,21 @@
 <template>
   <div id="app">
-    <h1>My first Vue project</h1>
+    <Navigation />
     <router-view/>
+    <Footer />
   </div>
 </template>
 
 <script>
+  import Navigation from './components/Navigation'
+  import Footer from './components/Footer'
+
   export default {
-    name: 'App'
+    name: 'App',
+    components: {
+      Navigation,
+      Footer
+***REMOVED*****REMOVED*****REMOVED***
   }
 </script>
 
@@ -18,6 +26,5 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
