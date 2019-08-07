@@ -5,19 +5,19 @@
 </template>
 
 <script>
-    export default {
-      name: 'TheFooter'
-    }
+export default {
+  name: 'TheFooter',
+};
 </script>
 
 <style scoped>
-  footer  {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: rgb(92, 30, 30);
-    color: white;
-    text-align: center;
-  }
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(92, 30, 30);
+  color: white;
+  text-align: center;
+}
 </style>
