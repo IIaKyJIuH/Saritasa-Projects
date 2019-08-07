@@ -4,6 +4,11 @@ export default {
     password: '',
   },
 
+  getters: {
+    getEmail: state => state.email,
+    getPassword: state => state.password,
+  },
+
   mutations: {
     setEmail(state, payload) {
       state.email = payload;
@@ -19,7 +24,7 @@ export default {
       context.commit('setEmail', payload);
     },
 
-    async setPassword(context, payload) {
+    setPassword(context, payload) {
       context.commit('setPassword', payload);
     },
   },

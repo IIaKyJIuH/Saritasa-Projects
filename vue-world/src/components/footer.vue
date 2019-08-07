@@ -1,5 +1,7 @@
 <template>
-  <footer>
+  <footer
+    :class="$style.app_footer"
+  >
     <h1> Welcome to footer </h1>
   </footer>
 </template>
@@ -10,8 +12,8 @@ export default {
 };
 </script>
 
-<style scoped>
-footer {
+<style module>
+.app_footer {
   position: fixed;
   left: 0;
   bottom: 0;

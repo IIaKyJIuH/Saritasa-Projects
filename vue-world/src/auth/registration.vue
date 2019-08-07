@@ -5,7 +5,7 @@
         <input
           type="email"
           placeholder="lololo@lalala.ru"
-          v-model="password"
+          v-model="email"
           required
         >
       </label>
@@ -34,7 +34,7 @@
     </p>
 
     <button
-      class="register-btn"
+      :class="$style.register_btn"
       type="submit"
     >
       <!-- TODO: поправить валидацию! -->
@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import authStore from './store/authStore';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Registration',
@@ -63,17 +63,24 @@ export default {
     },
   },
 
-  created: () => {
-    // eslint-disable-next-line no-console
-    console.log(authStore);
-    this.email = authStore.state.email;
-    this.password = authStore.state.password;
+  computed: {
+    ...mapGetters([
+      'getEmail',
+      'getPassword',
+    ]),
+  },
+
+  mounted: () => {
+    // console.log(this.$store);
+    this.email = this.getEmail;
+    console.log(this.email);
+    this.password = this.getPassword;
   },
 };
 </script>
 
-<style scoped>
-.register-btn {
+<style module>
+.register_btn {
   color: white;
   padding: 1em 1.5em;
   text-decoration: none;
@@ -82,11 +89,11 @@ export default {
   cursor: pointer;
 }
 
-.register-btn:hover {
+.register_btn:hover {
   background-color: #555;
 }
 
-.register-btn:active {
+.register_btn:active {
   background-color: black;
 }
 </style>

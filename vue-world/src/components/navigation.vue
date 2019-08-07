@@ -1,30 +1,58 @@
 <template>
   <ul>
+
     <li>
-      <router-link to="/home">Main</router-link>
+      <router-link
+        to="/home"
+      >
+        Main
+      </router-link>
     </li>
+
+    <li>
+      <router-link
+        to="/films"
+        v-show="this.isAuthenticated"
+      >
+        Films
+      </router-link>
+    </li>
+
     <li>
       <router-link
         to="/login"
-        v-show="!this.$store.getters.isAuthenticated"
-      >Sign in</router-link>
+        v-show="!this.isAuthenticated"
+      >
+        Sign in
+      </router-link>
     </li>
+
     <li>
       <router-link
         to="/register"
-        v-show="!this.$store.getters.isAuthenticated"
-      >Sign up</router-link>
+        v-show="!this.isAuthenticated"
+      >
+        Sign up
+      </router-link>
     </li>
+
   </ul>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Navigation',
+  computed: {
+    ...mapGetters([
+      'isAuthenticated',
+    ]),
+  },
 };
 </script>
 
-<style scoped>
+<style module>
 ul {
   list-style-type: none;
   margin: 0;
