@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'TheNavigation',
+  name: 'Navigation',
 ***REMOVED***
 </script>
 
