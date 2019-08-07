@@ -1,9 +1,11 @@
 <template>
-  <form @submit.prevent="login">
+  <form
+    @submit.prevent="login"
+    @reset.prevent="register"
+  >
     <p>
       <label>Input e-mail<br>
         <input
-          class="form-input"
           type="email"
           placeholder="lololo@lalala.ru"
           v-model="email"
@@ -14,9 +16,8 @@
     <p>
       <label>Input password<br>
         <input
-          class="form-input"
           type="password"
-          placeholder="Password"
+          placeholder="♥♥♥♥♥♥"
           minlength="3"
           v-model="password"
           required
@@ -24,27 +25,29 @@
       </label>
     </p>
 
-    <footer>
+    <footer
+      :class="$style.app_footer"
+    >
       <button
-        class="login-btn"
+        :class="$style.login_btn"
         type="submit"
       >
         <!-- TODO: поправить валидацию! -->
         Log in
       </button>
-      <router-link
-        class="register-btn"
-        to="/register"
+      <button
+        :class="$style.register_btn"
+        type="reset"
       >
         Register
-      </router-link>
+      </button>
     </footer>
 
   </form>
 </template>
 
 <script>
-// import authStore from './store/authStore';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Login',
@@ -58,24 +61,29 @@ export default {
 
   methods: {
     login() {
-      this.$store.dispatch('setEmail', this.email);
-      this.$store.dispatch('setPassword', this.password);
-      console.log(this.$store.state.email);
-      this.$router.push('/home');// `ll fix routings later
+      this.setEmail(this.email);
+      this.setPassword(this.password);
+      this.toggleAuthStatus();
+      this.$router.push('/home'); // `ll fix routings later
 ***REMOVED*****REMOVED*****REMOVED***
+
+    register() {
+      this.setEmail(this.email);
+      this.setPassword(this.password);
+      console.log(this.$store);
+      this.$router.push('/register');
+***REMOVED*****REMOVED*****REMOVED***
+
+    ...mapActions([
+      'toggleAuthStatus',
+      'setEmail',
+      'setPassword',
+    ]),
 ***REMOVED***
 ***REMOVED***
 </script>
 
-<style scoped>
-.alert {
-  font-size: 1.25em;
-}
-
-.alert-danger {
-  background-color: #f01815;
-  opacity: 0.7;
-}
+<style module>
 
 footer {
   display: flex;
@@ -87,33 +95,28 @@ footer >***REMOVED*** {
   flex-basis: 1 1 0;
 }
 
-.login-btn,
-.register-btn {
+button {
   color: white;
   padding: 1em 1.5em;
   border: 2px solid gray;
   text-decoration: none;
-}
-
-.login-btn {
-  background-color: green;
   cursor: pointer;
 }
 
-.register-btn {
+.login_btn {
+  background-color: green;
+}
+
+.register_btn {
   margin-top: 20px;
-  font-size: 13.3333px;
-  font-family: Arial, Helvetica, sans-serif;
   background-color: red;
 }
 
-.register-btn:hover,
-.login-btn:hover {
+button:hover {
   background-color: #555;
 }
 
-.register-btn:active,
-.login-btn:active {
+button:active {
   background-color: black;
 }
 </style>

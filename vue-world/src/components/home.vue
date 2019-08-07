@@ -15,7 +15,7 @@ export default {
 ***REMOVED***
 </script>
 
-<style scoped>
+<style module>
 h1,
 h2 {
   font-weight: normal;
