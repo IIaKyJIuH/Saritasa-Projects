@@ -5,18 +5,19 @@
 </template>
 
 <script>
-  export default {
-    name: 'TheHome',
-    data () {
-      return {
-        msg: 'Welcome to my first Vue.js app'
-      }
-    }
-  }
+export default {
+  name: 'TheHome',
+  data() {
+    return {
+      msg: 'Welcome to my first Vue.js app',
+  ***REMOVED*****REMOVED*****REMOVED***
+***REMOVED***
+***REMOVED***
 </script>
 
 <style scoped>
-  h1, h2 {
-    font-weight: normal;
-  }
+h1,
+h2 {
+  font-weight: normal;
+}
 </style>
