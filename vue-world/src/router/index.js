@@ -1,13 +1,12 @@
-/* eslint-disable import/no-unresolved */
 import Vue from 'vue';
 import Router from 'vue-router';
 import firebase from 'firebase';
 
-import Login from '@/auth/the-login';
-import Home from '@/components/the-home';
-import Films from '@/components/films/the-films';
-import Film from '@/components/films/film';
-import Registration from '@/auth/the-registration';
+import Login from '../auth/login.vue';
+import Home from '../components/home.vue';
+import Films from '../components/films/films.vue';
+import Film from '../components/films/film.vue';
+import Registration from '../auth/registration.vue';
 
 Vue.use(Router);
 

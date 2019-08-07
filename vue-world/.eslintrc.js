@@ -19,5 +19,7 @@ module.exports = {
     'vue',
   ],
   rules: {
+    'no-param-reassign': 'off',
+    'no-console': 'off',
   },
 };

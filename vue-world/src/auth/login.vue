@@ -44,10 +44,10 @@
 </template>
 
 <script>
-import authStore from './store/authStore';
+// import authStore from './store/authStore';
 
 export default {
-  name: 'TheLogin',
+  name: 'Login',
 
   data() {
     return {
@@ -58,8 +58,9 @@ export default {
 
   methods: {
     login() {
-      authStore.state.email = this.email;
-      authStore.state.password = this.password;
+      this.$store.dispatch('setEmail', this.email);
+      this.$store.dispatch('setPassword', this.password);
+      console.log(this.$store.state.email);
       this.$router.push('/home');// `ll fix routings later
     },
   },
