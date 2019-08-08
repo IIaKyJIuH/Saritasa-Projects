@@ -63,7 +63,7 @@ export default {
 
   methods: {
     async logout() {
-      await this.resetAuth;
+      await this.resetAuth();
       this.$router.replace('./home');
 ***REMOVED*****REMOVED*****REMOVED***
 
@@ -99,6 +99,11 @@ export default {
 
 .router_link:hover {
   background-color: #111111;
+}
+
+.router-link-active,
+.router-link-exact-active {
+  background-color: #ffe600;
 }
 
 </style>

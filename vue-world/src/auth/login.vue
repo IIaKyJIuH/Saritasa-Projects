@@ -1,5 +1,6 @@
 <template>
   <form
+    :class="$style.login_form"
     @submit.prevent="login"
     @reset.prevent="register">
 
@@ -75,6 +76,10 @@ export default {
 </script>
 
 <style module>
+
+.login_form {
+  margin: auto 0;
+}
 
 .form_footer {
   display: flex;
