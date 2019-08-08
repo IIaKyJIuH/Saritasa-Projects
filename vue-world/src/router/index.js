@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable import/no-named-as-default-member */
 import Vue from 'vue';
 import Router from 'vue-router';
 import firebase from 'firebase';

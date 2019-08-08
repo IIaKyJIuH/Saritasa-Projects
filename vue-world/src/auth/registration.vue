@@ -51,7 +51,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import firebase from 'firebase';
 
 export default {
   name: 'Registration',
@@ -65,22 +64,13 @@ export default {
   },
 
   methods: {
-    registerUser() {
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-        // eslint-disable-next-line no-unused-vars
-        (request) => {
-          this.setAuthOnUser(request.user);
-          this.$router.push('/films');
-        },
-
-        (err) => {
-          throw err;
-        },
-      );
+    async registerUser() {
+      await this.loginToFirebase({ email: this.email, password: this.password });
+      this.$router.replace('/films');
     },
 
     ...mapActions([
-      'setAuthOnUser',
+      'loginToFirebase',
     ]),
 
   },
@@ -88,7 +78,6 @@ export default {
   computed: {
     ...mapGetters([
       'getEmail',
-      'getPassword',
     ]),
   },
 
