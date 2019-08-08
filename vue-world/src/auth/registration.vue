@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import firebase from 'firebase';
 
 export default {
@@ -68,7 +68,8 @@ export default {
     registerUser() {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
         // eslint-disable-next-line no-unused-vars
-        (user) => {
+        (request) => {
+          this.toggleAuthStatus(request.user);
           this.$router.push('/films');
         },
 
@@ -77,6 +78,10 @@ export default {
         },
       );
     },
+
+    ...mapActions([
+      'toggleAuthStatus',
+    ]),
 
   },
 

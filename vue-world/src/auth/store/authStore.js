@@ -15,8 +15,8 @@ export default {
       state.email = payload;
     },
 
-    toggleAuthStatus(state) {
-      state.authState = !state.authState;
+    toggleAuthStatus(state, payload) {
+      state.authState = payload !== undefined;
     },
 
   },
@@ -26,8 +26,8 @@ export default {
       context.commit('setEmail', payload);
     },
 
-    async toggleAuthStatus(context) {
-      context.commit('toggleAuthStatus');
+    async toggleAuthStatus(context, payload) {
+      context.commit('toggleAuthStatus', payload);
     },
 
   },

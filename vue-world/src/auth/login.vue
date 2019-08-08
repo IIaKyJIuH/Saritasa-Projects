@@ -67,8 +67,8 @@ export default {
       this.setEmail(this.email);
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
         // eslint-disable-next-line no-unused-vars
-        (user) => {
-          this.toggleAuthStatus();
+        (request) => {
+          this.toggleAuthStatus(request.user);
           this.$router.push('/films');
         },
 
