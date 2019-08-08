@@ -1,6 +1,6 @@
 <template>
   <form
-    @submit="registerUser"
+    @submit.prevent="registerUser"
   >
 
     <label>
@@ -51,7 +51,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { firebase } from 'firebase';
+import firebase from 'firebase';
 
 export default {
   name: 'Registration',
@@ -65,11 +65,13 @@ export default {
 ***REMOVED***
 
   methods: {
-    registerUser: () => {
+    registerUser() {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+        // eslint-disable-next-line no-unused-vars
         (user) => {
-          console.log(user.toString());
+          this.$router.push('/films');
     ***REMOVED*****REMOVED*****REMOVED***
+
         (err) => {
           throw err;
     ***REMOVED*****REMOVED*****REMOVED***
@@ -85,7 +87,7 @@ export default {
     ]),
 ***REMOVED***
 
-  mounted: () => {
+  mounted() {
     this.email = this.getEmail;
 ***REMOVED***
 ***REMOVED***
