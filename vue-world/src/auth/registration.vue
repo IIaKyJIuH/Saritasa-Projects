@@ -69,7 +69,7 @@ export default {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
         // eslint-disable-next-line no-unused-vars
         (request) => {
-          this.toggleAuthStatus(request.user);
+          this.setAuthOnUser(request.user);
           this.$router.push('/films');
     ***REMOVED*****REMOVED*****REMOVED***
 
@@ -80,7 +80,7 @@ export default {
 ***REMOVED*****REMOVED*****REMOVED***
 
     ...mapActions([
-      'toggleAuthStatus',
+      'setAuthOnUser',
     ]),
 
 ***REMOVED***
