@@ -1,64 +1,47 @@
 <template>
   <nav>
-    <ul
-      :class="$style.nav_list"
-    >
+    <ul :class="$style.nav_list">
 
-      <li
-        :class="$style.nav_item"
-      >
+      <li :class="$style.nav_item">
         <router-link
           to="/home"
-          :class="$style.router_link"
-        >
+          :class="$style.router_link">
           Main
         </router-link>
       </li>
 
-      <li
-        :class="$style.nav_item"
-      >
+      <li :class="$style.nav_item">
         <router-link
           to="/films"
           v-show="isAuthenticated"
-          :class="$style.router_link"
-        >
+          :class="$style.router_link">
           Films
         </router-link>
       </li>
 
-      <li
-        :class="$style.nav_item"
-      >
+      <li :class="$style.nav_item">
         <router-link
           to="/login"
           v-show="!isAuthenticated"
-          :class="$style.router_link"
-        >
+          :class="$style.router_link">
           Sign in
         </router-link>
       </li>
 
-      <li
-        :class="$style.nav_item"
-      >
+      <li :class="$style.nav_item">
         <span
           v-show="isAuthenticated"
           @click="logout"
-          :class="$style.router_link"
-        >
+          :class="$style.router_link">
           Sign out
         </span>
       </li>
 
-      <li
-        :class="$style.nav_item"
-      >
+      <li :class="$style.nav_item">
         <router-link
           to="/register"
           v-show="!isAuthenticated"
-          :class="$style.router_link"
-        >
+          :class="$style.router_link">
           Sign up
         </router-link>
       </li>

@@ -1,7 +1,5 @@
 <template>
-  <form
-    @submit.prevent="registerUser"
-  >
+  <form @submit.prevent="registerUser">
 
     <label>
       Input e-mail
@@ -10,8 +8,7 @@
         type="email"
         placeholder="lololo@lalala.ru"
         v-model="email"
-        required
-      >
+        required>
     </label>
 
     <label>
@@ -22,8 +19,7 @@
         placeholder="Password"
         minlength="3"
         v-model="password"
-        required
-      >
+        required>
     </label>
 
     <label>
@@ -34,14 +30,12 @@
         placeholder="Password"
         minlength="3"
         v-model="passwordRepeat"
-        required
-      >
+        required>
     </label>
 
     <button
       :class="$style.register_btn"
-      type="submit"
-    >
+      type="submit">
       <!-- TODO: поправить валидацию! -->
       Register
     </button>

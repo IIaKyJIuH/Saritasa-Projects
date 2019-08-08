@@ -1,7 +1,5 @@
 <template>
-  <footer
-    :class="$style.app_footer"
-  >
+  <footer :class="$style.app_footer">
     <h1> Welcome to footer </h1>
   </footer>
 </template>

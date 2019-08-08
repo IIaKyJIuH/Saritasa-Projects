@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-    <h1
-      :class="$style.title"
-    >
+    <h1 :class="$style.title">
       {{ msg }}
     </h1>
   </div>
