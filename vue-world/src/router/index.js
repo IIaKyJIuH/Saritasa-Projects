@@ -2,11 +2,9 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import firebase from 'firebase';
 
-import Login from '../auth/login.vue';
 import Home from '../components/home.vue';
-import Films from '../components/films/films.vue';
-import Film from '../components/films/film.vue';
-import Registration from '../auth/registration.vue';
+import authRoutes from '../auth/routes';
+import filmsRoutes from '../components/films/routes';
 
 Vue.use(Router);
 
@@ -22,34 +20,12 @@ const router = new Router({
       name: 'Home',
       component: Home,
     },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login,
-    },
-    {
-      path: '/register',
-      name: 'Registration',
-      component: Registration,
-    },
-    {
-      path: '/films',
-      name: 'Films',
-      component: Films,
-      meta: {
-        requiresAuth: true,
-      },
-      children: [
-        {
-          path: ':id',
-          name: 'Film',
-          component: Film,
-        },
-      ],
-    },
+    ...authRoutes,
+    ...filmsRoutes,
   ],
 });
 
+/** Auth guard to check authentication.  */
 router.beforeEach((to, from, next) => {
   const { currentUser } = firebase.auth();
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);

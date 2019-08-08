@@ -1,6 +1,10 @@
 <template>
   <div class="home">
-    <h1>{{ msg }}</h1>
+    <h1
+      :class="$style.title"
+    >
+      {{ msg }}
+    </h1>
   </div>
 </template>
 
@@ -16,8 +20,7 @@ export default {
 </script>
 
 <style module>
-h1,
-h2 {
-  font-weight: normal;
+.title {
+  font-weight: bold;
 }
 </style>

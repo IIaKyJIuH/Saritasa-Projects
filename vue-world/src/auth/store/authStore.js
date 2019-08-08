@@ -1,22 +1,24 @@
 export default {
   state: {
     email: '',
-    password: '',
+    authState: false,
   },
 
   getters: {
     getEmail: state => state.email,
-    getPassword: state => state.password,
+    isAuthenticated: state => state.authState,
   },
 
   mutations: {
+
     setEmail(state, payload) {
       state.email = payload;
     },
 
-    setPassword(state, payload) {
-      state.password = payload;
+    toggleAuthStatus(state) {
+      state.authState = !state.authState;
     },
+
   },
 
   actions: {
@@ -24,8 +26,9 @@ export default {
       context.commit('setEmail', payload);
     },
 
-    setPassword(context, payload) {
-      context.commit('setPassword', payload);
+    async toggleAuthStatus(context) {
+      context.commit('toggleAuthStatus');
     },
+
   },
 };
