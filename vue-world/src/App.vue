@@ -20,6 +20,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -43,4 +44,5 @@ form input {
   border: 6px solid #585858;
   border-radius: 4px;
 }
+
 </style>

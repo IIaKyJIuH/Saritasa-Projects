@@ -1,42 +1,58 @@
 <template>
-  <ul>
+  <nav>
+    <ul
+      :class="$style.nav_list"
+    >
 
-    <li>
-      <router-link
-        to="/home"
+      <li
+        :class="$style.nav_item"
       >
-        Main
-      </router-link>
-    </li>
+        <router-link
+          to="/home"
+          :class="$style.router_link"
+        >
+          Main
+        </router-link>
+      </li>
 
-    <li>
-      <router-link
-        to="/films"
-        v-show="this.isAuthenticated"
+      <li
+        :class="$style.nav_item"
       >
-        Films
-      </router-link>
-    </li>
+        <router-link
+          to="/films"
+          v-show="this.isAuthenticated"
+          :class="$style.router_link"
+        >
+          Films
+        </router-link>
+      </li>
 
-    <li>
-      <router-link
-        to="/login"
-        v-show="!this.isAuthenticated"
+      <li
+        :class="$style.nav_item"
       >
-        Sign in
-      </router-link>
-    </li>
+        <router-link
+          to="/login"
+          v-show="!this.isAuthenticated"
+          :class="$style.router_link"
+        >
+          Sign in
+        </router-link>
+      </li>
 
-    <li>
-      <router-link
-        to="/register"
-        v-show="!this.isAuthenticated"
+      <li
+        :class="$style.nav_item"
       >
-        Sign up
-      </router-link>
-    </li>
+        <router-link
+          to="/register"
+          v-show="!this.isAuthenticated"
+          :class="$style.router_link"
+        >
+          Sign up
+        </router-link>
+      </li>
 
-  </ul>
+    </ul>
+  </nav>
 </template>
 
 <script>
@@ -53,7 +69,8 @@ export default {
 </script>
 
 <style module>
-ul {
+
+.nav_list {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -61,11 +78,11 @@ ul {
   background-color: #333333;
 }
 
-li {
+.nav_item {
   float: left;
 }
 
-li a {
+.router_link {
   display: block;
   color: white;
   text-align: center;
@@ -73,7 +90,8 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
+.router_link:hover {
   background-color: #111111;
 }
+
 </style>

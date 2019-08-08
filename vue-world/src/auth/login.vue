@@ -3,30 +3,32 @@
     @submit.prevent="login"
     @reset.prevent="register"
   >
-    <p>
-      <label>Input e-mail<br>
-        <input
-          type="email"
-          placeholder="lololo@lalala.ru"
-          v-model="email"
-          required
-        >
-      </label>
-    </p>
-    <p>
-      <label>Input password<br>
-        <input
-          type="password"
-          placeholder="♥♥♥♥♥♥"
-          minlength="3"
-          v-model="password"
-          required
-        >
-      </label>
-    </p>
+
+    <label>
+      Input e-mail
+      <br>
+      <input
+        type="email"
+        placeholder="lololo@lalala.ru"
+        v-model="email"
+        required
+      >
+    </label>
+
+    <label>
+      Input password
+      <br>
+      <input
+        type="password"
+        placeholder="♥♥♥♥♥♥"
+        minlength="3"
+        v-model="password"
+        required
+      >
+    </label>
 
     <footer
-      :class="$style.app_footer"
+      :class="$style.form_footer"
     >
       <button
         :class="$style.login_btn"
@@ -62,15 +64,12 @@ export default {
   methods: {
     login() {
       this.setEmail(this.email);
-      this.setPassword(this.password);
       this.toggleAuthStatus();
       this.$router.push('/home'); // `ll fix routings later
 ***REMOVED*****REMOVED*****REMOVED***
 
     register() {
       this.setEmail(this.email);
-      this.setPassword(this.password);
-      console.log(this.$store);
       this.$router.push('/register');
 ***REMOVED*****REMOVED*****REMOVED***
 
@@ -85,17 +84,20 @@ export default {
 
 <style module>
 
-footer {
+.form_footer {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
 }
 
-footer >***REMOVED*** {
+.form_footer >***REMOVED*** {
   flex-basis: 1 1 0;
+  margin: 10px 0;
 }
 
-button {
+.login_btn,
+.register_btn
+{
   color: white;
   padding: 1em 1.5em;
   border: 2px solid gray;
@@ -108,15 +110,19 @@ button {
 }
 
 .register_btn {
-  margin-top: 20px;
   background-color: red;
 }
 
-button:hover {
+.login_btn:hover,
+.register_btn:hover
+{
   background-color: #555;
 }
 
-button:active {
+.login_btn:active,
+.register_btn:active
+{
   background-color: black;
 }
+
 </style>

@@ -1,37 +1,42 @@
 <template>
-  <form @submit="registerUser">
-    <p>
-      <label>Input e-mail<br>
-        <input
-          type="email"
-          placeholder="lololo@lalala.ru"
-          v-model="email"
-          required
-        >
-      </label>
-    </p>
-    <p>
-      <label>Input password<br>
-        <input
-          type="password"
-          placeholder="Password"
-          minlength="3"
-          v-model="password"
-          required
-        >
-      </label>
-    </p>
-    <p>
-      <label>Confirm password<br>
-        <input
-          type="password"
-          placeholder="Password"
-          minlength="3"
-          v-model="passwordRepeat"
-          required
-        >
-      </label>
-    </p>
+  <form
+    @submit="registerUser"
+  >
+
+    <label>
+      Input e-mail
+      <br>
+      <input
+        type="email"
+        placeholder="lololo@lalala.ru"
+        v-model="email"
+        required
+      >
+    </label>
+
+    <label>
+      Input password
+      <br>
+      <input
+        type="password"
+        placeholder="Password"
+        minlength="3"
+        v-model="password"
+        required
+      >
+    </label>
+
+    <label>
+      Confirm password
+      <br>
+      <input
+        type="password"
+        placeholder="Password"
+        minlength="3"
+        v-model="passwordRepeat"
+        required
+      >
+    </label>
 
     <button
       :class="$style.register_btn"
@@ -40,11 +45,13 @@
       <!-- TODO: поправить валидацию! -->
       Register
     </button>
+
   </form>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import { firebase } from 'firebase';
 
 export default {
   name: 'Registration',
@@ -58,9 +65,17 @@ export default {
 ***REMOVED***
 
   methods: {
-    registerUser() {
-      // TODO:
+    registerUser: () => {
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
+        (user) => {
+          console.log(user.toString());
+    ***REMOVED*****REMOVED*****REMOVED***
+        (err) => {
+          throw err;
+    ***REMOVED*****REMOVED*****REMOVED***
+      );
 ***REMOVED*****REMOVED*****REMOVED***
+
 ***REMOVED***
 
   computed: {
@@ -71,15 +86,13 @@ export default {
 ***REMOVED***
 
   mounted: () => {
-    // console.log(this.$store);
     this.email = this.getEmail;
-    console.log(this.email);
-    this.password = this.getPassword;
 ***REMOVED***
 ***REMOVED***
 </script>
 
 <style module>
+
 .register_btn {
   color: white;
   padding: 1em 1.5em;
@@ -87,6 +100,7 @@ export default {
   background-color: green;
   border: 2px solid gray;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 .register_btn:hover {
@@ -96,4 +110,5 @@ export default {
 .register_btn:active {
   background-color: black;
 }
+
 </style>
