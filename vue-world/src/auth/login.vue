@@ -1,8 +1,7 @@
 <template>
   <form
     @submit.prevent="login"
-    @reset.prevent="register"
-  >
+    @reset.prevent="register">
 
     <label>
       Input e-mail
@@ -11,8 +10,7 @@
         type="email"
         placeholder="lololo@lalala.ru"
         v-model="email"
-        required
-      >
+        required>
     </label>
 
     <label>
@@ -23,24 +21,20 @@
         placeholder="♥♥♥♥♥♥"
         minlength="3"
         v-model="password"
-        required
-      >
+        required>
     </label>
 
-    <footer
-      :class="$style.form_footer"
-    >
+    <footer :class="$style.form_footer">
       <button
         :class="$style.login_btn"
-        type="submit"
-      >
+        type="submit">
         <!-- TODO: поправить валидацию! -->
         Log in
       </button>
+
       <button
         :class="$style.register_btn"
-        type="reset"
-      >
+        type="reset">
         Register
       </button>
     </footer>
