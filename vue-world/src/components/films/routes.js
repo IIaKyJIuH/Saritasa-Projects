@@ -1,11 +1,8 @@
-import Film from './film.vue';
-import Films from './films.vue';
-
 export default [
   {
     path: '/films',
     name: 'Films',
-    component: Films,
+    component: () => import('./films'),
     meta: {
       requiresAuth: true,
     },
@@ -13,7 +10,7 @@ export default [
       {
         path: ':id',
         name: 'Film',
-        component: Film,
+        component: () => import('./film'),
       },
     ],
   },
