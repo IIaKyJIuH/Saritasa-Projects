@@ -1,28 +1,28 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './App'
-import router from './router'
-import { store } from './store.js'
-import { firebaseApp } from './firebase'
-import firebase from 'firebase'
+import Vue from 'vue';
+import firebase from 'firebase';
+import App from './App.vue';
+import router from './router';
+import store from './store/store';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-let app
+let app = '';
+
+firebase.initializeApp(process.env.FIREBASE_PARAMETERS);
 
 /**
  * For displaying the app.
  */
 firebase.auth().onAuthStateChanged(() => {
-  if(!app) {
+  if (!app) {
     app = new Vue({
       el: '#app',
       router,
       store,
-      firebaseApp,
-      render: h => h(App)
-    })
+      firebase,
+      render: h => h(App),
+    });
   }
-
-})
+});

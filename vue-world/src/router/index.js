@@ -1,43 +1,39 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Login from '@/components/Login'
-import Home from '@/components/Home'
-import Films from '@/components/Films'
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable import/no-named-as-default-member */
+import Vue from 'vue';
+import Router from 'vue-router';
+import firebase from 'firebase';
 
+import Home from '../components/home.vue';
+import authRoutes from '../auth/routes';
+import filmsRoutes from '../components/films/routes';
 
-Vue.use(Router)
+Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
       path: '',
-      redirect: '/home'
+      redirect: '/home',
     },
     {
       path: '/home',
       name: 'Home',
-      component: Home
+      component: Home,
     },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
-    },
-    {
-      path: '/films',
-      name: 'Films',
-      component: Films,
-      meta: {
-          requiresAuth: true
-      },
-      children: [
-        {
-          path: ':id',
-          name: 'Film',
-          component: Films
-        }
-      ]
-    }
-  ]
-})
+    ...authRoutes,
+    ...filmsRoutes,
+  ],
+});
+
+/** Auth guard to check authentication.  */
+router.beforeEach((to, from, next) => {
+  const { currentUser } = firebase.auth();
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+  if (requiresAuth && !currentUser) next('/login');
+  else next();
+});
+
+export default router;
