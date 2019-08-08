@@ -15,8 +15,8 @@ export default {
       state.email = payload;
 ***REMOVED*****REMOVED*****REMOVED***
 
-    toggleAuthStatus(state) {
-      state.authState = !state.authState;
+    toggleAuthStatus(state, payload) {
+      state.authState = payload !== undefined;
 ***REMOVED*****REMOVED*****REMOVED***
 
 ***REMOVED***
@@ -26,8 +26,8 @@ export default {
       context.commit('setEmail', payload);
 ***REMOVED*****REMOVED*****REMOVED***
 
-    async toggleAuthStatus(context) {
-      context.commit('toggleAuthStatus');
+    async toggleAuthStatus(context, payload) {
+      context.commit('toggleAuthStatus', payload);
 ***REMOVED*****REMOVED*****REMOVED***
 
 ***REMOVED***
