@@ -2,7 +2,7 @@ export default [
   {
     path: '/films',
     name: 'Films',
-    component: () => import('./films'),
+    component: () => import('./films.vue'),
     meta: {
       requiresAuth: true,
 ***REMOVED*****REMOVED*****REMOVED***
@@ -10,7 +10,7 @@ export default [
       {
         path: ':id',
         name: 'Film',
-        component: () => import('./film'),
+        component: () => import('./film.vue'),
   ***REMOVED*****REMOVED*****REMOVED***
     ],
 ***REMOVED***

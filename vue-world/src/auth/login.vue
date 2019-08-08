@@ -50,7 +50,6 @@
 
 <script>
 import { mapActions } from 'vuex';
-import firebase from 'firebase';
 
 export default {
   name: 'Login',
@@ -63,19 +62,9 @@ export default {
 ***REMOVED***
 
   methods: {
-    login() {
-      this.setEmail(this.email);
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-        // eslint-disable-next-line no-unused-vars
-        (request) => {
-          this.setAuthOnUser(request.user);
-          this.$router.push('/films');
-    ***REMOVED*****REMOVED*****REMOVED***
-
-        (err) => {
-          throw err;
-    ***REMOVED*****REMOVED*****REMOVED***
-      );
+    async login() {
+      await this.loginToFirebase({ email: this.email, password: this.password });
+      this.$router.replace('/films');
 ***REMOVED*****REMOVED*****REMOVED***
 
     register() {
@@ -84,9 +73,8 @@ export default {
 ***REMOVED*****REMOVED*****REMOVED***
 
     ...mapActions([
-      'setAuthOnUser',
+      'loginToFirebase',
       'setEmail',
-      'setPassword',
     ]),
 ***REMOVED***
 ***REMOVED***

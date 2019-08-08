@@ -20,7 +20,7 @@
       >
         <router-link
           to="/films"
-          v-show="this.isAuthenticated"
+          v-show="isAuthenticated"
           :class="$style.router_link"
         >
           Films
@@ -32,7 +32,7 @@
       >
         <router-link
           to="/login"
-          v-show="!this.isAuthenticated"
+          v-show="!isAuthenticated"
           :class="$style.router_link"
         >
           Sign in
@@ -42,9 +42,21 @@
       <li
         :class="$style.nav_item"
       >
+        <span
+          v-show="isAuthenticated"
+          @click="logout"
+          :class="$style.router_link"
+        >
+          Sign out
+        </span>
+      </li>
+
+      <li
+        :class="$style.nav_item"
+      >
         <router-link
           to="/register"
-          v-show="!this.isAuthenticated"
+          v-show="!isAuthenticated"
           :class="$style.router_link"
         >
           Sign up
@@ -56,13 +68,24 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Navigation',
   computed: {
     ...mapGetters([
       'isAuthenticated',
+    ]),
+***REMOVED***
+
+  methods: {
+    async logout() {
+      await this.resetAuth;
+      this.$router.replace('./home');
+***REMOVED*****REMOVED*****REMOVED***
+
+    ...mapActions([
+      'resetAuth',
     ]),
 ***REMOVED***
 ***REMOVED***
@@ -88,6 +111,7 @@ export default {
   text-align: center;
   padding: 16px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .router_link:hover {
