@@ -1,5 +1,7 @@
 <template>
-  <form @submit.prevent="registerUser">
+  <form
+    :class="$style.register_form"
+    @submit.prevent="registerUser">
 
     <label>
       Input e-mail
@@ -82,6 +84,10 @@ export default {
 </script>
 
 <style module>
+
+.register_form {
+  margin: auto 0;
+}
 
 .register_btn {
   color: white;

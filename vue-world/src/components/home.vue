@@ -1,5 +1,6 @@
 <template>
-  <div class="home">
+  <div
+    :class="$style.home">
     <h1 :class="$style.title">
       {{ msg }}
     </h1>
@@ -18,7 +19,13 @@ export default {
 </script>
 
 <style module>
+
+.home {
+  margin: auto 0;
+}
+
 .title {
   font-weight: bold;
 }
+
 </style>

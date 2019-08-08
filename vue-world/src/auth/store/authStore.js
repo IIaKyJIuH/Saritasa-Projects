@@ -32,19 +32,18 @@ export default {
       context.commit('setAuthStatus', payload);
     },
 
-    resetAuth(context) {
-      context.commit('setEmail', '');
-      context.commit('setAuthStatus', false);
-      firebase.auth().signOut().then(
-        (err) => {
-          throw err;
+    async resetAuth(context) {
+      await firebase.auth().signOut().then(
+        () => {
+          context.commit('setEmail', '');
+          context.commit('setAuthStatus', false);
         },
       );
     },
 
-    loginToFirebase(context, payload) {
+    async loginToFirebase(context, payload) {
       const { email, password } = payload;
-      firebase.auth().signInWithEmailAndPassword(email, password).then(
+      await firebase.auth().signInWithEmailAndPassword(email, password).then(
         // eslint-disable-next-line no-unused-vars
         (request) => {
           context.commit('setAuthStatus', true);

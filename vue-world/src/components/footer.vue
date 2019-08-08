@@ -12,10 +12,7 @@ export default {
 
 <style module>
 .app_footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  margin-top: auto;
   background-color: rgb(92, 30, 30);
   color: white;
   text-align: center;
