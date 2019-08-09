@@ -102,7 +102,7 @@ export default {
 }
 
 .table_row:hover td {
-  background-color:#4E5066;
+  background-color:rgb(116, 60, 60);
   color:rgb(0, 0, 0);
 }
 

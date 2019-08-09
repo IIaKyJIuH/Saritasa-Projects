@@ -13,7 +13,7 @@ export default {
 <style module>
 .app_footer {
   margin-top: auto;
-  background-color: rgb(92, 30, 30);
+  background-color: rgb(116, 60, 60);
   color: white;
   text-align: center;
 }
