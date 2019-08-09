@@ -20,11 +20,20 @@ export default {
 </script>
 
 <style>
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
 html,
 body {
   height: 100%;
   margin: 0;
+}
+
+body {
+  background-color: #aaaaaa;
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
 }
 
 #app {

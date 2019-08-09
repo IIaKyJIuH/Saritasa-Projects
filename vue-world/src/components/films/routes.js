@@ -6,12 +6,10 @@ export default [
     meta: {
       requiresAuth: true,
     },
-    children: [
-      {
-        path: ':id',
-        name: 'Film',
-        component: () => import('./film.vue'),
-      },
-    ],
+  },
+  {
+    path: '/films/:id',
+    name: 'Film',
+    component: () => import('./film.vue'),
   },
 ];
