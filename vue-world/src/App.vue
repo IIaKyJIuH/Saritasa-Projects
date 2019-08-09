@@ -28,21 +28,16 @@ body {
   margin: 0;
 }
 
-body {
-  background-color: #aaaaaa;
-  font-family: "Roboto", helvetica, arial, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  text-rendering: optimizeLegibility;
-}
-
 #app {
   height: 100%;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", helvetica, arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-size: 18px;
   text-align: center;
   color: #2c3e50;
+  background-color: #aaaaaa;
   display: flex;
   flex-flow: column nowrap;
 }
