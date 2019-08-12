@@ -4,35 +4,28 @@
     v-if="filmInfo">
     <tbody>
       <tr :class="$style.tableRow">
-        <td>
-          Title:
-        </td>
-        <td>
-            {{ filmInfo.title }}
-        </td>
+        <td>Title:</td>
+        <td>{{ filmInfo.title }}</td>
       </tr>
       <tr :class="$style.tableRow">
-        <td>
-          Director:
-        </td>
-        <td>
-            {{ filmInfo.director }}
-        </td>
+        <td>Director:</td>
+        <td>{{ filmInfo.director }}</td>
       </tr>
       <tr :class="$style.tableRow">
-        <td>
-          Year:
-        </td>
-        <td>
-            {{ filmInfo.releaseDate }}
-        </td>
+        <td>Year:</td>
+        <td>{{ filmInfo.releaseDate }}</td>
       </tr>
       <tr :class="$style.tableRow">
+        <td>Characters:</td>
         <td>
-          Characters:
-        </td>
-        <td>
-            {{ filmInfo.characters }}
+          <router-link
+            :class="$style.characterName"
+            tag="span"
+            :to="{ name: 'Character', params: { id: character.databaseId }}"
+            v-for="character of filmInfo.characters"
+            :key="character.databaseId">
+                  {{ character.name }}
+          </router-link>
         </td>
       </tr>
     </tbody>
@@ -54,11 +47,13 @@ export default {
   methods: {
     ...mapActions([
       'getFilmByIndex',
+      'getCharactersByIndexes',
     ]),
 ***REMOVED***
 
   async mounted() {
     this.filmInfo = await this.getFilmByIndex(this.$route.params.id);
+    this.filmInfo.characters = await this.getCharactersByIndexes(this.filmInfo.characters);
 ***REMOVED***
 ***REMOVED***
 </script>
@@ -106,6 +101,17 @@ export default {
 .tableRow:hover td {
   background-color: rgb(116, 60, 60);
   color: rgb(0, 0, 0);
+}
+
+.characterName {
+    border-left: 2px solid rgb(255, 122, 69);
+    padding: 0 10px;
+    height: 3px;
+}
+
+.characterName:hover {
+    cursor: pointer;
+    color: #8B80FE;
 }
 
 </style>
