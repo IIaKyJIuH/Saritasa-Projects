@@ -1,6 +1,7 @@
 <template>
   <table
-  :class="$style.films_table">
+  :class="$style.films_table"
+  v-if="films">
 
     <thead :class="$style.head">
       <tr :class="$style.head_row">
@@ -18,14 +19,14 @@
         :class="[$style.routing_row, $style.body_row]"
         tag="tr"
         v-for="film in films"
-        :key="film.databaseId.value"
-        :to="{ name: 'Film', params: { id: film.databaseId.value }}">
+        :key="film.databaseId"
+        :to="{ name: 'Film', params: { id: film.databaseId }}">
 
         <td :class="$style.body_column">
           {{ film.title }}
         </td>
         <td :class="$style.body_column">
-          {{ new Date(film.release_date).getFullYear() }}
+          {{ film.releaseDate }}
         </td>
         <td :class="$style.body_column">
           {{ film.director }}

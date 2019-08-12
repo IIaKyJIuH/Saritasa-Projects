@@ -1,5 +1,7 @@
 <template>
-  <table :class="$style.film_table">
+  <table
+    :class="$style.film_table"
+    v-if="filmInfo">
     <tbody>
       <tr :class="$style.table_row">
         <td>
@@ -22,7 +24,7 @@
           Year:
         </td>
         <td>
-            {{ new Date(filmInfo.release_date).getFullYear() }}
+            {{ filmInfo.releaseDate }}
         </td>
       </tr>
       <tr :class="$style.table_row">
