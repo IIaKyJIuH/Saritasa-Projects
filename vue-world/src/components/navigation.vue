@@ -103,6 +103,6 @@ export default {
 
 ***REMOVED*** .router-link-active {
   background-color: #fff59e !important;
-} TODO: не работает***REMOVED***/
+} TODO: doesn`t work***REMOVED***/
 
 </style>
