@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import dbIndexService from '../../services/dbIndexService';
+import FilmModel from '../film-model';
 
 export default {
   state: {
@@ -21,14 +21,15 @@ export default {
       return (await firebase.database()
         .ref('/swapi/films').once('value'))
         .val()
-        .map((item, index) => dbIndexService.addIndexToDbObject(item, index));
+        .map((item, index) => new FilmModel(item.fields, index));
     },
 
     // eslint-disable-next-line no-unused-vars
     async getFilmByIndex(context, payload) {
-      return (await firebase.database()
+      const filmDbObject = (await firebase.database()
         .ref(`swapi/films/${payload}`).once('value'))
         .val().fields;
+      return new FilmModel(filmDbObject, payload);
     },
 
   },
