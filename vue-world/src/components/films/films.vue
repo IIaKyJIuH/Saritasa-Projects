@@ -6,8 +6,8 @@
       <tr :class="$style.head_row">
         <th
           :class="$style.head_column"
-          v-for="(header, index) in tableHeaders"
-          :key="header + index">
+          v-for="header in tableHeaders"
+          :key="header">
             {{ header }}
         </th>
       </tr>
@@ -17,9 +17,9 @@
       <router-link
         :class="[$style.routing_row, $style.body_row]"
         tag="tr"
-        v-for="(film, index) in films"
-        :key="film.title + index"
-        :to="{ name: 'Film', params: { id: film.databaseId }}">
+        v-for="film in films"
+        :key="film.databaseId.value"
+        :to="{ name: 'Film', params: { id: film.databaseId.value }}">
 
         <td :class="$style.body_column">
           {{ film.title }}
@@ -69,7 +69,7 @@ export default {
   width: 800px;
   border-collapse: collapse;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
 }
 
 .routing_row {
@@ -79,9 +79,9 @@ export default {
 .head_column,
 .body_column {
   padding: 15px;
-  background-color: rgba(255, 0, 0, 0.4);
+  background-color: rgba(255, 0, 0, .4);
   color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 0, 0, .8);
 }
 
 .head_column {
@@ -89,7 +89,7 @@ export default {
 }
 
 .body_row:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, .3);
 }
 
 .body_column {
@@ -103,7 +103,7 @@ export default {
   right: 0;
   top: -9999px;
   bottom: -9999px;
-  background-color: rgba(255, 175, 128, 0.6);
+  background-color: rgba(255, 175, 128, .6);
   z-index: -1;
 }
 
