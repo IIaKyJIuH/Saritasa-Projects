@@ -22,5 +22,6 @@ module.exports = {
   rules: {
     'no-param-reassign': 'off',
     'no-console': 'off',
+    'import/no-unresolved': 'off',
 ***REMOVED***
 ***REMOVED***

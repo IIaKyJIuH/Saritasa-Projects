@@ -1,40 +1,59 @@
 <template>
   <form
-    :class="$style.login_form"
+    :class="$style.loginForm"
     @submit.prevent="login"
     @reset.prevent="register">
 
-    <label>
+    <label
+      :class="$style.inputContainer">
       Input e-mail
       <br>
       <input
         type="email"
         placeholder="lololo@lalala.ru"
-        v-model="email"
-        required>
+        v-model.lazy="$v.email.$model">
+      <span
+        v-if="$v.email.$error"
+        :class="$style.validationAlert">
+        Correct email format - "lol@kek.ru"
+      </span>
     </label>
 
-    <label>
+
+    <label
+      :class="$style.inputContainer">
       Input password
       <br>
       <input
         type="password"
         placeholder="♥♥♥♥♥♥"
-        minlength="3"
-        v-model="password"
-        required>
+        v-model.lazy="$v.password.$model">
+      <span
+        v-if="$v.password.$error"
+        :class="$style.validationAlert">
+        <template v-if="!$v.password.maxLength">
+          Password length shouldn`t be more than {{ $v.password.$params.maxLength.max }} symbols
+        </template>
+        <template v-else-if="!$v.password.minLength">
+          Password length shouldn`t be less than {{ $v.password.$params.minLength.min }} symbols
+        </template>
+        <template v-else>
+          Password is required!
+        </template>
+      </span>
     </label>
 
-    <footer :class="$style.form_footer">
+
+    <footer :class="$style.formFooter">
       <button
-        :class="$style.login_btn"
-        type="submit">
-        <!-- TODO: поправить валидацию! -->
+        :class="$style.loginBtn"
+        type="submit"
+        :disabled="$v.$invalid">
         Log in
       </button>
 
       <button
-        :class="$style.register_btn"
+        :class="$style.registerBtn"
         type="reset">
         Register
       </button>
@@ -45,6 +64,9 @@
 
 <script>
 import { mapActions } from 'vuex';
+import {
+  required, maxLength, minLength, email,
+} from 'vuelidate/lib/validators';
 
 export default {
   name: 'Login',
@@ -54,6 +76,18 @@ export default {
       email: 'heh@mda.ru',
       password: 'lolkek',
   ***REMOVED*****REMOVED*****REMOVED***
+***REMOVED***
+
+  validations: {
+    email: {
+      required,
+      email,
+***REMOVED*****REMOVED*****REMOVED***
+    password: {
+      required,
+      maxLength: maxLength(10),
+      minLength: minLength(3),
+***REMOVED*****REMOVED*****REMOVED***
 ***REMOVED***
 
   methods: {
@@ -77,23 +111,23 @@ export default {
 
 <style module>
 
-.login_form {
+.loginForm {
   margin: auto 0;
 }
 
-.form_footer {
+.formFooter {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
 }
 
-.form_footer >***REMOVED*** {
+.formFooter >***REMOVED*** {
   flex-basis: 1 1 0;
   margin: 10px 0;
 }
 
-.login_btn,
-.register_btn
+.loginBtn,
+.registerBtn
 {
   color: white;
   padding: 1em 1.5em;
@@ -102,24 +136,39 @@ export default {
   cursor: pointer;
 }
 
-.login_btn {
+.loginBtn {
   background-color: green;
 }
 
-.register_btn {
+.registerBtn {
   background-color: red;
 }
 
-.login_btn:hover,
-.register_btn:hover
+.loginBtn:hover,
+.registerBtn:hover
 {
   background-color: #555;
 }
 
-.login_btn:active,
-.register_btn:active
+.loginBtn:active,
+.registerBtn:active
 {
   background-color: black;
+}
+
+.loginBtn:disabled {
+  background-color: rgb(122, 122, 122);
+}
+
+.inputContainer {
+  margin: 10px 0;
+}
+
+.validationAlert {
+  font-size: 1.2em;
+  display: block;
+  background-color: red;
+  color: white;
 }
 
 </style>

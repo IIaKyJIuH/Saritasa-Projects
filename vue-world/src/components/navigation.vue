@@ -1,47 +1,47 @@
 <template>
   <nav>
-    <ul :class="$style.nav_list">
+    <ul :class="$style.navList">
 
-      <li :class="$style.nav_item">
+      <li :class="$style.navItem">
         <router-link
           to="/home"
-          :class="$style.router_link">
+          :class="$style.routerLink">
           Main
         </router-link>
       </li>
 
-      <li :class="$style.nav_item">
+      <li :class="$style.navItem">
         <router-link
           to="/films"
           v-show="isAuthenticated"
-          :class="$style.router_link">
+          :class="$style.routerLink">
           Films
         </router-link>
       </li>
 
-      <li :class="$style.nav_item">
+      <li :class="$style.navItem">
         <router-link
           to="/login"
           v-show="!isAuthenticated"
-          :class="$style.router_link">
+          :class="$style.routerLink">
           Sign in
         </router-link>
       </li>
 
-      <li :class="$style.nav_item">
+      <li :class="$style.navItem">
         <span
           v-show="isAuthenticated"
           @click="logout"
-          :class="$style.router_link">
+          :class="$style.routerLink">
           Sign out
         </span>
       </li>
 
-      <li :class="$style.nav_item">
+      <li :class="$style.navItem">
         <router-link
           to="/register"
           v-show="!isAuthenticated"
-          :class="$style.router_link">
+          :class="$style.routerLink">
           Sign up
         </router-link>
       </li>
@@ -76,7 +76,7 @@ export default {
 
 <style module>
 
-.nav_list {
+.navList {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -84,11 +84,11 @@ export default {
   background-color: #333333;
 }
 
-.nav_item {
+.navItem {
   float: left;
 }
 
-.router_link {
+.routerLink {
   display: block;
   color: white;
   text-align: center;
@@ -97,13 +97,12 @@ export default {
   cursor: pointer;
 }
 
-.router_link:hover {
+.routerLink:hover {
   background-color: #111111;
 }
 
-.router-link-active,
-.router-link-exact-active {
-  background-color: #ffe600;
-}
+***REMOVED*** .router-link-active {
+  background-color: #fff59e !important;
+} TODO: doesn`t work***REMOVED***/
 
 </style>

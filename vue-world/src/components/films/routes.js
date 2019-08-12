@@ -6,12 +6,10 @@ export default [
     meta: {
       requiresAuth: true,
 ***REMOVED*****REMOVED*****REMOVED***
-    children: [
-      {
-        path: ':id',
-        name: 'Film',
-        component: () => import('./film.vue'),
-  ***REMOVED*****REMOVED*****REMOVED***
-    ],
+***REMOVED***
+  {
+    path: '/films/:id',
+    name: 'Film',
+    component: () => import('./film.vue'),
 ***REMOVED***
 ];
