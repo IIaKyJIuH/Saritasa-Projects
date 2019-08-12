@@ -4,9 +4,9 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import firebase from 'firebase';
 
-import Home from '../components/home.vue';
-import authRoutes from '../auth/routes';
-import filmsRoutes from '../components/films/routes';
+import Home from '@/components/home.vue';
+import authRoutes from '@/auth/routes';
+import filmsRoutes from '@/components/films/routes';
 
 Vue.use(Router);
 

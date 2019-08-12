@@ -3,12 +3,12 @@ import firebase from 'firebase';
 export default {
   state: {
     email: '',
-    authState: false,
+    authStatus: false,
   },
 
   getters: {
     getEmail: state => state.email,
-    isAuthenticated: state => state.authState,
+    isAuthenticated: state => state.authStatus,
   },
 
   mutations: {
@@ -18,7 +18,7 @@ export default {
     },
 
     setAuthStatus(state, payload) {
-      state.authState = payload;
+      state.authStatus = payload;
     },
 
   },

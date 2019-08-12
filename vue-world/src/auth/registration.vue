@@ -1,44 +1,67 @@
 <template>
   <form
-    :class="$style.register_form"
+    :class="$style.registerForm"
     @submit.prevent="registerUser">
 
-    <label>
+    <label
+      :class="$style.inputContainer">
       Input e-mail
       <br>
       <input
         type="email"
         placeholder="lololo@lalala.ru"
-        v-model="email"
-        required>
+        v-model.lazy="$v.email.$model">
+      <span
+        v-if="$v.email.$error"
+        :class="$style.validationAlert">
+        Correct email format - "lol@kek.ru"
+      </span>
     </label>
 
-    <label>
+    <label
+      :class="$style.inputContainer">
       Input password
       <br>
       <input
         type="password"
-        placeholder="Password"
-        minlength="3"
-        v-model="password"
-        required>
+        placeholder="♥♥♥♥♥♥"
+        v-model.lazy="$v.password.$model">
+      <span
+        v-if="$v.password.$error"
+        :class="$style.validationAlert">
+        <template v-if="!$v.password.maxLength">
+          Password length shouldn`t be more than {{ $v.password.$params.maxLength.max }} symbols
+        </template>
+        <template v-else-if="!$v.password.minLength">
+          Password length shouldn`t be less than {{ $v.password.$params.minLength.min }} symbols
+        </template>
+        <template v-else>
+          Password is required!
+        </template>
+      </span>
     </label>
 
-    <label>
+    <label
+      :class="$style.inputContainer">
       Confirm password
       <br>
       <input
         type="password"
-        placeholder="Password"
-        minlength="3"
-        v-model="passwordRepeat"
-        required>
+        placeholder="♥♥♥♥♥♥"
+        :disabled="!$v.password.required || $v.password.$error"
+        v-model.lazy="$v.passwordRepeat.$model">
+      <span
+        v-if="$v.passwordRepeat.$error"
+        :class="$style.validationAlert">
+        <template v-if="!$v.passwordRepeat.sameAsPassword && !$v.password.$error">
+          Passwords should be identical
+        </template>
+      </span>
     </label>
 
     <button
-      :class="$style.register_btn"
+      :class="$style.registerBtn"
       type="submit">
-      <!-- TODO: поправить валидацию! -->
       Register
     </button>
 
@@ -47,6 +70,9 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import {
+  required, maxLength, minLength, email, sameAs,
+} from 'vuelidate/lib/validators';
 
 export default {
   name: 'Registration',
@@ -57,6 +83,22 @@ export default {
       password: '',
       passwordRepeat: '',
     };
+  },
+
+  validations: {
+    email: {
+      required,
+      email,
+    },
+    password: {
+      required,
+      maxLength: maxLength(10),
+      minLength: minLength(3),
+    },
+    passwordRepeat: {
+      required,
+      sameAsPassword: sameAs('password'),
+    },
   },
 
   methods: {
@@ -85,11 +127,11 @@ export default {
 
 <style module>
 
-.register_form {
+.registerForm {
   margin: auto 0;
 }
 
-.register_btn {
+.registerBtn {
   color: white;
   padding: 1em 1.5em;
   text-decoration: none;
@@ -99,12 +141,23 @@ export default {
   margin-top: 10px;
 }
 
-.register_btn:hover {
+.registerBtn:hover {
   background-color: #555;
 }
 
-.register_btn:active {
+.registerBtn:active {
   background-color: black;
+}
+
+.inputContainer {
+  margin: 10px 0;
+}
+
+.validationAlert {
+  font-size: 1.2em;
+  display: block;
+  background-color: red;
+  color: white;
 }
 
 </style>
