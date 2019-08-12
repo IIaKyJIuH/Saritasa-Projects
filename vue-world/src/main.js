@@ -2,9 +2,12 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import firebase from 'firebase';
-import App from './App.vue';
-import router from './router';
-import store from './store/store';
+import Vuelidate from 'vuelidate';
+import App from '@/App.vue';
+import router from '@/router';
+import store from '@/store/store';
+
+Vue.use(Vuelidate);
 
 Vue.config.productionTip = false;
 

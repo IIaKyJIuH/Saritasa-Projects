@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import authStore from '../auth/store/authStore';
-import filmsStore from '../components/films/store/filmsStore';
+import authStore from '@/auth/store/authStore';
+import filmsStore from '@/components/films/store/filmsStore';
 
 Vue.use(Vuex);
 

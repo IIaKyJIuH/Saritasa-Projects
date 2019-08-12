@@ -1,19 +1,12 @@
 import firebase from 'firebase';
-import FilmModel from '../film-model';
+import FilmModel from '@/components/films/film-model';
 
 export default {
-  state: {
+  state: {},
 
-  },
+  getters: {},
 
-  getters: {
-
-  },
-
-  mutations: {
-
-
-  },
+  mutations: {},
 
   actions: {
 
