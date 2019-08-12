@@ -103,6 +103,6 @@ export default {
 
 /* .router-link-active {
   background-color: #fff59e !important;
-} TODO: не работает */
+} TODO: doesn`t work */
 
 </style>

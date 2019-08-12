@@ -62,7 +62,6 @@
     <button
       :class="$style.registerBtn"
       type="submit">
-      <!-- TODO: поправить валидацию! -->
       Register
     </button>
 
