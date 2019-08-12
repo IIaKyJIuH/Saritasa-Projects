@@ -101,9 +101,8 @@ export default {
   background-color: #111111;
 }
 
-.router-link-active,
-.router-link-exact-active {
-  background-color: #ffe600;
-}
+/* .router-link-active {
+  background-color: #fff59e !important;
+} TODO: не работает */
 
 </style>

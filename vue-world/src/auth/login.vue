@@ -15,7 +15,7 @@
       <span
         v-if="$v.email.$error"
         :class="$style.validationAlert">
-        Нужен email в формате "lol@kek.ru"
+        Correct email format - "lol@kek.ru"
       </span>
     </label>
 
@@ -32,13 +32,13 @@
         v-if="$v.password.$error"
         :class="$style.validationAlert">
         <template v-if="!$v.password.maxLength">
-          Длина пароля не должна превышать {{ $v.password.$params.maxLength.max }} символов
+          Password length shouldn`t be more than {{ $v.password.$params.maxLength.max }} symbols
         </template>
         <template v-else-if="!$v.password.minLength">
-          Длина пароля не должна быть меньше {{ $v.password.$params.minLength.min }} символов
+          Password length shouldn`t be less than {{ $v.password.$params.minLength.min }} symbols
         </template>
         <template v-else>
-          Пароль обязателен для заполнения
+          Password is required!
         </template>
       </span>
     </label>
