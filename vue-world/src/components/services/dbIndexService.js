@@ -1,9 +1,11 @@
 export default {
   addIndexToDbObject(object, index) {
-    const newItem = object.fields;
-    Object.defineProperty(newItem, 'databaseId', {
-      value: index,
-    });
-    return newItem;
+    return {
+      ...object.fields,
+      databaseId: {
+        value: index,
+        iterable: false,
+      },
+    };
   },
 };
