@@ -1,12 +1,12 @@
 <template>
   <table
-  :class="$style.films_table"
+  :class="$style.filmsTable"
   v-if="films">
 
     <thead :class="$style.head">
-      <tr :class="$style.head_row">
+      <tr :class="$style.headRow">
         <th
-          :class="$style.head_column"
+          :class="$style.headColumn"
           v-for="header in tableHeaders"
           :key="header">
             {{ header }}
@@ -16,19 +16,19 @@
 
     <tbody :class="$style.body">
       <router-link
-        :class="[$style.routing_row, $style.body_row]"
+        :class="[$style.routingRow, $style.bodyRow]"
         tag="tr"
         v-for="film in films"
         :key="film.databaseId"
         :to="{ name: 'Film', params: { id: film.databaseId }}">
 
-        <td :class="$style.body_column">
+        <td :class="$style.bodyColumn">
           {{ film.title }}
         </td>
-        <td :class="$style.body_column">
+        <td :class="$style.bodyColumn">
           {{ film.releaseDate }}
         </td>
-        <td :class="$style.body_column">
+        <td :class="$style.bodyColumn">
           {{ film.director }}
         </td>
 
@@ -65,7 +65,7 @@ export default {
 
 <style module>
 
-.films_table {
+.filmsTable {
   margin: auto;
   width: 800px;
   border-collapse: collapse;
@@ -73,31 +73,31 @@ export default {
   box-shadow: 0 0 20px rgba(0, 0, 0, .1);
 }
 
-.routing_row {
+.routingRow {
   cursor: pointer;
 }
 
-.head_column,
-.body_column {
+.headColumn,
+.bodyColumn {
   padding: 15px;
   background-color: rgba(255, 0, 0, .4);
   color: #fff;
   border: 1px solid rgba(0, 0, 0, .8);
 }
 
-.head_column {
+.headColumn {
   background-color: #55608f;
 }
 
-.body_row:hover {
+.bodyRow:hover {
   background-color: rgba(0, 0, 0, .3);
 }
 
-.body_column {
+.bodyColumn {
   position: relative;
 }
 
-.body_column:hover::before {
+.bodyColumn:hover::before {
   content: "";
   position: absolute;
   left: 0;

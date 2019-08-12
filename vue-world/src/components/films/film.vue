@@ -1,9 +1,9 @@
 <template>
   <table
-    :class="$style.film_table"
+    :class="$style.filmTable"
     v-if="filmInfo">
     <tbody>
-      <tr :class="$style.table_row">
+      <tr :class="$style.tableRow">
         <td>
           Title:
         </td>
@@ -11,7 +11,7 @@
             {{ filmInfo.title }}
         </td>
       </tr>
-      <tr :class="$style.table_row">
+      <tr :class="$style.tableRow">
         <td>
           Director:
         </td>
@@ -19,7 +19,7 @@
             {{ filmInfo.director }}
         </td>
       </tr>
-      <tr :class="$style.table_row">
+      <tr :class="$style.tableRow">
         <td>
           Year:
         </td>
@@ -27,7 +27,7 @@
             {{ filmInfo.releaseDate }}
         </td>
       </tr>
-      <tr :class="$style.table_row">
+      <tr :class="$style.tableRow">
         <td>
           Characters:
         </td>
@@ -65,7 +65,7 @@ export default {
 
 <style module>
 
-.film_table {
+.filmTable {
   margin: auto;
   background: white;
   border-radius: 3px;
@@ -78,7 +78,7 @@ export default {
   animation: float 5s infinite;
 }
 
-.table_row {
+.tableRow {
   border-top: 1px solid #C1C3D1;
   border-bottom: 1px solid #C1C3D1;
   color: rgb(105, 105, 105);
@@ -88,7 +88,7 @@ export default {
   cursor: pointer;
 }
 
-.table_row td {
+.tableRow td {
   background: #FFFFFF;
   padding: 20px;
   text-align: center;
@@ -99,11 +99,11 @@ export default {
   border-right: 1px solid #C1C3D1;
 }
 
-.table_row td:first-child {
+.tableRow td:first-child {
   border-right: 6px double #C1C3D1;
 }
 
-.table_row:hover td {
+.tableRow:hover td {
   background-color: rgb(116, 60, 60);
   color: rgb(0, 0, 0);
 }

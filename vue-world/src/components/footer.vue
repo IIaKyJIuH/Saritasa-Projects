@@ -1,5 +1,5 @@
 <template>
-  <footer :class="$style.app_footer">
+  <footer :class="$style.appFooter">
     <h1> Welcome to footer </h1>
   </footer>
 </template>
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style module>
-.app_footer {
+.appFooter {
   margin-top: auto;
   background-color: rgb(116, 60, 60);
   color: white;
