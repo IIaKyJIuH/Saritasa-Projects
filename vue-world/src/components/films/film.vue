@@ -21,10 +21,10 @@
           <router-link
             :class="$style.characterName"
             tag="span"
-            :to="{ name: 'Character', params: { id: character.databaseId }}"
             v-for="character of filmInfo.characters"
-            :key="character.databaseId">
-                  {{ character.name }}
+            :key="character.databaseId"
+            :to="{ name: 'Character', params: { id: character.databaseId }}">
+              {{ character.name }}
           </router-link>
         </td>
       </tr>
