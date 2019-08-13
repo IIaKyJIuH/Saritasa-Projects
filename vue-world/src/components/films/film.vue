@@ -54,7 +54,6 @@ export default {
   async mounted() {
     this.filmInfo = await this.getFilmByIndex(this.$route.params.id);
     this.filmInfo.characters = await this.getCharactersByIndexes(this.filmInfo.characters);
-    console.log(this.filmInfo.characters);
 ***REMOVED***
 ***REMOVED***
 </script>
