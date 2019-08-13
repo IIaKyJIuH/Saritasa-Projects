@@ -3,7 +3,7 @@ import CharacterModel from '@/components/characters/character-model';
 export default {
   mapDtoToCharacterModel(dto, index) {
     return new CharacterModel({
-      databaseId: index,
+      Id: index,
       birthYear: dto.birth_year,
       eyeColor: dto.eye_color,
       gender: dto.gender,

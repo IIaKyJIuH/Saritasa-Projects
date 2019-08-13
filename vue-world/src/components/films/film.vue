@@ -22,8 +22,8 @@
             :class="$style.characterName"
             tag="span"
             v-for="character of filmInfo.characters"
-            :key="character.databaseId"
-            :to="{ name: 'Character', params: { id: character.databaseId }}">
+            :key="character.Id"
+            :to="{ name: 'Character', params: { id: character.Id }}">
               {{ character.name }}
           </router-link>
         </td>
@@ -54,6 +54,7 @@ export default {
   async mounted() {
     this.filmInfo = await this.getFilmByIndex(this.$route.params.id);
     this.filmInfo.characters = await this.getCharactersByIndexes(this.filmInfo.characters);
+    console.log(this.filmInfo.characters);
 ***REMOVED***
 ***REMOVED***
 </script>

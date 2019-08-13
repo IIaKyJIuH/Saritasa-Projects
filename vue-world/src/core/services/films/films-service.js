@@ -7,7 +7,7 @@ export default {
       director: dto.director,
       releaseDate: new Date(dto.release_date).getFullYear(),
       title: dto.title,
-      databaseId: index,
+      Id: index,
     });
 ***REMOVED***
 ***REMOVED***

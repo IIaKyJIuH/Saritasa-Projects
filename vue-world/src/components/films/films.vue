@@ -19,8 +19,8 @@
         :class="[$style.routingRow, $style.bodyRow]"
         tag="tr"
         v-for="film in films"
-        :key="film.databaseId"
-        :to="{ name: 'Film', params: { id: film.databaseId }}">
+        :key="film.Id"
+        :to="{ name: 'Film', params: { id: film.Id }}">
 
         <td :class="$style.bodyColumn">
           {{ film.title }}

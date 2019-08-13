@@ -2,7 +2,7 @@ export default class FilmModel {
 ***REMOVED***
    ***REMOVED*****REMOVED*** Index in the database swapi file.
 ***REMOVED*****REMOVED*****REMOVED***
-    databaseId;
+    Id;
 
 ***REMOVED*****REMOVED*****REMOVED***
    ***REMOVED*****REMOVED*** Date of birth according to the the Star Wars universe.
@@ -30,7 +30,7 @@ export default class FilmModel {
     height;
 
 ***REMOVED*****REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** Native planet(just index for now) of the character.
+   ***REMOVED*****REMOVED*** Native planet(just index for now).
 ***REMOVED*****REMOVED*****REMOVED***
     homeworld;
 
@@ -45,12 +45,12 @@ export default class FilmModel {
     name;
 
 ***REMOVED*****REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** Numeric value of skin color.
+   ***REMOVED*****REMOVED*** Name of skin color.
 ***REMOVED*****REMOVED*****REMOVED***
     skinColor;
 
     constructor(characterModel) {
-      this.databaseId = characterModel.databaseId;
+      this.Id = characterModel.Id;
       this.birthYear = characterModel.birthYear;
       this.eyeColor = characterModel.eyeColor;
       this.gender = characterModel.gender;
