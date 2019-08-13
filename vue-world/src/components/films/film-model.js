@@ -24,11 +24,17 @@ export default class FilmModel {
    */
   id;
 
+  /**
+   * Number of the episode.
+   */
+  episodeId;
+
   constructor(filmModel) {
     this.characters = filmModel.characters;
     this.director = filmModel.director;
     this.releaseDate = filmModel.releaseDate;
     this.title = filmModel.title;
     this.id = filmModel.id;
+    this.episodeId = filmModel.episodeId;
   }
 }
