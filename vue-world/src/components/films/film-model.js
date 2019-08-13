@@ -22,13 +22,13 @@ export default class FilmModel {
   /**
    * The database index in the swapi array file.
    */
-  databaseId;
+  Id;
 
   constructor(filmModel) {
     this.characters = filmModel.characters;
     this.director = filmModel.director;
     this.releaseDate = filmModel.releaseDate;
     this.title = filmModel.title;
-    this.databaseId = filmModel.databaseId;
+    this.Id = filmModel.Id;
   }
 }

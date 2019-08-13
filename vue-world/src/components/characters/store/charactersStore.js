@@ -15,7 +15,7 @@ export default {
         .ref('/swapi/people').once('value'))
         .val()
         .map((item, index) => charactersService.mapDtoToCharacterModel(item.fields, index))
-        .filter(item => array.includes(item.databaseId));
+        .filter(item => array.includes(item.Id));
     },
 
     async getCharacterByIndex(context, payload) {
