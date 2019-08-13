@@ -1,68 +1,78 @@
 <template>
   <table
-    :class="$style.filmTable"
-    v-if="filmInfo">
+    :class="$style.characterTable"
+    v-if="character">
     <tbody>
       <tr :class="$style.tableRow">
-        <td>Title:</td>
-        <td>{{ filmInfo.title }}</td>
+          <td>Full Name:</td>
+          <td>{{ character.name }}</td>
       </tr>
       <tr :class="$style.tableRow">
-        <td>Director:</td>
-        <td>{{ filmInfo.director }}</td>
+          <td>Gender:</td>
+          <td>{{ character.gender }}</td>
       </tr>
       <tr :class="$style.tableRow">
-        <td>Year:</td>
-        <td>{{ filmInfo.releaseDate }}</td>
+          <td>Height: </td>
+          <td>{{ character.height }}</td>
       </tr>
       <tr :class="$style.tableRow">
-        <td>Characters:</td>
-        <td>
-          <ul>
-            <router-link
-              :class="$style.characterName"
-              tag="li"
-              v-for="character of filmInfo.characters"
-              :key="character.id"
-              :to="{ name: 'Character', params: { filmId: filmInfo.id, charId: character.id }}">
-                {{ character.name }}
-            </router-link>
-          </ul>
-        </td>
+          <td>Mass: </td>
+          <td>{{ character.mass }}</td>
+      </tr>
+      <tr :class="$style.tableRow">
+          <td>Birth Year:</td>
+          <td>{{ character.birthYear }}</td>
+      </tr>
+      <tr :class="$style.tableRow">
+          <td>Eye color:</td>
+          <td>{{ character.eyeColor }}</td>
+      </tr>
+      <tr :class="$style.tableRow">
+          <td>Skin color:</td>
+          <td>{{ character.skinColor }}</td>
+      </tr>
+      <tr :class="$style.tableRow">
+          <td>Hair color:</td>
+          <td>{{ character.hairColor }}</td>
+      </tr>
+      <tr :class="$style.tableRow">
+          <td>Homeworld:</td>
+          <td>{{ character.homeworld }}</td>
       </tr>
     </tbody>
   </table>
+
+  <h1 v-else> Spinner rotates </h1>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 
 export default {
-  name: 'Film',
+  name: 'Character',
 
   data() {
     return {
-      filmInfo: null,
+      character: null,
   ***REMOVED*****REMOVED*****REMOVED***
 ***REMOVED***
 
   methods: {
     ...mapActions([
-      'getFilmByIndex',
-      'getCharactersByIndexes',
+      'getCharacterByIndex',
     ]),
 ***REMOVED***
 
   async mounted() {
-    this.filmInfo = await this.getFilmByIndex(this.$route.params.filmId);
-    this.filmInfo.characters = await this.getCharactersByIndexes(this.filmInfo.characters);
+    this.character = await this.getCharacterByIndex(this.$route.params.charId);
 ***REMOVED***
+
 ***REMOVED***
 </script>
 
 <style module>
 
-.filmTable {
+.characterTable {
   margin: auto;
   background: white;
   border-radius: 3px;
@@ -104,11 +114,6 @@ export default {
 .tableRow:hover td {
   background-color: rgb(116, 60, 60);
   color: rgb(0, 0, 0);
-}
-
-.characterName:hover {
-    cursor: pointer;
-    color: #8B80FE;
 }
 
 </style>

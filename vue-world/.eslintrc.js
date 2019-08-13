@@ -23,5 +23,6 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-console': 'off',
     'import/no-unresolved': 'off',
+    'camelcase': 'off',
 ***REMOVED***
 ***REMOVED***

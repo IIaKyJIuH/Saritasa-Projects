@@ -7,6 +7,7 @@ import firebase from 'firebase';
 import Home from '@/components/home.vue';
 import authRoutes from '@/auth/routes';
 import filmsRoutes from '@/components/films/routes';
+import charactersRoutes from '@/components/characters/routes';
 
 Vue.use(Router);
 
@@ -24,6 +25,7 @@ const router = new Router({
 ***REMOVED*****REMOVED*****REMOVED***
     ...authRoutes,
     ...filmsRoutes,
+    ...charactersRoutes,
   ],
 });
 
