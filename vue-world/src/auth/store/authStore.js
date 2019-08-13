@@ -56,5 +56,20 @@ export default {
       );
 ***REMOVED*****REMOVED*****REMOVED***
 
+    async registerInFirebase(context, payload) {
+      const { email, password } = payload;
+      await firebase.auth().createUserWithEmailAndPassword(email, password).then(
+        // eslint-disable-next-line no-unused-vars
+        (request) => {
+          context.commit('setAuthStatus', true);
+          context.commit('setEmail', email);
+    ***REMOVED*****REMOVED*****REMOVED***
+
+        (err) => {
+          throw err;
+    ***REMOVED*****REMOVED*****REMOVED***
+      );
+***REMOVED*****REMOVED*****REMOVED***
+
 ***REMOVED***
 ***REMOVED***
