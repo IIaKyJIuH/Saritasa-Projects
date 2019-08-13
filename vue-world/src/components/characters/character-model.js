@@ -45,20 +45,20 @@ export default class FilmModel {
     name;
 
 ***REMOVED*****REMOVED*****REMOVED***
-   ***REMOVED*****REMOVED*** God knows what this means...........
+   ***REMOVED*****REMOVED*** Numeric value of skin color.
 ***REMOVED*****REMOVED*****REMOVED***
     skinColor;
 
-    constructor(dbData, index) {
-      this.databaseId = index;
-      this.birthYear = dbData.birth_year;
-      this.eyeColor = dbData.eye_color;
-      this.gender = dbData.gender;
-      this.hairColor = dbData.hair_color;
-      this.height = dbData.height;
-      this.homeworld = dbData.homeworld;
-      this.mass = dbData.mass;
-      this.name = dbData.name;
-      this.skinColor = dbData.skin_color;
+    constructor(characterModel) {
+      this.databaseId = characterModel.databaseId;
+      this.birthYear = characterModel.birthYear;
+      this.eyeColor = characterModel.eyeColor;
+      this.gender = characterModel.gender;
+      this.hairColor = characterModel.hairColor;
+      this.height = characterModel.height;
+      this.homeworld = characterModel.homeworld;
+      this.mass = characterModel.mass;
+      this.name = characterModel.name;
+      this.skinColor = characterModel.skinColor;
     }
 }

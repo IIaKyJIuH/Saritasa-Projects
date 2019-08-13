@@ -1,19 +1,34 @@
 export default class FilmModel {
+***REMOVED***
+ ***REMOVED*****REMOVED*** The film title.
+***REMOVED***
   title;
 
+***REMOVED***
+ ***REMOVED*****REMOVED*** The film director.
+***REMOVED***
   director;
 
+***REMOVED***
+ ***REMOVED*****REMOVED*** The film release year.
+***REMOVED***
   releaseDate;
 
+***REMOVED***
+ ***REMOVED*****REMOVED*** Characters participated in the film.
+***REMOVED***
   characters;
 
+***REMOVED***
+ ***REMOVED*****REMOVED*** The database index in the swapi array file.
+***REMOVED***
   databaseId;
 
-  constructor(dbData, index) {
-    this.characters = dbData.characters;
-    this.director = dbData.director;
-    this.releaseDate = new Date(dbData.release_date).getFullYear();
-    this.title = dbData.title;
-    this.databaseId = index;
+  constructor(filmModel) {
+    this.characters = filmModel.characters;
+    this.director = filmModel.director;
+    this.releaseDate = filmModel.releaseDate;
+    this.title = filmModel.title;
+    this.databaseId = filmModel.databaseId;
   }
 }

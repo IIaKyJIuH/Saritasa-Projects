@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import CharacterModel from '@/components/characters/character-model';
+import charactersService from '@/core/services/characters/characters-service';
 
 export default {
   state: {},
@@ -14,7 +14,7 @@ export default {
       return (await firebase.database()
         .ref('/swapi/people').once('value'))
         .val()
-        .map((item, index) => new CharacterModel(item.fields, index))
+        .map((item, index) => charactersService.mapDtoToCharacterModel(item.fields, index))
         .filter(item => array.includes(item.databaseId));
 ***REMOVED*****REMOVED*****REMOVED***
 
@@ -22,7 +22,7 @@ export default {
       const characterDbObject = (await firebase.database()
         .ref(`swapi/people/${payload}`).once('value'))
         .val().fields;
-      return new CharacterModel(characterDbObject, payload);
+      return charactersService.mapDtoToCharacterModel(characterDbObject, payload);
 ***REMOVED*****REMOVED*****REMOVED***
 
 ***REMOVED***
