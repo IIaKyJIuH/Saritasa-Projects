@@ -2,14 +2,17 @@ export default [
   {
     path: '/films',
     name: 'Films',
-    component: () => import('./films.vue'),
+    component: () => import('@/components/films/films.vue'),
     meta: {
       requiresAuth: true,
     },
   },
   {
-    path: '/films/:id',
+    path: '/films/:filmId',
     name: 'Film',
-    component: () => import('./film.vue'),
+    component: () => import('@/components/films/film.vue'),
+    meta: {
+      requiresAuth: true,
+    },
   },
 ];
