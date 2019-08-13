@@ -8,7 +8,7 @@ export default [
 ***REMOVED*****REMOVED*****REMOVED***
 ***REMOVED***
   {
-    path: '/films/:id',
+    path: '/films/:filmId',
     name: 'Film',
     component: () => import('@/components/films/film.vue'),
     meta: {
