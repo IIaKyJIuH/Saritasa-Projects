@@ -3,7 +3,7 @@
   :class="$style.filmsTable"
   v-if="films">
 
-    <thead :class="$style.head">
+    <thead>
       <tr :class="$style.headRow">
         <th
           :class="$style.headColumn"
@@ -14,7 +14,7 @@
       </tr>
     </thead>
 
-    <tbody :class="$style.body">
+    <tbody>
       <router-link
         :class="[$style.routingRow, $style.bodyRow]"
         tag="tr"
@@ -80,7 +80,7 @@ export default {
 .headColumn,
 .bodyColumn {
   padding: 15px;
-  background-color: rgba(255, 0, 0, .4);
+  background-color: rgba(255, 50, 50, 0.5);;
   color: #fff;
   border: 1px solid rgba(0, 0, 0, .8);
 }
@@ -90,7 +90,7 @@ export default {
 }
 
 .bodyRow:hover {
-  background-color: rgba(0, 0, 0, .3);
+  background-color: rgba(255, 255, 255, .8);
 }
 
 .bodyColumn {
@@ -104,7 +104,7 @@ export default {
   right: 0;
   top: -9999px;
   bottom: -9999px;
-  background-color: rgba(255, 175, 128, .6);
+  background-color: rgba(0, 0, 0, .8);
   z-index: -1;
 }
 

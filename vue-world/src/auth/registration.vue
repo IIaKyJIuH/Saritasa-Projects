@@ -61,6 +61,7 @@
 
     <button
       :class="$style.registerBtn"
+      :disabled="$v.$invalid"
       type="submit">
       Register
     </button>
@@ -103,12 +104,12 @@ export default {
 
   methods: {
     async registerUser() {
-      await this.loginToFirebase({ email: this.email, password: this.password });
+      await this.registerInFirebase({ email: this.email, password: this.password });
       this.$router.replace('/films');
     },
 
     ...mapActions([
-      'loginToFirebase',
+      'registerInFirebase',
     ]),
 
   },
