@@ -64,7 +64,7 @@ export default {
   },
 
   async mounted() {
-    this.character = await this.getCharacterByIndex(this.$route.params.id);
+    this.character = await this.getCharacterByIndex(this.$route.params.charId);
   },
 
 };
@@ -108,6 +108,7 @@ export default {
 
 .tableRow td:first-child {
   border-right: 6px double #C1C3D1;
+  width: 20%;
 }
 
 .tableRow:hover td {

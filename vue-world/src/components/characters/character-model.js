@@ -2,7 +2,7 @@ export default class FilmModel {
   /**
      * Index in the database swapi file.
      */
-    Id;
+    id;
 
     /**
      * Date of birth according to the the Star Wars universe.
@@ -50,7 +50,7 @@ export default class FilmModel {
     skinColor;
 
     constructor(characterModel) {
-      this.Id = characterModel.Id;
+      this.id = characterModel.id;
       this.birthYear = characterModel.birthYear;
       this.eyeColor = characterModel.eyeColor;
       this.gender = characterModel.gender;

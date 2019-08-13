@@ -8,7 +8,7 @@ export default [
     },
   },
   {
-    path: '/films/:id',
+    path: '/films/:filmId',
     name: 'Film',
     component: () => import('@/components/films/film.vue'),
     meta: {

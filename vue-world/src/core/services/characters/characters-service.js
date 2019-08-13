@@ -1,18 +1,20 @@
 import CharacterModel from '@/components/characters/character-model';
 
 export default {
-  mapDtoToCharacterModel(dto, index) {
+  mapDtoToCharacterModel({
+    birth_year, eye_color, gender, hair_color, height, homeworld, mass, name, skin_color, id,
+  }) {
     return new CharacterModel({
-      Id: index,
-      birthYear: dto.birth_year,
-      eyeColor: dto.eye_color,
-      gender: dto.gender,
-      hairColor: dto.hair_color,
-      height: dto.height,
-      homeworld: dto.homeworld,
-      mass: dto.mass,
-      name: dto.name,
-      skinColor: dto.skin_color,
+      id,
+      birthYear: birth_year,
+      eyeColor: eye_color,
+      gender,
+      hairColor: hair_color,
+      height,
+      homeworld,
+      mass,
+      name,
+      skinColor: skin_color,
     });
   },
 };

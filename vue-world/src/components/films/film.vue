@@ -18,14 +18,16 @@
       <tr :class="$style.tableRow">
         <td>Characters:</td>
         <td>
-          <router-link
-            :class="$style.characterName"
-            tag="span"
-            v-for="character of filmInfo.characters"
-            :key="character.Id"
-            :to="{ name: 'Character', params: { id: character.Id }}">
-              {{ character.name }}
-          </router-link>
+          <ul>
+            <router-link
+              :class="$style.characterName"
+              tag="li"
+              v-for="character of filmInfo.characters"
+              :key="character.id"
+              :to="{ name: 'Character', params: { filmId: filmInfo.id, charId: character.id }}">
+                {{ character.name }}
+            </router-link>
+          </ul>
         </td>
       </tr>
     </tbody>
@@ -52,7 +54,7 @@ export default {
   },
 
   async mounted() {
-    this.filmInfo = await this.getFilmByIndex(this.$route.params.id);
+    this.filmInfo = await this.getFilmByIndex(this.$route.params.filmId);
     this.filmInfo.characters = await this.getCharactersByIndexes(this.filmInfo.characters);
   },
 };
@@ -96,17 +98,12 @@ export default {
 
 .tableRow td:first-child {
   border-right: 6px double #C1C3D1;
+  width: 20%;
 }
 
 .tableRow:hover td {
   background-color: rgb(116, 60, 60);
   color: rgb(0, 0, 0);
-}
-
-.characterName {
-    border-left: 2px solid rgb(255, 122, 69);
-    padding: 0 10px;
-    height: 3px;
 }
 
 .characterName:hover {
