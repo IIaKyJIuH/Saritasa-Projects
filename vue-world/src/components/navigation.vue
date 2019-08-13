@@ -21,6 +21,14 @@
 
       <li :class="$style.navItem">
         <router-link
+          to="/admin"
+          :class="$style.routerLink">
+          Admin
+        </router-link>
+      </li>
+
+      <li :class="$style.navItem">
+        <router-link
           to="/login"
           v-show="!isAuthenticated"
           :class="$style.routerLink">

@@ -19,9 +19,15 @@ export default {
 
     async getFilmByIndex(context, payload) {
       const filmDbObject = (await firebase.database()
-        .ref(`swapi/films/${payload}`).once('value'))
-        .val().fields;
+        .ref(`swapi/films/${payload}/fields`).once('value'))
+        .val();
       return filmsService.mapDtoToFilmModel({ ...filmDbObject, id: payload });
+***REMOVED*****REMOVED*****REMOVED***
+
+    async updateFilm(context, { id, newFilm }) {
+      await firebase.database()
+        .ref(`swapi/films/${id}/fields`)
+        .update(filmsService.mapFilmModelToDto(newFilm));
 ***REMOVED*****REMOVED*****REMOVED***
 
 ***REMOVED***
