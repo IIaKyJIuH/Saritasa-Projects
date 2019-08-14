@@ -7,8 +7,8 @@ export default {
   },
 
   getters: {
-    getEmail: state => state.email,
-    isAuthenticated: state => state.authStatus,
+    getEmail: (state) => state.email,
+    isAuthenticated: (state) => state.authStatus,
   },
 
   mutations: {

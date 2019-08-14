@@ -13,7 +13,8 @@ Vue.config.productionTip = false;
 
 let app = '';
 
-firebase.initializeApp(process.env.FIREBASE_PARAMETERS);
+firebase.initializeApp(JSON.parse(process.env.VUE_APP_FIREBASE_PARAMETERS));
+
 
 /**
  * For displaying the app.
@@ -25,7 +26,7 @@ firebase.auth().onAuthStateChanged(() => {
       router,
       store,
       firebase,
-      render: h => h(App),
+      render: (h) => h(App),
     });
   }
 });

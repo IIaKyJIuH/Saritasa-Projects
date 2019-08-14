@@ -1,20 +1,21 @@
 <template>
   <nav>
     <ul :class="$style.navList">
-
       <li :class="$style.navItem">
         <router-link
           to="/home"
-          :class="$style.routerLink">
+          :class="$style.routerLink"
+        >
           Main
         </router-link>
       </li>
 
       <li :class="$style.navItem">
         <router-link
-          to="/films"
           v-show="isAuthenticated"
-          :class="$style.routerLink">
+          to="/films"
+          :class="$style.routerLink"
+        >
           Films
         </router-link>
       </li>
@@ -22,16 +23,18 @@
       <li :class="$style.navItem">
         <router-link
           to="/admin"
-          :class="$style.routerLink">
+          :class="$style.routerLink"
+        >
           Admin
         </router-link>
       </li>
 
       <li :class="$style.navItem">
         <router-link
-          to="/login"
           v-show="!isAuthenticated"
-          :class="$style.routerLink">
+          to="/login"
+          :class="$style.routerLink"
+        >
           Sign in
         </router-link>
       </li>
@@ -39,21 +42,22 @@
       <li :class="$style.navItem">
         <span
           v-show="isAuthenticated"
+          :class="$style.routerLink"
           @click="logout"
-          :class="$style.routerLink">
+        >
           Sign out
         </span>
       </li>
 
       <li :class="$style.navItem">
         <router-link
-          to="/register"
           v-show="!isAuthenticated"
-          :class="$style.routerLink">
+          to="/register"
+          :class="$style.routerLink"
+        >
           Sign up
         </router-link>
       </li>
-
     </ul>
   </nav>
 </template>
@@ -63,6 +67,7 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Navigation',
+
   computed: {
     ...mapGetters([
       'isAuthenticated',

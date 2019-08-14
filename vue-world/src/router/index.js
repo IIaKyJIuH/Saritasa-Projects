@@ -32,8 +32,8 @@ const router = new Router({
 /** Auth guard to check authentication.  */
 router.beforeEach((to, from, next) => {
   const { currentUser } = firebase.auth();
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+  const requiresAdmin = to.matched.some((record) => record.meta.requiresAdmin);
 
   if ((requiresAuth || requiresAdmin) && !currentUser) next('/login');
   else next();
