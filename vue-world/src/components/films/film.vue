@@ -1,7 +1,8 @@
 <template>
   <table
+    v-if="filmInfo"
     :class="$style.filmTable"
-    v-if="filmInfo">
+  >
     <tbody>
       <tr :class="$style.tableRow">
         <td>Title:</td>
@@ -20,12 +21,13 @@
         <td>
           <ul>
             <router-link
-              :class="$style.characterName"
-              tag="li"
               v-for="character of filmInfo.characters"
               :key="character.id"
-              :to="{ name: 'Character', params: { filmId: filmInfo.id, charId: character.id }}">
-                {{ character.name }}
+              :class="$style.characterName"
+              tag="li"
+              :to="{ name: 'Character', params: { filmId: filmInfo.id, charId: character.id }}"
+            >
+              {{ character.name }}
             </router-link>
           </ul>
         </td>
@@ -46,6 +48,11 @@ export default {
   ***REMOVED*****REMOVED*****REMOVED***
 ***REMOVED***
 
+  async mounted() {
+    this.filmInfo = await this.getFilmByIndex(this.$route.params.filmId);
+    this.filmInfo.characters = await this.getCharactersByIndexes(this.filmInfo.characters);
+***REMOVED***
+
   methods: {
     ...mapActions([
       'getFilmByIndex',
@@ -53,10 +60,6 @@ export default {
     ]),
 ***REMOVED***
 
-  async mounted() {
-    this.filmInfo = await this.getFilmByIndex(this.$route.params.filmId);
-    this.filmInfo.characters = await this.getCharactersByIndexes(this.filmInfo.characters);
-***REMOVED***
 ***REMOVED***
 </script>
 

@@ -7,8 +7,8 @@ export default {
 ***REMOVED***
 
   getters: {
-    getEmail: state => state.email,
-    isAuthenticated: state => state.authStatus,
+    getEmail: (state) => state.email,
+    isAuthenticated: (state) => state.authStatus,
 ***REMOVED***
 
   mutations: {

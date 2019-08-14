@@ -22,4 +22,5 @@ export default new Vuex.Store({
 
   mutations: {},
 
+
 });

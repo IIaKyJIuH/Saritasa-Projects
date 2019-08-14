@@ -1,13 +1,16 @@
 <template>
   <div :class="$style.container">
-    <h2 :class="$style.header"> Choose film to update: </h2>
+    <h2 :class="$style.header">
+      Choose film to update:
+    </h2>
     <ul :class="$style.routerList">
       <router-link
         v-for="film in films"
-        tag="li"
         :key="film.id"
+        tag="li"
         :class="$style.routerItem"
-        :to="{ name: 'AdminFilmUpdate', params: { filmId: film.id }}">
+        :to="{ name: 'AdminFilmUpdate', params: { filmId: film.id }}"
+      >
         {{ film.title }}, episode - {{ film.episodeId }}
       </router-link>
     </ul>
@@ -26,15 +29,16 @@ export default {
   ***REMOVED*****REMOVED*****REMOVED***
 ***REMOVED***
 
+  async mounted() {
+    this.films = await this.getFilms();
+***REMOVED***
+
   methods: {
     ...mapActions([
       'getFilms',
     ]),
 ***REMOVED***
 
-  async mounted() {
-    this.films = await this.getFilms();
-***REMOVED***
 ***REMOVED***
 </script>
 

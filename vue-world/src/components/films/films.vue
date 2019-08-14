@@ -1,27 +1,28 @@
 <template>
   <table
-  :class="$style.filmsTable"
-  v-if="films">
-
+    v-if="films"
+    :class="$style.filmsTable"
+  >
     <thead>
       <tr :class="$style.headRow">
         <th
-          :class="$style.headColumn"
           v-for="header in tableHeaders"
-          :key="header">
-            {{ header }}
+          :key="header"
+          :class="$style.headColumn"
+        >
+          {{ header }}
         </th>
       </tr>
     </thead>
 
     <tbody>
       <router-link
-        :class="[$style.routingRow, $style.bodyRow]"
-        tag="tr"
         v-for="film in films"
         :key="film.id"
-        :to="{ name: 'Film', params: { filmId: film.id }}">
-
+        :class="[$style.routingRow, $style.bodyRow]"
+        tag="tr"
+        :to="{ name: 'Film', params: { filmId: film.id }}"
+      >
         <td :class="$style.bodyColumn">
           {{ film.title }}
         </td>
@@ -31,10 +32,8 @@
         <td :class="$style.bodyColumn">
           {{ film.director }}
         </td>
-
       </router-link>
     </tbody>
-
   </table>
 </template>
 
@@ -51,15 +50,16 @@ export default {
   ***REMOVED*****REMOVED*****REMOVED***
 ***REMOVED***
 
+  async mounted() {
+    this.films = await this.getFilms();
+***REMOVED***
+
   methods: {
     ...mapActions([
       'getFilms',
     ]),
 ***REMOVED***
 
-  async mounted() {
-    this.films = await this.getFilms();
-***REMOVED***
 ***REMOVED***
 </script>
 

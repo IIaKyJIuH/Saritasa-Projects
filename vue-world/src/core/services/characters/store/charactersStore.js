@@ -16,7 +16,7 @@ export default {
         .val()
         .map((item, index) => charactersService
           .mapDtoToCharacterModel({ ...item.fields, id: index }))
-        .filter(item => array.includes(item.id));
+        .filter((item) => array.includes(item.id));
 ***REMOVED*****REMOVED*****REMOVED***
 
     async getCharacterByIndex(context, payload) {

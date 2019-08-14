@@ -1,66 +1,76 @@
 <template>
   <form
     v-if="filmInfo"
-    @submit.prevent="patchInfo">
-
+    @submit.prevent="patchInfo"
+  >
     <label
-      :class="$style.inputContainer">
+      :class="$style.inputContainer"
+    >
       Film title
       <br>
       <input
+        v-model="filmInfo.title"
         placeholder="Title"
         name="title"
         type="text"
-        v-model="filmInfo.title"
-        required/>
+        required
+      >
     </label>
 
     <label
-      :class="$style.inputContainer">
+      :class="$style.inputContainer"
+    >
       Film director
       <br>
       <input
+        v-model="filmInfo.director"
         placeholder="Director"
         name="director"
         type="text"
         required
-        v-model="filmInfo.director"/>
+      >
     </label>
 
     <label
-      :class="$style.inputContainer">
+      :class="$style.inputContainer"
+    >
       Episode
       <br>
       <input
+        v-model="filmInfo.episodeId"
         placeholder="Episode"
         name="episodeId"
         type="text"
         required
-        v-model="filmInfo.episodeId"/>
+      >
     </label>
 
     <label
-      :class="$style.inputContainer">
+      :class="$style.inputContainer"
+    >
       Release year
       <br>
       <input
+        v-model="filmInfo.releaseDate"
         placeholder="Release date"
         name="releaseDate"
         type="text"
         required
-        v-model="filmInfo.releaseDate"/>
+      >
     </label>
 
     <hr>
 
     <button
-      type="submit">
+      type="submit"
+    >
       Update
     </button>
     <router-link
       to="/admin/films"
       tag="button"
-      replace>
+      replace
+    >
       Cancel
     </router-link>
   </form>
@@ -78,11 +88,16 @@ export default {
   ***REMOVED*****REMOVED*****REMOVED***
 ***REMOVED***
 
+  async mounted() {
+    this.filmInfo = await this.getFilmByIndex(this.$route.params.filmId);
+***REMOVED***
+
   methods: {
     ...mapActions([
       'getFilmByIndex',
       'updateFilm',
     ]),
+
 
     async patchInfo() {
       await this.updateFilm({ id: this.filmInfo.id, newFilm: this.filmInfo });
@@ -90,9 +105,6 @@ export default {
 ***REMOVED*****REMOVED*****REMOVED***
 ***REMOVED***
 
-  async mounted() {
-    this.filmInfo = await this.getFilmByIndex(this.$route.params.filmId);
-***REMOVED***
 ***REMOVED***
 </script>
 

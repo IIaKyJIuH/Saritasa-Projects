@@ -1,6 +1,6 @@
 <template>
   <div id="admin">
-    <h1 :class="$style.adminHeader"> You are using admin privilege </h1>
+    <h1> You are using admin privilege </h1>
     <router-view />
   </div>
 </template>

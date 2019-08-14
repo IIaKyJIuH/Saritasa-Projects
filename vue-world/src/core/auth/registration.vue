@@ -1,34 +1,40 @@
 <template>
   <form
     :class="$style.registerForm"
-    @submit.prevent="registerUser">
-
+    @submit.prevent="registerUser"
+  >
     <label
-      :class="$style.inputContainer">
+      :class="$style.inputContainer"
+    >
       Input e-mail
       <br>
       <input
+        v-model.lazy="$v.email.$model"
         type="email"
         placeholder="lololo@lalala.ru"
-        v-model.lazy="$v.email.$model">
+      >
       <span
         v-if="$v.email.$error"
-        :class="$style.validationAlert">
+        :class="$style.validationAlert"
+      >
         Correct email format - "lol@kek.ru"
       </span>
     </label>
 
     <label
-      :class="$style.inputContainer">
+      :class="$style.inputContainer"
+    >
       Input password
       <br>
       <input
+        v-model.lazy="$v.password.$model"
         type="password"
         placeholder="♥♥♥♥♥♥"
-        v-model.lazy="$v.password.$model">
+      >
       <span
         v-if="$v.password.$error"
-        :class="$style.validationAlert">
+        :class="$style.validationAlert"
+      >
         <template v-if="!$v.password.maxLength">
           Password length shouldn`t be more than {{ $v.password.$params.maxLength.max }} symbols
         </template>
@@ -42,17 +48,20 @@
     </label>
 
     <label
-      :class="$style.inputContainer">
+      :class="$style.inputContainer"
+    >
       Confirm password
       <br>
       <input
+        v-model.lazy="$v.passwordRepeat.$model"
         type="password"
         placeholder="♥♥♥♥♥♥"
         :disabled="!$v.password.required || $v.password.$error"
-        v-model.lazy="$v.passwordRepeat.$model">
+      >
       <span
         v-if="$v.passwordRepeat.$error"
-        :class="$style.validationAlert">
+        :class="$style.validationAlert"
+      >
         <template v-if="!$v.passwordRepeat.sameAsPassword && !$v.password.$error">
           Passwords should be identical
         </template>
@@ -62,10 +71,10 @@
     <button
       :class="$style.registerBtn"
       :disabled="$v.$invalid"
-      type="submit">
+      type="submit"
+    >
       Register
     </button>
-
   </form>
 </template>
 
@@ -102,6 +111,16 @@ export default {
 ***REMOVED*****REMOVED*****REMOVED***
 ***REMOVED***
 
+  computed: {
+    ...mapGetters([
+      'getEmail',
+    ]),
+***REMOVED***
+
+  mounted() {
+    this.email = this.getEmail;
+***REMOVED***
+
   methods: {
     async registerUser() {
       await this.registerInFirebase({ email: this.email, password: this.password });
@@ -112,16 +131,6 @@ export default {
       'registerInFirebase',
     ]),
 
-***REMOVED***
-
-  computed: {
-    ...mapGetters([
-      'getEmail',
-    ]),
-***REMOVED***
-
-  mounted() {
-    this.email = this.getEmail;
 ***REMOVED***
 ***REMOVED***
 </script>

@@ -2,35 +2,41 @@
   <form
     :class="$style.loginForm"
     @submit.prevent="login"
-    @reset.prevent="register">
-
+    @reset.prevent="register"
+  >
     <label
-      :class="$style.inputContainer">
+      :class="$style.inputContainer"
+    >
       Input e-mail
       <br>
       <input
+        v-model.lazy="$v.email.$model"
         type="email"
         placeholder="lololo@lalala.ru"
-        v-model.lazy="$v.email.$model">
+      >
       <span
         v-if="$v.email.$error"
-        :class="$style.validationAlert">
+        :class="$style.validationAlert"
+      >
         Correct email format - "lol@kek.ru"
       </span>
     </label>
 
 
     <label
-      :class="$style.inputContainer">
+      :class="$style.inputContainer"
+    >
       Input password
       <br>
       <input
+        v-model.lazy="$v.password.$model"
         type="password"
         placeholder="♥♥♥♥♥♥"
-        v-model.lazy="$v.password.$model">
+      >
       <span
         v-if="$v.password.$error"
-        :class="$style.validationAlert">
+        :class="$style.validationAlert"
+      >
         <template v-if="!$v.password.maxLength">
           Password length shouldn`t be more than {{ $v.password.$params.maxLength.max }} symbols
         </template>
@@ -48,17 +54,18 @@
       <button
         :class="$style.loginBtn"
         type="submit"
-        :disabled="$v.$invalid">
+        :disabled="$v.$invalid"
+      >
         Log in
       </button>
 
       <button
         :class="$style.registerBtn"
-        type="reset">
+        type="reset"
+      >
         Register
       </button>
     </footer>
-
   </form>
 </template>
 
