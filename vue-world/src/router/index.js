@@ -34,14 +34,15 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const { currentUser } = firebase.auth();
   store.dispatch('setAuthStatus', !!currentUser);
-  const isAdmin = !store.getters.isAdmin;
+  const { isAdmin } = store.getters;
   const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
   const requiresAdmin = to.matched.some((record) => record.meta.requiresAdmin);
-  // console.log(`${isAdmin}__req-${requiresAdmin}`);
 
   if ((requiresAuth || requiresAdmin) && !currentUser) next('/login');
-  if (requiresAdmin && !isAdmin) next('/home');
-  else next();
+  if (currentUser && requiresAdmin && !isAdmin) {
+    next('/films');
+    alert('click on admin nav button');
+  } else next();
 });
 
 export default router;

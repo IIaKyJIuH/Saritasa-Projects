@@ -13,8 +13,8 @@ export default [
       },
       {
         path: 'films',
-        name: 'AdminFilms',
-        component: () => import('@/admin/films/admin-films.vue'),
+        name: 'Films',
+        component: () => import('@/components/films/films.vue'),
       },
       {
         path: 'films/:filmId',
