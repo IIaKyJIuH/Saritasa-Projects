@@ -1,8 +1,7 @@
 <template>
   <table
     v-if="character"
-    :class="$style.characterTable"
-  >
+    :class="$style.characterTable">
     <tbody>
       <tr :class="$style.tableRow">
         <td>Full Name:</td>

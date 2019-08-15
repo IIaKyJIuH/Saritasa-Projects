@@ -1,15 +1,13 @@
 <template>
   <table
     v-if="films"
-    :class="$style.filmsTable"
-  >
+    :class="$style.filmsTable">
     <thead>
       <tr :class="$style.headRow">
         <th
           v-for="header in tableHeaders"
           :key="header"
-          :class="$style.headColumn"
-        >
+          :class="$style.headColumn">
           {{ header }}
         </th>
       </tr>
@@ -21,8 +19,7 @@
         :key="film.id"
         :class="[$style.routingRow, $style.bodyRow]"
         tag="tr"
-        :to="{ name: 'Film', params: { filmId: film.id }}"
-      >
+        :to="{ name: 'Film', params: { filmId: film.id }}">
         <td :class="$style.bodyColumn">
           {{ film.title }}
         </td>
