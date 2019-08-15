@@ -1,58 +1,51 @@
 <template>
   <nav>
     <ul :class="$style.navList">
-      <li>
-        <router-link
-          to="/home"
-          :class="$style.navItem">
-          Main
-        </router-link>
+      <router-link
+        to="/home"
+        tag="li"
+        :class="$style.navItem">
+        Main
+      </router-link>
+
+      <router-link
+        v-show="isAuthenticated"
+        tag="li"
+        to="/films"
+        :class="$style.navItem">
+        Films
+      </router-link>
+
+      <li
+        :class="$style.navItem"
+        @click="getAdminFeatures">
+        Admin
       </li>
 
-      <li>
-        <router-link
-          v-show="isAuthenticated"
-          to="/films"
-          :class="$style.navItem">
-          Films
-        </router-link>
+      <router-link
+        v-show="!isAuthenticated"
+        tag="li"
+        to="/login"
+        :class="$style.navItem">
+        Sign in
+      </router-link>
+
+      <li
+        v-show="isAuthenticated"
+        :class="$style.navItem"
+        @click="logout">
+        Sign out
       </li>
 
-      <li>
-        <a
-          :class="$style.navItem"
-          @click="toggleAdminStatus">
-          Admin
-        </a>
-      </li>
-
-      <li>
-        <router-link
-          v-show="!isAuthenticated"
-          to="/login"
-          :class="$style.navItem">
-          Sign in
-        </router-link>
-      </li>
-
-      <li>
-        <span
-          v-show="isAuthenticated"
-          :class="$style.navItem"
-          @click="logout">
-          Sign out
-        </span>
-      </li>
-
-      <li>
-        <router-link
-          v-show="!isAuthenticated"
-          to="/register"
-          :class="$style.navItem">
-          Sign up
-        </router-link>
-      </li>
+      <router-link
+        v-show="!isAuthenticated"
+        tag="li"
+        to="/register"
+        :class="$style.navItem">
+        Sign up
+      </router-link>
     </ul>
+    <!-- make user email shown here--->
   </nav>
 </template>
 
@@ -65,19 +58,24 @@ export default {
   computed: {
     ...mapGetters([
       'isAuthenticated',
+      'isAdmin',
     ]),
 ***REMOVED***
 
   methods: {
     async logout() {
       await this.resetAuth();
-      this.$router.replace('./home');
-***REMOVED*****REMOVED*****REMOVED***
+      this.$router.push('/');
+ ***REMOVED*****REMOVED***
 
     ...mapActions([
       'resetAuth',
       'toggleAdminStatus',
     ]),
+
+    getAdminFeatures() {
+      this.toggleAdminStatus();
+ ***REMOVED*****REMOVED***
 
 ***REMOVED***
 ***REMOVED***
@@ -92,7 +90,7 @@ export default {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333333;
+  background-color: #555555;
 }
 
 .navItem {
@@ -105,11 +103,11 @@ export default {
 }
 
 .navItem:hover {
-  background-color: #111111;
+  opacity: .7;
 }
 
-***REMOVED*** .router-link-active {
-  background-color: #fff59e !important;
-} TODO: doesn`t work***REMOVED***/
+.navItem:active {
+  opacity: .2;
+}
 
 </style>

@@ -10,6 +10,10 @@
           :class="$style.headColumn">
           {{ header }}
         </th>
+        <th
+          v-if="isAdmin">
+          ADMIN
+        </th>
       </tr>
     </thead>
 
@@ -29,13 +33,19 @@
         <td :class="$style.bodyColumn">
           {{ film.director }}
         </td>
+        <td
+          v-if="isAdmin"
+          :class="$style.adminColumn"
+          @click.self.prevent="editFilm(film.id)">
+          Edit
+        </td>
       </router-link>
     </tbody>
   </table>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'Films',
@@ -47,7 +57,17 @@ export default {
   ***REMOVED*****REMOVED*****REMOVED***
 ***REMOVED***
 
+  computed: {
+    ...mapGetters([
+      'isAdmin',
+    ]),
+***REMOVED***
+
   async mounted() {
+    if (this.isAdmin && !this.$route.path.includes('admin')) {
+      this.$router.replace('/admin');
+      return;
+    }
     this.films = await this.getFilms();
 ***REMOVED***
 
@@ -55,6 +75,10 @@ export default {
     ...mapActions([
       'getFilms',
     ]),
+
+    editFilm(filmId) {
+      this.$router.push({ name: 'AdminFilmUpdate', params: { filmId } });
+***REMOVED*****REMOVED*****REMOVED***
 ***REMOVED***
 
 ***REMOVED***
@@ -66,6 +90,7 @@ export default {
   margin: auto;
   width: 800px;
   border-collapse: collapse;
+  table-layout: fixed;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, .1);
 }
@@ -87,22 +112,33 @@ export default {
 }
 
 .bodyRow:hover {
-  background-color: rgba(0, 0, 0, .3);
+  background-color: rgba(184, 43, 43, 0.5);
 }
 
 .bodyColumn {
   position: relative;
 }
 
-.bodyColumn:hover::before {
+.bodyColumn:hover::after {
   content: "";
   position: absolute;
+  background-color: rgb(182, 182, 89);
   left: 0;
-  right: 0;
-  top: -9999px;
-  bottom: -9999px;
-  background-color: rgba(255, 175, 128, .6);
+  top: -5000px;
+  height: 10000px;
+  width: 100%;
   z-index: -1;
+}
+
+.adminColumn {
+  background-color: red;
+  border: 1px solid rgba(0, 0, 0, .8);
+  padding: 15px;
+  opacity: .7;
+}
+
+.adminColumn:hover {
+  opacity: 1;
 }
 
 </style>

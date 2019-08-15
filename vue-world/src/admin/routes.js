@@ -13,8 +13,8 @@ export default [
   ***REMOVED*****REMOVED*****REMOVED***
       {
         path: 'films',
-        name: 'AdminFilms',
-        component: () => import('@/admin/films/admin-films.vue'),
+        name: 'Films',
+        component: () => import('@/components/films/films.vue'),
   ***REMOVED*****REMOVED*****REMOVED***
       {
         path: 'films/:filmId',

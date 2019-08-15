@@ -12,11 +12,11 @@ export default {
   data() {
     return {
 
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
 ***REMOVED***
 ***REMOVED***
 </script>
 
-<style module>
+<style>
 
 </style>
