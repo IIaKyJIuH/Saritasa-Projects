@@ -2,13 +2,15 @@ import firebase from 'firebase';
 
 export default {
   state: {
-    email: '',
+    email: null,
     authStatus: false,
+    adminStatus: false,
 ***REMOVED***
 
   getters: {
     getEmail: (state) => state.email,
     isAuthenticated: (state) => state.authStatus,
+    isAdmin: (state) => state.adminStatus,
 ***REMOVED***
 
   mutations: {
@@ -19,6 +21,10 @@ export default {
 
     setAuthStatus(state, payload) {
       state.authStatus = payload;
+***REMOVED*****REMOVED*****REMOVED***
+
+    setAdminStatus(state, payload) {
+      state.adminStatus = payload;
 ***REMOVED*****REMOVED*****REMOVED***
 
 ***REMOVED***
@@ -32,11 +38,16 @@ export default {
       context.commit('setAuthStatus', payload);
 ***REMOVED*****REMOVED*****REMOVED***
 
+    setAdminStatus(context, payload) {
+      context.commit('setAdminStatus', payload);
+***REMOVED*****REMOVED*****REMOVED***
+
     async resetAuth(context) {
       await firebase.auth().signOut().then(
         () => {
-          context.commit('setEmail', '');
+          context.commit('setEmail', null);
           context.commit('setAuthStatus', false);
+          context.commit('setAdminStatus', false);
     ***REMOVED*****REMOVED*****REMOVED***
       );
 ***REMOVED*****REMOVED*****REMOVED***
@@ -50,9 +61,7 @@ export default {
           context.commit('setEmail', email);
     ***REMOVED*****REMOVED*****REMOVED***
 
-        (err) => {
-          throw err;
-    ***REMOVED*****REMOVED*****REMOVED***
+        (err) => err,
       );
 ***REMOVED*****REMOVED*****REMOVED***
 
@@ -65,10 +74,14 @@ export default {
           context.commit('setEmail', email);
     ***REMOVED*****REMOVED*****REMOVED***
 
-        (err) => {
-          throw err;
-    ***REMOVED*****REMOVED*****REMOVED***
+        (err) => err,
       );
+***REMOVED*****REMOVED*****REMOVED***
+
+    toggleAdminStatus({ commit, getters }) {
+      if (getters.isAuthenticated) {
+        commit('setAdminStatus', !getters.isAdmin);
+      } else alert('You must login firstly');
 ***REMOVED*****REMOVED*****REMOVED***
 
 ***REMOVED***

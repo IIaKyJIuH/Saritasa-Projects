@@ -1,11 +1,8 @@
 <template>
   <form
     v-if="filmInfo"
-    @submit.prevent="patchInfo"
-  >
-    <label
-      :class="$style.inputContainer"
-    >
+    @submit.prevent="patchInfo">
+    <label :class="$style.inputContainer">
       Film title
       <br>
       <input
@@ -13,13 +10,10 @@
         placeholder="Title"
         name="title"
         type="text"
-        required
-      >
+        required>
     </label>
 
-    <label
-      :class="$style.inputContainer"
-    >
+    <label :class="$style.inputContainer">
       Film director
       <br>
       <input
@@ -27,13 +21,10 @@
         placeholder="Director"
         name="director"
         type="text"
-        required
-      >
+        required>
     </label>
 
-    <label
-      :class="$style.inputContainer"
-    >
+    <label :class="$style.inputContainer">
       Episode
       <br>
       <input
@@ -41,13 +32,10 @@
         placeholder="Episode"
         name="episodeId"
         type="text"
-        required
-      >
+        required>
     </label>
 
-    <label
-      :class="$style.inputContainer"
-    >
+    <label :class="$style.inputContainer">
       Release year
       <br>
       <input
@@ -55,22 +43,18 @@
         placeholder="Release date"
         name="releaseDate"
         type="text"
-        required
-      >
+        required>
     </label>
 
     <hr>
 
-    <button
-      type="submit"
-    >
+    <button type="submit">
       Update
     </button>
     <router-link
       to="/admin/films"
       tag="button"
-      replace
-    >
+      replace>
       Cancel
     </router-link>
   </form>

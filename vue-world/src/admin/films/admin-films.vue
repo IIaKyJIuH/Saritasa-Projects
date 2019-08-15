@@ -9,8 +9,7 @@
         :key="film.id"
         tag="li"
         :class="$style.routerItem"
-        :to="{ name: 'AdminFilmUpdate', params: { filmId: film.id }}"
-      >
+        :to="{ name: 'AdminFilmUpdate', params: { filmId: film.id }}">
         {{ film.title }}, episode - {{ film.episodeId }}
       </router-link>
     </ul>

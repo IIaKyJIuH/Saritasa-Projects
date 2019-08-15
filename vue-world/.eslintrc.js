@@ -8,7 +8,7 @@ module.exports = {
     sourceType: 'module',
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
     parser: 'babel-eslint',
 ***REMOVED***
   plugins: [
@@ -38,5 +38,6 @@ module.exports = {
     }],
     'vue/html-self-closing': ['warn'],
     'vue/require-default-prop': ['warn'],
+    'vue/html-closing-bracket-newline': 'off',
 ***REMOVED***
 ***REMOVED***

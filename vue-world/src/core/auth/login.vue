@@ -2,41 +2,32 @@
   <form
     :class="$style.loginForm"
     @submit.prevent="login"
-    @reset.prevent="register"
-  >
-    <label
-      :class="$style.inputContainer"
-    >
+    @reset.prevent="register">
+    <label :class="$style.inputContainer">
       Input e-mail
       <br>
       <input
         v-model.lazy="$v.email.$model"
         type="email"
-        placeholder="lololo@lalala.ru"
-      >
+        placeholder="lololo@lalala.ru">
       <span
         v-if="$v.email.$error"
-        :class="$style.validationAlert"
-      >
+        :class="$style.validationAlert">
         Correct email format - "lol@kek.ru"
       </span>
     </label>
 
 
-    <label
-      :class="$style.inputContainer"
-    >
+    <label :class="$style.inputContainer">
       Input password
       <br>
       <input
         v-model.lazy="$v.password.$model"
         type="password"
-        placeholder="♥♥♥♥♥♥"
-      >
+        placeholder="♥♥♥♥♥♥">
       <span
         v-if="$v.password.$error"
-        :class="$style.validationAlert"
-      >
+        :class="$style.validationAlert">
         <template v-if="!$v.password.maxLength">
           Password length shouldn`t be more than {{ $v.password.$params.maxLength.max }} symbols
         </template>
@@ -54,15 +45,13 @@
       <button
         :class="$style.loginBtn"
         type="submit"
-        :disabled="$v.$invalid"
-      >
+        :disabled="$v.$invalid">
         Log in
       </button>
 
       <button
         :class="$style.registerBtn"
-        type="reset"
-      >
+        type="reset">
         Register
       </button>
     </footer>
@@ -82,31 +71,31 @@ export default {
     return {
       email: 'heh@mda.ru',
       password: 'lolkek',
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
 ***REMOVED***
 
   validations: {
     email: {
       required,
       email,
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
     password: {
       required,
       maxLength: maxLength(10),
       minLength: minLength(3),
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 ***REMOVED***
 
   methods: {
     async login() {
       await this.loginToFirebase({ email: this.email, password: this.password });
       this.$router.replace('/films');
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 
     register() {
       this.setEmail(this.email);
       this.$router.push('/register');
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 
     ...mapActions([
       'loginToFirebase',

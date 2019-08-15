@@ -1,8 +1,7 @@
 <template>
   <table
     v-if="filmInfo"
-    :class="$style.filmTable"
-  >
+    :class="$style.filmTable">
     <tbody>
       <tr :class="$style.tableRow">
         <td>Title:</td>
@@ -25,8 +24,7 @@
               :key="character.id"
               :class="$style.characterName"
               tag="li"
-              :to="{ name: 'Character', params: { filmId: filmInfo.id, charId: character.id }}"
-            >
+              :to="{ name: 'Character', params: { charId: character.id }}">
               {{ character.name }}
             </router-link>
           </ul>

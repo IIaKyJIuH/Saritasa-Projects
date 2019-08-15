@@ -1,60 +1,54 @@
 <template>
   <nav>
     <ul :class="$style.navList">
-      <li :class="$style.navItem">
+      <li>
         <router-link
           to="/home"
-          :class="$style.routerLink"
-        >
+          :class="$style.navItem">
           Main
         </router-link>
       </li>
 
-      <li :class="$style.navItem">
+      <li>
         <router-link
           v-show="isAuthenticated"
           to="/films"
-          :class="$style.routerLink"
-        >
+          :class="$style.navItem">
           Films
         </router-link>
       </li>
 
-      <li :class="$style.navItem">
-        <router-link
-          to="/admin"
-          :class="$style.routerLink"
-        >
+      <li>
+        <a
+          :class="$style.navItem"
+          @click="toggleAdminStatus">
           Admin
-        </router-link>
+        </a>
       </li>
 
-      <li :class="$style.navItem">
+      <li>
         <router-link
           v-show="!isAuthenticated"
           to="/login"
-          :class="$style.routerLink"
-        >
+          :class="$style.navItem">
           Sign in
         </router-link>
       </li>
 
-      <li :class="$style.navItem">
+      <li>
         <span
           v-show="isAuthenticated"
-          :class="$style.routerLink"
-          @click="logout"
-        >
+          :class="$style.navItem"
+          @click="logout">
           Sign out
         </span>
       </li>
 
-      <li :class="$style.navItem">
+      <li>
         <router-link
           v-show="!isAuthenticated"
           to="/register"
-          :class="$style.routerLink"
-        >
+          :class="$style.navItem">
           Sign up
         </router-link>
       </li>
@@ -82,7 +76,9 @@ export default {
 
     ...mapActions([
       'resetAuth',
+      'toggleAdminStatus',
     ]),
+
 ***REMOVED***
 ***REMOVED***
 </script>
@@ -91,6 +87,8 @@ export default {
 
 .navList {
   list-style-type: none;
+  display: flex;
+  flex-flow: row wrap;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -98,10 +96,6 @@ export default {
 }
 
 .navItem {
-  float: left;
-}
-
-.routerLink {
   display: block;
   color: white;
   text-align: center;
@@ -110,7 +104,7 @@ export default {
   cursor: pointer;
 }
 
-.routerLink:hover {
+.navItem:hover {
   background-color: #111111;
 }
 

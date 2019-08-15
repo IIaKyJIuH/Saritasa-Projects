@@ -1,40 +1,31 @@
 <template>
   <form
     :class="$style.registerForm"
-    @submit.prevent="registerUser"
-  >
-    <label
-      :class="$style.inputContainer"
-    >
+    @submit.prevent="registerUser">
+    <label :class="$style.inputContainer">
       Input e-mail
       <br>
       <input
         v-model.lazy="$v.email.$model"
         type="email"
-        placeholder="lololo@lalala.ru"
-      >
+        placeholder="lololo@lalala.ru">
       <span
         v-if="$v.email.$error"
-        :class="$style.validationAlert"
-      >
+        :class="$style.validationAlert">
         Correct email format - "lol@kek.ru"
       </span>
     </label>
 
-    <label
-      :class="$style.inputContainer"
-    >
+    <label :class="$style.inputContainer">
       Input password
       <br>
       <input
         v-model.lazy="$v.password.$model"
         type="password"
-        placeholder="♥♥♥♥♥♥"
-      >
+        placeholder="♥♥♥♥♥♥">
       <span
         v-if="$v.password.$error"
-        :class="$style.validationAlert"
-      >
+        :class="$style.validationAlert">
         <template v-if="!$v.password.maxLength">
           Password length shouldn`t be more than {{ $v.password.$params.maxLength.max }} symbols
         </template>
@@ -47,21 +38,17 @@
       </span>
     </label>
 
-    <label
-      :class="$style.inputContainer"
-    >
+    <label :class="$style.inputContainer">
       Confirm password
       <br>
       <input
         v-model.lazy="$v.passwordRepeat.$model"
         type="password"
         placeholder="♥♥♥♥♥♥"
-        :disabled="!$v.password.required || $v.password.$error"
-      >
+        :disabled="!$v.password.required || $v.password.$error">
       <span
         v-if="$v.passwordRepeat.$error"
-        :class="$style.validationAlert"
-      >
+        :class="$style.validationAlert">
         <template v-if="!$v.passwordRepeat.sameAsPassword && !$v.password.$error">
           Passwords should be identical
         </template>
@@ -71,8 +58,7 @@
     <button
       :class="$style.registerBtn"
       :disabled="$v.$invalid"
-      type="submit"
-    >
+      type="submit">
       Register
     </button>
   </form>
@@ -92,23 +78,23 @@ export default {
       email: '',
       password: '',
       passwordRepeat: '',
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
 ***REMOVED***
 
   validations: {
     email: {
       required,
       email,
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
     password: {
       required,
       maxLength: maxLength(10),
       minLength: minLength(3),
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
     passwordRepeat: {
       required,
       sameAsPassword: sameAs('password'),
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 ***REMOVED***
 
   computed: {
@@ -125,7 +111,7 @@ export default {
     async registerUser() {
       await this.registerInFirebase({ email: this.email, password: this.password });
       this.$router.replace('/films');
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 
     ...mapActions([
       'registerInFirebase',
