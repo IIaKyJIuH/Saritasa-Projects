@@ -1,70 +1,66 @@
 <template>
   <table
-    :class="$style.characterTable"
-    v-if="character">
+    v-if="character"
+    :class="$style.characterTable">
     <tbody>
       <tr :class="$style.tableRow">
-          <td>Full Name:</td>
-          <td>{{ character.name }}</td>
+        <td>Full Name:</td>
+        <td>{{ character.name }}</td>
       </tr>
       <tr :class="$style.tableRow">
-          <td>Gender:</td>
-          <td>{{ character.gender }}</td>
+        <td>Gender:</td>
+        <td>{{ character.gender }}</td>
       </tr>
       <tr :class="$style.tableRow">
-          <td>Height: </td>
-          <td>{{ character.height }}</td>
+        <td>Height: </td>
+        <td>{{ character.height }}</td>
       </tr>
       <tr :class="$style.tableRow">
-          <td>Mass: </td>
-          <td>{{ character.mass }}</td>
+        <td>Mass: </td>
+        <td>{{ character.mass }}</td>
       </tr>
       <tr :class="$style.tableRow">
-          <td>Birth Year:</td>
-          <td>{{ character.birthYear }}</td>
+        <td>Birth Year:</td>
+        <td>{{ character.birthYear }}</td>
       </tr>
       <tr :class="$style.tableRow">
-          <td>Eye color:</td>
-          <td>{{ character.eyeColor }}</td>
+        <td>Eye color:</td>
+        <td>{{ character.eyeColor }}</td>
       </tr>
       <tr :class="$style.tableRow">
-          <td>Skin color:</td>
-          <td>{{ character.skinColor }}</td>
+        <td>Skin color:</td>
+        <td>{{ character.skinColor }}</td>
       </tr>
       <tr :class="$style.tableRow">
-          <td>Hair color:</td>
-          <td>{{ character.hairColor }}</td>
+        <td>Hair color:</td>
+        <td>{{ character.hairColor }}</td>
       </tr>
       <tr :class="$style.tableRow">
-          <td>Homeworld:</td>
-          <td>{{ character.homeworld }}</td>
+        <td>Homeworld:</td>
+        <td>{{ character.homeworld }}</td>
       </tr>
     </tbody>
   </table>
 
-  <h1 v-else> Spinner rotates </h1>
+  <h1 v-else>
+    Spinner rotates
+  </h1>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
   name: 'Character',
+
+  inject: ['charactersService'],
 
   data() {
     return {
       character: null,
-  ***REMOVED*****REMOVED*****REMOVED***
-***REMOVED***
-
-  methods: {
-    ...mapActions([
-      'getCharacterByIndex',
-    ]),
+   ***REMOVED*****REMOVED***
 ***REMOVED***
 
   async mounted() {
-    this.character = await this.getCharacterByIndex(this.$route.params.charId);
+    this.character = await this.charactersService.getCharacterByIndex(this.$route.params.charId);
 ***REMOVED***
 
 ***REMOVED***

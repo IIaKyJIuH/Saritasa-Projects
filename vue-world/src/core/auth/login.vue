@@ -3,15 +3,13 @@
     :class="$style.loginForm"
     @submit.prevent="login"
     @reset.prevent="register">
-
-    <label
-      :class="$style.inputContainer">
+    <label :class="$style.inputContainer">
       Input e-mail
       <br>
       <input
+        v-model.lazy="$v.email.$model"
         type="email"
-        placeholder="lololo@lalala.ru"
-        v-model.lazy="$v.email.$model">
+        placeholder="lololo@lalala.ru">
       <span
         v-if="$v.email.$error"
         :class="$style.validationAlert">
@@ -20,14 +18,13 @@
     </label>
 
 
-    <label
-      :class="$style.inputContainer">
+    <label :class="$style.inputContainer">
       Input password
       <br>
       <input
+        v-model.lazy="$v.password.$model"
         type="password"
-        placeholder="♥♥♥♥♥♥"
-        v-model.lazy="$v.password.$model">
+        placeholder="♥♥♥♥♥♥">
       <span
         v-if="$v.password.$error"
         :class="$style.validationAlert">
@@ -58,7 +55,6 @@
         Register
       </button>
     </footer>
-
   </form>
 </template>
 
@@ -75,31 +71,31 @@ export default {
     return {
       email: 'heh@mda.ru',
       password: 'lolkek',
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
 ***REMOVED***
 
   validations: {
     email: {
       required,
       email,
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
     password: {
       required,
       maxLength: maxLength(10),
       minLength: minLength(3),
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 ***REMOVED***
 
   methods: {
     async login() {
       await this.loginToFirebase({ email: this.email, password: this.password });
       this.$router.replace('/films');
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 
     register() {
       this.setEmail(this.email);
       this.$router.push('/register');
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 
     ...mapActions([
       'loginToFirebase',

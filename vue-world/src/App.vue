@@ -9,9 +9,19 @@
 <script>
 import Navigation from '@/components/navigation.vue';
 import Footer from '@/components/footer.vue';
+import filmsService from '@/core/services/films/films-service';
+import charactersService from '@/core/services/characters/characters-service';
 
 export default {
   name: 'App',
+
+  provide() {
+    return {
+      filmsService,
+      charactersService,
+   ***REMOVED*****REMOVED***
+***REMOVED***
+
   components: {
     Navigation,
     Footer,
@@ -28,6 +38,10 @@ body {
   margin: 0;
 }
 
+body {
+  background-color: #aaaaaa;
+}
+
 #app {
   height: 100%;
   font-family: "Roboto", helvetica, arial, sans-serif;
@@ -37,7 +51,6 @@ body {
   font-size: 18px;
   text-align: center;
   color: #2c3e50;
-  background-color: #aaaaaa;
   display: flex;
   flex-flow: column nowrap;
 }
@@ -56,6 +69,11 @@ form input {
   font-size: 20px;
   border: 6px solid #585858;
   border-radius: 4px;
+}
+
+.router-link-active,
+.router-link-exact-active {
+  background-color: #beb137;
 }
 
 </style>

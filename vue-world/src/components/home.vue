@@ -1,6 +1,5 @@
 <template>
-  <div
-    :class="$style.home">
+  <div :class="$style.home">
     <h1 :class="$style.title">
       {{ msg }}
     </h1>
@@ -13,7 +12,7 @@ export default {
   data() {
     return {
       msg: 'Welcome to my first Vue.js app',
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
 ***REMOVED***
 ***REMOVED***
 </script>

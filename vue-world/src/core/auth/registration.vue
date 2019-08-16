@@ -2,15 +2,13 @@
   <form
     :class="$style.registerForm"
     @submit.prevent="registerUser">
-
-    <label
-      :class="$style.inputContainer">
+    <label :class="$style.inputContainer">
       Input e-mail
       <br>
       <input
+        v-model.lazy="$v.email.$model"
         type="email"
-        placeholder="lololo@lalala.ru"
-        v-model.lazy="$v.email.$model">
+        placeholder="lololo@lalala.ru">
       <span
         v-if="$v.email.$error"
         :class="$style.validationAlert">
@@ -18,14 +16,13 @@
       </span>
     </label>
 
-    <label
-      :class="$style.inputContainer">
+    <label :class="$style.inputContainer">
       Input password
       <br>
       <input
+        v-model.lazy="$v.password.$model"
         type="password"
-        placeholder="♥♥♥♥♥♥"
-        v-model.lazy="$v.password.$model">
+        placeholder="♥♥♥♥♥♥">
       <span
         v-if="$v.password.$error"
         :class="$style.validationAlert">
@@ -41,15 +38,14 @@
       </span>
     </label>
 
-    <label
-      :class="$style.inputContainer">
+    <label :class="$style.inputContainer">
       Confirm password
       <br>
       <input
+        v-model.lazy="$v.passwordRepeat.$model"
         type="password"
         placeholder="♥♥♥♥♥♥"
-        :disabled="!$v.password.required || $v.password.$error"
-        v-model.lazy="$v.passwordRepeat.$model">
+        :disabled="!$v.password.required || $v.password.$error">
       <span
         v-if="$v.passwordRepeat.$error"
         :class="$style.validationAlert">
@@ -65,7 +61,6 @@
       type="submit">
       Register
     </button>
-
   </form>
 </template>
 
@@ -83,35 +78,23 @@ export default {
       email: '',
       password: '',
       passwordRepeat: '',
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
 ***REMOVED***
 
   validations: {
     email: {
       required,
       email,
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
     password: {
       required,
       maxLength: maxLength(10),
       minLength: minLength(3),
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
     passwordRepeat: {
       required,
       sameAsPassword: sameAs('password'),
-***REMOVED*****REMOVED*****REMOVED***
-***REMOVED***
-
-  methods: {
-    async registerUser() {
-      await this.registerInFirebase({ email: this.email, password: this.password });
-      this.$router.replace('/films');
-***REMOVED*****REMOVED*****REMOVED***
-
-    ...mapActions([
-      'registerInFirebase',
-    ]),
-
+ ***REMOVED*****REMOVED***
 ***REMOVED***
 
   computed: {
@@ -122,6 +105,18 @@ export default {
 
   mounted() {
     this.email = this.getEmail;
+***REMOVED***
+
+  methods: {
+    async registerUser() {
+      await this.registerInFirebase({ email: this.email, password: this.password });
+      this.$router.replace('/films');
+ ***REMOVED*****REMOVED***
+
+    ...mapActions([
+      'registerInFirebase',
+    ]),
+
 ***REMOVED***
 ***REMOVED***
 </script>
