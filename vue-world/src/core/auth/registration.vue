@@ -2,15 +2,13 @@
   <form
     :class="$style.registerForm"
     @submit.prevent="registerUser">
-
-    <label
-      :class="$style.inputContainer">
+    <label :class="$style.inputContainer">
       Input e-mail
       <br>
       <input
+        v-model.lazy="$v.email.$model"
         type="email"
-        placeholder="lololo@lalala.ru"
-        v-model.lazy="$v.email.$model">
+        placeholder="lololo@lalala.ru">
       <span
         v-if="$v.email.$error"
         :class="$style.validationAlert">
@@ -18,14 +16,13 @@
       </span>
     </label>
 
-    <label
-      :class="$style.inputContainer">
+    <label :class="$style.inputContainer">
       Input password
       <br>
       <input
+        v-model.lazy="$v.password.$model"
         type="password"
-        placeholder="♥♥♥♥♥♥"
-        v-model.lazy="$v.password.$model">
+        placeholder="♥♥♥♥♥♥">
       <span
         v-if="$v.password.$error"
         :class="$style.validationAlert">
@@ -41,15 +38,14 @@
       </span>
     </label>
 
-    <label
-      :class="$style.inputContainer">
+    <label :class="$style.inputContainer">
       Confirm password
       <br>
       <input
+        v-model.lazy="$v.passwordRepeat.$model"
         type="password"
         placeholder="♥♥♥♥♥♥"
-        :disabled="!$v.password.required || $v.password.$error"
-        v-model.lazy="$v.passwordRepeat.$model">
+        :disabled="!$v.password.required || $v.password.$error">
       <span
         v-if="$v.passwordRepeat.$error"
         :class="$style.validationAlert">
@@ -65,7 +61,6 @@
       type="submit">
       Register
     </button>
-
   </form>
 </template>
 
@@ -102,6 +97,16 @@ export default {
     },
   },
 
+  computed: {
+    ...mapGetters([
+      'getEmail',
+    ]),
+  },
+
+  mounted() {
+    this.email = this.getEmail;
+  },
+
   methods: {
     async registerUser() {
       await this.registerInFirebase({ email: this.email, password: this.password });
@@ -112,16 +117,6 @@ export default {
       'registerInFirebase',
     ]),
 
-  },
-
-  computed: {
-    ...mapGetters([
-      'getEmail',
-    ]),
-  },
-
-  mounted() {
-    this.email = this.getEmail;
   },
 };
 </script>

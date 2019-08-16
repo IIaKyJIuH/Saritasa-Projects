@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import authStore from '@/auth/store/authStore';
-import filmsStore from '@/components/films/store/filmsStore';
-import charactersStore from '@/components/characters/store/charactersStore';
+import authStore from '@/store/auth';
 
 Vue.use(Vuex);
 
@@ -10,8 +8,6 @@ export default new Vuex.Store({
 
   modules: {
     authStore,
-    filmsStore,
-    charactersStore,
   },
 
   state: {},
@@ -21,5 +17,6 @@ export default new Vuex.Store({
   actions: {},
 
   mutations: {},
+
 
 });

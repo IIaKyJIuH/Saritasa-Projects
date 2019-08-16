@@ -1,7 +1,7 @@
 <template>
   <table
-    :class="$style.filmTable"
-    v-if="filmInfo">
+    v-if="filmInfo"
+    :class="$style.filmTable">
     <tbody>
       <tr :class="$style.tableRow">
         <td>Title:</td>
@@ -20,12 +20,12 @@
         <td>
           <ul>
             <router-link
-              :class="$style.characterName"
-              tag="li"
               v-for="character of filmInfo.characters"
               :key="character.id"
-              :to="{ name: 'Character', params: { filmId: filmInfo.id, charId: character.id }}">
-                {{ character.name }}
+              :class="$style.characterName"
+              tag="li"
+              :to="{ name: 'Character', params: { charId: character.id }}">
+              {{ character.name }}
             </router-link>
           </ul>
         </td>
@@ -35,10 +35,10 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
   name: 'Film',
+
+  inject: ['filmsService', 'charactersService'],
 
   data() {
     return {
@@ -46,17 +46,12 @@ export default {
     };
   },
 
-  methods: {
-    ...mapActions([
-      'getFilmByIndex',
-      'getCharactersByIndexes',
-    ]),
+  async mounted() {
+    this.filmInfo = await this.filmsService.getFilmByIndex(this.$route.params.filmId);
+    this.filmInfo.characters = await this.charactersService
+      .getCharactersByIndexes(this.filmInfo.characters);
   },
 
-  async mounted() {
-    this.filmInfo = await this.getFilmByIndex(this.$route.params.filmId);
-    this.filmInfo.characters = await this.getCharactersByIndexes(this.filmInfo.characters);
-  },
 };
 </script>
 

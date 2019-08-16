@@ -1,13 +1,13 @@
-/* eslint-disable import/no-named-as-default */
-/* eslint-disable import/no-named-as-default-member */
 import Vue from 'vue';
 import Router from 'vue-router';
 import firebase from 'firebase';
+import store from '@/store/store';
 
 import Home from '@/components/home.vue';
-import authRoutes from '@/auth/routes';
-import filmsRoutes from '@/components/films/routes';
-import charactersRoutes from '@/components/characters/routes';
+import authRoutes from '@/router/auth';
+import filmsRoutes from '@/router/films';
+import charactersRoutes from '@/router/characters';
+import adminRoutes from '@/router/admin';
 
 Vue.use(Router);
 
@@ -26,16 +26,23 @@ const router = new Router({
     ...authRoutes,
     ...filmsRoutes,
     ...charactersRoutes,
+    ...adminRoutes,
   ],
 });
 
 /** Auth guard to check authentication.  */
 router.beforeEach((to, from, next) => {
   const { currentUser } = firebase.auth();
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  store.dispatch('setAuthStatus', !!currentUser);
+  const { isAdmin } = store.getters;
+  const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+  const requiresAdmin = to.matched.some((record) => record.meta.requiresAdmin);
 
-  if (requiresAuth && !currentUser) next('/login');
-  else next();
+  if ((requiresAuth || requiresAdmin) && !currentUser) next('/login');
+  if (currentUser && requiresAdmin && !isAdmin) {
+    next('/films');
+    alert('click on admin nav button');
+  } else next();
 });
 
 export default router;
