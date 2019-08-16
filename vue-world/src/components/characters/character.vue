@@ -48,10 +48,10 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
   name: 'Character',
+
+  inject: ['charactersService'],
 
   data() {
     return {
@@ -60,13 +60,7 @@ export default {
   },
 
   async mounted() {
-    this.character = await this.getCharacterByIndex(this.$route.params.charId);
-  },
-
-  methods: {
-    ...mapActions([
-      'getCharacterByIndex',
-    ]),
+    this.character = await this.charactersService.getCharacterByIndex(this.$route.params.charId);
   },
 
 };

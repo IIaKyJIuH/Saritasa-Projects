@@ -35,10 +35,10 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
   name: 'Film',
+
+  inject: ['filmsService', 'charactersService'],
 
   data() {
     return {
@@ -47,15 +47,9 @@ export default {
   },
 
   async mounted() {
-    this.filmInfo = await this.getFilmByIndex(this.$route.params.filmId);
-    this.filmInfo.characters = await this.getCharactersByIndexes(this.filmInfo.characters);
-  },
-
-  methods: {
-    ...mapActions([
-      'getFilmByIndex',
-      'getCharactersByIndexes',
-    ]),
+    this.filmInfo = await this.filmsService.getFilmByIndex(this.$route.params.filmId);
+    this.filmInfo.characters = await this.charactersService
+      .getCharactersByIndexes(this.filmInfo.characters);
   },
 
 };

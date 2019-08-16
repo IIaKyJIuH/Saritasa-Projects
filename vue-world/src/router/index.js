@@ -4,10 +4,10 @@ import firebase from 'firebase';
 import store from '@/store/store';
 
 import Home from '@/components/home.vue';
-import authRoutes from '@/core/auth/routes';
-import filmsRoutes from '@/components/films/routes';
-import charactersRoutes from '@/components/characters/routes';
-import adminRoutes from '@/admin/routes';
+import authRoutes from '@/router/auth';
+import filmsRoutes from '@/router/films';
+import charactersRoutes from '@/router/characters';
+import adminRoutes from '@/router/admin';
 
 Vue.use(Router);
 
