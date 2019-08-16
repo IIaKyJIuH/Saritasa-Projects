@@ -9,9 +9,19 @@
 <script>
 import Navigation from '@/components/navigation.vue';
 import Footer from '@/components/footer.vue';
+import filmsService from '@/core/services/films/films-service';
+import charactersService from '@/core/services/characters/characters-service';
 
 export default {
   name: 'App',
+
+  provide() {
+    return {
+      filmsService,
+      charactersService,
+   ***REMOVED*****REMOVED***
+***REMOVED***
+
   components: {
     Navigation,
     Footer,

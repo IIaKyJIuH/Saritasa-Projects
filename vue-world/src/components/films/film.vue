@@ -35,27 +35,21 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
   name: 'Film',
+
+  inject: ['filmsService', 'charactersService'],
 
   data() {
     return {
       filmInfo: null,
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
 ***REMOVED***
 
   async mounted() {
-    this.filmInfo = await this.getFilmByIndex(this.$route.params.filmId);
-    this.filmInfo.characters = await this.getCharactersByIndexes(this.filmInfo.characters);
-***REMOVED***
-
-  methods: {
-    ...mapActions([
-      'getFilmByIndex',
-      'getCharactersByIndexes',
-    ]),
+    this.filmInfo = await this.filmsService.getFilmByIndex(this.$route.params.filmId);
+    this.filmInfo.characters = await this.charactersService
+      .getCharactersByIndexes(this.filmInfo.characters);
 ***REMOVED***
 
 ***REMOVED***

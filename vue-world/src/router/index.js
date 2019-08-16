@@ -4,10 +4,10 @@ import firebase from 'firebase';
 import store from '@/store/store';
 
 import Home from '@/components/home.vue';
-import authRoutes from '@/core/auth/routes';
-import filmsRoutes from '@/components/films/routes';
-import charactersRoutes from '@/components/characters/routes';
-import adminRoutes from '@/admin/routes';
+import authRoutes from '@/router/auth';
+import filmsRoutes from '@/router/films';
+import charactersRoutes from '@/router/characters';
+import adminRoutes from '@/router/admin';
 
 Vue.use(Router);
 
@@ -17,12 +17,12 @@ const router = new Router({
     {
       path: '',
       redirect: '/home',
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
     {
       path: '/home',
       name: 'Home',
       component: Home,
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
     ...authRoutes,
     ...filmsRoutes,
     ...charactersRoutes,
@@ -30,7 +30,7 @@ const router = new Router({
   ],
 });
 
-***REMOVED**** Auth guard to check authentication.***REMOVED*****REMOVED***/
+***REMOVED**** Auth guard to check authentication. ***REMOVED***/
 router.beforeEach((to, from, next) => {
   const { currentUser } = firebase.auth();
   store.dispatch('setAuthStatus', !!currentUser);

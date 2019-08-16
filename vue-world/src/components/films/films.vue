@@ -35,7 +35,7 @@
         <td
           v-if="isAdmin"
           :class="$style.adminColumn"
-          @click.self.prevent="editFilm(film.id)">
+          @click.self.prevent="goToEditFilm(film.id)">
           Edit
         </td>
       </router-link>
@@ -44,16 +44,18 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Films',
+
+  inject: ['filmsService'],
 
   data() {
     return {
       tableHeaders: ['Title', 'Year', 'Director'],
       films: null,
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
 ***REMOVED***
 
   computed: {
@@ -62,22 +64,29 @@ export default {
     ]),
 ***REMOVED***
 
+  watch: {
+    isAdmin(newValue, oldValue) {
+      if (newValue && !this.$route.path.includes('admin')) {
+        this.$router.replace('/admin');
+      }
+      if (!newValue && this.$route.path.includes('admin')) {
+        this.$router.replace('/films');
+      }
+ ***REMOVED*****REMOVED***
+***REMOVED***
+
   async mounted() {
     if (this.isAdmin && !this.$route.path.includes('admin')) {
       this.$router.replace('/admin');
       return;
     }
-    this.films = await this.getFilms();
+    this.films = await this.filmsService.getFilms();
 ***REMOVED***
 
   methods: {
-    ...mapActions([
-      'getFilms',
-    ]),
-
-    editFilm(filmId) {
+    goToEditFilm(filmId) {
       this.$router.push({ name: 'AdminFilmUpdate', params: { filmId } });
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 ***REMOVED***
 
 ***REMOVED***
@@ -89,9 +98,17 @@ export default {
   margin: auto;
   width: 800px;
   border-collapse: collapse;
-  table-layout: fixed;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+}
+
+th,td {
+  width: 25%;
+}
+
+th:last-child,
+td:last-child {
+  width: 5%;
 }
 
 .routingRow {
@@ -101,7 +118,6 @@ export default {
 .headColumn,
 .bodyColumn {
   padding: 15px;
-  background-color: rgba(255, 0, 0, .4);
   color: #fff;
   border: 1px solid rgba(0, 0, 0, .8);
 }
@@ -110,34 +126,27 @@ export default {
   background-color: #55608f;
 }
 
+.bodyRow {
+  background-color: rgb(200, 60, 60);
+}
+
 .bodyRow:hover {
-  background-color: rgba(184, 43, 43, 0.5);
-}
-
-.bodyColumn {
-  position: relative;
-}
-
-.bodyColumn:hover::after {
-  content: "";
-  position: absolute;
-  background-color: rgb(182, 182, 89);
-  left: 0;
-  top: -5000px;
-  height: 10000px;
-  width: 100%;
-  z-index: -1;
+  background-color: rgb(116, 60, 60);;
 }
 
 .adminColumn {
-  background-color: red;
+  background-color: #7985b6;
   border: 1px solid rgba(0, 0, 0, .8);
   padding: 15px;
+  font-size: 20px;
   opacity: .7;
+
+  transition: transform .35s ease-in-out;
 }
 
 .adminColumn:hover {
   opacity: 1;
+  transform: scale(1.1);
 }
 
 </style>

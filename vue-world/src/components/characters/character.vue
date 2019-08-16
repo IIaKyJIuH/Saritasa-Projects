@@ -48,25 +48,19 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
   name: 'Character',
+
+  inject: ['charactersService'],
 
   data() {
     return {
       character: null,
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
 ***REMOVED***
 
   async mounted() {
-    this.character = await this.getCharacterByIndex(this.$route.params.charId);
-***REMOVED***
-
-  methods: {
-    ...mapActions([
-      'getCharacterByIndex',
-    ]),
+    this.character = await this.charactersService.getCharacterByIndex(this.$route.params.charId);
 ***REMOVED***
 
 ***REMOVED***

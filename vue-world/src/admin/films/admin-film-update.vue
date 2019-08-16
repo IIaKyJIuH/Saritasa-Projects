@@ -61,32 +61,26 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
   name: 'AdminFilmUpdate',
+
+  inject: ['filmsService'],
 
   data() {
     return {
       filmInfo: null,
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
 ***REMOVED***
 
   async mounted() {
-    this.filmInfo = await this.getFilmByIndex(this.$route.params.filmId);
+    this.filmInfo = await this.filmsService.getFilmByIndex(this.$route.params.filmId);
 ***REMOVED***
 
   methods: {
-    ...mapActions([
-      'getFilmByIndex',
-      'updateFilm',
-    ]),
-
-
     async patchInfo() {
-      await this.updateFilm({ id: this.filmInfo.id, newFilm: this.filmInfo });
+      await this.filmsService.updateFilm({ id: this.filmInfo.id, newFilm: this.filmInfo });
       this.$router.replace('/admin/films');
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 ***REMOVED***
 
 ***REMOVED***
