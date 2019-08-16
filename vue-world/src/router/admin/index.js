@@ -1,8 +1,10 @@
+import Admin from '@/admin/admin.vue';
+
 export default [
   {
     path: '/admin',
     name: 'Admin',
-    component: () => import('@/admin/admin.vue'),
+    component: Admin,
     meta: {
       requiresAdmin: true,
 ***REMOVED*****REMOVED*****REMOVED***
