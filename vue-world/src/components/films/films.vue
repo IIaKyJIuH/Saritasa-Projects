@@ -10,8 +10,7 @@
           :class="$style.headColumn">
           {{ header }}
         </th>
-        <th
-          v-if="isAdmin">
+        <th v-if="isAdmin">
           ADMIN
         </th>
       </tr>
