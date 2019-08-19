@@ -1,0 +1,26 @@
+***REMOVED***
+***REMOVED*** App Global CSS
+***REMOVED*** ----------------------------------------------------------------------------
+***REMOVED*** Put style rules here that you want to apply globally. These styles are for
+***REMOVED*** the entire app and not just one component. Additionally, this file can be
+***REMOVED*** used as an entry point to import other CSS/Sass files to be included in the
+***REMOVED*** output CSS.
+***REMOVED*** For more information on global stylesheets, visit the documentation:
+***REMOVED*** https://ionicframework.com/docs/layout/global-stylesheets
+***REMOVED***/
+
+***REMOVED*** Core CSS required for Ionic components to work properly***REMOVED***/
+@import "~@ionic/angular/css/core.css";
+
+***REMOVED*** Basic CSS for apps built with Ionic***REMOVED***/
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+***REMOVED*** Optional CSS utils that can be commented out***REMOVED***/
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
