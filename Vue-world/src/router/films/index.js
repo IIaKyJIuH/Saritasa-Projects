@@ -1,18 +1,21 @@
+const Films = () => import('@/components/films/films.vue');
+const Film = () => import('@/components/films/film.vue')
+
 export default [
   {
     path: '/films',
     name: 'Films',
-    component: () => import('@/components/films/films.vue'),
+    component: Films,
     meta: {
       requiresAuth: true,
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 ***REMOVED***
   {
     path: '/films/:filmId',
     name: 'Film',
-    component: () => import('@/components/films/film.vue'),
+    component: Film,
     meta: {
       requiresAuth: true,
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 ***REMOVED***
 ];

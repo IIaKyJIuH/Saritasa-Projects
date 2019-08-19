@@ -1,10 +1,12 @@
+const Character = () => import('@/components/characters/character.vue');
+
 export default [
   {
     path: '/films/:filmId/characters/:charId',
     name: 'Character',
-    component: () => import('@/components/characters/character.vue'),
+    component: Character,
     meta: {
       requiresAuth: true,
-***REMOVED*****REMOVED*****REMOVED***
+ ***REMOVED*****REMOVED***
 ***REMOVED***
 ];
