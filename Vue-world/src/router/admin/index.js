@@ -1,5 +1,8 @@
 import Admin from '@/admin/admin.vue';
 
+const Films = () => import('@/components/films/films.vue');
+const AdminFilmUpdate = () => import('@/admin/films/admin-film-update.vue');
+
 export default [
   {
     path: '/admin',
@@ -16,12 +19,12 @@ export default [
       {
         path: 'films',
         name: 'Films',
-        component: () => import('@/components/films/films.vue'),
+        component: Films,
       },
       {
         path: 'films/:filmId',
         name: 'AdminFilmUpdate',
-        component: () => import('@/admin/films/admin-film-update.vue'),
+        component: AdminFilmUpdate,
       },
     ],
   },
