@@ -1,3 +1,3 @@
 ***REMOVED***
-  production: true
+  production: true,
 ***REMOVED***
