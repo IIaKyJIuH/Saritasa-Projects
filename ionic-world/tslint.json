@@ -1,3 +1,23 @@
 {
-  "extends": "@saritasa/tslint-config-angular"
+  "extends": "@saritasa/tslint-config-angular",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "page",
+      "kebab-case"
+    ],
+    "component-class-suffix": [
+      true,
+      "Component",
+      "Page"
+    ]
+  }
 }
