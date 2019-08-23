@@ -1,0 +1,30 @@
+<ion-content>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm.value)">
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Create your account!</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-label color="{{ formControls.email.errors && formControls.email.dirty ? 'danger' : 'primary' }}" floating> Email </ion-label>
+              <ion-input type="email" placeholder="your@email.com" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="{{ formControls.password.errors && formControls.password.dirty ? 'danger' : 'primary' }}" floating> Password </ion-label>
+              <ion-input type="password" placeholder="♥♥♥♥♥♥" formControlName="password"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="{{ formControls.confirmPassword.errors && formControls.confirmPassword.dirty ? 'danger' : 'primary' }}" floating> Password again </ion-label>
+              <ion-input name="confirm" type="password" placeholder="♥♥♥♥♥♥" formControlName="confirmPassword"></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button  size="large" type="submit" [disabled]="registrationForm.invalid" expand="block">Sign-up</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
