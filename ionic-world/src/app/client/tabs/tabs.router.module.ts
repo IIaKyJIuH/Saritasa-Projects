@@ -16,13 +16,11 @@ const routes: Routes = [
   ***REMOVED*****REMOVED*****REMOVED***
       {
         path: 'scanner',
-        loadChildren: () =>
-          import('./scanner/scanner.module').then(m => m.ScannerPageModule),
+        loadChildren: './scanner/scanner.module#ScannerPageModule',
   ***REMOVED*****REMOVED*****REMOVED***
       {
         path: 'archive',
-        loadChildren: () =>
-          import('./archive/archive.module').then(m => m.ArchivePageModule),
+        loadChildren: './archive/archive.module#ArchivePageModule',
   ***REMOVED*****REMOVED*****REMOVED***
     ],
 ***REMOVED***
