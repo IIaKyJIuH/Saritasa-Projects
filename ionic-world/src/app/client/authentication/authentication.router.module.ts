@@ -15,13 +15,11 @@ const routes: Routes = [
       },
       {
         path: 'sign-in',
-        loadChildren: () =>
-          import('./sign-in/sign-in.module').then(m => m.SignInPageModule),
+        loadChildren: './sign-in/sign-in.module#SignInPageModule',
       },
       {
         path: 'sign-up',
-        loadChildren: () =>
-          import('./sign-up/sign-up.module').then(m => m.SignUpPageModule),
+        loadChildren: './sign-up/sign-up.module#SignUpPageModule',
       },
     ],
   },

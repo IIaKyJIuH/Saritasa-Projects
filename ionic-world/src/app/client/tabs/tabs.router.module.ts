@@ -16,13 +16,11 @@ const routes: Routes = [
       },
       {
         path: 'scanner',
-        loadChildren: () =>
-          import('./scanner/scanner.module').then(m => m.ScannerPageModule),
+        loadChildren: './scanner/scanner.module#ScannerPageModule',
       },
       {
         path: 'archive',
-        loadChildren: () =>
-          import('./archive/archive.module').then(m => m.ArchivePageModule),
+        loadChildren: './archive/archive.module#ArchivePageModule',
       },
     ],
   },
