@@ -1,9 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Scanner
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  
+  <ion-segment color="tertiary">
+    <ion-segment-button (click)="scanWithSource(1)">
+      <ion-label>Take photo</ion-label>
+      <ion-icon name="camera"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button (click)="scanWithSource(0)">
+      <ion-label>Open gallery</ion-label>
+      <ion-icon name="images"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 
-<ion-content></ion-content>
+  <div *ngIf="percentage$ | async as pct">
+
+      <progress class="progress is-info" 
+                [value]="pct" 
+                max="100">        
+      </progress>
+    
+      {{ pct | number }}%
+
+      <div *ngIf="pct >= 100">
+        <span> Great, file was uploaded </span>
+      </div>
+    
+  </div>
+</ion-content>

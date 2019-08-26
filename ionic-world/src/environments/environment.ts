@@ -13,7 +13,7 @@ export const environment = {
     authDomain: 'proj-0-8c535.firebaseapp.com',
     databaseURL: 'https://proj-0-8c535.firebaseio.com',
     projectId: 'proj-0-8c535',
-    storageBucket: '',
+    storageBucket: 'proj-0-8c535.appspot.com',
     messagingSenderId: '723491458215',
     appId: '1:723491458215:web:1d08848d53c81a57',
   },
