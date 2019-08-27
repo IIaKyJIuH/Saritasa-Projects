@@ -1,7 +1,7 @@
 import { ScannerService } from '@/app/core/services/scanner/scanner.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 
 ***REMOVED****
@@ -13,11 +13,6 @@ import { switchMap, tap } from 'rxjs/operators';
   styleUrls: ['scanner.page.scss'],
 })
 export class ScannerPage {
-
-***REMOVED***
- ***REMOVED*****REMOVED*** URL of the scanned document.
-***REMOVED***
-  public documentPath$: Observable<string>;
 
 ***REMOVED***
  ***REMOVED*****REMOVED*** Percentage of task completion.
@@ -35,10 +30,8 @@ export class ScannerPage {
 ***REMOVED***
   public doScanning(ev: any): void {
     const source = +ev.srcElement.value;
-    this.documentPath$ = this.scannerService.scanDocument(source);
-    this.percentage$ = this.documentPath$.pipe(
-      switchMap((fileName) => this.scannerService.startUpload(fileName)),
-      tap(() => ev.srcElement.checked = false),
+    this.percentage$ = this.scannerService.scanDocument(source).pipe(
+      tap(number => ev.srcElement.checked = false),
     );
   }
 

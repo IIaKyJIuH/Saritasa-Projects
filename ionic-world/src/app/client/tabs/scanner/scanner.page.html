@@ -11,6 +11,10 @@
     </ion-segment-button>
   </ion-segment>
 
+  <div***REMOVED***ngIf="downloadUrl$ | async as url">
+    {{ url }}
+  </div>
+
   <div***REMOVED***ngIf="percentage$ | async as pct" class="pctContainer">
 
       <progress-bar 
@@ -28,4 +32,5 @@
       </footer>
     
   </div>
+
 </ion-content>
