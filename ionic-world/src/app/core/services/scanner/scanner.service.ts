@@ -1,10 +1,12 @@
 import { environment } from '@/environments/environment';
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, QueryDocumentSnapshot } from '@angular/fire/firestore';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
+import { UploadTaskSnapshot } from '@angular/fire/storage/interfaces';
+import { map } from '@firebase/util';
 import { DocumentScannerOptions, DocumentScanner } from '@ionic-native/document-scanner/ngx';
 import { File } from '@ionic-native/file/ngx';
-import { Observable, from } from 'rxjs';
+import { Observable, from, forkJoin } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 
 /**
@@ -26,11 +28,6 @@ export class ScannerService {
   public snapshot: Observable<any>;
 
   /**
-   * Url for downloading documents.
-   */
-  public downloadURL: Observable<string>;
-
-  /**
    * .ctor
    * @param documentScanner - ionic plugin for scanning documents.
    */
@@ -44,11 +41,16 @@ export class ScannerService {
   /**
   * Use camera and then send it to the server.
   */
-  public scanDocument(source: number): Observable<string> {
+  public scanDocument(source: number): Observable<number> {
     const opts: DocumentScannerOptions = { sourceType: source, fileName: 'myImage' };
-    const imageUrl: Observable<string> = from(this.documentScanner.scanDoc(opts));
+    return from(this.documentScanner.scanDoc(opts)).pipe(
+      switchMap((fileName) => this.startUpload(fileName)),
+      tap(number => {
+        from(this.task.task.snapshot.ref.getDownloadURL())
+          .subscribe(fileDownloadUrl => this.saveUrlToFirestore(fileDownloadUrl));
+      }),
+    );
 
-    return imageUrl;
   }
 
   /**
@@ -72,19 +74,29 @@ export class ScannerService {
     );
   }
 
-  // /**
-  //  * Saves path to the picture of the document.
-  //  * @param fileDownloadUrl - url for downloading the document/picture.
-  //  */
-  // Private saveUrlToFirestore(fileDownloadUrl: string): void {
-  //   This.snapshot = this.task.snapshotChanges().pipe(
-  //     Tap(snap => {
-  //       If (snap.bytesTransferred === snap.totalBytes) {
-  //         This.afStore.collection('scanned-documents').add( { fileName: fileDownloadUrl, size: snap.totalBytes });
-  //       }
-  //       Console.log(snap.ref.getDownloadURL());
-  //     }),
-  //   );
-  // }
+  /**
+   * Saves path to the picture of the document.
+   * @param fileDownloadUrl - url for downloading the document/picture.
+   */
+  public saveUrlToFirestore(fileDownloadUrl: string): void {
+    this.afStore.collection('scanned-documents').add( { downloadUrl: fileDownloadUrl });
+  }
+
+  /**
+   * Gets all the download urls from the firestore cloud store.
+   */
+  public getUrlsFromFirestore(): Observable<string[]> {
+    return forkJoin([from(this.afStore.collection('scanned-documents').get()).pipe(
+      switchMap(querySnapshot => {
+        const s = querySnapshot.docs.map(doc => {
+          console.log(doc.data());
+          return doc.data().downloadUrl;
+        });
+        console.log(s);
+        return s;
+      }),
+    )],
+    );
+  }
 
 }
