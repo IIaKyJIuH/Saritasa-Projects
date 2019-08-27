@@ -30,13 +30,15 @@ export class ScannerPage {
   ) {}
 
   /**
-   * Makes scanning with the chosen source type.
-   * @param source - refers to the source type according to the pluging documentation.
+   * Makes scanning by preferred source.
+   * @param ev - refers to the pressed segment-button with the specific value.
    */
-  public scanWithSource(source: number): void {
+  public doScanning(ev: any): void {
+    const source = +ev.srcElement.value;
     this.documentPath$ = this.scannerService.scanDocument(source);
     this.percentage$ = this.documentPath$.pipe(
       switchMap((fileName) => this.scannerService.startUpload(fileName)),
+      tap(() => ev.srcElement.checked = false),
     );
   }
 
