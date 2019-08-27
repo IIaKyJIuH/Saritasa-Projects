@@ -11,18 +11,21 @@
     </ion-segment-button>
   </ion-segment>
 
-  <div***REMOVED***ngIf="percentage$ | async as pct">
+  <div***REMOVED***ngIf="percentage$ | async as pct" class="pctContainer">
 
-      <progress class="progress is-info" 
-                [value]="pct" 
-                max="100">        
-      </progress>
-    
-      {{ pct | number }}%
+      <progress-bar 
+              [progress]="pct"
+              [color-degraded]="{'0': '#f00',  '25': '#ffa500', '50': '#ffff00', '75': '#66ff00'}"
+              max="100">        
+      </progress-bar>
+      
+      <!-- <main class="percentageValue">
+        <span>{{ pct | number }}%</span>
+      </main> -->
 
-      <div***REMOVED***ngIf="pct >= 100">
+      <footer***REMOVED***ngIf="pct >= 100" class="result">
         <span> Great, file was uploaded </span>
-      </div>
+      </footer>
     
   </div>
 </ion-content>
