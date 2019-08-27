@@ -66,7 +66,7 @@ export class ScannerService {
         const imgBlob = new Blob([buffer], {
           type: 'image/jpeg',
         });
-        this.task = this.afStorage.upload(fileName, imgBlob);
+        this.task = this.afStorage.upload(`scanned-documents/${fileName}`, imgBlob);
         return this.task.percentageChanges();
       }),
     );

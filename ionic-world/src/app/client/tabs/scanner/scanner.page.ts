@@ -2,7 +2,7 @@ import { ScannerService } from '@/app/core/services/scanner/scanner.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 
 /**
  * Page for scanning documents.
