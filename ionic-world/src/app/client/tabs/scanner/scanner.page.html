@@ -1,11 +1,11 @@
 <ion-content>
   
-  <ion-segment color="tertiary">
-    <ion-segment-button (click)="scanWithSource(1)">
+  <ion-segment color="tertiary" (ionSelect)="doScanning($event)">
+    <ion-segment-button value="1"> <!-- value defines source for the scanner plugin -->
       <ion-label>Take photo</ion-label>
       <ion-icon name="camera"></ion-icon>
     </ion-segment-button>
-    <ion-segment-button (click)="scanWithSource(0)">
+    <ion-segment-button value="0"> <!-- value defines source for the scanner plugin -->
       <ion-label>Open gallery</ion-label>
       <ion-icon name="images"></ion-icon>
     </ion-segment-button>

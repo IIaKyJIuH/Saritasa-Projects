@@ -11,3 +11,16 @@ progress-bar {
     text-align: center;
     font-size: 20px;
 }
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-200%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+  
+ion-segment {
+    animation: 1s ease-out 0s 1 slideInFromTop;
+}
