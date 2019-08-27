@@ -1,9 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Scanner
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  
+  <ion-segment color="tertiary" (ionSelect)="doScanning($event)">
+    <ion-segment-button value="1"> <!-- value defines source for the scanner plugin -->
+      <ion-label>Take photo</ion-label>
+      <ion-icon name="camera"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="0"> <!-- value defines source for the scanner plugin -->
+      <ion-label>Open gallery</ion-label>
+      <ion-icon name="images"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
 
-<ion-content></ion-content>
+  <div***REMOVED***ngIf="percentage$ | async as pct" class="pctContainer">
+
+      <progress-bar 
+              [progress]="pct"
+              [color-degraded]="{'0': '#f00',  '25': '#ffa500', '50': '#ffff00', '75': '#66ff00'}"
+              max="100">        
+      </progress-bar>
+      
+      <!-- <main class="percentageValue">
+        <span>{{ pct | number }}%</span>
+      </main> -->
+
+      <footer***REMOVED***ngIf="pct >= 100" class="result">
+        <span> Great, file was uploaded </span>
+      </footer>
+    
+  </div>
+</ion-content>
