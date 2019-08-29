@@ -7,6 +7,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { DocumentScanner } from '@ionic-native/document-scanner/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -37,7 +38,11 @@ import { AppComponent } from './app.component';
     SplashScreen,
     DocumentScanner,
     File,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    Dialogs,
+    {
+      provide: RouteReuseStrategy,
+      useClass: IonicRouteStrategy,
+***REMOVED*****REMOVED*****REMOVED***
   ],
   bootstrap: [AppComponent],
 })

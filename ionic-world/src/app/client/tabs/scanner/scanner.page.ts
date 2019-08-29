@@ -1,8 +1,9 @@
 import { ScannerService } from '@/app/core/services/scanner/scanner.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, from } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { Dialogs } from '@ionic-native/dialogs/ngx';
+import { Observable, from, of } from 'rxjs';
+import { tap, switchMap } from 'rxjs/operators';
 
 ***REMOVED****
 ***REMOVED*** Page for scanning documents.
@@ -22,6 +23,7 @@ export class ScannerPage {
   constructor(
     private scannerService: ScannerService,
     private router: Router,
+    private dialog: Dialogs,
   ) {}
 
 ***REMOVED***
@@ -30,8 +32,9 @@ export class ScannerPage {
 ***REMOVED***
   public doScanning(ev: any): void {
     const source = +ev.srcElement.value;
+
     this.percentage$ = this.scannerService.scanDocument(source).pipe(
-      tap(number => ev.srcElement.checked = false),
+      tap(() => ev.srcElement.checked = false),
     );
   }
 
