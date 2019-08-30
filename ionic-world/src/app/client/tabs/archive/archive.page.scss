@@ -10,10 +10,12 @@ main,
     height: 100%;
 }
 
-ion-slides {
-    background: #e6e6e6;
-}
-
 ion-slide {
     margin: auto;
+}
+
+.vertical-edge-shadow {
+	-webkit-box-shadow: 0 8px 33px -6px #7044ff;
+	   -moz-box-shadow: 0 8px 33px -6px #7044ff;
+	        box-shadow: 0 8px 33px -6px #7044ff;
 }

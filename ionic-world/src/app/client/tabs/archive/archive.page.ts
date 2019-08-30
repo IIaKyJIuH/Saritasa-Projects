@@ -5,7 +5,7 @@ import { ModalController } from '@ionic/angular';
 import { Observable, from } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 
-import { ImageModelPage } from './image-modal/image-model/image-model.page';
+import { ImageModalPage } from './image-modal/image-modal.page';
 
 /**
  * Page with all scanned documents.
@@ -36,9 +36,7 @@ export class ArchivePage {
     private scannerService: ScannerService,
     private modalCtrl: ModalController,
   ) {
-    this.images$ = this.scannerService.getImagesInfoFromFirestore().pipe(
-      tap(console.log),
-    );
+    this.images$ = this.scannerService.getImagesInfoFromFirestore();
   }
 
   /**
@@ -57,7 +55,7 @@ export class ArchivePage {
    */
   public openPreview(image: any): void {
     this.modalCtrl.create({
-      component: ImageModelPage,
+      component: ImageModalPage,
       componentProps: {
         image: image,
       },

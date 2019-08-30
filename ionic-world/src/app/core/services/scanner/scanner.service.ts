@@ -4,7 +4,7 @@ import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage
 import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { DocumentScannerOptions, DocumentScanner } from '@ionic-native/document-scanner/ngx';
 import { File } from '@ionic-native/file/ngx';
-import { Observable, from, of, empty } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 import { tap, switchMap, map } from 'rxjs/operators';
 
 /**

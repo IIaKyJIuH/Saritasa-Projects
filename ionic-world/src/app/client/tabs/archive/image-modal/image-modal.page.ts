@@ -1,20 +1,20 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { NavParams, ModalController, IonSlide } from '@ionic/angular';
+import { Component, ViewChild, ElementRef, Input } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 /**
  * Detailed info about chosen image.
  */
 @Component({
-  selector: 'app-image-model',
-  templateUrl: './image-model.page.html',
-  styleUrls: ['./image-model.page.scss'],
+  selector: 'app-image-modal',
+  templateUrl: './image-modal.page.html',
+  styleUrls: ['./image-modal.page.scss'],
 })
-export class ImageModelPage {
+export class ImageModalPage {
 
   /**
-   * Chosen image.
+   * Chosen by user image.
    */
-  public image: any;
+  @Input() public image: any;
 
   /**
    * For zooming in/out purposes.
@@ -28,14 +28,15 @@ export class ImageModelPage {
     zoom: {
       maxRatio: 3,
     },
+    effect: 'flip',
+    flipEffect: {
+      rotate: 30,
+    },
   };
 
   constructor(
-    private navParams: NavParams,
     private modalCtrl: ModalController,
-  ) {
-    this.image = this.navParams.get('image');
-  }
+  ) {}
 
   /**
    * Zooming the image if only the user wants to.

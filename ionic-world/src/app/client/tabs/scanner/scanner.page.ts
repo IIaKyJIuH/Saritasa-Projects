@@ -1,7 +1,6 @@
 import { ScannerService } from '@/app/core/services/scanner/scanner.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { Observable, from, of } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 
@@ -23,7 +22,6 @@ export class ScannerPage {
   constructor(
     private scannerService: ScannerService,
     private router: Router,
-    private dialog: Dialogs,
   ) {}
 
   /**

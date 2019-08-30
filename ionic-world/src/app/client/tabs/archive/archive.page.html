@@ -23,7 +23,7 @@
       </ion-row>
     </ion-grid> -->
 
-    <ion-slides [options]="sliderOpts">
+    <ion-slides [options]="sliderOpts" class="vertical-edge-shadow">
       <ion-slide *ngFor="let image of images; trackBy: trackByFunction">
         <img [src]="image.downloadUrl" alt="document" tappable (click)="openPreview(image)">
       </ion-slide>

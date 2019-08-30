@@ -11,16 +11,20 @@
       <ion-label> In </ion-label>
     </ion-button>
 
-      <ion-button (click)="zoom(false)" fill="clear" color="light">
-        <ion-icon name="remove" slot="start"></ion-icon>
-        <ion-label> Out </ion-label>
-      </ion-button>
+    <ion-button (click)="zoom(false)" fill="clear" color="light">
+      <ion-icon name="remove" slot="start"></ion-icon>
+      <ion-label> Out </ion-label>
+    </ion-button>
+
+    <ion-label color="success">{{ image.name }}</ion-label>
+    
   </ion-item>
 
   <ion-slides [options]="sliderOpts" #slider>
     <ion-slide>
-      <div class="swiper-zoom-container"></div>
-      <img [src]="image.downloadUrl">
+      <div class="swiper-zoom-container"> <!-- necessary wrapper for zoom -->
+        <img [src]="image.downloadUrl">
+      </div>
     </ion-slide>
   </ion-slides>
 
