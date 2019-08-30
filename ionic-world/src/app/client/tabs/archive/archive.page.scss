@@ -1,1 +1,21 @@
+ion-spinner {
+    transform: scale(3);
+}
 
+main,
+.spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+ion-slide {
+    margin: auto;
+}
+
+.vertical-edge-shadow {
+	-webkit-box-shadow: 0 8px 33px -6px #7044ff;
+	   -moz-box-shadow: 0 8px 33px -6px #7044ff;
+	        box-shadow: 0 8px 33px -6px #7044ff;
+}

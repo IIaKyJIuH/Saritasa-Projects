@@ -1,4 +1,3 @@
-import { AuthGuard } from '@/app/core/guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -12,15 +11,15 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'sign-in',
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
       {
         path: 'sign-in',
         loadChildren: './sign-in/sign-in.module#SignInPageModule',
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
       {
         path: 'sign-up',
         loadChildren: './sign-up/sign-up.module#SignUpPageModule',
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
     ],
 ***REMOVED***
 ];

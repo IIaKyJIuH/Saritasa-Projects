@@ -6,4 +6,35 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <main***REMOVED***ngIf="images$ | async as images; else spinner">
+
+    <!-- <ion-grid>
+      <ion-row>
+        <ion-col col-6 col-md-4 col-xl-3***REMOVED***ngFor="let image of images; trackBy: trackByFunction">
+          <ion-item>
+            <ion-thumbnail slot="start">
+              <ion-img [src]="image.downloadUrl" alt="document"></ion-img>
+            </ion-thumbnail>
+            <ion-label>{{ image.name }}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid> -->
+
+    <ion-slides [options]="sliderOpts" class="vertical-edge-shadow">
+      <ion-slide***REMOVED***ngFor="let image of images; trackBy: trackByFunction">
+        <img [src]="image.downloadUrl" alt="document" tappable (click)="openPreview(image)">
+      </ion-slide>
+    </ion-slides>
+    
+  </main>
+
+  <ng-template #spinner>
+    <div class="spinner-container">
+      <ion-spinner name="bubbles" color="tertiary"></ion-spinner>
+    </div>
+  </ng-template>
+
+</ion-content>
