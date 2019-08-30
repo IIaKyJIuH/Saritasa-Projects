@@ -4,7 +4,7 @@ import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage
 import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { DocumentScannerOptions, DocumentScanner } from '@ionic-native/document-scanner/ngx';
 import { File } from '@ionic-native/file/ngx';
-import { Observable, from, of, empty } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 import { tap, switchMap, map } from 'rxjs/operators';
 
 ***REMOVED****
@@ -16,22 +16,22 @@ import { tap, switchMap, map } from 'rxjs/operators';
 export class ScannerService {
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Main task of uploading image.
+  ***REMOVED*** Main task of uploading image.
 ***REMOVED***
   public task: AngularFireUploadTask;
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Snapshot. // For now it looks like a hack.
+  ***REMOVED*** Snapshot. // For now it looks like a hack.
 ***REMOVED***
   public snapshot: Observable<any>;
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** .ctor
- ***REMOVED*****REMOVED*** @param documentScanner - ionic plugin for scanning documents.
- ***REMOVED*****REMOVED*** @param afStorage - my firebase storage for keeping images.
- ***REMOVED*****REMOVED*** @param afStore - my firebase store for storing properties of images.
- ***REMOVED*****REMOVED*** @param file - needed primary to make Blob file from my image.
- ***REMOVED*****REMOVED*** @param dialog - needed to ask the user for things like file name.
+  ***REMOVED*** .ctor
+  ***REMOVED*** @param documentScanner - ionic plugin for scanning documents.
+  ***REMOVED*** @param afStorage - my firebase storage for keeping images.
+  ***REMOVED*** @param afStore - my firebase store for storing properties of images.
+  ***REMOVED*** @param file - needed primary to make Blob file from my image.
+  ***REMOVED*** @param dialog - needed to ask the user for things like file name.
 ***REMOVED***
   constructor (
     private documentScanner: DocumentScanner,
@@ -42,9 +42,9 @@ export class ScannerService {
   ) {}
 
 ***REMOVED***
-***REMOVED*****REMOVED*** Use source to scan the image and then send it to the firestore and the firestorage.
-***REMOVED*****REMOVED*** @returns percentage of completion of this task.
-***REMOVED*****REMOVED***/
+ ***REMOVED*** Use source to scan the image and then send it to the firestore and the firestorage.
+ ***REMOVED*** @returns percentage of completion of this task.
+ ***REMOVED***/
   public scanDocument(source: number): Observable<number> {
     const opts: DocumentScannerOptions = { sourceType: source, fileName: 'myImage'***REMOVED*****REMOVED***
     let name = '';
@@ -72,9 +72,9 @@ export class ScannerService {
   }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Uploads picture on to the firestorage.
- ***REMOVED*****REMOVED*** @param pathToImage - file destination after scanDocument call.
- ***REMOVED*****REMOVED*** @returns percentage of completion.
+  ***REMOVED*** Uploads picture on to the firestorage.
+  ***REMOVED*** @param pathToImage - file destination after scanDocument call.
+  ***REMOVED*** @returns percentage of completion.
 ***REMOVED***
   public uploadToFireStorage(pathToImage: string): Observable<number> {
     const n = pathToImage.lastIndexOf('/');
@@ -93,16 +93,16 @@ export class ScannerService {
   }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Saves properties of the picture into the firestore document.
- ***REMOVED*****REMOVED*** @param fileDownloadUrl - url for downloading the document/picture.
- ***REMOVED*****REMOVED*** @param fileName - name of file, inputed by user.
+  ***REMOVED*** Saves properties of the picture into the firestore document.
+  ***REMOVED*** @param fileDownloadUrl - url for downloading the document/picture.
+  ***REMOVED*** @param fileName - name of file, inputed by user.
 ***REMOVED***
   public uploadUrlToFirestore(fileDownloadUrl: string, fileName: string): void {
     this.afStore.collection('scanned-documents').add( { downloadUrl: fileDownloadUrl, name: fileName });
   }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Gets all the image properties from the firestore cloud store.
+  ***REMOVED*** Gets all the image properties from the firestore cloud store.
 ***REMOVED***
   public getImagesInfoFromFirestore(): Observable<DocumentData[]> {
     return this.afStore.collection('scanned-documents').get().pipe(

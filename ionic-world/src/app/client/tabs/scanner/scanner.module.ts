@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import {ProgressBarModule} from 'angular-progress-bar';
+import { ProgressBarModule } from 'angular-progress-bar';
 
 import { ScannerPage } from './scanner.page';
 

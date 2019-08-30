@@ -4,14 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
-import { ImageModelPage } from './image-model.page';
-
-const routes: Routes = [
-  {
-    path: '',
-    component: ImageModelPage,
-***REMOVED***
-];
+import { ImageModalPage } from './image-modal.page';
 
 ***REMOVED****
 ***REMOVED*** @inheritdoc
@@ -21,8 +14,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild([{ path: '', component: ImageModalPage, }]),
   ],
-  declarations: [ImageModelPage],
+  declarations: [ImageModalPage],
 })
-export class ImageModelPageModule {}
+export class ImageModalPageModule {}

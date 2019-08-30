@@ -1,7 +1,6 @@
 import { ScannerService } from '@/app/core/services/scanner/scanner.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Dialogs } from '@ionic-native/dialogs/ngx';
 import { Observable, from, of } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 
@@ -16,19 +15,18 @@ import { tap, switchMap } from 'rxjs/operators';
 export class ScannerPage {
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Percentage of task completion.
+  ***REMOVED*** Percentage of task completion.
 ***REMOVED***
   public percentage$: Observable<number>;
 
   constructor(
     private scannerService: ScannerService,
     private router: Router,
-    private dialog: Dialogs,
   ) {}
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Makes scanning by preferred source.
- ***REMOVED*****REMOVED*** @param ev - refers to the pressed segment-button with the specific value.
+  ***REMOVED*** Makes scanning by preferred source.
+  ***REMOVED*** @param ev - refers to the pressed segment-button with the specific value.
 ***REMOVED***
   public doScanning(ev: any): void {
     const source = +ev.srcElement.value;
