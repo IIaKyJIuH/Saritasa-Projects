@@ -34,6 +34,7 @@ speed-measure-plugin.json
 # misc
 /.sass-cache
 /connect.lock
+.firebase
 /coverage
 /libpeerconnection.log
 npm-debug.log
