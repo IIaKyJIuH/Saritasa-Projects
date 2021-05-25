@@ -12,16 +12,12 @@ import { FilmModel } from 'src/app/core/services/models/film-model';
   styleUrls: ['./films.component.css'],
 })
 export class FilmsComponent {
-
   /**
    * List of films from films service.
    */
   public films$: Observable<FilmModel[]>;
 
-  constructor(
-    private filmsService: FilmsService,
-  ) {
+  constructor(private filmsService: FilmsService) {
     this.films$ = this.filmsService.getDbFilmsData();
   }
-
 }

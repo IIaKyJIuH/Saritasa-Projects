@@ -8,9 +8,8 @@ describe('WrongPathComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WrongPathComponent ],
-    })
-    .compileComponents();
+      declarations: [WrongPathComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

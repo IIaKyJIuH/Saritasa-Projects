@@ -1,2 +1,1 @@
-export interface PlanetDto {
-}
+export interface PlanetDto {}

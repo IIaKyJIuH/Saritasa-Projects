@@ -12,15 +12,15 @@ import { SharedModule } from './shared/shared.module';
  * @inheritdoc
  */
 @NgModule({
-   declarations: [AppComponent],
-   imports: [
-      BrowserModule,
-      BrowserAnimationsModule,
-      CoreModule.forRoot(),
-      ClientModule,
-      SharedModule,
-      AppRoutingModule,
-   ],
-   bootstrap: [AppComponent],
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    CoreModule.forRoot(),
+    ClientModule,
+    SharedModule,
+    AppRoutingModule,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

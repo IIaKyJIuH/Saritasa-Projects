@@ -8,7 +8,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class AppConfig {
-
   /**
    * API URL.
    */
@@ -22,11 +21,12 @@ export class AppConfig {
   /**
    * Firebase url related to the uploaded file swapi.json.
    */
-  public readonly FIREBASE_SWAPI_URL = environment.firebase.databaseURL + '/swapi';
+  public readonly FIREBASE_SWAPI_URL =
+    environment.firebase.databaseURL + '/swapi';
 
   /**
    * Url for refreshing secure token and thus the access token.
    */
-  public readonly REFRESH_SECURE_TOKEN_URL = environment.REFRESH_SECURE_TOKEN_URL;
-
+  public readonly REFRESH_SECURE_TOKEN_URL =
+    environment.REFRESH_SECURE_TOKEN_URL;
 }

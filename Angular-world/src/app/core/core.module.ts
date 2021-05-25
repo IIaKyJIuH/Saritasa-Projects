@@ -10,13 +10,9 @@ import { TokenInterceptor } from './interceptor/token.interceptor';
  */
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-  ],
+  imports: [CommonModule, HttpClientModule],
 })
-export class CoreModule  {
-
+export class CoreModule {
   /**
    * Analogue of providers directive for NgModule from Angular 1.x.
    */

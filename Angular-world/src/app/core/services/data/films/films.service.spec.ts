@@ -6,7 +6,7 @@ import { FilmsService } from './films.service';
 describe('Service: Films', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [FilmsService]
+      providers: [FilmsService],
     });
   });
 
