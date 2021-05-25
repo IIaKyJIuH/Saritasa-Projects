@@ -1,6 +1,6 @@
 <div *ngIf="film$ | async as film">
   <mat-card>
-    <form class="flex" #filmForm="ngForm" (ngSubmit)="update(filmForm.value)">
+    <form class="flex" id="filmForm" #filmForm="ngForm" (ngSubmit)="update(filmForm.value)">
 
       <mat-form-field>
         <input matInput #title="ngModel" placeholder="Title" name="title" type="text" [ngModel]="film.title" required/>
@@ -32,7 +32,7 @@
     <mat-divider></mat-divider>
 
     <p class="flex">
-      <button mat-raised-button color="primary" type="submit" [disabled]="!filmForm.form.valid" >
+      <button mat-raised-button color="primary" form="filmForm" type="submit" [disabled]="!filmForm.form.valid">
         Save
       </button>
       <button mat-raised-button color="warn" [routerLink]="['/admin/films']">

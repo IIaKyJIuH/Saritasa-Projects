@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppConfig } from 'src/app/core/app-config';
 
+import { AuthenticationService } from '../../authentication/auth.service';
 import { FilmDto } from '../../dtos/film-dto';
 import { FilmModel } from '../../models/film-model';
 
@@ -13,7 +14,11 @@ import { FilmModel } from '../../models/film-model';
   providedIn: 'root',
 })
 export class AdminFilmsService {
-  constructor(private http: HttpClient, private config: AppConfig) {}
+  constructor(
+    private auth: AuthenticationService,
+    private http: HttpClient,
+    private config: AppConfig,
+  ) {}
 
   /**
    * Make API call for update film's data.
@@ -24,6 +29,7 @@ export class AdminFilmsService {
     return this.http.patch<void>(
       `${this.config.FIREBASE_SWAPI_URL}/films/${id}/fields.json`,
       this.mapFilmToFilmDto(filmData),
+      { params: { auth: this.auth.getAccessToken() } },
     );
   }
 
