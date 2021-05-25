@@ -1,6 +1,6 @@
 ***REMOVED*** tslint:disable:no-unused-variable***REMOVED***/
 
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 import { AdminFilmsService } from './admin-films.service';
 
 describe('Service: AdminFilms', () => {
