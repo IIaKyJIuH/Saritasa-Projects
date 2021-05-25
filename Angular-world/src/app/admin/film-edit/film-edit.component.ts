@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, concat, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AdminFilmsService } from 'src/app/core/services/data/films/admin-films.service';
 import { FilmsService } from 'src/app/core/services/data/films/films.service';
 import { FilmModel } from 'src/app/core/services/models/film-model';
@@ -41,6 +41,6 @@ export class FilmEditComponent {
   public update(film: FilmModel): void {
     this.adminFilmsService
       .updateFilm(this.filmId, film)
-      .subscribe(() => this.router.navigate(['../']));
+      .subscribe(() => this.router.navigate(['./']));
   }
 }
