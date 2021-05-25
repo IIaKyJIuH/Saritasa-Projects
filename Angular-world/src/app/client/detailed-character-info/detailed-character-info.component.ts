@@ -15,7 +15,6 @@ import { CharacterModel } from '../../core/services/models/character-model';
   styleUrls: ['./detailed-character-info.component.css'],
 })
 export class DetailedCharacterInfoComponent {
-
   /**
    * Info about character.
    */
@@ -37,8 +36,11 @@ export class DetailedCharacterInfoComponent {
    */
   private initializeCharacter(): void {
     this.character$ = this.activatedRouter.paramMap.pipe(
-      switchMap(params => this.charactersService.getDbCharacterData(parseInt(params.get('id'), 10)),
-    ));
+      switchMap(params =>
+        this.charactersService.getDbCharacterData(
+          parseInt(params.get('id'), 10),
+        ),
+      ),
+    );
   }
-
 }

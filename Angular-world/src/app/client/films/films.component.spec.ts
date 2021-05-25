@@ -11,9 +11,8 @@ describe('FilmsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FilmsComponent ],
-    })
-    .compileComponents();
+      declarations: [FilmsComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

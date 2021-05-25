@@ -1,2 +1,1 @@
-export interface SpeciesDto {
-}
+export interface SpeciesDto {}

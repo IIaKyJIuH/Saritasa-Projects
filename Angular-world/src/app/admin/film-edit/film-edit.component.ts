@@ -14,7 +14,6 @@ import { FilmModel } from 'src/app/core/services/models/film-model';
   styleUrls: ['./film-edit.component.css'],
 })
 export class FilmEditComponent {
-
   /**
    * Film observable to be edited.
    */
@@ -33,7 +32,7 @@ export class FilmEditComponent {
   ) {
     this.filmId = parseInt(this.activatedRoute.snapshot.paramMap.get('id'), 10);
     this.film$ = this.filmsService.getDbFilmData(this.filmId);
-   }
+  }
 
   /**
    * Update film's data method.
@@ -42,9 +41,6 @@ export class FilmEditComponent {
   public update(film: FilmModel): void {
     this.adminFilmsService
       .updateFilm(this.filmId, film)
-      .subscribe(() =>
-        this.router.navigate(['../']),
-      );
+      .subscribe(() => this.router.navigate(['../']));
   }
-
 }

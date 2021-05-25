@@ -1,2 +1,1 @@
-export interface VehicleDto {
-}
+export interface VehicleDto {}

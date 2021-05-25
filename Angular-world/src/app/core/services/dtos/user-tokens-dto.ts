@@ -2,7 +2,6 @@
  * Dto for user tokens in terms of http post-request.
  */
 export interface UserTokensDto {
-
   /**
    * user idToken.
    */
@@ -12,5 +11,4 @@ export interface UserTokensDto {
    * user secure token for idToken refreshing.
    */
   refreshToken: string;
-
 }

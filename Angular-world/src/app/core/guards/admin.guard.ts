@@ -8,10 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AdminGuard {
-
-  public constructor(
-    private router: Router,
-  ) {}
+  public constructor(private router: Router) {}
 
   /**
    * Guard function to choose allow access or not.
@@ -24,5 +21,4 @@ export class AdminGuard {
     this.router.navigate(['/home']);
     return false;
   }
-
 }

@@ -15,21 +15,25 @@ import { FilmModel } from '../../models/film-model';
   providedIn: 'root',
 })
 export class FilmsService {
-
-  constructor(
-    private http: HttpClient,
-    private config: AppConfig,
-  ) { }
+  constructor(private http: HttpClient, private config: AppConfig) {}
 
   /**
    * Getting films info from Db.
    * @returns observable array of films.
    */
   public getDbFilmsData(): Observable<FilmModel[]> {
-    return this.http.get<PropertiesDto<FilmDto>[]>(`${this.config.FIREBASE_SWAPI_URL}/films.json`).pipe(
-      map(response => response.map((filmProps, index) => this.createFilmModelByDto(filmProps.fields, index))),
-      take(1),
-    );
+    return this.http
+      .get<PropertiesDto<FilmDto>[]>(
+        `${this.config.FIREBASE_SWAPI_URL}/films.json`,
+      )
+      .pipe(
+        map(response =>
+          response.map((filmProps, index) =>
+            this.createFilmModelByDto(filmProps.fields, index),
+          ),
+        ),
+        take(1),
+      );
   }
 
   /**
@@ -38,11 +42,17 @@ export class FilmsService {
    * @returns observable film.
    */
   public getDbFilmData(filmDbIndex: number): Observable<FilmModel> {
-    return this.http.get<PropertiesDto<FilmDto>>(`${this.config.FIREBASE_SWAPI_URL}/films/${filmDbIndex}.json`).pipe(
-      map((filmProps, index) => this.createFilmModelByDto(filmProps.fields, index)),
-      take(1),
-    );
-   }
+    return this.http
+      .get<PropertiesDto<FilmDto>>(
+        `${this.config.FIREBASE_SWAPI_URL}/films/${filmDbIndex}.json`,
+      )
+      .pipe(
+        map((filmProps, index) =>
+          this.createFilmModelByDto(filmProps.fields, index),
+        ),
+        take(1),
+      );
+  }
 
   /**
    * Translates Dto data about film to the film model.

@@ -17,7 +17,6 @@ import { FilmModel } from '../../core/services/models/film-model';
   styleUrls: ['./detailed-film-info.component.css'],
 })
 export class DetailedFilmInfoComponent {
-
   /**
    * Film that is interesting to user.
    */
@@ -46,7 +45,9 @@ export class DetailedFilmInfoComponent {
    */
   private initializeFilm(): void {
     this.film$ = this.activatedRouter.paramMap.pipe(
-      switchMap(params => this.filmsService.getDbFilmData(parseInt(params.get('id'), 10))),
+      switchMap(params =>
+        this.filmsService.getDbFilmData(parseInt(params.get('id'), 10)),
+      ),
     );
   }
 
@@ -56,10 +57,15 @@ export class DetailedFilmInfoComponent {
   public initializeCharacters(): void {
     this.characters$ = this.film$.pipe(
       map(film => film.characters),
-      mergeMap(characterPKs => this.charactersService.getDbCharactersData().pipe(
-        map(characters => characters.filter((character, i) => characterPKs.includes(i + 1))),
-      )),
+      mergeMap(characterPKs =>
+        this.charactersService
+          .getDbCharactersData()
+          .pipe(
+            map(characters =>
+              characters.filter((character, i) => characterPKs.includes(i + 1)),
+            ),
+          ),
+      ),
     );
   }
-
 }

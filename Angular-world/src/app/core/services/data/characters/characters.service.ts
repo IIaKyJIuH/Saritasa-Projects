@@ -15,21 +15,25 @@ import { CharacterModel } from '../../models/character-model';
   providedIn: 'root',
 })
 export class CharactersService {
-
-  constructor(
-    private http: HttpClient,
-    private config: AppConfig,
-  ) { }
+  constructor(private http: HttpClient, private config: AppConfig) {}
 
   /**
    * Getting people info from Db.
    * @returns observable array of people.
    */
   public getDbCharactersData(): Observable<CharacterModel[]> {
-    return this.http.get<PropertiesDto<CharacterDto>[]>(`${this.config.FIREBASE_SWAPI_URL}/people.json`).pipe(
-      map(response => response.map((peopleProps, index) => this.createCharacterModelByDto(peopleProps.fields, index))),
-      take(1),
-    );
+    return this.http
+      .get<PropertiesDto<CharacterDto>[]>(
+        `${this.config.FIREBASE_SWAPI_URL}/people.json`,
+      )
+      .pipe(
+        map(response =>
+          response.map((peopleProps, index) =>
+            this.createCharacterModelByDto(peopleProps.fields, index),
+          ),
+        ),
+        take(1),
+      );
   }
 
   /**
@@ -37,13 +41,27 @@ export class CharactersService {
    * @param characterIndex - character index according to the Db swapi file.
    * @returns observable character.
    */
-  public getDbCharacterData(characterIndex: number): Observable<CharacterModel> {
-    return this.http.get<PropertiesDto<CharacterDto>[]>(`${this.config.FIREBASE_SWAPI_URL}/people.json`).pipe(
-      map(response => response
-        .filter((props, i) => i === characterIndex)
-        .map(characterProps => this.createCharacterModelByDto(characterProps.fields, characterIndex))[0]),
-      take(1),
-    );
+  public getDbCharacterData(
+    characterIndex: number,
+  ): Observable<CharacterModel> {
+    return this.http
+      .get<PropertiesDto<CharacterDto>[]>(
+        `${this.config.FIREBASE_SWAPI_URL}/people.json`,
+      )
+      .pipe(
+        map(
+          response =>
+            response
+              .filter((props, i) => i === characterIndex)
+              .map(characterProps =>
+                this.createCharacterModelByDto(
+                  characterProps.fields,
+                  characterIndex,
+                ),
+              )[0],
+        ),
+        take(1),
+      );
   }
 
   /**
@@ -51,7 +69,10 @@ export class CharactersService {
    * @param charDto - character Dto that includes info about properties name from Db.
    * @returns character model.
    */
-  private createCharacterModelByDto(charDto: CharacterDto, index: number): CharacterModel {
+  private createCharacterModelByDto(
+    charDto: CharacterDto,
+    index: number,
+  ): CharacterModel {
     return new CharacterModel({
       databaseId: index,
       birthYear: charDto.birth_year,

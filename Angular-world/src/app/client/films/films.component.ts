@@ -13,7 +13,6 @@ import { FilmModel } from '../../core/services/models/film-model';
   styleUrls: ['./films.component.css'],
 })
 export class FilmsComponent {
-
   /**
    * Array of films from Db.
    */
@@ -28,10 +27,7 @@ export class FilmsComponent {
    * .ctor
    * @param filmsService - service managing films data from Db.
    */
-  constructor(
-    private filmsService: FilmsService,
-  ) {
+  constructor(private filmsService: FilmsService) {
     this.films$ = this.filmsService.getDbFilmsData();
   }
-
 }

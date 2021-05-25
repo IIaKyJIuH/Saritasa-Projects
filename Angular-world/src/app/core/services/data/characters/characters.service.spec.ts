@@ -6,7 +6,7 @@ import { CharactersService } from './characters.service';
 describe('Service: Characters', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CharactersService]
+      providers: [CharactersService],
     });
   });
 
