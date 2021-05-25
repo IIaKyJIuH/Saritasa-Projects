@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 
 import { DetailedCharacterInfoComponent } from './detailed-character-info/detailed-character-info.component';
