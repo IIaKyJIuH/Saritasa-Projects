@@ -71,38 +71,38 @@ export default {
     return {
       email: 'heh@mda.ru',
       password: 'lolkek',
-   ***REMOVED*****REMOVED***
-***REMOVED***
+    };
+  },
 
   validations: {
     email: {
       required,
       email,
- ***REMOVED*****REMOVED***
+    },
     password: {
       required,
       maxLength: maxLength(10),
       minLength: minLength(3),
- ***REMOVED*****REMOVED***
-***REMOVED***
+    },
+  },
 
   methods: {
     async login() {
       await this.loginToFirebase({ email: this.email, password: this.password });
       this.$router.replace('/films');
- ***REMOVED*****REMOVED***
+    },
 
     register() {
       this.setEmail(this.email);
       this.$router.push('/register');
- ***REMOVED*****REMOVED***
+    },
 
     ...mapActions([
       'loginToFirebase',
       'setEmail',
     ]),
-***REMOVED***
-***REMOVED***
+  },
+};
 </script>
 
 <style module>
@@ -117,7 +117,7 @@ export default {
   justify-content: center;
 }
 
-.formFooter >***REMOVED*** {
+.formFooter > * {
   flex-basis: 1 1 0;
   margin: 10px 0;
 }

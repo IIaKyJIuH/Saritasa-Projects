@@ -11,9 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { WrongPathComponent } from './wrong-path/wrong-path.component';
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   declarations: [
     DetailedCharacterInfoComponent,

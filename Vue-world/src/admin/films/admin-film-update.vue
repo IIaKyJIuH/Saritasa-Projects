@@ -69,21 +69,21 @@ export default {
   data() {
     return {
       filmInfo: null,
-   ***REMOVED*****REMOVED***
-***REMOVED***
+    };
+  },
 
   async mounted() {
     this.filmInfo = await this.filmsService.getFilmByIndex(this.$route.params.filmId);
-***REMOVED***
+  },
 
   methods: {
     async patchInfo() {
       await this.filmsService.updateFilm({ id: this.filmInfo.id, newFilm: this.filmInfo });
       this.$router.replace('/admin/films');
- ***REMOVED*****REMOVED***
-***REMOVED***
+    },
+  },
 
-***REMOVED***
+};
 </script>
 
 <style module>

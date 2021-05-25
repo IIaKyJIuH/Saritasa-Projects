@@ -1,61 +1,61 @@
-***REMOVED****
-***REMOVED*** Model representing films information database.
-***REMOVED***/
+/**
+ * Model representing films information database.
+ */
 export class FilmModel {
-***REMOVED***
-  ***REMOVED*** Index in the database swapi file.
-***REMOVED***
+  /**
+   * Index in the database swapi file.
+   */
   public databaseId: number;
 
-***REMOVED***
-  ***REMOVED*** Title of the film.
-***REMOVED***
+  /**
+   * Title of the film.
+   */
   public title: string;
 
-***REMOVED***
-  ***REMOVED*** Indexes that relates to specific character in other table.
-***REMOVED***
+  /**
+   * Indexes that relates to specific character in other table.
+   */
   public characters: Array<number>;
 
-***REMOVED***
-  ***REMOVED*** Date when the film was released.
-***REMOVED***
+  /**
+   * Date when the film was released.
+   */
   public releaseDate: Date;
 
-***REMOVED***
-  ***REMOVED*** Person, created the film.
-***REMOVED***
+  /**
+   * Person, created the film.
+   */
   public director: string;
 
-***REMOVED***
-  ***REMOVED*** Number of episode.
-***REMOVED***
+  /**
+   * Number of episode.
+   */
   public episodeId: number;
 
-***REMOVED***
-  ***REMOVED*** Indexes for other table represents planets that we could see in this film.
-***REMOVED***
+  /**
+   * Indexes for other table represents planets that we could see in this film.
+   */
   public planets: Array<number>;
 
-***REMOVED***
-  ***REMOVED*** Indexes for species involved in this film.
-***REMOVED***
+  /**
+   * Indexes for species involved in this film.
+   */
   public species: Array<number>;
 
-***REMOVED***
-  ***REMOVED*** Starships indexes from this film for other table.
-***REMOVED***
+  /**
+   * Starships indexes from this film for other table.
+   */
   public starships: Array<number>;
 
-***REMOVED***
-  ***REMOVED*** Indexes for other table of vehicles participated in this film.
-***REMOVED***
+  /**
+   * Indexes for other table of vehicles participated in this film.
+   */
   public vehicles: Array<number>;
 
-***REMOVED***
-  ***REMOVED*** .ctor
-  ***REMOVED*** @param data - Dto pattern about film for FireBase database.
-***REMOVED***
+  /**
+   * .ctor
+   * @param data - Dto pattern about film for FireBase database.
+   */
   constructor(data: Partial<FilmModel>) {
     this.databaseId = data.databaseId;
     this.characters = data.characters;

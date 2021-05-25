@@ -11,22 +11,22 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: 'films',
-***REMOVED***
+  },
   {
     path: 'films',
     component: FilmsComponent,
     canActivate: [AuthGuard],
-***REMOVED***
+  },
   {
     path: 'films/:id',
     component: FilmEditComponent,
     canActivate: [AuthGuard],
-***REMOVED***
+  },
 ];
 
-***REMOVED****
-***REMOVED*** Routings for admin module.
-***REMOVED***/
+/**
+ * Routings for admin module.
+ */
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],

@@ -60,13 +60,13 @@ export default {
       'isAuthenticated',
       'isAdmin',
     ]),
-***REMOVED***
+  },
 
   methods: {
     async logout() {
       await this.resetAuth();
       this.$router.push('/');
- ***REMOVED*****REMOVED***
+    },
 
     ...mapActions([
       'resetAuth',
@@ -75,10 +75,10 @@ export default {
 
     getAdminFeatures() {
       this.toggleAdminStatus();
- ***REMOVED*****REMOVED***
+    },
 
-***REMOVED***
-***REMOVED***
+  },
+};
 </script>
 
 <style module>

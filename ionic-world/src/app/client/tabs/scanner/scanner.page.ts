@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { Observable, from, of } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 
-***REMOVED****
-***REMOVED*** Page for scanning documents.
-***REMOVED***/
+/**
+ * Page for scanning documents.
+ */
 @Component({
   selector: 'app-scanner',
   templateUrl: 'scanner.page.html',
@@ -14,9 +14,9 @@ import { tap, switchMap } from 'rxjs/operators';
 })
 export class ScannerPage {
 
-***REMOVED***
-  ***REMOVED*** Percentage of task completion.
-***REMOVED***
+  /**
+   * Percentage of task completion.
+   */
   public percentage$: Observable<number>;
 
   constructor(
@@ -24,10 +24,10 @@ export class ScannerPage {
     private router: Router,
   ) {}
 
-***REMOVED***
-  ***REMOVED*** Makes scanning by preferred source.
-  ***REMOVED*** @param ev - refers to the pressed segment-button with the specific value.
-***REMOVED***
+  /**
+   * Makes scanning by preferred source.
+   * @param ev - refers to the pressed segment-button with the specific value.
+   */
   public doScanning(ev: any): void {
     const source = +ev.srcElement.value;
 

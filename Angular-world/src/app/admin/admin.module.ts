@@ -13,9 +13,9 @@ import { AdminComponent } from './admin.component';
 import { FilmEditComponent } from './film-edit/film-edit.component';
 import { FilmsComponent } from './films/films.component';
 
-***REMOVED****
-***REMOVED*** Admin main module.
-***REMOVED***/
+/**
+ * Admin main module.
+ */
 @NgModule({
   declarations: [FilmsComponent, FilmEditComponent, AdminComponent],
   imports: [

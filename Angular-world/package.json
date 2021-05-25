@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
-***REMOVED***
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^12.0.1",
@@ -23,7 +23,7 @@
     "@angular/router": "~12.0.1",
     "rxjs": "~7.1.0",
     "zone.js": "~0.11.4"
-***REMOVED***
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.0.1",
     "@angular/cli": "~12.0.1",

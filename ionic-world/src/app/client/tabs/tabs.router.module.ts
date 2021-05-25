@@ -13,22 +13,22 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'scanner',
-   ***REMOVED*****REMOVED***
+      },
       {
         path: 'scanner',
         loadChildren: './scanner/scanner.module#ScannerPageModule',
-   ***REMOVED*****REMOVED***
+      },
       {
         path: 'archive',
         loadChildren: './archive/archive.module#ArchivePageModule',
-   ***REMOVED*****REMOVED***
+      },
     ],
-***REMOVED***
+  },
 ];
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   imports: [
     RouterModule.forChild(routes),

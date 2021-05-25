@@ -2,6 +2,6 @@
   "name": "ionic-world",
   "integrations": {
     "cordova": {}
-***REMOVED***
+  },
   "type": "angular"
 }

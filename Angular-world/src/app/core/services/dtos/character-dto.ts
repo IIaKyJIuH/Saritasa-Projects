@@ -1,49 +1,49 @@
-***REMOVED****
-***REMOVED*** Dto about character from db.
-***REMOVED***/
+/**
+ * Dto about character from db.
+ */
 export interface CharacterDto {
-***REMOVED***
-  ***REMOVED*** Date of birth in the Star wars Universe.
-***REMOVED***
+  /**
+   * Date of birth in the Star wars Universe.
+   */
   birth_year: string;
 
-***REMOVED***
-  ***REMOVED*** Eye color of the character.
-***REMOVED***
+  /**
+   * Eye color of the character.
+   */
   eye_color: string;
 
-***REMOVED***
-  ***REMOVED*** Male/Female.
-***REMOVED***
+  /**
+   * Male/Female.
+   */
   gender: string;
 
-***REMOVED***
-  ***REMOVED*** Hair color.
-***REMOVED***
+  /**
+   * Hair color.
+   */
   hair_color: string;
 
-***REMOVED***
-  ***REMOVED*** Height of the character, cm.
-***REMOVED***
+  /**
+   * Height of the character, cm.
+   */
   height: string;
 
-***REMOVED***
-  ***REMOVED*** Native planet(just index for now) of the character.
-***REMOVED***
+  /**
+   * Native planet(just index for now) of the character.
+   */
   homeworld: number;
 
-***REMOVED***
-  ***REMOVED*** Weight of the character, kg.
-***REMOVED***
+  /**
+   * Weight of the character, kg.
+   */
   mass: string;
 
-***REMOVED***
-  ***REMOVED*** Character name.
-***REMOVED***
+  /**
+   * Character name.
+   */
   name: string;
 
-***REMOVED***
-  ***REMOVED*** God knows, what this means...........
-***REMOVED***
+  /**
+   * God knows, what this means...........
+   */
   skin_color: string;
 }

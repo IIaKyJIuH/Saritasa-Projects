@@ -1,32 +1,32 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-***REMOVED****
-***REMOVED*** Application configurations.
-***REMOVED***/
+/**
+ * Application configurations.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class AppConfig {
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  /**
+   * API URL.
+   */
   public readonly API_URL = environment.API_URL;
 
-***REMOVED***
-  ***REMOVED*** Web-API key of my FireBase Db.
-***REMOVED***
+  /**
+   * Web-API key of my FireBase Db.
+   */
   public readonly API_KEY = environment.firebase.apiKey;
 
-***REMOVED***
-  ***REMOVED*** Firebase url related to the uploaded file swapi.json.
-***REMOVED***
+  /**
+   * Firebase url related to the uploaded file swapi.json.
+   */
   public readonly FIREBASE_SWAPI_URL =
     environment.firebase.databaseURL + '/swapi';
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  /**
+   * Url for refreshing secure token and thus the access token.
+   */
   public readonly REFRESH_SECURE_TOKEN_URL =
     environment.REFRESH_SECURE_TOKEN_URL;
 }

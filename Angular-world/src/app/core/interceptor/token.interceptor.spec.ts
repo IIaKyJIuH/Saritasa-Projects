@@ -1,4 +1,4 @@
-***REMOVED*** tslint:disable:no-unused-variable***REMOVED***/
+/* tslint:disable:no-unused-variable */
 
 import { TestBed, inject, waitForAsync } from '@angular/core/testing';
 

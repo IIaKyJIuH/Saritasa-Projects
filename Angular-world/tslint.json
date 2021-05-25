@@ -3,6 +3,6 @@
     "deprecation": {
       "severity": "warning"
     }
-***REMOVED***
+  },
   "extends": "@saritasa/tslint-config-angular"
 }

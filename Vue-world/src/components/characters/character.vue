@@ -56,14 +56,14 @@ export default {
   data() {
     return {
       character: null,
-   ***REMOVED*****REMOVED***
-***REMOVED***
+    };
+  },
 
   async mounted() {
     this.character = await this.charactersService.getCharacterByIndex(this.$route.params.charId);
-***REMOVED***
+  },
 
-***REMOVED***
+};
 </script>
 
 <style module>

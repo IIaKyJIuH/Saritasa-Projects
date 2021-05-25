@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 
-***REMOVED****
-***REMOVED*** Home page.
-***REMOVED***/
+/**
+ * Home page.
+ */
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-***REMOVED***
-  ***REMOVED*** Project title.
-***REMOVED***
+  /**
+   * Project title.
+   */
   public title = 'Angular Star Wars project';
 }

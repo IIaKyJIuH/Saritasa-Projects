@@ -12,9 +12,9 @@ export default {
   data() {
     return {
       msg: 'Welcome to my first Vue.js app',
-   ***REMOVED*****REMOVED***
-***REMOVED***
-***REMOVED***
+    };
+  },
+};
 </script>
 
 <style module>

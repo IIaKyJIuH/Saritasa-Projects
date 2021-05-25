@@ -1,14 +1,14 @@
-***REMOVED****
-***REMOVED*** Dto for user tokens in terms of http post-request.
-***REMOVED***/
+/**
+ * Dto for user tokens in terms of http post-request.
+ */
 export interface UserTokensDto {
-***REMOVED***
-  ***REMOVED*** user idToken.
-***REMOVED***
+  /**
+   * user idToken.
+   */
   idToken: string;
 
-***REMOVED***
-  ***REMOVED*** user secure token for idToken refreshing.
-***REMOVED***
+  /**
+   * user secure token for idToken refreshing.
+   */
   refreshToken: string;
 }

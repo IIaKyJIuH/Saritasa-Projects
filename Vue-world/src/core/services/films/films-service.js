@@ -8,20 +8,20 @@ export default {
       .ref('swapi/films').once('value'))
       .val()
       .map((item, index) => this.mapDtoToFilmModel({ ...item.fields, id: index }));
-***REMOVED***
+  },
 
   async getFilmByIndex(payload) {
     const filmDbObject = (await firebase.database()
       .ref(`swapi/films/${payload}/fields`).once('value'))
       .val();
     return this.mapDtoToFilmModel({ ...filmDbObject, id: payload });
-***REMOVED***
+  },
 
   async updateFilm({ id, newFilm }) {
     await firebase.database()
       .ref(`swapi/films/${id}/fields`)
       .update(this.mapFilmModelToDto(newFilm));
-***REMOVED***
+  },
 
   mapDtoToFilmModel({
     characters, director, release_date, title, id, episode_id,
@@ -34,7 +34,7 @@ export default {
       id,
       episodeId: episode_id,
     });
-***REMOVED***
+  },
 
   mapFilmModelToDto({
     characters, director, releaseDate, title, episodeId,
@@ -45,6 +45,6 @@ export default {
       episode_id: episodeId,
       release_date: releaseDate,
       director,
-   ***REMOVED*****REMOVED***
-***REMOVED***
-***REMOVED***
+    };
+  },
+};

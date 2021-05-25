@@ -3,9 +3,9 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Platform } from '@ionic/angular';
 
-***REMOVED****
-***REMOVED*** Root component of the whole app.
-***REMOVED***/
+/**
+ * Root component of the whole app.
+ */
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -20,9 +20,9 @@ export class AppComponent {
     this.initializeApp();
   }
 
-***REMOVED***
-  ***REMOVED*** @inheritdoc
-***REMOVED***
+  /**
+   * @inheritdoc
+   */
   public initializeApp(): void {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();

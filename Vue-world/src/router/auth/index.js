@@ -6,10 +6,10 @@ export default [
     path: '/login',
     name: 'Login',
     component: Login,
-***REMOVED***
+  },
   {
     path: '/register',
     name: 'Register',
     component: Registration,
-***REMOVED***
+  },
 ];

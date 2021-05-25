@@ -11,40 +11,40 @@ import { UserTokens } from '../models/user-tokens';
 
 import { UserLoginParam } from './user-login-param';
 
-***REMOVED****
-***REMOVED*** Service that authorizes user at FireBase.
-***REMOVED***/
+/**
+ * Service that authorizes user at FireBase.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-***REMOVED***
-  ***REMOVED*** Refers to access token from Firebase API.
-***REMOVED***
+  /**
+   * Refers to access token from Firebase API.
+   */
   private ID_TOKEN = 'idToken';
 
-***REMOVED***
-  ***REMOVED*** Refers to secure token from Firebase API.
-***REMOVED***
+  /**
+   * Refers to secure token from Firebase API.
+   */
   private SECURE_TOKEN = 'secureToken';
 
-***REMOVED***
-  ***REMOVED*** .сtor
-  ***REMOVED*** @param http - http client
-***REMOVED***
+  /**
+   * .сtor
+   * @param http - http client
+   */
   constructor(private http: HttpClient, private config: AppConfig) {}
 
-***REMOVED***
-  ***REMOVED*** Posts user data to the server for authorization and set pair localStorage[email]='idToken'.
-  ***REMOVED*** @param user - interface that includes user email and password.
-  ***REMOVED*** @returns
-***REMOVED***
+  /**
+   * Posts user data to the server for authorization and set pair localStorage[email]='idToken'.
+   * @param user - interface that includes user email and password.
+   * @returns
+   */
   public login(user: UserLoginParam): Observable<UserModel> {
     const body = {
       email: user.email,
       password: user.password,
       returnSecureToken: true,
-   ***REMOVED*****REMOVED***
+    };
     return this.http
       .post<UserDto>(`${this.config.API_URL}/verifyPassword`, body)
       .pipe(
@@ -53,19 +53,19 @@ export class AuthenticationService {
       );
   }
 
-***REMOVED***
-  ***REMOVED*** Saves user tokens in the local storage for further refreshing.
-  ***REMOVED*** @param user - user email and his tokens.
-***REMOVED***
+  /**
+   * Saves user tokens in the local storage for further refreshing.
+   * @param user - user email and his tokens.
+   */
   public storeTokens(user: UserModel | UserTokens): void {
     localStorage.setItem(this.ID_TOKEN, user.idToken);
     localStorage.setItem(this.SECURE_TOKEN, user.secureToken);
   }
 
-***REMOVED***
-  ***REMOVED*** Maps object from database to it`s usable model.
-  ***REMOVED*** @returns usable user model for this app.
-***REMOVED***
+  /**
+   * Maps object from database to it`s usable model.
+   * @returns usable user model for this app.
+   */
   private mapUserDtoToUser(userDto: UserDto): UserModel {
     return new UserModel({
       email: userDto.email,
@@ -74,26 +74,26 @@ export class AuthenticationService {
     });
   }
 
-***REMOVED***
-  ***REMOVED*** Deletes userToken => log outs him from system.
-***REMOVED***
+  /**
+   * Deletes userToken => log outs him from system.
+   */
   public logout(): void {
     localStorage.removeItem(this.ID_TOKEN);
     localStorage.removeItem(this.SECURE_TOKEN);
   }
 
-***REMOVED***
-  ***REMOVED*** Gets access token for authorization needs.
-  ***REMOVED*** @returns access token for getting some data from the database.
-***REMOVED***
+  /**
+   * Gets access token for authorization needs.
+   * @returns access token for getting some data from the database.
+   */
   public getAccessToken(): string {
     return localStorage.getItem(this.ID_TOKEN);
   }
 
-***REMOVED***
-  ***REMOVED*** Refreshes both access and secure tokens.
-  ***REMOVED*** @returns observable of new access and secure tokens.
-***REMOVED***
+  /**
+   * Refreshes both access and secure tokens.
+   * @returns observable of new access and secure tokens.
+   */
   public refreshToken(): Observable<UserTokens> {
     return this.http
       .post(this.config.REFRESH_SECURE_TOKEN_URL, {
@@ -108,10 +108,10 @@ export class AuthenticationService {
       );
   }
 
-***REMOVED***
-  ***REMOVED*** Maps tokens from their presentation in the Db to the usable app model.
-  ***REMOVED*** @param userTokens - access and secure user tokens.
-***REMOVED***
+  /**
+   * Maps tokens from their presentation in the Db to the usable app model.
+   * @param userTokens - access and secure user tokens.
+   */
   private mapUserTokensDtoToUserTokens(userTokens: UserTokensDto): UserTokens {
     return new UserTokens({
       idToken: userTokens.idToken,
@@ -119,10 +119,10 @@ export class AuthenticationService {
     });
   }
 
-***REMOVED***
-  ***REMOVED*** Checks if the current user is logged in.
-  ***REMOVED*** @returns if there is userEmail - true, else - false.
-***REMOVED***
+  /**
+   * Checks if the current user is logged in.
+   * @returns if there is userEmail - true, else - false.
+   */
   public isLoggedIn(): boolean {
     return (
       localStorage.getItem(this.ID_TOKEN) !== null &&
@@ -130,9 +130,9 @@ export class AuthenticationService {
     );
   }
 
-***REMOVED***
-  ***REMOVED*** For toggling admin status. WILL BE FIXED LATER.
-***REMOVED***
+  /**
+   * For toggling admin status. WILL BE FIXED LATER.
+   */
   public toggleAdminStatus(): void {
     const toggling = localStorage.getItem('isAdmin') === 'false' ? true : false;
     localStorage.setItem('isAdmin', toggling.toString());

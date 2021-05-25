@@ -7,9 +7,9 @@ import { ProgressBarModule } from 'angular-progress-bar';
 
 import { ScannerPage } from './scanner.page';
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   imports: [
     IonicModule,

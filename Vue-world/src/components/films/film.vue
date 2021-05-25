@@ -43,16 +43,16 @@ export default {
   data() {
     return {
       filmInfo: null,
-   ***REMOVED*****REMOVED***
-***REMOVED***
+    };
+  },
 
   async mounted() {
     this.filmInfo = await this.filmsService.getFilmByIndex(this.$route.params.filmId);
     this.filmInfo.characters = await this.charactersService
       .getCharactersByIndexes(this.filmInfo.characters);
-***REMOVED***
+  },
 
-***REMOVED***
+};
 </script>
 
 <style module>

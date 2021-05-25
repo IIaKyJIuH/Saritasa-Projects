@@ -6,9 +6,9 @@ import { FormGroup, Validators, FormBuilder, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 
-***REMOVED****
-***REMOVED*** For user registration.
-***REMOVED***/
+/**
+ * For user registration.
+ */
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.page.html',
@@ -16,9 +16,9 @@ import { take } from 'rxjs/operators';
 })
 export class SignUpPage {
 
-***REMOVED***
-  ***REMOVED*** Form data: email + password.
- ***REMOVED***/
+  /**
+   * Form data: email + password.
+  */
   public registrationForm: FormGroup;
 
   constructor(
@@ -37,24 +37,24 @@ export class SignUpPage {
       Validators.maxLength(12),
     ])],
     confirmPassword: ['', Validators.required],
-***REMOVED*** { validator: PasswordValidator.areEqual });
+  }, { validator: PasswordValidator.areEqual });
 
   }
 
-***REMOVED***
- ***REMOVED*** Async user login + if successful then redirect him to scanner page.
- ***REMOVED*** @param formValues - user email + password.
- ***REMOVED***/
+  /**
+  * Async user login + if successful then redirect him to scanner page.
+  * @param formValues - user email + password.
+  */
   public onSubmit(formValues: CredentialsModel): void {
     this.registrationService
       .register(formValues).pipe(take(1))
       .subscribe(() => this.router.navigate(['/tabs']));
   }
 
-***REMOVED***
- ***REMOVED*** All controls that have a formControlName in html file.
- ***REMOVED*** @returns FormGroup.controls.
- ***REMOVED***/
+  /**
+  * All controls that have a formControlName in html file.
+  * @returns FormGroup.controls.
+  */
   get formControls(): { [key: string]: AbstractControl; } { return this.registrationForm.controls; }
 
 }

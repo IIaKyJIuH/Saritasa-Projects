@@ -1,55 +1,55 @@
-***REMOVED****
-***REMOVED*** Includes everything to work with character according to the database data.
-***REMOVED***/
+/**
+ * Includes everything to work with character according to the database data.
+ */
 export class CharacterModel {
-***REMOVED***
-  ***REMOVED*** Index in the database swapi file.
-***REMOVED***
+  /**
+   * Index in the database swapi file.
+   */
   public databaseId: number;
 
-***REMOVED***
-  ***REMOVED*** Date of birth according to the the Star Wars universe.
-***REMOVED***
+  /**
+   * Date of birth according to the the Star Wars universe.
+   */
   public birthYear: string;
 
-***REMOVED***
-  ***REMOVED*** Eye color of the character.
-***REMOVED***
+  /**
+   * Eye color of the character.
+   */
   public eyeColor: string;
 
-***REMOVED***
-  ***REMOVED*** Male/Female.
-***REMOVED***
+  /**
+   * Male/Female.
+   */
   public gender: string;
 
-***REMOVED***
-  ***REMOVED*** Hair color.
-***REMOVED***
+  /**
+   * Hair color.
+   */
   public hairColor: string;
 
-***REMOVED***
-  ***REMOVED*** Height of the character, cm.
-***REMOVED***
+  /**
+   * Height of the character, cm.
+   */
   public height: number;
 
-***REMOVED***
-  ***REMOVED*** Native planet(just index for now) of the character.
-***REMOVED***
+  /**
+   * Native planet(just index for now) of the character.
+   */
   public homeworld: number;
 
-***REMOVED***
-  ***REMOVED*** Weight of the character, kg.
-***REMOVED***
+  /**
+   * Weight of the character, kg.
+   */
   public mass: number;
 
-***REMOVED***
-  ***REMOVED*** Character name.
-***REMOVED***
+  /**
+   * Character name.
+   */
   public name: string;
 
-***REMOVED***
-  ***REMOVED*** God knows what this means...........
-***REMOVED***
+  /**
+   * God knows what this means...........
+   */
   public skinColor: string;
 
   constructor(data: Partial<CharacterModel>) {

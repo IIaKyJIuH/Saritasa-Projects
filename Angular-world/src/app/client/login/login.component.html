@@ -2,15 +2,15 @@
     <p class="form-group">
         <label>Input your e-mail
             <input class="form-input" type="email" placeholder="lololo@lalala.ru" formControlName="email" required>
-            <div***REMOVED***ngIf="formControls.email.hasError('required') && formControls.email.touched" class="alert alert-danger">You must include an email.</div>
+            <div *ngIf="formControls.email.hasError('required') && formControls.email.touched" class="alert alert-danger">You must include an email.</div>
         </label>
     </p>
 
     <p class="form-group">
         <label>Input your password
             <input class="form-input" type="password" placeholder="Password" formControlName="password" minlength="3" required>
-            <div***REMOVED***ngIf="formControls.password.hasError('required') && formControls.password.touched" class="alert alert-danger">You must include a password.</div>
-            <div***REMOVED***ngIf="formControls.password.hasError('minlength') && formControls.password.touched" class="alert alert-danger">Your password must be at least 3 characters long.</div>
+            <div *ngIf="formControls.password.hasError('required') && formControls.password.touched" class="alert alert-danger">You must include a password.</div>
+            <div *ngIf="formControls.password.hasError('minlength') && formControls.password.touched" class="alert alert-danger">Your password must be at least 3 characters long.</div>
         </label>
     </p>   
 

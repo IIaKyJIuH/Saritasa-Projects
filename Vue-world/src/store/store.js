@@ -8,7 +8,7 @@ export default new Vuex.Store({
 
   modules: {
     authStore,
-***REMOVED***
+  },
 
   state: {},
 

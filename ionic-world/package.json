@@ -10,7 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
-***REMOVED***
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~8.1.2",
@@ -38,7 +38,7 @@
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
-***REMOVED***
+  },
   "devDependencies": {
     "@angular-devkit/architect": "~0.801.2",
     "@angular-devkit/build-angular": "~0.801.2",
@@ -72,7 +72,7 @@
     "ts-node": "~7.0.0",
     "tslint": "^5.18.0",
     "typescript": "^3.4.5"
-***REMOVED***
+  },
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
@@ -82,12 +82,12 @@
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-ionic-webview": {
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
-   ***REMOVED*****REMOVED***
+      },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-document-scanner": {},
       "cordova-plugin-file": {},
       "cordova-plugin-dialogs": {}
- ***REMOVED*****REMOVED***
+    },
     "platforms": [
       "android"
     ]

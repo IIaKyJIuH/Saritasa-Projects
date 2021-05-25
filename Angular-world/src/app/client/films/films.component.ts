@@ -4,29 +4,29 @@ import { FilmsService } from 'src/app/core/services/data/films/films.service';
 
 import { FilmModel } from '../../core/services/models/film-model';
 
-***REMOVED****
-***REMOVED*** Profile of authorized person with table from Db data.
-***REMOVED***/
+/**
+ * Profile of authorized person with table from Db data.
+ */
 @Component({
   selector: 'app-profile',
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css'],
 })
 export class FilmsComponent {
-***REMOVED***
-  ***REMOVED*** Array of films from Db.
-***REMOVED***
+  /**
+   * Array of films from Db.
+   */
   public films$: Observable<FilmModel[]>;
 
-***REMOVED***
-  ***REMOVED*** Headers for component`s html table.
-***REMOVED***
+  /**
+   * Headers for component`s html table.
+   */
   public tableHeaders: string[] = ['Title', 'Year', 'Director'];
 
-***REMOVED***
-  ***REMOVED*** .ctor
-  ***REMOVED*** @param filmsService - service managing films data from Db.
-***REMOVED***
+  /**
+   * .ctor
+   * @param filmsService - service managing films data from Db.
+   */
   constructor(private filmsService: FilmsService) {
     this.films$ = this.filmsService.getDbFilmsData();
   }

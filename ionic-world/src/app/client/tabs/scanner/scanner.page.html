@@ -11,7 +11,7 @@
     </ion-segment-button>
   </ion-segment>
 
-  <div***REMOVED***ngIf="percentage$ | async as pct" class="pctContainer">
+  <div *ngIf="percentage$ | async as pct" class="pctContainer">
 
       <progress-bar 
               [progress]="pct"
@@ -19,7 +19,7 @@
               max="100">        
       </progress-bar>
 
-      <footer***REMOVED***ngIf="pct >= 100" class="result">
+      <footer *ngIf="pct >= 100" class="result">
         <span> Great, file was uploaded </span>
       </footer>
     

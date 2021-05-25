@@ -7,32 +7,32 @@ import { File } from '@ionic-native/file/ngx';
 import { Observable, from, of } from 'rxjs';
 import { tap, switchMap, map } from 'rxjs/operators';
 
-***REMOVED****
-***REMOVED*** For scanning documents, storing them and getting them back.
-***REMOVED***/
+/**
+ * For scanning documents, storing them and getting them back.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class ScannerService {
 
-***REMOVED***
-  ***REMOVED*** Main task of uploading image.
-***REMOVED***
+  /**
+   * Main task of uploading image.
+   */
   public task: AngularFireUploadTask;
 
-***REMOVED***
-  ***REMOVED*** Snapshot. // For now it looks like a hack.
-***REMOVED***
+  /**
+   * Snapshot. // For now it looks like a hack.
+   */
   public snapshot: Observable<any>;
 
-***REMOVED***
-  ***REMOVED*** .ctor
-  ***REMOVED*** @param documentScanner - ionic plugin for scanning documents.
-  ***REMOVED*** @param afStorage - my firebase storage for keeping images.
-  ***REMOVED*** @param afStore - my firebase store for storing properties of images.
-  ***REMOVED*** @param file - needed primary to make Blob file from my image.
-  ***REMOVED*** @param dialog - needed to ask the user for things like file name.
-***REMOVED***
+  /**
+   * .ctor
+   * @param documentScanner - ionic plugin for scanning documents.
+   * @param afStorage - my firebase storage for keeping images.
+   * @param afStore - my firebase store for storing properties of images.
+   * @param file - needed primary to make Blob file from my image.
+   * @param dialog - needed to ask the user for things like file name.
+   */
   constructor (
     private documentScanner: DocumentScanner,
     private afStorage: AngularFireStorage,
@@ -41,12 +41,12 @@ export class ScannerService {
     private dialog: Dialogs,
   ) {}
 
-***REMOVED***
- ***REMOVED*** Use source to scan the image and then send it to the firestore and the firestorage.
- ***REMOVED*** @returns percentage of completion of this task.
- ***REMOVED***/
+  /**
+  * Use source to scan the image and then send it to the firestore and the firestorage.
+  * @returns percentage of completion of this task.
+  */
   public scanDocument(source: number): Observable<number> {
-    const opts: DocumentScannerOptions = { sourceType: source, fileName: 'myImage'***REMOVED*****REMOVED***
+    const opts: DocumentScannerOptions = { sourceType: source, fileName: 'myImage' };
     let name = '';
     let isEmpty = false;
     return from(this.documentScanner.scanDoc(opts)).pipe(
@@ -71,11 +71,11 @@ export class ScannerService {
 
   }
 
-***REMOVED***
-  ***REMOVED*** Uploads picture on to the firestorage.
-  ***REMOVED*** @param pathToImage - file destination after scanDocument call.
-  ***REMOVED*** @returns percentage of completion.
-***REMOVED***
+  /**
+   * Uploads picture on to the firestorage.
+   * @param pathToImage - file destination after scanDocument call.
+   * @returns percentage of completion.
+   */
   public uploadToFireStorage(pathToImage: string): Observable<number> {
     const n = pathToImage.lastIndexOf('/');
     const fileName = pathToImage.slice(n + 1);
@@ -92,18 +92,18 @@ export class ScannerService {
     );
   }
 
-***REMOVED***
-  ***REMOVED*** Saves properties of the picture into the firestore document.
-  ***REMOVED*** @param fileDownloadUrl - url for downloading the document/picture.
-  ***REMOVED*** @param fileName - name of file, inputed by user.
-***REMOVED***
+  /**
+   * Saves properties of the picture into the firestore document.
+   * @param fileDownloadUrl - url for downloading the document/picture.
+   * @param fileName - name of file, inputed by user.
+   */
   public uploadUrlToFirestore(fileDownloadUrl: string, fileName: string): void {
     this.afStore.collection('scanned-documents').add( { downloadUrl: fileDownloadUrl, name: fileName });
   }
 
-***REMOVED***
-  ***REMOVED*** Gets all the image properties from the firestore cloud store.
-***REMOVED***
+  /**
+   * Gets all the image properties from the firestore cloud store.
+   */
   public getImagesInfoFromFirestore(): Observable<DocumentData[]> {
     return this.afStore.collection('scanned-documents').get().pipe(
       map(c => c.docs.map(each => each.data())),

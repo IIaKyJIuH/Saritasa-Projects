@@ -9,14 +9,14 @@ export default {
       .val()
       .map((item, index) => this.mapDtoToCharacterModel({ ...item.fields, id: index }))
       .filter((item) => array.includes(item.id));
-***REMOVED***
+  },
 
   async getCharacterByIndex(payload) {
     const characterDbObject = (await firebase.database()
       .ref(`swapi/people/${payload}`).once('value'))
       .val().fields;
     return this.mapDtoToCharacterModel({ ...characterDbObject, id: payload });
-***REMOVED***
+  },
 
   mapDtoToCharacterModel({
     birth_year, eye_color, gender, hair_color, height, homeworld, mass, name, skin_color, id,
@@ -33,5 +33,5 @@ export default {
       name,
       skinColor: skin_color,
     });
-***REMOVED***
-***REMOVED***
+  },
+};

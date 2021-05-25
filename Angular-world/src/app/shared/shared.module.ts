@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   declarations: [],
   imports: [CommonModule],

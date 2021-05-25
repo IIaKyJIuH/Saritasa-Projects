@@ -13,9 +13,9 @@ import { catchError, concatMap } from 'rxjs/operators';
 import { AppConfig } from '../app-config';
 import { UserTokens } from '../services/models/user-tokens';
 
-***REMOVED****
-***REMOVED*** Interceptor transforming http requests to simplify all other requests to the Db.
-***REMOVED***/
+/**
+ * Interceptor transforming http requests to simplify all other requests to the Db.
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -26,11 +26,11 @@ export class TokenInterceptor implements HttpInterceptor {
     private config: AppConfig,
   ) { }
 
-***REMOVED***
-  ***REMOVED*** HttpInterceptor realization.
-  ***REMOVED*** @param request - incoming request.
-  ***REMOVED*** @param next - command to transit modified http request to the next interceptor.
-***REMOVED***
+  /**
+   * HttpInterceptor realization.
+   * @param request - incoming request.
+   * @param next - command to transit modified http request to the next interceptor.
+   */
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     if (request.method === 'POST') {

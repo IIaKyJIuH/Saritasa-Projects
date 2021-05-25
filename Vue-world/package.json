@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
-***REMOVED***
+  },
   "dependencies": {
     "core-js": "^2.6.5",
     "firebase": "^6.3.5",
@@ -14,7 +14,7 @@
     "vue-router": "^3.0.3",
     "vuelidate": "^0.7.4",
     "vuex": "^3.1.1"
-***REMOVED***
+  },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",
     "@vue/cli-plugin-eslint": "^3.10.0",
@@ -26,12 +26,12 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-vue": "^5.2.3",
     "vue-template-compiler": "^2.6.10"
-***REMOVED***
+  },
   "eslintConfig": {
     "root": true,
     "env": {
       "node": true
- ***REMOVED*****REMOVED***
+    },
     "extends": [
       "plugin:vue/essential",
       "@vue/airbnb"
@@ -40,12 +40,12 @@
     "parserOptions": {
       "parser": "babel-eslint"
     }
-***REMOVED***
+  },
   "postcss": {
     "plugins": {
       "autoprefixer": {}
     }
-***REMOVED***
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions"

@@ -5,9 +5,9 @@ import { Observable, from } from 'rxjs';
 
 import { CredentialsModel } from '../models/credentials-model';
 
-***REMOVED****
-***REMOVED*** Registrates user in firebase.
-***REMOVED***/
+/**
+ * Registrates user in firebase.
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -17,10 +17,10 @@ export class RegistrationService {
     private afAuth: AngularFireAuth,
   ) { }
 
-***REMOVED***
-  ***REMOVED*** Registrates user in firebase.
-  ***REMOVED*** @param user - email + password.
-***REMOVED***
+  /**
+   * Registrates user in firebase.
+   * @param user - email + password.
+   */
   public register(user: CredentialsModel): Observable<UserCredential> {
     return from(this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password));
   }

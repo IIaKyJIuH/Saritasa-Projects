@@ -16,9 +16,9 @@ let app = '';
 firebase.initializeApp(JSON.parse(process.env.VUE_APP_FIREBASE_PARAMETERS));
 
 
-***REMOVED****
-***REMOVED*** For displaying the app.
-***REMOVED***/
+/**
+ * For displaying the app.
+ */
 firebase.auth().onAuthStateChanged(() => {
   if (!app) {
     app = new Vue({

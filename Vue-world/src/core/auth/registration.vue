@@ -78,47 +78,47 @@ export default {
       email: '',
       password: '',
       passwordRepeat: '',
-   ***REMOVED*****REMOVED***
-***REMOVED***
+    };
+  },
 
   validations: {
     email: {
       required,
       email,
- ***REMOVED*****REMOVED***
+    },
     password: {
       required,
       maxLength: maxLength(10),
       minLength: minLength(3),
- ***REMOVED*****REMOVED***
+    },
     passwordRepeat: {
       required,
       sameAsPassword: sameAs('password'),
- ***REMOVED*****REMOVED***
-***REMOVED***
+    },
+  },
 
   computed: {
     ...mapGetters([
       'getEmail',
     ]),
-***REMOVED***
+  },
 
   mounted() {
     this.email = this.getEmail;
-***REMOVED***
+  },
 
   methods: {
     async registerUser() {
       await this.registerInFirebase({ email: this.email, password: this.password });
       this.$router.replace('/films');
- ***REMOVED*****REMOVED***
+    },
 
     ...mapActions([
       'registerInFirebase',
     ]),
 
-***REMOVED***
-***REMOVED***
+  },
+};
 </script>
 
 <style module>

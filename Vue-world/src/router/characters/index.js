@@ -7,6 +7,6 @@ export default [
     component: Character,
     meta: {
       requiresAuth: true,
- ***REMOVED*****REMOVED***
-***REMOVED***
+    },
+  },
 ];

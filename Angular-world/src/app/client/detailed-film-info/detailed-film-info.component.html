@@ -1,4 +1,4 @@
-<table***REMOVED***ngIf="film$ | async as film">
+<table *ngIf="film$ | async as film">
     <tbody>
         <tr>
             <td>Title: </td>
@@ -21,7 +21,7 @@
         <tr>
             <td>Characters: </td>
             <td>
-                <span class="character-name"***REMOVED***ngFor="let character of characters$ | async"
+                <span class="character-name" *ngFor="let character of characters$ | async"
                 [routerLink]="['/characters/', character.databaseId]">
                     {{ character.name }}
                 </span>

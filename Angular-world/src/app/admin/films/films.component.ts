@@ -3,18 +3,18 @@ import { Observable } from 'rxjs';
 import { FilmsService } from 'src/app/core/services/data/films/films.service';
 import { FilmModel } from 'src/app/core/services/models/film-model';
 
-***REMOVED****
-***REMOVED*** Admin`s films page.
-***REMOVED***/
+/**
+ * Admin`s films page.
+ */
 @Component({
   selector: 'app-films',
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.css'],
 })
 export class FilmsComponent {
-***REMOVED***
-  ***REMOVED*** List of films from films service.
-***REMOVED***
+  /**
+   * List of films from films service.
+   */
   public films$: Observable<FilmModel[]>;
 
   constructor(private filmsService: FilmsService) {

@@ -55,14 +55,14 @@ export default {
     return {
       tableHeaders: ['Title', 'Year', 'Director'],
       films: null,
-   ***REMOVED*****REMOVED***
-***REMOVED***
+    };
+  },
 
   computed: {
     ...mapGetters([
       'isAdmin',
     ]),
-***REMOVED***
+  },
 
   watch: {
     isAdmin(newValue, oldValue) {
@@ -72,8 +72,8 @@ export default {
       if (!newValue && this.$route.path.includes('admin')) {
         this.$router.replace('/films');
       }
- ***REMOVED*****REMOVED***
-***REMOVED***
+    },
+  },
 
   async mounted() {
     if (this.isAdmin && !this.$route.path.includes('admin')) {
@@ -81,15 +81,15 @@ export default {
       return;
     }
     this.films = await this.filmsService.getFilms();
-***REMOVED***
+  },
 
   methods: {
     goToEditFilm(filmId) {
       this.$router.push({ name: 'AdminFilmUpdate', params: { filmId } });
- ***REMOVED*****REMOVED***
-***REMOVED***
+    },
+  },
 
-***REMOVED***
+};
 </script>
 
 <style module>

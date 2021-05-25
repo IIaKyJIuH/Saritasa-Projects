@@ -11,22 +11,22 @@ const routes: Routes = [
       {
         path: '',
         redirectTo: 'sign-in',
-   ***REMOVED*****REMOVED***
+      },
       {
         path: 'sign-in',
         loadChildren: './sign-in/sign-in.module#SignInPageModule',
-   ***REMOVED*****REMOVED***
+      },
       {
         path: 'sign-up',
         loadChildren: './sign-up/sign-up.module#SignUpPageModule',
-   ***REMOVED*****REMOVED***
+      },
     ],
-***REMOVED***
+  },
 ];
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],

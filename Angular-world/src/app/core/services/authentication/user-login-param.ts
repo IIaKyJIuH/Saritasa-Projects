@@ -1,14 +1,14 @@
-***REMOVED****
-***REMOVED*** Includes values inputed in the form.
-***REMOVED***/
+/**
+ * Includes values inputed in the form.
+ */
 export interface UserLoginParam {
-***REMOVED***
-  ***REMOVED*** user email.
-***REMOVED***
+  /**
+   * user email.
+   */
   email: string;
 
-***REMOVED***
-  ***REMOVED*** user password.
-***REMOVED***
+  /**
+   * user password.
+   */
   password: string;
 }

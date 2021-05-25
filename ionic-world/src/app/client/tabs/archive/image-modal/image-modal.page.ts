@@ -1,9 +1,9 @@
 import { Component, ViewChild, ElementRef, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
-***REMOVED****
-***REMOVED*** Detailed info about chosen image.
-***REMOVED***/
+/**
+ * Detailed info about chosen image.
+ */
 @Component({
   selector: 'app-image-modal',
   templateUrl: './image-modal.page.html',
@@ -11,37 +11,37 @@ import { ModalController } from '@ionic/angular';
 })
 export class ImageModalPage {
 
-***REMOVED***
-  ***REMOVED*** Chosen by user image.
-***REMOVED***
+  /**
+   * Chosen by user image.
+   */
   @Input() public image: any;
 
-***REMOVED***
-  ***REMOVED*** For zooming in/out purposes.
-***REMOVED***
+  /**
+   * For zooming in/out purposes.
+   */
   @ViewChild('slider', { read: ElementRef, static: false }) public slider: ElementRef;
 
-***REMOVED***
-  ***REMOVED*** Options for modal controller.
-***REMOVED***
+  /**
+   * Options for modal controller.
+   */
   public sliderOpts = {
     zoom: {
       maxRatio: 3,
- ***REMOVED*****REMOVED***
+    },
     effect: 'flip',
     flipEffect: {
       rotate: 30,
- ***REMOVED*****REMOVED***
- ***REMOVED*****REMOVED***
+    },
+  };
 
   constructor(
     private modalCtrl: ModalController,
   ) {}
 
-***REMOVED***
-  ***REMOVED*** Zooming the image if only the user wants to.
-  ***REMOVED*** @param zoomIn - true if user is zooming in.
-***REMOVED***
+  /**
+   * Zooming the image if only the user wants to.
+   * @param zoomIn - true if user is zooming in.
+   */
   public zoom(zoomIn: boolean): void {
     const zoom = this.slider.nativeElement.swiper.zoom;
     if (zoomIn) {
@@ -51,9 +51,9 @@ export class ImageModalPage {
     }
   }
 
-***REMOVED***
-  ***REMOVED*** Closes modal and goes back to the gallery.
-***REMOVED***
+  /**
+   * Closes modal and goes back to the gallery.
+   */
   public close(): void {
     this.modalCtrl.dismiss();
   }

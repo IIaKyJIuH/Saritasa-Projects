@@ -6,9 +6,9 @@ import { IonicModule } from '@ionic/angular';
 import { TabsPage } from './tabs.page';
 import { TabsPageRoutingModule } from './tabs.router.module';
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   imports: [
     IonicModule,

@@ -11,14 +11,14 @@ const routes: Routes = [
       {
         path: 'image-modal',
         loadChildren: './image-modal/image-modal.module#ImageModalPageModule',
-   ***REMOVED*****REMOVED***
+      },
     ],
-***REMOVED***
+  },
 ];
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   imports: [
     RouterModule.forChild(routes),

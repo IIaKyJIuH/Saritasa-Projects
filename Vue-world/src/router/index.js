@@ -17,12 +17,12 @@ const router = new Router({
     {
       path: '',
       redirect: '/home',
- ***REMOVED*****REMOVED***
+    },
     {
       path: '/home',
       name: 'Home',
       component: Home,
- ***REMOVED*****REMOVED***
+    },
     ...authRoutes,
     ...filmsRoutes,
     ...charactersRoutes,
@@ -30,7 +30,7 @@ const router = new Router({
   ],
 });
 
-***REMOVED**** Auth guard to check authentication. ***REMOVED***/
+/** Auth guard to check authentication.  */
 router.beforeEach((to, from, next) => {
   const { currentUser } = firebase.auth();
   store.dispatch('setAuthStatus', !!currentUser);

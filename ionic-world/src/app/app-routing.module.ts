@@ -5,12 +5,12 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: './client/client.module#ClientModule',
-***REMOVED***
+  },
 ];
 
-***REMOVED****
-***REMOVED*** Main component routes.
-***REMOVED***/
+/**
+ * Main component routes.
+ */
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),

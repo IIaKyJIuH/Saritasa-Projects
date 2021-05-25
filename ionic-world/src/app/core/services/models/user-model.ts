@@ -1,13 +1,13 @@
 import { UserTokens } from './user-tokens';
 
-***REMOVED****
-***REMOVED*** User model that tries to fits FireBase response.
-***REMOVED***/
+/**
+ * User model that tries to fits FireBase response.
+ */
 export class UserModel extends UserTokens {
 
- ***REMOVED*****REMOVED***
-    ***REMOVED*** User email.
- ***REMOVED*****REMOVED***
+    /**
+     * User email.
+     */
     public email: string;
 
     constructor(data: Partial<UserModel>) {

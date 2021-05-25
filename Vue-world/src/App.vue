@@ -19,14 +19,14 @@ export default {
     return {
       filmsService,
       charactersService,
-   ***REMOVED*****REMOVED***
-***REMOVED***
+    };
+  },
 
   components: {
     Navigation,
     Footer,
-***REMOVED***
-***REMOVED***
+  },
+};
 </script>
 
 <style>

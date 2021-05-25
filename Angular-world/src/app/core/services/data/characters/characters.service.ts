@@ -8,19 +8,19 @@ import { CharacterDto } from '../../dtos/character-dto';
 import { PropertiesDto } from '../../dtos/properties-dto';
 import { CharacterModel } from '../../models/character-model';
 
-***REMOVED****
-***REMOVED*** Works with the Db 'people' info.
-***REMOVED***/
+/**
+ * Works with the Db 'people' info.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class CharactersService {
   constructor(private http: HttpClient, private config: AppConfig) {}
 
-***REMOVED***
-  ***REMOVED*** Getting people info from Db.
-  ***REMOVED*** @returns observable array of people.
-***REMOVED***
+  /**
+   * Getting people info from Db.
+   * @returns observable array of people.
+   */
   public getDbCharactersData(): Observable<CharacterModel[]> {
     return this.http
       .get<PropertiesDto<CharacterDto>[]>(
@@ -36,11 +36,11 @@ export class CharactersService {
       );
   }
 
-***REMOVED***
-  ***REMOVED*** Getting preferred character from Db.
-  ***REMOVED*** @param characterIndex - character index according to the Db swapi file.
-  ***REMOVED*** @returns observable character.
-***REMOVED***
+  /**
+   * Getting preferred character from Db.
+   * @param characterIndex - character index according to the Db swapi file.
+   * @returns observable character.
+   */
   public getDbCharacterData(
     characterIndex: number,
   ): Observable<CharacterModel> {
@@ -64,11 +64,11 @@ export class CharactersService {
       );
   }
 
-***REMOVED***
-  ***REMOVED*** Translates Dto data about character to the model.
-  ***REMOVED*** @param charDto - character Dto that includes info about properties name from Db.
-  ***REMOVED*** @returns character model.
-***REMOVED***
+  /**
+   * Translates Dto data about character to the model.
+   * @param charDto - character Dto that includes info about properties name from Db.
+   * @returns character model.
+   */
   private createCharacterModelByDto(
     charDto: CharacterDto,
     index: number,

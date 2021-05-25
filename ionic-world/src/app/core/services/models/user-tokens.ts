@@ -1,16 +1,16 @@
-***REMOVED****
-***REMOVED*** User token model for keeping access and secure tokens.
-***REMOVED***/
+/**
+ * User token model for keeping access and secure tokens.
+ */
 export class UserTokens {
 
-***REMOVED***
-  ***REMOVED*** User token from server response.
-***REMOVED***
+  /**
+   * User token from server response.
+   */
   public idToken: Promise<string>;
 
-***REMOVED***
-  ***REMOVED*** User secure token for refreshing idToken.
-***REMOVED***
+  /**
+   * User secure token for refreshing idToken.
+   */
   public secureToken: string;
 
   constructor(data: Partial<UserTokens>) {

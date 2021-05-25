@@ -5,23 +5,23 @@ import { AdminFilmsService } from 'src/app/core/services/data/films/admin-films.
 import { FilmsService } from 'src/app/core/services/data/films/films.service';
 import { FilmModel } from 'src/app/core/services/models/film-model';
 
-***REMOVED****
-***REMOVED*** Here admin can edit films information.
-***REMOVED***/
+/**
+ * Here admin can edit films information.
+ */
 @Component({
   selector: 'app-film-edit',
   templateUrl: './film-edit.component.html',
   styleUrls: ['./film-edit.component.css'],
 })
 export class FilmEditComponent {
-***REMOVED***
-  ***REMOVED*** Film observable to be edited.
-***REMOVED***
+  /**
+   * Film observable to be edited.
+   */
   public film$: Observable<FilmModel>;
 
-***REMOVED***
-  ***REMOVED*** Film index from the Db.
-***REMOVED***
+  /**
+   * Film index from the Db.
+   */
   public filmId: number;
 
   constructor(
@@ -34,10 +34,10 @@ export class FilmEditComponent {
     this.film$ = this.filmsService.getDbFilmData(this.filmId);
   }
 
-***REMOVED***
-  ***REMOVED*** Update film's data method.
-  ***REMOVED*** @param film Film data object.
-***REMOVED***
+  /**
+   * Update film's data method.
+   * @param film Film data object.
+   */
   public update(film: FilmModel): void {
     this.adminFilmsService
       .updateFilm(this.filmId, film)

@@ -8,29 +8,29 @@ import { FilmsService } from 'src/app/core/services/data/films/films.service';
 import { CharacterModel } from '../../core/services/models/character-model';
 import { FilmModel } from '../../core/services/models/film-model';
 
-***REMOVED****
-***REMOVED*** About all film details.
-***REMOVED***/
+/**
+ * About all film details.
+ */
 @Component({
   selector: 'app-detailed-film-info',
   templateUrl: './detailed-film-info.component.html',
   styleUrls: ['./detailed-film-info.component.css'],
 })
 export class DetailedFilmInfoComponent {
-***REMOVED***
-  ***REMOVED*** Film that is interesting to user.
-***REMOVED***
+  /**
+   * Film that is interesting to user.
+   */
   public film$: Observable<FilmModel>;
 
-***REMOVED***
-  ***REMOVED*** Characters related to the film.
-***REMOVED***
+  /**
+   * Characters related to the film.
+   */
   public characters$: Observable<CharacterModel[]>;
 
-***REMOVED***
-  ***REMOVED*** .ctor
-  ***REMOVED*** @param dataService - works with all the data from FireBase database.
-***REMOVED***
+  /**
+   * .ctor
+   * @param dataService - works with all the data from FireBase database.
+   */
   constructor(
     private filmsService: FilmsService,
     private charactersService: CharactersService,
@@ -40,9 +40,9 @@ export class DetailedFilmInfoComponent {
     this.initializeCharacters();
   }
 
-***REMOVED***
-  ***REMOVED*** Gets film selected by user.
-***REMOVED***
+  /**
+   * Gets film selected by user.
+   */
   private initializeFilm(): void {
     this.film$ = this.activatedRouter.paramMap.pipe(
       switchMap(params =>
@@ -51,9 +51,9 @@ export class DetailedFilmInfoComponent {
     );
   }
 
-***REMOVED***
-  ***REMOVED*** Gets only whose characters that are relevant to the film, using data from database.
-***REMOVED***
+  /**
+   * Gets only whose characters that are relevant to the film, using data from database.
+   */
   public initializeCharacters(): void {
     this.characters$ = this.film$.pipe(
       map(film => film.characters),

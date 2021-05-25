@@ -5,17 +5,17 @@ import { NgModule } from '@angular/core';
 
 import { TokenInterceptor } from './interceptor/token.interceptor';
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   declarations: [],
   imports: [CommonModule, HttpClientModule],
 })
 export class CoreModule {
-***REMOVED***
-  ***REMOVED*** Analogue of providers directive for NgModule from Angular 1.x.
-***REMOVED***
+  /**
+   * Analogue of providers directive for NgModule from Angular 1.x.
+   */
   public static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoreModule,
@@ -24,8 +24,8 @@ export class CoreModule {
           provide: HTTP_INTERCEPTORS,
           useClass: TokenInterceptor,
           multi: true,
-     ***REMOVED*****REMOVED***
+        },
       ],
-   ***REMOVED*****REMOVED***
+    };
   }
 }

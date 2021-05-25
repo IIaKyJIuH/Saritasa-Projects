@@ -7,9 +7,9 @@ import { AuthenticationService } from '../../authentication/auth.service';
 import { FilmDto } from '../../dtos/film-dto';
 import { FilmModel } from '../../models/film-model';
 
-***REMOVED****
-***REMOVED*** Lets admin to patch the data to the server.
-***REMOVED***/
+/**
+ * Lets admin to patch the data to the server.
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -20,11 +20,11 @@ export class AdminFilmsService {
     private config: AppConfig,
   ) {}
 
-***REMOVED***
-  ***REMOVED*** Make API call for update film's data.
-  ***REMOVED*** @param id - Film's index according to the Db swapi file.
-  ***REMOVED*** @param filmData - Film's data to be uploaded.
-***REMOVED***
+  /**
+   * Make API call for update film's data.
+   * @param id - Film's index according to the Db swapi file.
+   * @param filmData - Film's data to be uploaded.
+   */
   public updateFilm(id: number, filmData: FilmModel): Observable<void> {
     return this.http.patch<void>(
       `${this.config.FIREBASE_SWAPI_URL}/films/${id}/fields.json`,
@@ -44,6 +44,6 @@ export class AdminFilmsService {
       episode_id: film.episodeId,
       release_date: film.releaseDate,
       director: film.director,
-   ***REMOVED*****REMOVED***
+    };
   }
 }

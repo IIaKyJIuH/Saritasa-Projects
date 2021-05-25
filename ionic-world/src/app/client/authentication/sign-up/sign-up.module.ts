@@ -6,9 +6,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { SignUpPage } from './sign-up.page';
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   imports: [
     IonicModule,

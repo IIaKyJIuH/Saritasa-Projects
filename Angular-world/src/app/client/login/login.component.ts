@@ -10,26 +10,26 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../../core/services/authentication/auth.service';
 import { UserLoginParam } from '../../core/services/authentication/user-login-param';
 
-***REMOVED****
-***REMOVED*** All about behaviour of login actions.
-***REMOVED***/
+/**
+ * All about behaviour of login actions.
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-***REMOVED***
-  ***REMOVED*** Form data: email + password.
-***REMOVED***
+  /**
+   * Form data: email + password.
+   */
   public loginForm: FormGroup;
 
-***REMOVED***
-  ***REMOVED*** .ctor
-  ***REMOVED*** @param authService - my authorization service.
-  ***REMOVED*** @param router - responsible for redirecting user.
-  ***REMOVED*** @param formBuilder - includes form data.
-***REMOVED***
+  /**
+   * .ctor
+   * @param authService - my authorization service.
+   * @param router - responsible for redirecting user.
+   * @param formBuilder - includes form data.
+   */
   constructor(
     private authService: AuthenticationService,
     private router: Router,
@@ -41,28 +41,28 @@ export class LoginComponent {
     });
   }
 
-***REMOVED***
-  ***REMOVED*** Async user login + if successful then redirect him to ./profile page.
-  ***REMOVED*** @param formValues - user email + password.
-***REMOVED***
+  /**
+   * Async user login + if successful then redirect him to ./profile page.
+   * @param formValues - user email + password.
+   */
   public onSubmit(formValues: UserLoginParam): void {
     this.authService
       .login(formValues)
       .subscribe(() => this.router.navigate(['/films']));
   }
 
-***REMOVED***
-  ***REMOVED*** Drops authorization and redirects user to the main page.
-***REMOVED***
+  /**
+   * Drops authorization and redirects user to the main page.
+   */
   public logout(): void {
     this.authService.logout();
     this.router.navigateByUrl('');
   }
 
-***REMOVED***
-  ***REMOVED*** All controls that have a name in html file.
-  ***REMOVED*** @returns FormGroup.controls.
-***REMOVED***
+  /**
+   * All controls that have a name in html file.
+   * @returns FormGroup.controls.
+   */
   get formControls(): { [key: string]: AbstractControl } {
     return this.loginForm.controls;
   }

@@ -4,9 +4,9 @@ import { Router, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-***REMOVED****
-***REMOVED*** Guard for typical user.
-***REMOVED***/
+/**
+ * Guard for typical user.
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -17,9 +17,9 @@ export class AuthGuard implements CanActivate {
     private router: Router,
   ) {}
 
-***REMOVED***
-  ***REMOVED*** Implemented method for guarding some page access.
-***REMOVED***
+  /**
+   * Implemented method for guarding some page access.
+   */
   public canActivate(): Observable<boolean> {
     return this.auth.isAuthenticated().pipe(
       map(val => {

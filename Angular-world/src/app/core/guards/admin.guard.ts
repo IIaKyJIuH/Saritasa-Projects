@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-***REMOVED****
-***REMOVED*** Admin guard service.
-***REMOVED***/
+/**
+ * Admin guard service.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class AdminGuard {
   public constructor(private router: Router) {}
 
-***REMOVED***
-  ***REMOVED*** Guard function to choose allow access or not.
-***REMOVED***
+  /**
+   * Guard function to choose allow access or not.
+   */
   public canLoad(): boolean {
     if (localStorage.getItem('isAdmin') === 'true') {
       return true;

@@ -7,9 +7,9 @@ import { ArchivePage } from './archive.page';
 import { ArchivePageRoutingModule } from './archive.router.module';
 import { ImageModalPageModule } from './image-modal/image-modal.module';
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   imports: [
     IonicModule,

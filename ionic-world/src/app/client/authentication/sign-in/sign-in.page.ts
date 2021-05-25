@@ -5,9 +5,9 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 
-***REMOVED****
-***REMOVED*** Signing-in page for user to get access for other app abilities.
-***REMOVED***/
+/**
+ * Signing-in page for user to get access for other app abilities.
+ */
 @Component({
   selector: 'app-sign-in',
   templateUrl: 'sign-in.page.html',
@@ -15,17 +15,17 @@ import { take } from 'rxjs/operators';
 })
 export class SignInPage {
 
-***REMOVED***
-  ***REMOVED*** Form data: email + password.
-***REMOVED***
+  /**
+   * Form data: email + password.
+   */
   public loginForm: FormGroup;
 
-***REMOVED***
-  ***REMOVED*** .ctor
-  ***REMOVED*** @param auth - my authorization service.
-  ***REMOVED*** @param router - responsible for redirecting user.
-  ***REMOVED*** @param formBuilder - includes form data.
-***REMOVED***
+  /**
+   * .ctor
+   * @param auth - my authorization service.
+   * @param router - responsible for redirecting user.
+   * @param formBuilder - includes form data.
+   */
   constructor(
     private auth: AuthenticationService,
     private router: Router,
@@ -44,20 +44,20 @@ export class SignInPage {
       });
     }
 
-***REMOVED***
-  ***REMOVED*** Async user login + if successful then redirect him to scanner page.
-  ***REMOVED*** @param formValues - user email + password.
-***REMOVED***
+  /**
+   * Async user login + if successful then redirect him to scanner page.
+   * @param formValues - user email + password.
+   */
   public onSubmit(formValues: CredentialsModel): void {
     this.auth
       .signIn(formValues).pipe(take(1))
       .subscribe(() => this.router.navigate(['/tabs']));
   }
 
-***REMOVED***
-  ***REMOVED*** All controls that have a formControlName in html file.
-  ***REMOVED*** @returns FormGroup.controls.
-***REMOVED***
+  /**
+   * All controls that have a formControlName in html file.
+   * @returns FormGroup.controls.
+   */
   get formControls(): { [key: string]: AbstractControl; } { return this.loginForm.controls; }
 
 }

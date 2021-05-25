@@ -6,24 +6,24 @@ import { CharactersService } from 'src/app/core/services/data/characters/charact
 
 import { CharacterModel } from '../../core/services/models/character-model';
 
-***REMOVED****
-***REMOVED*** About all interesting details of the specific character.
-***REMOVED***/
+/**
+ * About all interesting details of the specific character.
+ */
 @Component({
   selector: 'app-detailed-character-info',
   templateUrl: './detailed-character-info.component.html',
   styleUrls: ['./detailed-character-info.component.css'],
 })
 export class DetailedCharacterInfoComponent {
-***REMOVED***
-  ***REMOVED*** Info about character.
-***REMOVED***
+  /**
+   * Info about character.
+   */
   public character$: Observable<CharacterModel>;
 
-***REMOVED***
-  ***REMOVED*** .ctor
-  ***REMOVED*** @param dataService - working with all the data from the Db.
-***REMOVED***
+  /**
+   * .ctor
+   * @param dataService - working with all the data from the Db.
+   */
   constructor(
     private charactersService: CharactersService,
     private activatedRouter: ActivatedRoute,
@@ -31,9 +31,9 @@ export class DetailedCharacterInfoComponent {
     this.initializeCharacter();
   }
 
-***REMOVED***
-  ***REMOVED*** Gets film selected by user.
-***REMOVED***
+  /**
+   * Gets film selected by user.
+   */
   private initializeCharacter(): void {
     this.character$ = this.activatedRouter.paramMap.pipe(
       switchMap(params =>

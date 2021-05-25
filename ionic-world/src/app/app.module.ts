@@ -9,9 +9,9 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -27,7 +27,7 @@ import { AppComponent } from './app.component';
     {
       provide: RouteReuseStrategy,
       useClass: IonicRouteStrategy,
- ***REMOVED*****REMOVED***
+    },
   ],
   bootstrap: [AppComponent],
 })

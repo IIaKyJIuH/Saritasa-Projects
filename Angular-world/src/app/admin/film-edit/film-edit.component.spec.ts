@@ -1,4 +1,4 @@
-***REMOVED*** tslint:disable:no-unused-variable***REMOVED***/
+/* tslint:disable:no-unused-variable */
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';

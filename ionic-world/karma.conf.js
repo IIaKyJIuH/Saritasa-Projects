@@ -14,12 +14,12 @@ module.exports = function (config) {
     ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
- ***REMOVED*****REMOVED***
+    },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, '../coverage'),
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
- ***REMOVED*****REMOVED***
+    },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
@@ -28,4 +28,4 @@ module.exports = function (config) {
     browsers: ['Chrome'],
     singleRun: false
   });
-***REMOVED***
+};

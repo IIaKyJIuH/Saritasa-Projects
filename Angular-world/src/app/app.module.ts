@@ -8,9 +8,9 @@ import { ClientModule } from './client/client.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   declarations: [AppComponent],
   imports: [

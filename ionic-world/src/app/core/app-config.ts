@@ -1,27 +1,27 @@
 import { environment } from '@/environments/environment';
 import { Injectable } from '@angular/core';
 
-***REMOVED****
-***REMOVED*** Application configurations.
-***REMOVED***/
+/**
+ * Application configurations.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class AppConfig {
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  /**
+   * API URL.
+   */
   public readonly API_URL = environment.API_URL;
 
-***REMOVED***
-  ***REMOVED*** Web-API key of my FireBase Db.
-***REMOVED***
+  /**
+   * Web-API key of my FireBase Db.
+   */
   public readonly API_KEY = environment.FIREBASE.apiKey;
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  /**
+   * Url for refreshing secure token and thus the access token.
+   */
   public readonly REFRESH_SECURE_TOKEN_URL = environment.REFRESH_SECURE_TOKEN_URL;
 
 }

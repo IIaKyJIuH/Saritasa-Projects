@@ -7,9 +7,9 @@ import { tap, switchMap } from 'rxjs/operators';
 
 import { ImageModalPage } from './image-modal/image-modal.page';
 
-***REMOVED****
-***REMOVED*** Page with all scanned documents.
-***REMOVED***/
+/**
+ * Page with all scanned documents.
+ */
 @Component({
   selector: 'app-archive',
   templateUrl: 'archive.page.html',
@@ -17,20 +17,20 @@ import { ImageModalPage } from './image-modal/image-modal.page';
 })
 export class ArchivePage {
 
-***REMOVED***
-  ***REMOVED*** Urls for pictures.
-***REMOVED***
+  /**
+   * Urls for pictures.
+   */
   public images$: Observable<DocumentData[]>;
 
-***REMOVED***
-  ***REMOVED*** Options for modal controller.
-***REMOVED***
+  /**
+   * Options for modal controller.
+   */
   public sliderOpts = {
     zoom: false,
     slidesPerView: 1.5,
     centeredSlides: true,
     spaceBetween: 20,
- ***REMOVED*****REMOVED***
+  };
 
   constructor(
     private scannerService: ScannerService,
@@ -39,26 +39,26 @@ export class ArchivePage {
     this.images$ = this.scannerService.getImagesInfoFromFirestore();
   }
 
-***REMOVED***
-  ***REMOVED*** For 'trackBy' directive of***REMOVED***ngFor.
-  ***REMOVED*** @param index - index of the element from images$ array.
-  ***REMOVED*** @param imageObj - useful image properties.
-***REMOVED***
+  /**
+   * For 'trackBy' directive of *ngFor.
+   * @param index - index of the element from images$ array.
+   * @param imageObj - useful image properties.
+   */
   public trackByFunction(index: number, imageObj: any): string {
     if (!imageObj) { return null; }
     return `${index}_${imageObj.name}`;
   }
 
-***REMOVED***
-  ***REMOVED*** Opens more detailed page about this image.
-  ***REMOVED*** @param image - current centered image.
-***REMOVED***
+  /**
+   * Opens more detailed page about this image.
+   * @param image - current centered image.
+   */
   public openPreview(image: any): void {
     this.modalCtrl.create({
       component: ImageModalPage,
       componentProps: {
         image: image,
-   ***REMOVED*****REMOVED***
+      },
     }).then(resultModal => resultModal.present());
   }
 

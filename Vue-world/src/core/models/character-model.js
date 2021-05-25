@@ -1,52 +1,52 @@
 export default class FilmModel {
-***REMOVED***
-    ***REMOVED*** Index in the database swapi file.
- ***REMOVED*****REMOVED***
+  /**
+     * Index in the database swapi file.
+     */
     id;
 
- ***REMOVED*****REMOVED***
-    ***REMOVED*** Date of birth according to the the Star Wars universe.
- ***REMOVED*****REMOVED***
+    /**
+     * Date of birth according to the the Star Wars universe.
+     */
     birthYear;
 
- ***REMOVED*****REMOVED***
-    ***REMOVED*** Eye color of the character.
- ***REMOVED*****REMOVED***
+    /**
+     * Eye color of the character.
+     */
     eyeColor;
 
- ***REMOVED*****REMOVED***
-    ***REMOVED*** Male/Female.
- ***REMOVED*****REMOVED***
+    /**
+     * Male/Female.
+     */
     gender;
 
- ***REMOVED*****REMOVED***
-    ***REMOVED*** Hair color.
- ***REMOVED*****REMOVED***
+    /**
+     * Hair color.
+     */
     hairColor;
 
- ***REMOVED*****REMOVED***
-    ***REMOVED*** Height of the character, cm.
- ***REMOVED*****REMOVED***
+    /**
+     * Height of the character, cm.
+     */
     height;
 
- ***REMOVED*****REMOVED***
-    ***REMOVED*** Native planet(just index for now).
- ***REMOVED*****REMOVED***
+    /**
+     * Native planet(just index for now).
+     */
     homeworld;
 
- ***REMOVED*****REMOVED***
-    ***REMOVED*** Weight of the character, kg.
- ***REMOVED*****REMOVED***
+    /**
+     * Weight of the character, kg.
+     */
     mass;
 
- ***REMOVED*****REMOVED***
-    ***REMOVED*** Character name.
- ***REMOVED*****REMOVED***
+    /**
+     * Character name.
+     */
     name;
 
- ***REMOVED*****REMOVED***
-    ***REMOVED*** Name of skin color.
- ***REMOVED*****REMOVED***
+    /**
+     * Name of skin color.
+     */
     skinColor;
 
     constructor(characterModel) {

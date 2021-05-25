@@ -4,9 +4,9 @@ import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 
-***REMOVED****
-***REMOVED*** Contains all necessary pages for user.
-***REMOVED***/
+/**
+ * Contains all necessary pages for user.
+ */
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
@@ -14,26 +14,26 @@ import { Observable } from 'rxjs';
 })
 export class TabsPage {
 
-***REMOVED***
-  ***REMOVED*** .ctor
-  ***REMOVED*** @param auth - for auth needs.
-  ***REMOVED*** @param router - mostly for html here.
-***REMOVED***
+  /**
+   * .ctor
+   * @param auth - for auth needs.
+   * @param router - mostly for html here.
+   */
   constructor(
     private auth: AuthenticationService,
     private router: Router,
   ) {}
 
-***REMOVED***
-  ***REMOVED*** Returns true if the current user is authenticated
-***REMOVED***
+  /**
+   * Returns true if the current user is authenticated
+   */
   public isAuthenticated(): Observable<boolean> {
     return this.auth.isAuthenticated();
   }
 
-***REMOVED***
-  ***REMOVED*** Signs user out from the firebase.
-***REMOVED***
+  /**
+   * Signs user out from the firebase.
+   */
   public signOut(): void {
     this.auth.signOut()
       .subscribe(() => this.router.navigate(['']));

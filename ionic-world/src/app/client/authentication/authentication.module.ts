@@ -6,9 +6,9 @@ import { IonicModule } from '@ionic/angular';
 import { AuthenticationPage } from './authentication.page';
 import { AuthenticationPageRoutingModule } from './authentication.router.module';
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   declarations: [AuthenticationPage],
   imports: [

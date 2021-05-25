@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
     "analytics": false
-***REMOVED***
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -35,7 +35,7 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true
-       ***REMOVED*****REMOVED***
+          },
           "configurations": {
             "production": {
               "fileReplacements": [
@@ -56,7 +56,7 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
-             ***REMOVED*****REMOVED***
+                },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb"
@@ -64,24 +64,24 @@
               ]
             }
           }
-     ***REMOVED*****REMOVED***
+        },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "AngularSwapi:build"
-       ***REMOVED*****REMOVED***
+          },
           "configurations": {
             "production": {
               "browserTarget": "AngularSwapi:build:production"
             }
           }
-     ***REMOVED*****REMOVED***
+        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "AngularSwapi:build"
           }
-     ***REMOVED*****REMOVED***
+        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
@@ -98,7 +98,7 @@
             ],
             "scripts": []
           }
-     ***REMOVED*****REMOVED***
+        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -108,16 +108,16 @@
               "e2e/tsconfig.json"
             ],
             "exclude": [
-              "**/node_modules***REMOVED****"
+              "**/node_modules/**"
             ]
           }
-     ***REMOVED*****REMOVED***
+        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "AngularSwapi:serve"
-       ***REMOVED*****REMOVED***
+          },
           "configurations": {
             "production": {
               "devServerTarget": "AngularSwapi:serve:production"

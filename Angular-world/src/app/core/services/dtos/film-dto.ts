@@ -1,49 +1,49 @@
-***REMOVED****
-***REMOVED*** Represents all useful film fields from database.
-***REMOVED***/
+/**
+ * Represents all useful film fields from database.
+ */
 export interface FilmDto {
-***REMOVED***
-  ***REMOVED*** Title of the film.
-***REMOVED***
+  /**
+   * Title of the film.
+   */
   title: string;
 
-***REMOVED***
-  ***REMOVED*** Indexes that relates to specific character in other table.
-***REMOVED***
+  /**
+   * Indexes that relates to specific character in other table.
+   */
   characters: number[];
 
-***REMOVED***
-  ***REMOVED*** Date when the film was released.
-***REMOVED***
+  /**
+   * Date when the film was released.
+   */
   release_date: Date;
 
-***REMOVED***
-  ***REMOVED*** Person, created the film.
-***REMOVED***
+  /**
+   * Person, created the film.
+   */
   director: string;
 
-***REMOVED***
-  ***REMOVED*** Number of episode.
-***REMOVED***
+  /**
+   * Number of episode.
+   */
   episode_id: number;
 
-***REMOVED***
-  ***REMOVED*** Indexes for other table represents planets that we could see in this film.
-***REMOVED***
+  /**
+   * Indexes for other table represents planets that we could see in this film.
+   */
   planets: number[];
 
-***REMOVED***
-  ***REMOVED*** Indexes for species involved in this film.
-***REMOVED***
+  /**
+   * Indexes for species involved in this film.
+   */
   species: number[];
 
-***REMOVED***
-  ***REMOVED*** Starships indexes from this film for other table.
-***REMOVED***
+  /**
+   * Starships indexes from this film for other table.
+   */
   starships: number[];
 
-***REMOVED***
-  ***REMOVED*** Indexes for other table of vehicles participated in this film.
-***REMOVED***
+  /**
+   * Indexes for other table of vehicles participated in this film.
+   */
   vehicles: number[];
 }

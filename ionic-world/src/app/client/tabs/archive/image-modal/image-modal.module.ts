@@ -6,9 +6,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { ImageModalPage } from './image-modal.page';
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   imports: [
     CommonModule,

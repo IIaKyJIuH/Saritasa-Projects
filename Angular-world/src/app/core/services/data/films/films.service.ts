@@ -8,19 +8,19 @@ import { FilmDto } from '../../dtos/film-dto';
 import { PropertiesDto } from '../../dtos/properties-dto';
 import { FilmModel } from '../../models/film-model';
 
-***REMOVED****
-***REMOVED*** Works with the Db 'films' info.
-***REMOVED***/
+/**
+ * Works with the Db 'films' info.
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class FilmsService {
   constructor(private http: HttpClient, private config: AppConfig) {}
 
-***REMOVED***
-  ***REMOVED*** Getting films info from Db.
-  ***REMOVED*** @returns observable array of films.
-***REMOVED***
+  /**
+   * Getting films info from Db.
+   * @returns observable array of films.
+   */
   public getDbFilmsData(): Observable<FilmModel[]> {
     return this.http
       .get<PropertiesDto<FilmDto>[]>(
@@ -36,11 +36,11 @@ export class FilmsService {
       );
   }
 
-***REMOVED***
-  ***REMOVED*** Getting preferred film from the Db.
-  ***REMOVED*** @param filmDbIndex - film index according to the swapi file.
-  ***REMOVED*** @returns observable film.
-***REMOVED***
+  /**
+   * Getting preferred film from the Db.
+   * @param filmDbIndex - film index according to the swapi file.
+   * @returns observable film.
+   */
   public getDbFilmData(filmDbIndex: number): Observable<FilmModel> {
     return this.http
       .get<PropertiesDto<FilmDto>>(
@@ -54,11 +54,11 @@ export class FilmsService {
       );
   }
 
-***REMOVED***
-  ***REMOVED*** Translates Dto data about film to the film model.
-  ***REMOVED*** @param filmDto - film Dto that includes info about properties name from Db.
-  ***REMOVED*** @returns film model.
-***REMOVED***
+  /**
+   * Translates Dto data about film to the film model.
+   * @param filmDto - film Dto that includes info about properties name from Db.
+   * @returns film model.
+   */
   private createFilmModelByDto(filmDto: FilmDto, index: number): FilmModel {
     return new FilmModel({
       databaseId: index,

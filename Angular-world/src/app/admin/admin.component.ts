@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-***REMOVED****
-***REMOVED*** Admin`s place.
-***REMOVED***/
+/**
+ * Admin`s place.
+ */
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',

@@ -19,9 +19,9 @@
       "dom"
     ],
     "paths": {
-      "@***REMOVED***": ["./src***REMOVED***"],
+      "@/*": ["./src/*"],
     }
-***REMOVED***
+  },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true

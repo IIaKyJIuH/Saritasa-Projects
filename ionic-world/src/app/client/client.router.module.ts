@@ -6,20 +6,20 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     redirectTo: 'auth',
-***REMOVED***
+  },
   {
     path: 'auth',
     loadChildren: './authentication/authentication.module#AuthenticationModule',
-***REMOVED***
+  },
   {
     path: 'tabs',
     loadChildren: './tabs/tabs.module#TabsPageModule',
-***REMOVED***
+  },
 ];
 
-***REMOVED****
-***REMOVED*** @inheritdoc
-***REMOVED***/
+/**
+ * @inheritdoc
+ */
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],

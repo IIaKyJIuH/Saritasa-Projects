@@ -6,7 +6,7 @@
     display: flex;
 }
 
-.form-group >***REMOVED*** {
+.form-group > * {
     flex-basis: 1 1 0;
 }
 

@@ -2,15 +2,15 @@ module.exports = {
   env: {
     es6: true,
     browser: true,
-***REMOVED***
+  },
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
- ***REMOVED*****REMOVED***
+    },
     parser: 'babel-eslint',
-***REMOVED***
+  },
   plugins: [
     'vue',
   ],
@@ -39,5 +39,5 @@ module.exports = {
     'vue/html-self-closing': ['warn'],
     'vue/require-default-prop': ['warn'],
     'vue/html-closing-bracket-newline': 'off',
-***REMOVED***
-***REMOVED***
+  },
+};
