@@ -21,9 +21,7 @@
     "@angular/platform-browser": "~12.0.1",
     "@angular/platform-browser-dynamic": "~12.0.1",
     "@angular/router": "~12.0.1",
-    "ngx-order-pipe": "^2.0.3",
     "rxjs": "~6.6.7",
-    "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -33,8 +31,6 @@
     "@angular/language-service": "~12.0.1",
     "@saritasa/tslint-config-angular": "^3.0.0",
     "@trivago/prettier-plugin-sort-imports": "^2.0.2",
-    "@types/jasmine": "~3.6.0",
-    "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
