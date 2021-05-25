@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppConfig } from 'src/app/core/app-config';
 
+import { AuthenticationService } from '../../authentication/auth.service';
 import { FilmDto } from '../../dtos/film-dto';
 import { FilmModel } from '../../models/film-model';
 
@@ -13,17 +14,22 @@ import { FilmModel } from '../../models/film-model';
   providedIn: 'root',
 })
 export class AdminFilmsService {
-  constructor(private http: HttpClient, private config: AppConfig) {}
+  constructor(
+    private auth: AuthenticationService,
+    private http: HttpClient,
+    private config: AppConfig,
+  ) {}
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Make API call for update film's data.
- ***REMOVED*****REMOVED*** @param id - Film's index according to the Db swapi file.
- ***REMOVED*****REMOVED*** @param filmData - Film's data to be uploaded.
+  ***REMOVED*** Make API call for update film's data.
+  ***REMOVED*** @param id - Film's index according to the Db swapi file.
+  ***REMOVED*** @param filmData - Film's data to be uploaded.
 ***REMOVED***
   public updateFilm(id: number, filmData: FilmModel): Observable<void> {
     return this.http.patch<void>(
       `${this.config.FIREBASE_SWAPI_URL}/films/${id}/fields.json`,
       this.mapFilmToFilmDto(filmData),
+      { params: { auth: this.auth.getAccessToken() } },
     );
   }
 
@@ -38,6 +44,6 @@ export class AdminFilmsService {
       episode_id: film.episodeId,
       release_date: film.releaseDate,
       director: film.director,
-  ***REMOVED*****REMOVED*****REMOVED***
+   ***REMOVED*****REMOVED***
   }
 }
