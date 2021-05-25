@@ -6,7 +6,7 @@ import { AdminFilmsService } from './admin-films.service';
 describe('Service: AdminFilms', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AdminFilmsService]
+      providers: [AdminFilmsService],
     });
   });
 

@@ -15,43 +15,64 @@ import { CharacterModel } from '../../models/character-model';
   providedIn: 'root',
 })
 export class CharactersService {
-
-  constructor(
-    private http: HttpClient,
-    private config: AppConfig,
-  ) { }
+  constructor(private http: HttpClient, private config: AppConfig) {}
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Getting people info from Db.
- ***REMOVED*****REMOVED*** @returns observable array of people.
+  ***REMOVED*** Getting people info from Db.
+  ***REMOVED*** @returns observable array of people.
 ***REMOVED***
   public getDbCharactersData(): Observable<CharacterModel[]> {
-    return this.http.get<PropertiesDto<CharacterDto>[]>(`${this.config.FIREBASE_SWAPI_URL}/people.json`).pipe(
-      map(response => response.map((peopleProps, index) => this.createCharacterModelByDto(peopleProps.fields, index))),
-      take(1),
-    );
+    return this.http
+      .get<PropertiesDto<CharacterDto>[]>(
+        `${this.config.FIREBASE_SWAPI_URL}/people.json`,
+      )
+      .pipe(
+        map(response =>
+          response.map((peopleProps, index) =>
+            this.createCharacterModelByDto(peopleProps.fields, index),
+          ),
+        ),
+        take(1),
+      );
   }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Getting preferred character from Db.
- ***REMOVED*****REMOVED*** @param characterIndex - character index according to the Db swapi file.
- ***REMOVED*****REMOVED*** @returns observable character.
+  ***REMOVED*** Getting preferred character from Db.
+  ***REMOVED*** @param characterIndex - character index according to the Db swapi file.
+  ***REMOVED*** @returns observable character.
 ***REMOVED***
-  public getDbCharacterData(characterIndex: number): Observable<CharacterModel> {
-    return this.http.get<PropertiesDto<CharacterDto>[]>(`${this.config.FIREBASE_SWAPI_URL}/people.json`).pipe(
-      map(response => response
-        .filter((props, i) => i === characterIndex)
-        .map(characterProps => this.createCharacterModelByDto(characterProps.fields, characterIndex))[0]),
-      take(1),
-    );
+  public getDbCharacterData(
+    characterIndex: number,
+  ): Observable<CharacterModel> {
+    return this.http
+      .get<PropertiesDto<CharacterDto>[]>(
+        `${this.config.FIREBASE_SWAPI_URL}/people.json`,
+      )
+      .pipe(
+        map(
+          response =>
+            response
+              .filter((props, i) => i === characterIndex)
+              .map(characterProps =>
+                this.createCharacterModelByDto(
+                  characterProps.fields,
+                  characterIndex,
+                ),
+              )[0],
+        ),
+        take(1),
+      );
   }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Translates Dto data about character to the model.
- ***REMOVED*****REMOVED*** @param charDto - character Dto that includes info about properties name from Db.
- ***REMOVED*****REMOVED*** @returns character model.
+  ***REMOVED*** Translates Dto data about character to the model.
+  ***REMOVED*** @param charDto - character Dto that includes info about properties name from Db.
+  ***REMOVED*** @returns character model.
 ***REMOVED***
-  private createCharacterModelByDto(charDto: CharacterDto, index: number): CharacterModel {
+  private createCharacterModelByDto(
+    charDto: CharacterDto,
+    index: number,
+  ): CharacterModel {
     return new CharacterModel({
       databaseId: index,
       birthYear: charDto.birth_year,

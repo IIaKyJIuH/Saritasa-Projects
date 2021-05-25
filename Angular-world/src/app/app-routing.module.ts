@@ -13,8 +13,8 @@ import { AuthGuard } from './core/guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
-     redirectTo: 'home',
-     pathMatch: 'full',
+    redirectTo: 'home',
+    pathMatch: 'full',
 ***REMOVED***
   {
     path: 'home',
@@ -55,4 +55,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

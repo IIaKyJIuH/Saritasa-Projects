@@ -15,15 +15,14 @@ import { CharacterModel } from '../../core/services/models/character-model';
   styleUrls: ['./detailed-character-info.component.css'],
 })
 export class DetailedCharacterInfoComponent {
-
 ***REMOVED***
- ***REMOVED*****REMOVED*** Info about character.
+  ***REMOVED*** Info about character.
 ***REMOVED***
   public character$: Observable<CharacterModel>;
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** .ctor
- ***REMOVED*****REMOVED*** @param dataService - working with all the data from the Db.
+  ***REMOVED*** .ctor
+  ***REMOVED*** @param dataService - working with all the data from the Db.
 ***REMOVED***
   constructor(
     private charactersService: CharactersService,
@@ -33,12 +32,15 @@ export class DetailedCharacterInfoComponent {
   }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Gets film selected by user.
+  ***REMOVED*** Gets film selected by user.
 ***REMOVED***
   private initializeCharacter(): void {
     this.character$ = this.activatedRouter.paramMap.pipe(
-      switchMap(params => this.charactersService.getDbCharacterData(parseInt(params.get('id'), 10)),
-    ));
+      switchMap(params =>
+        this.charactersService.getDbCharacterData(
+          parseInt(params.get('id'), 10),
+        ),
+      ),
+    );
   }
-
 }

@@ -15,39 +15,49 @@ import { FilmModel } from '../../models/film-model';
   providedIn: 'root',
 })
 export class FilmsService {
-
-  constructor(
-    private http: HttpClient,
-    private config: AppConfig,
-  ) { }
+  constructor(private http: HttpClient, private config: AppConfig) {}
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Getting films info from Db.
- ***REMOVED*****REMOVED*** @returns observable array of films.
+  ***REMOVED*** Getting films info from Db.
+  ***REMOVED*** @returns observable array of films.
 ***REMOVED***
   public getDbFilmsData(): Observable<FilmModel[]> {
-    return this.http.get<PropertiesDto<FilmDto>[]>(`${this.config.FIREBASE_SWAPI_URL}/films.json`).pipe(
-      map(response => response.map((filmProps, index) => this.createFilmModelByDto(filmProps.fields, index))),
-      take(1),
-    );
+    return this.http
+      .get<PropertiesDto<FilmDto>[]>(
+        `${this.config.FIREBASE_SWAPI_URL}/films.json`,
+      )
+      .pipe(
+        map(response =>
+          response.map((filmProps, index) =>
+            this.createFilmModelByDto(filmProps.fields, index),
+          ),
+        ),
+        take(1),
+      );
   }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Getting preferred film from the Db.
- ***REMOVED*****REMOVED*** @param filmDbIndex - film index according to the swapi file.
- ***REMOVED*****REMOVED*** @returns observable film.
+  ***REMOVED*** Getting preferred film from the Db.
+  ***REMOVED*** @param filmDbIndex - film index according to the swapi file.
+  ***REMOVED*** @returns observable film.
 ***REMOVED***
   public getDbFilmData(filmDbIndex: number): Observable<FilmModel> {
-    return this.http.get<PropertiesDto<FilmDto>>(`${this.config.FIREBASE_SWAPI_URL}/films/${filmDbIndex}.json`).pipe(
-      map((filmProps, index) => this.createFilmModelByDto(filmProps.fields, index)),
-      take(1),
-    );
-   }
+    return this.http
+      .get<PropertiesDto<FilmDto>>(
+        `${this.config.FIREBASE_SWAPI_URL}/films/${filmDbIndex}.json`,
+      )
+      .pipe(
+        map((filmProps, index) =>
+          this.createFilmModelByDto(filmProps.fields, index),
+        ),
+        take(1),
+      );
+  }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Translates Dto data about film to the film model.
- ***REMOVED*****REMOVED*** @param filmDto - film Dto that includes info about properties name from Db.
- ***REMOVED*****REMOVED*** @returns film model.
+  ***REMOVED*** Translates Dto data about film to the film model.
+  ***REMOVED*** @param filmDto - film Dto that includes info about properties name from Db.
+  ***REMOVED*** @returns film model.
 ***REMOVED***
   private createFilmModelByDto(filmDto: FilmDto, index: number): FilmModel {
     return new FilmModel({

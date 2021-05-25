@@ -31,4 +31,4 @@ import { WrongPathComponent } from './wrong-path/wrong-path.component';
     RouterModule,
   ],
 })
-export class ClientModule { }
+export class ClientModule {}

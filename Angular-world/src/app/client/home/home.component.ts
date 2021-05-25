@@ -9,10 +9,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-
 ***REMOVED***
- ***REMOVED*****REMOVED*** Project title.
+  ***REMOVED*** Project title.
 ***REMOVED***
   public title = 'Angular Star Wars project';
-
 }

@@ -8,13 +8,10 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AdminGuard {
-
-  public constructor(
-    private router: Router,
-  ) {}
+  public constructor(private router: Router) {}
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Guard function to choose allow access or not.
+  ***REMOVED*** Guard function to choose allow access or not.
 ***REMOVED***
   public canLoad(): boolean {
     if (localStorage.getItem('isAdmin') === 'true') {
@@ -24,5 +21,4 @@ export class AdminGuard {
     this.router.navigate(['/home']);
     return false;
   }
-
 }

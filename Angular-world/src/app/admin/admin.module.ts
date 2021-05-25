@@ -7,7 +7,7 @@ import {
   MatInputModule,
   MatButtonModule,
 } from '@angular/material';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 
 import { AdminRoutingModule } from './admin-routing.module';
@@ -32,4 +32,4 @@ import { FilmsComponent } from './films/films.component';
     MatDividerModule,
   ],
 })
-export class AdminModule { }
+export class AdminModule {}

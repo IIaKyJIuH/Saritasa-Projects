@@ -1,2 +1,1 @@
-export interface StarshipDto {
-}
+export interface StarshipDto {}

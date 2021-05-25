@@ -17,20 +17,19 @@ import { FilmModel } from '../../core/services/models/film-model';
   styleUrls: ['./detailed-film-info.component.css'],
 })
 export class DetailedFilmInfoComponent {
-
 ***REMOVED***
- ***REMOVED*****REMOVED*** Film that is interesting to user.
+  ***REMOVED*** Film that is interesting to user.
 ***REMOVED***
   public film$: Observable<FilmModel>;
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Characters related to the film.
+  ***REMOVED*** Characters related to the film.
 ***REMOVED***
   public characters$: Observable<CharacterModel[]>;
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** .ctor
- ***REMOVED*****REMOVED*** @param dataService - works with all the data from FireBase database.
+  ***REMOVED*** .ctor
+  ***REMOVED*** @param dataService - works with all the data from FireBase database.
 ***REMOVED***
   constructor(
     private filmsService: FilmsService,
@@ -42,24 +41,31 @@ export class DetailedFilmInfoComponent {
   }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Gets film selected by user.
+  ***REMOVED*** Gets film selected by user.
 ***REMOVED***
   private initializeFilm(): void {
     this.film$ = this.activatedRouter.paramMap.pipe(
-      switchMap(params => this.filmsService.getDbFilmData(parseInt(params.get('id'), 10))),
+      switchMap(params =>
+        this.filmsService.getDbFilmData(parseInt(params.get('id'), 10)),
+      ),
     );
   }
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Gets only whose characters that are relevant to the film, using data from database.
+  ***REMOVED*** Gets only whose characters that are relevant to the film, using data from database.
 ***REMOVED***
   public initializeCharacters(): void {
     this.characters$ = this.film$.pipe(
       map(film => film.characters),
-      mergeMap(characterPKs => this.charactersService.getDbCharactersData().pipe(
-        map(characters => characters.filter((character, i) => characterPKs.includes(i + 1))),
-      )),
+      mergeMap(characterPKs =>
+        this.charactersService
+          .getDbCharactersData()
+          .pipe(
+            map(characters =>
+              characters.filter((character, i) => characterPKs.includes(i + 1)),
+            ),
+          ),
+      ),
     );
   }
-
 }

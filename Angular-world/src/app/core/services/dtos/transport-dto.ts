@@ -1,2 +1,1 @@
-export interface TransportDto {
-}
+export interface TransportDto {}

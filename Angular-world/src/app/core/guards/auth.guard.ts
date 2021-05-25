@@ -10,14 +10,13 @@ import { AuthenticationService } from '../services/authentication/auth.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-
   public constructor(
     private authService: AuthenticationService,
     private router: Router,
   ) {}
 
 ***REMOVED***
- ***REMOVED*****REMOVED*** Implemented method
+  ***REMOVED*** Implemented method
 ***REMOVED***
   public canActivate(): boolean {
     if (this.authService.isLoggedIn()) {
