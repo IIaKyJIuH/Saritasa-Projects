@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { AuthenticationService } from './core/services/authentication/auth.service';
+
 ***REMOVED****
 ***REMOVED*** Main Angular component.
 ***REMOVED***/
@@ -9,15 +11,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor() {
+  constructor(public authService: AuthenticationService) {
     localStorage.setItem('isAdmin', 'false');
-  }
-
-***REMOVED***
- ***REMOVED*****REMOVED*** For toggling admin status. WILL BE FIXED LATER.
-***REMOVED***
-  public toggleAdminStatus(): void {
-    const toggling = localStorage.getItem('isAdmin') === 'false' ? true : false;
-    localStorage.setItem('isAdmin', toggling.toString());
   }
 }

@@ -1,8 +1,10 @@
 <div>
     <nav class="top-menu">
       <a class="route" routerLink="/home"> Main page </a>
-      <a class="route" routerLink="/login"> Login </a>
-      <a class="route" routerLink="/admin" (click)="toggleAdminStatus()">Admin</a>
+      <a***REMOVED***ngIf="!authService.isLoggedIn()" class="route" routerLink="/login"> Login </a>
+      <a***REMOVED***ngIf="authService.isLoggedIn()" class="route" routerLink="/films"> Films </a>
+      <a class="route" routerLink="/admin" (click)="authService.toggleAdminStatus()">Admin</a>
+      <a***REMOVED***ngIf="authService.isLoggedIn()" class="route route-end" routerLink="/home" (click)="authService.logout()">Logout</a>
     </nav>
     <router-outlet></router-outlet>
 </div>
