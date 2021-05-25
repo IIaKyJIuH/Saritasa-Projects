@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "LulKek": {
+    "AngularSwapi": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -16,7 +16,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/LulKek",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "LulKek:build"
+            "browserTarget": "AngularSwapi:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "LulKek:build:production"
+              "browserTarget": "AngularSwapi:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "LulKek:build"
+            "browserTarget": "AngularSwapi:build"
           }
         },
         "test": {
@@ -112,15 +112,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "LulKek:serve"
+            "devServerTarget": "AngularSwapi:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "LulKek:serve:production"
+              "devServerTarget": "AngularSwapi:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "LulKek"
+  "defaultProject": "AngularSwapi"
 }
