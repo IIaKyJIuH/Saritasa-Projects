@@ -1,27 +1,21 @@
-# LulKek
+# Angular "hello-world" program
+Моё самое первое одностраничное приложение на Angular 2+.
+Конечно, здесь огромнейшая почва для доработок и улучшений, но этот код показывает, с чего всё начиналось и на каком уровне было.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+## Данные для входа
+[Хостинг]()
+*Логин* -***REMOVED****`heh@mda.ru`**
+*Пароль* -***REMOVED****lolkek**
 
-## Development server
+## Описание
+Позволяет просматривать информацию о первых 6 фильмах по вселенной "Звёздных Войн".
+Рассмотрим подробно каждую из компонент:
+****REMOVED****Навигационная панель**: имеются кнопки перехода на окно логина и админ-панель (сделано так, что любой авторизованный пользователь может ей пользоваться);
+****REMOVED****Окно приветствия**: имеет 3 ссылки на различные тематические источники;
+****REMOVED****Логин**: Не позволяет регистрироваться, чтобы войти, нужно ввести корректные данные firebase-пользователя;
+****REMOVED****Таблица с фильмами**: формат таблицы - [[Название], [Год], [Режиссёр]];
+****REMOVED****Информация по фильму**: Помимо указанной в таблице информации, добавляются все участвовавшие персонажи, по нажатии на одного из них, происходит переход на его подробное описание;
+****REMOVED****Информация по персонажу**: Различная персональная информация по персонажу (раса, пол, дата рождения, рост и тд);
+****REMOVED****Админ-панель**: Позволяет редактировать информацию по каждому из фильмов, а именно, изменять название фильма, режиссёра, номер эпизода, год производства;
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+После входа происходит автоматический переход на таблицу с фильмами.
