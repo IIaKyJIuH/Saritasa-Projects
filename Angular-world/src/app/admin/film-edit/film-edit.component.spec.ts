@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 import { DebugElement } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { FilmEditComponent } from './film-edit.component';
@@ -9,7 +9,7 @@ describe('FilmEditComponent', () => {
   let component: FilmEditComponent;
   let fixture: ComponentFixture<FilmEditComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [FilmEditComponent],
     }).compileComponents();

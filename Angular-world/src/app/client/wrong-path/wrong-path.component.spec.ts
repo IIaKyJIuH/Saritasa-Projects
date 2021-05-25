@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { WrongPathComponent } from './wrong-path.component';
 
@@ -6,7 +6,7 @@ describe('WrongPathComponent', () => {
   let component: WrongPathComponent;
   let fixture: ComponentFixture<WrongPathComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [WrongPathComponent],
     }).compileComponents();
