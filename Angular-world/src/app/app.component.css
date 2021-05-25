@@ -16,8 +16,12 @@
     background-color: #ddd;
     color: black;
 }
-  
+
 .top-menu .route:active {
     background-color: #52CC66;
     color: white;
+}
+
+.top-menu .route-end {
+  float: right;
 }

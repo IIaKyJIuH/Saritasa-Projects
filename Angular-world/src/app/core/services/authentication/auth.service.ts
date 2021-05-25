@@ -125,8 +125,16 @@ export class AuthenticationService {
    */
   public isLoggedIn(): boolean {
     return (
-      localStorage.getItem(this.ID_TOKEN) !== undefined &&
-      localStorage.getItem(this.SECURE_TOKEN) !== undefined
+      localStorage.getItem(this.ID_TOKEN) !== null &&
+      localStorage.getItem(this.SECURE_TOKEN) !== null
     );
+  }
+
+  /**
+   * For toggling admin status. WILL BE FIXED LATER.
+   */
+  public toggleAdminStatus(): void {
+    const toggling = localStorage.getItem('isAdmin') === 'false' ? true : false;
+    localStorage.setItem('isAdmin', toggling.toString());
   }
 }
