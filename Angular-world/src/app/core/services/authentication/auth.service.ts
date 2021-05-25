@@ -18,7 +18,6 @@ import { UserLoginParam } from './user-login-param';
   providedIn: 'root',
 })
 export class AuthenticationService {
-
   /**
    * Refers to access token from Firebase API.
    */
@@ -33,10 +32,7 @@ export class AuthenticationService {
    * .сtor
    * @param http - http client
    */
-  constructor(
-    private http: HttpClient,
-    private config: AppConfig,
-  ) { }
+  constructor(private http: HttpClient, private config: AppConfig) {}
 
   /**
    * Posts user data to the server for authorization and set pair localStorage[email]='idToken'.
@@ -44,12 +40,17 @@ export class AuthenticationService {
    * @returns
    */
   public login(user: UserLoginParam): Observable<UserModel> {
-    const body = { email: user.email, password: user.password, returnSecureToken: true };
-    return this.http.post<UserDto>(`${this.config.API_URL}/verifyPassword`, body).pipe(
-      map(response =>  this.mapUserDtoToUser(response)),
-      tap((userModel: UserModel) => this.storeTokens(userModel),
-      take(1),
-    ));
+    const body = {
+      email: user.email,
+      password: user.password,
+      returnSecureToken: true,
+    };
+    return this.http
+      .post<UserDto>(`${this.config.API_URL}/verifyPassword`, body)
+      .pipe(
+        map(response => this.mapUserDtoToUser(response)),
+        tap((userModel: UserModel) => this.storeTokens(userModel), take(1)),
+      );
   }
 
   /**
@@ -123,8 +124,17 @@ export class AuthenticationService {
    * @returns if there is userEmail - true, else - false.
    */
   public isLoggedIn(): boolean {
-    return localStorage.getItem(this.ID_TOKEN) !== undefined &&
-     localStorage.getItem(this.SECURE_TOKEN) !== undefined;
+    return (
+      localStorage.getItem(this.ID_TOKEN) !== null &&
+      localStorage.getItem(this.SECURE_TOKEN) !== null
+    );
   }
 
+  /**
+   * For toggling admin status. WILL BE FIXED LATER.
+   */
+  public toggleAdminStatus(): void {
+    const toggling = localStorage.getItem('isAdmin') === 'false' ? true : false;
+    localStorage.setItem('isAdmin', toggling.toString());
+  }
 }
